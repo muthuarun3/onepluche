@@ -1,0 +1,9 @@
+[Unit]
+Description=Test mensuel de restauration de Démographie France
+
+[Timer]
+OnCalendar=*-*-01 05:00 Europe/Paris
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,4 +1,89 @@
 # Démographie France
 
-Application d'exploration des données démographiques françaises (INSEE, DREES).
-En cours de construction.
+Application d'exploration et de visualisation des données démographiques françaises,
+à partir des sources officielles (INSEE, DREES). Brique d'un écosystème d'applications.
+
+Conception complète (besoin, sources, architecture, schéma, imports, MVP, feuille de route) :
+voir le dossier de conception du projet.
+
+**État : phase 0 (fondations).** Base PostgreSQL, rôles, migrations, référentiel
+géographique, API minimale, déploiement et sauvegardes. Aucune donnée statistique
+importée pour l'instant (phase 1).
+
+## Principes
+
+- Python côté serveur, HTML rendu côté serveur, JavaScript minimal, sans étape de compilation.
+- PostgreSQL comme unique stockage. SQL écrit à la main, toujours paramétré.
+- Cinq dépendances d'exécution : fastapi, uvicorn, psycopg, jinja2, openpyxl.
+- Chaque chiffre affiché indique sa source, son millésime et son statut.
+
+## Organisation
+
+```text
+sql/roles.sql            rôles PostgreSQL (à exécuter une fois par un superutilisateur)
+sql/migrations/          migrations numérotées, appliquées dans l'ordre, jamais modifiées
+src/demographie/
+  config.py              variables d'environnement
+  db.py                  connexions, une par rôle
+  migrations.py          application des migrations
+  catalogue/             indicateurs et questions guidées (sans accès base)
+  imports/               seul module qui écrit en base (rôle import)
+  donnees/               seul module qui lit la base (rôle lecture), SQL dans donnees/sql/
+  api/                   routes JSON /api/v1, sans SQL
+  web/                   pages HTML, sans SQL
+  app.py                 assemblage FastAPI
+  cli.py                 commandes demo ...
+deploy/                  installation Debian, systemd, Caddy, sauvegarde, test de restauration
+tests/                   tests (dont les règles entre modules)
+```
+
+## Rôles PostgreSQL
+
+| Rôle | Usage | Droits |
+| --- | --- | --- |
+| `demo_proprietaire` | Migrations uniquement | Propriétaire des schémas |
+| `demo_import` | Imports | Lecture de `ref`, écriture de `ingest` et `stat` |
+| `demo_lecture` | Application et API | Lecture seule du schéma `api`, requêtes limitées à 5 s |
+
+## Développement local
+
+Prérequis : Python 3.12 ou plus, [uv](https://docs.astral.sh/uv/), PostgreSQL 15 ou plus.
+
+```bash
+uv sync                                   # environnement et dépendances verrouillées
+cp .env.exemple .env                      # puis adapter les URL de connexion
+
+# Une fois, en superutilisateur PostgreSQL :
+psql -d postgres -f sql/roles.sql
+# Définir un mot de passe pour chaque rôle (ALTER ROLE ... PASSWORD ...)
+createdb -O demo_proprietaire demographie
+
+set -a; source .env; set +a
+uv run demo migrer                        # applique les migrations
+uv run demo etat                          # vérifie la base
+uv run uvicorn demographie.app:app --reload
+```
+
+Documentation de l'API : http://localhost:8000/api/docs
+
+## Tests
+
+```bash
+export DEMO_TEST_ADMIN_URL=postgresql://postgres:motdepasse@localhost:5432/postgres
+uv run ruff check . && uv run ruff format --check .
+uv run pytest
+```
+
+Les tests créent une base temporaire et la suppriment ensuite. Ils (re)créent les rôles
+`demo_*` et **changent leur mot de passe** : n'utilisez jamais `DEMO_TEST_ADMIN_URL` sur le
+serveur de production. Sans cette variable, les tests qui demandent une base sont ignorés.
+
+## Production
+
+Voir [deploy/README.md](deploy/README.md) : installation sur un VPS Debian 13, HTTPS et accès
+protégé par Caddy, sauvegarde quotidienne chiffrée hors site, test de restauration mensuel.
+
+## Données et licence
+
+Données INSEE et DREES sous Licence Ouverte 2.0 (Etalab) : la source et la date de mise à
+jour sont citées avec chaque chiffre.
