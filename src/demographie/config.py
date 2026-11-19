@@ -22,6 +22,7 @@ class Config:
     db_import_url: str | None
     db_lecture_url: str | None
     donnees_brutes: Path
+    ping_import: str | None = None
 
     def url(self, role: str) -> str:
         valeur = {
@@ -41,4 +42,5 @@ def charger() -> Config:
         db_import_url=os.environ.get("DEMO_DB_IMPORT_URL") or None,
         db_lecture_url=os.environ.get("DEMO_DB_LECTURE_URL") or None,
         donnees_brutes=Path(os.environ.get("DEMO_DONNEES_BRUTES", "./donnees-brutes")),
+        ping_import=os.environ.get("DEMO_PING_IMPORT") or None,
     )

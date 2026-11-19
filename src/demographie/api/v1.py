@@ -9,7 +9,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pydantic import BaseModel, BeforeValidator, Field
 
 from demographie import donnees
-from demographie.donnees import series, territoires
+from demographie.donnees import series, sources, territoires
 
 routeur = APIRouter(prefix="/api/v1", tags=["v1"])
 Connexion = Annotated[psycopg.Connection, Depends(donnees.connexion_lecture)]
@@ -158,3 +158,22 @@ def lire_structure(
         "source": "INSEE, estimations de population au 1er janvier",
         "tranches": sorted(tranches.values(), key=lambda t: t["age_min"]),
     }
+
+
+class EtatSource(BaseModel):
+    source: str
+    producteur: str
+    source_libelle: str
+    source_url: str
+    licence: str
+    fichier_nom: str | None
+    dernier_statut: Literal["EN_COURS", "REJETE", "EN_ATTENTE", "PUBLIE"] | None
+    dernier_essai: datetime | None
+    derniere_publication: datetime | None
+    millesime: str | None
+
+
+@routeur.get("/sources", response_model=list[EtatSource])
+def lister_sources(conn: Connexion) -> list[dict]:
+    """Sources, fichiers importés, date de dernière publication et statut du dernier essai."""
+    return sources.etat_imports(conn)

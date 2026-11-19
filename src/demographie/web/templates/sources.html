@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titre %}Sources · Démographie France{% endblock %}
+{% block contenu %}
+<h1>Sources et mises à jour</h1>
+<p class="intro">Toutes les données viennent de producteurs officiels, sous Licence Ouverte.
+  Les nouvelles publications sont recherchées chaque lundi matin.</p>
+<div class="tableau-defilant">
+<table class="sources">
+  <thead><tr><th>Source</th><th>Fichier</th><th>Publié le</th><th>État</th></tr></thead>
+  <tbody>
+  {% for l in lignes %}
+    <tr>
+      <td><a href="{{ l.source_url }}" rel="noopener">{{ l.source_libelle }}</a><br><span class="muet">{{ l.producteur }}</span></td>
+      <td>{{ l.fichier_nom or "—" }}</td>
+      <td>{{ l.derniere_publication.strftime("%d/%m/%Y") if l.derniere_publication else "—" }}</td>
+      <td><span class="etat etat-{{ (l.dernier_statut or 'aucun')|lower }}">{{ statuts[l.dernier_statut] }}</span></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

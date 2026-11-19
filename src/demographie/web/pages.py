@@ -11,7 +11,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 from demographie import donnees
-from demographie.donnees import series, territoires
+from demographie.donnees import series, sources, territoires
 
 DOSSIER = Path(__file__).parent
 STATIQUE = DOSSIER / "static"
@@ -101,3 +101,19 @@ def territoire(
         "donnees": donnees_graphiques,
     }
     return gabarits.TemplateResponse(request, "territoire.html", contexte)
+
+
+STATUTS = {
+    "PUBLIE": "À jour",
+    "EN_ATTENTE": "En attente de validation",
+    "REJETE": "Dernier fichier rejeté",
+    "EN_COURS": "Import en cours",
+    None: "Pas encore importé",
+}
+
+
+@routeur.get("/sources", response_class=HTMLResponse)
+def page_sources(request: Request, conn: Connexion) -> HTMLResponse:
+    lignes = sources.etat_imports(conn)
+    contexte = {"lignes": lignes, "statuts": STATUTS}
+    return gabarits.TemplateResponse(request, "sources.html", contexte)
