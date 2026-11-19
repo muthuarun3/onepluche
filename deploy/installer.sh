@@ -110,7 +110,11 @@ install -m 644 "$APP_DIR"/deploy/systemd/*.service "$APP_DIR"/deploy/systemd/*.t
 systemctl daemon-reload
 systemctl enable --now demographie-web.service
 systemctl enable --now demographie-sauvegarde.timer demographie-restauration.timer
+systemctl enable --now demographie-import.timer
 systemctl reload caddy
+
+echo "== Premier import des estimations INSEE (environ une minute)"
+systemctl start demographie-import.service || echo "Import en échec : journalctl -u demographie-import"
 
 echo "== Terminé. Vérifiez : https://$DOMAINE/sante"
 echo "   Puis lancez une première sauvegarde et un test de restauration :"

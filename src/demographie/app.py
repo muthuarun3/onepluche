@@ -5,9 +5,11 @@ Lancement : uvicorn demographie.app:app
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from demographie import __version__
 from demographie.api import v1
+from demographie.web import pages
 
 app = FastAPI(
     title="Démographie France",
@@ -17,6 +19,8 @@ app = FastAPI(
     openapi_url="/api/openapi.json",
 )
 app.include_router(v1.routeur)
+app.include_router(pages.routeur)
+app.mount("/static", StaticFiles(directory=pages.STATIQUE), name="static")
 
 _ENTETES_SECURITE = {
     "X-Content-Type-Options": "nosniff",
@@ -24,6 +28,14 @@ _ENTETES_SECURITE = {
     "Referrer-Policy": "same-origin",
     "Permissions-Policy": "geolocation=(), camera=(), microphone=()",
 }
+# Scripts uniquement servis par l'application. Les styles en ligne restent permis :
+# les infobulles d'ECharts en posent. La documentation /api/docs (Swagger, chargé
+# depuis un CDN) n'est pas concernée.
+_CSP = (
+    "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
+    "img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; "
+    "base-uri 'none'; form-action 'self'"
+)
 
 
 @app.middleware("http")
@@ -31,6 +43,8 @@ async def entetes_securite(request: Request, call_next):
     reponse = await call_next(request)
     for nom, valeur in _ENTETES_SECURITE.items():
         reponse.headers.setdefault(nom, valeur)
+    if not request.url.path.startswith("/api/docs"):
+        reponse.headers.setdefault("Content-Security-Policy", _CSP)
     return reponse
 
 

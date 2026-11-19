@@ -61,8 +61,33 @@ createdb -O demo_proprietaire demographie
 set -a; source .env; set +a
 uv run demo migrer                        # applique les migrations
 uv run demo etat                          # vérifie la base
+uv run demo importer estimations          # télécharge et importe les estimations INSEE
+uv run demo verifier                      # compare aux chiffres publiés par l'INSEE
 uv run uvicorn demographie.app:app --reload
 ```
+
+Pages : http://localhost:8000/ (choix du territoire), puis `/territoire/DEP/23` par exemple.
+
+## Imports
+
+`demo importer estimations` suit la page stable de l'INSEE vers l'édition en cours,
+télécharge les fichiers départemental et régional, conserve le brut sous son empreinte
+SHA-256 (`DEMO_DONNEES_BRUTES`), puis contrôle avant de publier :
+
+| Contrôle | En cas d'échec |
+| --- | --- |
+| Structure du fichier (feuilles, en-têtes de sexe et d'âge) | Rejet |
+| Territoire absent du référentiel | Rejet |
+| Valeur négative ou en double | Rejet |
+| Somme des tranches d'âge = total ; hommes + femmes = ensemble (à 0,5 %) | Rejet |
+| Somme des départements (ou régions) = France et France métropolitaine (à 0,5 %) | Rejet |
+| Total déjà publié qui varie de plus de 3 % | Attente : `demo valider <n°>` |
+
+`demo imports` affiche le journal. Un fichier déjà publié n'est jamais réimporté ; un
+fichier rejeté peut l'être après correction du connecteur. Les révisions de l'INSEE
+remplacent les valeurs précédentes. `demo verifier` compare les chiffres servis aux
+valeurs du 1er janvier 2026 publiées par l'INSEE (France, Paris, Creuse, Nord, Mayotte) :
+après la révision annuelle de janvier, un écart sur ces valeurs provisoires est normal.
 
 Documentation de l'API : http://localhost:8000/api/docs
 

@@ -1,0 +1,10 @@
+[Unit]
+Description=Recherche hebdomadaire de nouvelles publications
+
+[Timer]
+OnCalendar=Mon *-*-* 06:15 Europe/Paris
+RandomizedDelaySec=30min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

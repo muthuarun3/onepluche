@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block titre %}{{ fiche.libelle }} · Démographie France{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/">Accueil</a>
+  {% if fiche.parent_code %}
+  › <a href="/territoire/{{ fiche.parent_niveau }}/{{ fiche.parent_code }}">{{ fiche.parent_libelle }}</a>
+  {% endif %}
+</nav>
+<h1>{{ fiche.libelle }} <span class="niveau">{{ niveau_libelle }}{% if fiche.niveau == "DEP" %} {{ fiche.code }}{% endif %}</span></h1>
+
+{% if not chiffres %}
+<p class="vide">Aucune donnée importée pour ce territoire.</p>
+{% else %}
+<p class="intro">Au 1er janvier {{ annee }}{% if chiffres[0].provisoire %} (estimation provisoire){% endif %}.</p>
+<div class="chiffres">
+  {% for c in chiffres %}
+  <div class="chiffre" title="{{ c.definition }}">
+    <div class="chiffre-libelle">{{ c.libelle }}</div>
+    <div class="chiffre-valeur">
+      {%- if c.unite == "pourcentage" -%}
+        {{ "%.1f"|format(c.valeur)|replace(".", ",") }}&nbsp;%
+      {%- elif c.unite == "ratio" -%}
+        {{ "%.0f"|format(c.valeur) }}
+      {%- else -%}
+        {{ "{:,}".format(c.valeur)|replace(",", " ") }}
+      {%- endif -%}
+    </div>
+    {% if c.unite == "ratio" %}<div class="chiffre-note">65 ans et plus pour 100 moins de 20 ans</div>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<section class="graphique-bloc">
+  <div class="graphique-titre">
+    <h2>Pyramide des âges</h2>
+    <label>Année
+      <select id="annee-pyramide">
+        {% for a in annees %}<option value="{{ a }}">{{ a }}</option>{% endfor %}
+      </select>
+    </label>
+  </div>
+  <p class="legende"><span class="pastille hommes"></span>Hommes <span class="pastille femmes"></span>Femmes · effectifs par tranche de 5 ans</p>
+  <div id="pyramide" class="graphique" role="img" aria-label="Pyramide des âges de {{ fiche.libelle }}"></div>
+  <details>
+    <summary>Voir le tableau</summary>
+    <table id="table-pyramide"><thead><tr><th>Âge</th><th>Hommes</th><th>Femmes</th></tr></thead><tbody></tbody></table>
+  </details>
+</section>
+
+<section class="graphique-bloc">
+  <div class="graphique-titre"><h2>Évolution de la population</h2></div>
+  <p class="legende">Population au 1er janvier ; trait pointillé : années provisoires.</p>
+  <div id="evolution" class="graphique" role="img" aria-label="Évolution de la population de {{ fiche.libelle }}"></div>
+  <details>
+    <summary>Voir le tableau</summary>
+    <table id="table-evolution"><thead><tr><th>Année</th><th>Population</th></tr></thead><tbody></tbody></table>
+  </details>
+</section>
+{% endif %}
+
+{% if enfants %}
+<section>
+  <h2>Territoires rattachés</h2>
+  <ul class="enfants">
+    {% for e in enfants %}<li><a href="/territoire/{{ e.niveau }}/{{ e.code }}">{{ e.libelle }}</a></li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if source %}
+<p class="source">Source : <a href="{{ source.source_url }}" rel="noopener">{{ source.source_libelle }}</a>, {{ source.source_licence }}.
+  {% if source.mis_a_jour_le %}Mis à jour le {{ source.mis_a_jour_le.strftime("%d/%m/%Y") }}.{% endif %}
+  {{ source.avertissement }}</p>
+{% endif %}
+<script type="application/json" id="donnees">{{ donnees|tojson }}</script>
+{% endblock %}
+{% block scripts %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/app.js"></script>
+{% endblock %}

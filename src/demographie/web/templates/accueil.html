@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block contenu %}
+<h1>Choisir un territoire</h1>
+<p class="intro">Population et structure par âge au 1er janvier, de 1975 à aujourd'hui,
+  d'après les estimations de l'INSEE.</p>
+<ul class="liste-france">
+  {% for t in france %}
+  <li><a href="/territoire/FRANCE/{{ t.code }}">{{ t.libelle }}</a></li>
+  {% endfor %}
+</ul>
+<div class="regions">
+  {% for r in regions %}
+  <section class="region">
+    <h2><a href="/territoire/REG/{{ r.code }}">{{ r.libelle }}</a></h2>
+    <ul>
+      {% for d in departements.get(r.code, []) %}
+      <li><a href="/territoire/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+{% endblock %}

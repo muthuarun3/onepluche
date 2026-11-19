@@ -15,3 +15,14 @@ def lister(conn: psycopg.Connection, niveau: str | None = None) -> list[dict]:
     if niveau is not None and niveau not in NIVEAUX:
         raise ValueError(f"Niveau inconnu : {niveau}")
     return conn.execute(charger_sql(_SQL, "territoires"), {"niveau": niveau}).fetchall()
+
+
+def trouver(conn: psycopg.Connection, niveau: str, code: str) -> dict | None:
+    """Un territoire et le libellé de son parent, ou None s'il n'existe pas."""
+    parametres = {"niveau": niveau, "code": code}
+    return conn.execute(charger_sql(_SQL, "territoire"), parametres).fetchone()
+
+
+def enfants(conn: psycopg.Connection, niveau: str, code: str) -> list[dict]:
+    """Territoires directement rattachés (régions de la France, départements d'une région)."""
+    return conn.execute(charger_sql(_SQL, "enfants"), {"niveau": niveau, "code": code}).fetchall()
