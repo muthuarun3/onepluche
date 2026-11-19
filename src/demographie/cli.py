@@ -5,7 +5,7 @@ import sys
 from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
-from demographie import config, db, migrations
+from demographie import alertes, config, db, migrations
 from demographie.catalogue.references import REFERENCES_INSEE
 from demographie.donnees import series
 from demographie.imports import pipeline
@@ -41,16 +41,31 @@ def _etat(_args: argparse.Namespace) -> int:
 
 def _importer(args: argparse.Namespace) -> int:
     """Importe une source, ou toutes (« tout ») ; une source en échec n'arrête pas les autres."""
+    configuration = config.charger()
+    alertes.signaler(configuration.ping_import, "debut")
+    journal: list[str] = []
+
+    def dire(texte: str) -> None:
+        print(texte, flush=True)
+        journal.append(texte)
+
+    code_retour = _importer_sources(args, configuration, dire)
+    etat = "succes" if code_retour == 0 else "echec"
+    alertes.signaler(configuration.ping_import, etat, "\n".join(journal))
+    return code_retour
+
+
+def _importer_sources(args: argparse.Namespace, configuration: config.Config, dire) -> int:
     noms = list(CONNECTEURS) if args.source == "tout" else [args.source]
     connecteurs = [c for nom in noms for c in CONNECTEURS[nom]]
-    dossier_brut = config.charger().donnees_brutes
+    dossier_brut = configuration.donnees_brutes
     code_retour = 0
     travaux: list[tuple] = []
     if args.fichier:
         for chemin in map(Path, args.fichier):
             retenus = [c for c in connecteurs if c.accepte(chemin.name)]
             if not retenus:
-                print(f"{chemin.name} : nom de fichier non reconnu pour « {args.source} »")
+                dire(f"{chemin.name} : nom de fichier non reconnu pour « {args.source} »")
                 return 2
             fichier = Fichier(url=chemin.resolve().as_uri(), nom=chemin.name)
             travaux.append((retenus[0], fichier, chemin))
@@ -59,21 +74,21 @@ def _importer(args: argparse.Namespace) -> int:
             try:
                 travaux += [(connecteur, f, None) for f in connecteur.fichiers()]
             except Exception as erreur:  # réseau, page modifiée… : on signale et on continue
-                print(f"{connecteur.source} : fichiers introuvables ({erreur})")
+                dire(f"{connecteur.source} : fichiers introuvables ({erreur})")
                 code_retour = 1
     with db.connexion("import") as conn:
         for connecteur, fichier, chemin in travaux:
-            print(f"{fichier.nom} …", flush=True)
+            dire(f"{fichier.nom} …")
             try:
                 resultat = pipeline.importer(
                     conn, connecteur, fichier, dossier_brut, chemin, args.seuil / 100
                 )
             except Exception as erreur:
                 conn.rollback()
-                print(f"  ÉCHEC {type(erreur).__name__} : {erreur}")
+                dire(f"  ÉCHEC {type(erreur).__name__} : {erreur}")
                 code_retour = 1
                 continue
-            print(f"  {resultat.statut} (import n° {resultat.import_id}) {resultat.message}")
+            dire(f"  {resultat.statut} (import n° {resultat.import_id}) {resultat.message}")
             if resultat.statut in ("REJETE", "EN_ATTENTE"):
                 code_retour = 1
     return code_retour

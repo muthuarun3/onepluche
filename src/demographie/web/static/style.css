@@ -94,3 +94,11 @@ th:first-child, td:first-child { text-align: left; }
 @media (max-width: 40rem) { .graphique { height: 22rem; } h1 { font-size: 1.4rem; } }
 .region li a { text-decoration: none; }
 .region li a:hover .nom, .region li a:focus .nom { text-decoration: underline; }
+.muet { color: var(--texte-3); font-size: .85rem; }
+.tableau-defilant { overflow-x: auto; }
+table.sources { width: 100%; background: var(--surface); }
+table.sources td, table.sources th { text-align: left; vertical-align: top; }
+.etat { white-space: nowrap; }
+.etat-publie::before { content: "✓ "; }
+.etat-rejete::before, .etat-en_attente::before { content: "! "; font-weight: 700; }
+table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color: var(--texte-2); }

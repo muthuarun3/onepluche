@@ -65,6 +65,9 @@ DEMO_DB_PROPRIETAIRE_URL=postgresql://demo_proprietaire:${mdp[proprietaire]}@loc
 DEMO_DB_IMPORT_URL=postgresql://demo_import:${mdp[import]}@localhost:5432/$BASE
 DEMO_DB_LECTURE_URL=postgresql://demo_lecture:${mdp[lecture]}@localhost:5432/$BASE
 DEMO_DONNEES_BRUTES=$DONNEES_DIR/brut
+# Facultatif : URL de « battement » Healthchecks.io pour les imports hebdomadaires.
+# Healthchecks envoie un courriel si un import échoue, attend une validation ou ne tourne plus.
+DEMO_PING_IMPORT=
 EOF
   chown root:demographie "$CONF_DIR/env"
   chmod 640 "$CONF_DIR/env"
