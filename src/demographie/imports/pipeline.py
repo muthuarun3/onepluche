@@ -75,7 +75,12 @@ def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_varia
     dossier_brut.mkdir(parents=True, exist_ok=True)
     temporaire = None
     if chemin_local is None:
-        temporaire = chemin = telechargement.telecharger(fichier.url, dossier_brut)
+        # Un connecteur qui assemble plusieurs requêtes fournit son propre téléchargement.
+        telecharger = getattr(connecteur, "telecharger", None)
+        if telecharger is not None:
+            temporaire = chemin = telecharger(fichier, dossier_brut)
+        else:
+            temporaire = chemin = telechargement.telecharger(fichier.url, dossier_brut)
     else:
         chemin = chemin_local
     try:
@@ -159,10 +164,15 @@ def _charger(conn, import_id, connecteur, chemin) -> tuple[int, set[tuple[str, s
         (i["code"], i["indicateur_id"])
         for i in conn.execute("SELECT code, indicateur_id FROM ref.indicateur").fetchall()
     )
+    modalites = {
+        (m["dimension"], m["code"]): m["modalite_id"]
+        for m in conn.execute("SELECT dimension, code, modalite_id FROM ref.modalite").fetchall()
+    }
     lues, inconnus = 0, set()
     with conn.cursor().copy(
         """COPY ingest.ligne (import_id, indicateur_id, territoire_id, periode, periode_type,
-                              sexe, age_min, age_max, valeur, statut, a_publier)
+                              sexe, age_min, age_max, modalite_id, valeur, statut,
+                              a_publier)
            FROM STDIN"""
     ) as copie:
         for ligne in connecteur.lire(chemin, referentiel):
@@ -173,6 +183,8 @@ def _charger(conn, import_id, connecteur, chemin) -> tuple[int, set[tuple[str, s
                 continue
             if ligne.indicateur not in indicateurs:
                 raise FichierIllisible(f"Indicateur inconnu : {ligne.indicateur}")
+            if ligne.modalite is not None and ligne.modalite not in modalites:
+                raise FichierIllisible(f"Modalité inconnue : {ligne.modalite}")
             copie.write_row(
                 (
                     import_id,
@@ -183,6 +195,7 @@ def _charger(conn, import_id, connecteur, chemin) -> tuple[int, set[tuple[str, s
                     ligne.sexe,
                     ligne.age_min,
                     ligne.age_max,
+                    modalites[ligne.modalite] if ligne.modalite else None,
                     ligne.valeur,
                     ligne.statut,
                     ligne.niveau in connecteur.niveaux_publies,

@@ -6,10 +6,12 @@ from demographie.imports.connecteurs.estimations import (
     EstimationsRegions,
 )
 from demographie.imports.connecteurs.melodi import DECES, NAISSANCES
+from demographie.imports.connecteurs.recensement import RECENSEMENT
 
 # Ordre d'exécution de « demo importer tout » : les estimations d'abord.
 CONNECTEURS = {
     "estimations": (EstimationsDepartements(), EstimationsRegions()),
     "etat-civil": (NAISSANCES, DECES),
     "chomage": (CHOMAGE,),
+    "recensement": (RECENSEMENT,),
 }
