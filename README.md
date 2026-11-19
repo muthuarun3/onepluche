@@ -62,6 +62,8 @@ set -a; source .env; set +a
 uv run demo migrer                        # applique les migrations
 uv run demo etat                          # vérifie la base
 uv run demo importer estimations          # télécharge et importe les estimations INSEE
+uv run demo importer etat-civil           # naissances, décès, fécondité, espérance de vie
+uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)
 uv run demo verifier                      # compare aux chiffres publiés par l'INSEE
 uv run uvicorn demographie.app:app --reload
 ```
@@ -78,10 +80,10 @@ SHA-256 (`DEMO_DONNEES_BRUTES`), puis contrôle avant de publier :
 | --- | --- |
 | Structure du fichier (feuilles, en-têtes de sexe et d'âge) | Rejet |
 | Territoire absent du référentiel | Rejet |
-| Valeur négative ou en double | Rejet |
-| Somme des tranches d'âge = total ; hommes + femmes = ensemble (à 0,5 %) | Rejet |
-| Somme des départements (ou régions) = France et France métropolitaine (à 0,5 %) | Rejet |
-| Total déjà publié qui varie de plus de 3 % | Attente : `demo valider <n°>` |
+| Valeur négative ou en double, taux au-delà de 100 % ou de 1000 ‰ | Rejet |
+| Effectifs et flux : somme des tranches d'âge = total ; hommes + femmes = ensemble (à 0,5 %) | Rejet |
+| Effectifs et flux : somme des départements (ou régions) = France et France métropolitaine (à 0,5 %) | Rejet |
+| Population déjà publiée qui varie de plus de 3 % | Attente : `demo valider <n°>` |
 
 `demo imports` affiche le journal. Un fichier déjà publié n'est jamais réimporté ; un
 fichier rejeté peut l'être après correction du connecteur. Les révisions de l'INSEE

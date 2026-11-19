@@ -38,13 +38,18 @@ class ImportImpossible(RuntimeError):
 
 
 def charger_referentiel(conn: psycopg.Connection) -> Referentiel:
-    lignes = conn.execute("SELECT territoire_id, niveau, code, libelle FROM ref.territoire")
-    identifiants, regions = {}, {}
+    lignes = conn.execute(
+        """SELECT t.territoire_id, t.niveau, t.code, t.libelle, p.code AS parent_code
+           FROM ref.territoire t LEFT JOIN ref.territoire p ON p.territoire_id = t.parent_id"""
+    )
+    identifiants, regions, region_du_departement = {}, {}, {}
     for t in lignes.fetchall():
         identifiants[(t["niveau"], t["code"])] = t["territoire_id"]
         if t["niveau"] == "REG":
             regions[t["code"]] = t["libelle"]
-    return Referentiel(identifiants, regions)
+        elif t["niveau"] == "DEP":
+            region_du_departement[t["code"]] = t["parent_code"]
+    return Referentiel(identifiants, regions, region_du_departement)
 
 
 def importer(
@@ -196,17 +201,20 @@ def _controler(conn, import_id: int) -> list[str]:
     ).fetchone()
     if bilan["negatifs"]:
         erreurs.append(f"{bilan['negatifs']} valeur(s) négative(s)")
+    if bilan["hors_bornes"]:
+        erreurs.append(f"{bilan['hors_bornes']} taux hors bornes (> 100 % ou > 1000 ‰)")
     if bilan["doublons"]:
         erreurs.append(f"{bilan['doublons']} valeur(s) en double")
     parametres = {"import_id": import_id, "tolerance": TOLERANCE_SOMMES}
     for e in conn.execute(charger_sql(_SQL, "controle_sommes"), parametres).fetchall()[:5]:
         erreurs.append(
-            f"{e['code']} {e['periode']:%Y} sexe {e['sexe']} : publié {e['publie']}, "
+            f"{e['indicateur']} {e['code']} {e['periode']:%Y} sexe {e['sexe']} : "
+            f"publié {e['publie']}, "
             f"somme des territoires {e['somme']}"
         )
     for e in conn.execute(charger_sql(_SQL, "controle_tranches"), parametres).fetchall()[:5]:
         erreurs.append(
-            f"{e['niveau']} {e['code']} {e['periode']:%Y} {e['controle']} : "
+            f"{e['indicateur']} {e['niveau']} {e['code']} {e['periode']:%Y} {e['controle']} : "
             f"total {e['publie']}, somme {e['somme']}"
         )
     return erreurs

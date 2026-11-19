@@ -116,15 +116,20 @@ def lire_serie(
     code: CodeTerritoire,
     debut: Annee = None,
     fin: Annee = None,
+    sexe: Literal["T", "F", "H"] = "T",
 ) -> dict:
-    """Valeurs annuelles d'un indicateur pour un territoire (au 1er janvier)."""
+    """Valeurs annuelles d'un indicateur pour un territoire.
+
+    Population et structure par âge : au 1er janvier. Naissances, décès et taux :
+    sur l'année civile. Espérance de vie : par sexe seulement (F ou H).
+    """
     definition = series.indicateurs(conn, indicateur)
     if not definition:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"Indicateur inconnu : {indicateur}")
     return {
         "indicateur": definition[0],
         "territoire": _territoire(conn, niveau, code),
-        "valeurs": series.serie(conn, indicateur, niveau, code, debut, fin),
+        "valeurs": series.serie(conn, indicateur, niveau, code, debut, fin, sexe),
     }
 
 

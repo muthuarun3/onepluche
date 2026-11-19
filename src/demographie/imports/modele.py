@@ -48,6 +48,16 @@ class Referentiel:
     identifiants: dict[tuple[str, str], int]
     # code région -> libellé
     libelles_regions: dict[str, str] = field(default_factory=dict)
+    # code département -> code région
+    region_du_departement: dict[str, str] = field(default_factory=dict)
+
+    def region_mono_departementale(self, departement: str) -> str | None:
+        """Code de la région si elle ne compte que ce département (outre-mer), sinon None."""
+        region = self.region_du_departement.get(departement)
+        if region is None:
+            return None
+        freres = [d for d, r in self.region_du_departement.items() if r == region]
+        return region if freres == [departement] else None
 
 
 class Connecteur(Protocol):

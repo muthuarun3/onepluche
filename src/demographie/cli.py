@@ -40,12 +40,14 @@ def _etat(_args: argparse.Namespace) -> int:
 
 
 def _importer(args: argparse.Namespace) -> int:
-    connecteurs = CONNECTEURS[args.source]
+    """Importe une source, ou toutes (« tout ») ; une source en échec n'arrête pas les autres."""
+    noms = list(CONNECTEURS) if args.source == "tout" else [args.source]
+    connecteurs = [c for nom in noms for c in CONNECTEURS[nom]]
     dossier_brut = config.charger().donnees_brutes
+    code_retour = 0
     travaux: list[tuple] = []
     if args.fichier:
-        for chemin in args.fichier:
-            chemin = Path(chemin)
+        for chemin in map(Path, args.fichier):
             retenus = [c for c in connecteurs if c.accepte(chemin.name)]
             if not retenus:
                 print(f"{chemin.name} : nom de fichier non reconnu pour « {args.source} »")
@@ -53,16 +55,26 @@ def _importer(args: argparse.Namespace) -> int:
             fichier = Fichier(url=chemin.resolve().as_uri(), nom=chemin.name)
             travaux.append((retenus[0], fichier, chemin))
     else:
-        travaux = [(c, f, None) for c in connecteurs for f in c.fichiers()]
-    code_retour = 0
+        for connecteur in connecteurs:
+            try:
+                travaux += [(connecteur, f, None) for f in connecteur.fichiers()]
+            except Exception as erreur:  # réseau, page modifiée… : on signale et on continue
+                print(f"{connecteur.source} : fichiers introuvables ({erreur})")
+                code_retour = 1
     with db.connexion("import") as conn:
         for connecteur, fichier, chemin in travaux:
             print(f"{fichier.nom} …", flush=True)
-            resultat = pipeline.importer(
-                conn, connecteur, fichier, dossier_brut, chemin, args.seuil / 100
-            )
+            try:
+                resultat = pipeline.importer(
+                    conn, connecteur, fichier, dossier_brut, chemin, args.seuil / 100
+                )
+            except Exception as erreur:
+                conn.rollback()
+                print(f"  ÉCHEC {type(erreur).__name__} : {erreur}")
+                code_retour = 1
+                continue
             print(f"  {resultat.statut} (import n° {resultat.import_id}) {resultat.message}")
-            if resultat.statut == "REJETE":
+            if resultat.statut in ("REJETE", "EN_ATTENTE"):
                 code_retour = 1
     return code_retour
 
@@ -119,7 +131,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     sous.add_parser("etat", help="afficher l'état de la base").set_defaults(action=_etat)
     imp = sous.add_parser("importer", help="importer les derniers fichiers d'une source")
-    imp.add_argument("source", choices=sorted(CONNECTEURS))
+    imp.add_argument("source", choices=[*CONNECTEURS, "tout"])
     imp.add_argument("--fichier", action="append", help="fichier local déjà téléchargé (répétable)")
     imp.add_argument(
         "--seuil",
