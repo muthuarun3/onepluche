@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# Secrets et données locales
+.env
+*.env
+!.env.exemple
+donnees-brutes/
+*.dump
+*.gpg
