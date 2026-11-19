@@ -38,6 +38,8 @@ class Ligne:
     age_max: int | None
     valeur: Decimal | int
     statut: str
+    # (dimension, code) dans ref.modalite, ex. ("statut_activite", "RETRAITE")
+    modalite: tuple[str, str] | None = None
 
 
 @dataclass(frozen=True)

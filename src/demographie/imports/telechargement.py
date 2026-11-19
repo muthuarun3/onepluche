@@ -1,6 +1,7 @@
 """Téléchargements HTTPS vers les sites des producteurs, avec empreinte SHA-256."""
 
 import hashlib
+import json
 import os
 import tempfile
 import urllib.request
@@ -53,3 +54,12 @@ def telecharger(url: str, dossier: Path) -> Path:
         chemin.unlink(missing_ok=True)
         raise
     return chemin
+
+
+def lire_json(url: str, taille_max: int = 50 * 1024 * 1024) -> object:
+    """Réponse JSON d'une API (Melodi…), limitée en taille."""
+    with _ouvrir(url) as reponse:
+        contenu = reponse.read(taille_max + 1)
+    if len(contenu) > taille_max:
+        raise TelechargementRefuse(f"Réponse trop volumineuse : {url}")
+    return json.loads(contenu)
