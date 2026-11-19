@@ -65,6 +65,7 @@ uv run demo importer estimations          # télécharge et importe les estimati
 uv run demo importer etat-civil           # naissances, décès, fécondité, espérance de vie
 uv run demo importer chomage              # taux de chômage localisés, trimestriels
 uv run demo importer recensement          # actifs, inactifs, retraités déclarés (Melodi)
+uv run demo importer retraites            # retraités tous régimes, minimum vieillesse (DREES)
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)
 uv run demo verifier                      # compare aux chiffres publiés par l'INSEE
 uv run uvicorn demographie.app:app --reload
