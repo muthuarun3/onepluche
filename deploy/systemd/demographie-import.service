@@ -11,7 +11,7 @@ Group=demographie
 WorkingDirectory=/opt/demographie/app
 EnvironmentFile=/etc/demographie/env
 # Un fichier déjà importé est reconnu à son empreinte : relancer ne coûte rien.
-ExecStart=/opt/demographie/app/.venv/bin/demo importer estimations
+ExecStart=/opt/demographie/app/.venv/bin/demo importer tout
 
 NoNewPrivileges=yes
 ProtectSystem=strict

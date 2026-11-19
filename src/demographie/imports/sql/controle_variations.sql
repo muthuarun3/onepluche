@@ -1,5 +1,6 @@
 -- Totaux déjà publiés qui changeraient de plus que le seuil : l'import attend alors
 -- une validation humaine (révision exceptionnelle ou erreur de lecture ?).
+-- Effectifs seulement : les flux et les taux des petits territoires bougent plus.
 SELECT t.niveau, t.code, l.periode, o.valeur AS ancienne, l.valeur AS nouvelle
 FROM ingest.ligne l
 JOIN stat.observation o
@@ -9,7 +10,9 @@ JOIN stat.observation o
  AND o.sexe = l.sexe
  AND o.age_min IS NULL AND o.age_max IS NULL AND o.modalite_id IS NULL
 JOIN ref.territoire t ON t.territoire_id = l.territoire_id
-WHERE l.import_id = %(import_id)s
+JOIN ref.indicateur i ON i.indicateur_id = l.indicateur_id
+WHERE i.nature = 'effectif'
+  AND l.import_id = %(import_id)s
   AND l.a_publier
   AND l.sexe = 'T' AND l.age_min IS NULL AND l.age_max IS NULL
   AND abs(l.valeur - o.valeur) > %(seuil)s * o.valeur

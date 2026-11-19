@@ -21,6 +21,7 @@ def serie(
     code: str,
     debut: int | None = None,
     fin: int | None = None,
+    sexe: str = "T",
 ) -> list[dict]:
     """Valeurs annuelles d'un indicateur pour un territoire, par année croissante."""
     parametres = {
@@ -29,6 +30,7 @@ def serie(
         "code": code,
         "debut": debut,
         "fin": fin,
+        "sexe": sexe,
     }
     return conn.execute(charger_sql(_SQL, "serie"), parametres).fetchall()
 
