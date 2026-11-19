@@ -1,4 +1,4 @@
-SELECT annee, valeur, provisoire
+SELECT annee, periode, periode_type, valeur, provisoire
 FROM api.serie
 WHERE indicateur = %(indicateur)s
   AND niveau = %(niveau)s
@@ -6,4 +6,4 @@ WHERE indicateur = %(indicateur)s
   AND sexe = %(sexe)s
   AND (%(debut)s::int IS NULL OR annee >= %(debut)s::int)
   AND (%(fin)s::int IS NULL OR annee <= %(fin)s::int)
-ORDER BY annee
+ORDER BY periode

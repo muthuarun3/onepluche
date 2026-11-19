@@ -140,7 +140,13 @@ def test_api_serie(urls_module):
         "/api/v1/series", params={"indicateur": "POP", "niveau": "DEP", "code": "75"}
     ).json()
     assert [v["annee"] for v in serie["valeurs"]] == [1975, 1995, 2024, 2025, 2026]
-    assert serie["valeurs"][-1] == {"annee": 2026, "valeur": 2047602, "provisoire": True}
+    assert serie["valeurs"][-1] == {
+        "annee": 2026,
+        "periode": "2026-01-01",
+        "periode_type": "1ER_JANVIER",
+        "valeur": 2047602,
+        "provisoire": True,
+    }
     assert serie["territoire"]["libelle"] == "Paris"
     assert serie["indicateur"]["source_url"].startswith("https://www.insee.fr/")
 

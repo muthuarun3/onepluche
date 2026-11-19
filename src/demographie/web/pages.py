@@ -85,7 +85,10 @@ def territoire(
     donnees_graphiques = {
         "territoire": {"niveau": niveau, "code": code, "libelle": fiche["libelle"]},
         "structure": [{**ligne, "valeur": _nombre(ligne["valeur"])} for ligne in structure],
-        "evolution": [{**ligne, "valeur": _nombre(ligne["valeur"])} for ligne in evolution],
+        "evolution": [
+            {"annee": e["annee"], "valeur": _nombre(e["valeur"]), "provisoire": e["provisoire"]}
+            for e in evolution
+        ],
     }
     contexte = {
         "fiche": fiche,
