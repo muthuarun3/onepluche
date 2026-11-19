@@ -54,6 +54,7 @@ journalctl -u demographie-restauration -n 20    # doit finir par « Restauration
 | Besoin | Commande |
 | --- | --- |
 | Ajouter un utilisateur | `echo "nom $(caddy hash-password)" >> /etc/caddy/demographie-utilisateurs && systemctl reload caddy` |
+| Importer maintenant | `systemctl start demographie-import` (sinon chaque lundi à 6 h 15) ; journal : `demo imports` |
 | Mettre à jour l'application | `cd /opt/demographie/app && sudo -u demographie git pull && sudo -u demographie uv sync --frozen --no-dev`, puis `demo migrer` et `systemctl restart demographie-web` |
 | Journaux | `journalctl -u demographie-web`, `journalctl -u demographie-sauvegarde` |
 | Prochaines exécutions | `systemctl list-timers 'demographie-*'` |

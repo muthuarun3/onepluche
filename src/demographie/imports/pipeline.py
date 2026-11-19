@@ -1,0 +1,266 @@
+"""Pipeline commun à toutes les sources : télécharger, lire, contrôler, publier.
+
+Chaque fichier donne une ligne dans ingest.import :
+- EN_COURS   : lecture en cours (ou interrompue : un nouvel essai la reprend) ;
+- REJETE     : fichier illisible, territoire inconnu ou incohérence ; rien n'est publié ;
+- EN_ATTENTE : contrôles passés mais un total varie de plus de 3 % par rapport à la
+               valeur déjà publiée ; publication après « demo valider <n° d'import> » ;
+- PUBLIE     : valeurs écrites dans stat.observation, vues recalculées.
+Le fichier brut est conservé sous son empreinte SHA-256 dans le dossier des bruts.
+"""
+
+import shutil
+from dataclasses import dataclass
+from pathlib import Path
+
+import psycopg
+
+from demographie.db import charger_sql
+from demographie.imports import telechargement
+from demographie.imports.modele import Connecteur, Fichier, FichierIllisible, Referentiel
+
+_SQL = Path(__file__).parent / "sql"
+TOLERANCE_SOMMES = 0.005
+SEUIL_VARIATION = 0.03
+_VERROU = 7_204_011  # verrou consultatif : un seul import à la fois
+
+
+@dataclass(frozen=True)
+class Resultat:
+    fichier: str
+    statut: str  # PUBLIE, EN_ATTENTE, REJETE ou DEJA_IMPORTE
+    import_id: int | None = None
+    message: str = ""
+
+
+class ImportImpossible(RuntimeError):
+    """Action refusée (import inconnu, déjà publié, autre import en cours…)."""
+
+
+def charger_referentiel(conn: psycopg.Connection) -> Referentiel:
+    lignes = conn.execute("SELECT territoire_id, niveau, code, libelle FROM ref.territoire")
+    identifiants, regions = {}, {}
+    for t in lignes.fetchall():
+        identifiants[(t["niveau"], t["code"])] = t["territoire_id"]
+        if t["niveau"] == "REG":
+            regions[t["code"]] = t["libelle"]
+    return Referentiel(identifiants, regions)
+
+
+def importer(
+    conn: psycopg.Connection,
+    connecteur: Connecteur,
+    fichier: Fichier,
+    dossier_brut: Path,
+    chemin_local: Path | None = None,
+    seuil_variation: float = SEUIL_VARIATION,
+) -> Resultat:
+    """Importe un fichier, téléchargé depuis fichier.url ou lu depuis chemin_local."""
+    if not conn.execute("SELECT pg_try_advisory_lock(%s) AS ok", (_VERROU,)).fetchone()["ok"]:
+        raise ImportImpossible("Un autre import est en cours")
+    try:
+        return _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_variation)
+    finally:
+        conn.rollback()
+        conn.execute("SELECT pg_advisory_unlock(%s)", (_VERROU,))
+        conn.commit()
+
+
+def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_variation):
+    dossier_brut.mkdir(parents=True, exist_ok=True)
+    temporaire = None
+    if chemin_local is None:
+        temporaire = chemin = telechargement.telecharger(fichier.url, dossier_brut)
+    else:
+        chemin = chemin_local
+    try:
+        sha256 = telechargement.empreinte(chemin)
+        source_id = conn.execute(
+            "SELECT source_id FROM ref.source WHERE code = %s", (connecteur.source,)
+        ).fetchone()["source_id"]
+        existant = conn.execute(
+            "SELECT import_id, statut FROM ingest.import WHERE source_id = %s AND sha256 = %s",
+            (source_id, sha256),
+        ).fetchone()
+        if existant and existant["statut"] in ("PUBLIE", "EN_ATTENTE"):
+            return Resultat(
+                fichier.nom,
+                "DEJA_IMPORTE",
+                existant["import_id"],
+                f"Fichier déjà importé (import n° {existant['import_id']}, {existant['statut']})",
+            )
+        brut = dossier_brut / f"{sha256}{Path(fichier.nom).suffix.lower()}"
+        if not brut.exists():
+            shutil.copyfile(chemin, brut)
+            brut.chmod(0o440)
+    finally:
+        if temporaire is not None:
+            temporaire.unlink(missing_ok=True)
+
+    taille = brut.stat().st_size
+    if existant:
+        # Un essai précédent a été rejeté ou interrompu : on reprend la même ligne de journal.
+        import_id = existant["import_id"]
+        conn.execute("DELETE FROM ingest.ligne WHERE import_id = %s", (import_id,))
+        conn.execute(
+            """UPDATE ingest.import SET statut = 'EN_COURS', debut = now(), fin = NULL,
+                 url = %s, fichier_nom = %s, millesime = %s, message = NULL,
+                 lignes_lues = NULL, lignes_chargees = NULL
+               WHERE import_id = %s""",
+            (fichier.url, fichier.nom, fichier.millesime, import_id),
+        )
+    else:
+        import_id = conn.execute(
+            """INSERT INTO ingest.import (source_id, url, fichier_nom, sha256, taille_octets,
+                                          millesime)
+               VALUES (%s, %s, %s, %s, %s, %s) RETURNING import_id""",
+            (source_id, fichier.url, fichier.nom, sha256, taille, fichier.millesime),
+        ).fetchone()["import_id"]
+    conn.commit()
+
+    try:
+        lues, inconnus = _charger(conn, import_id, connecteur, brut)
+    except FichierIllisible as erreur:
+        conn.rollback()
+        return _rejeter(conn, import_id, fichier, f"Fichier illisible : {erreur}")
+    if inconnus:
+        liste = ", ".join(f"{n}/{c}" for n, c in sorted(inconnus)[:10])
+        return _rejeter(conn, import_id, fichier, f"Territoires inconnus : {liste}", lues)
+
+    erreurs = _controler(conn, import_id)
+    if erreurs:
+        return _rejeter(conn, import_id, fichier, "\n".join(erreurs), lues)
+
+    variations = conn.execute(
+        charger_sql(_SQL, "controle_variations"), {"import_id": import_id, "seuil": seuil_variation}
+    ).fetchall()
+    if variations:
+        detail = "; ".join(
+            f"{v['niveau']} {v['code']} {v['periode']:%Y} : {v['ancienne']} → {v['nouvelle']}"
+            for v in variations[:5]
+        )
+        message = f"Variation de plus de {seuil_variation:.0%} sur des totaux publiés : {detail}"
+        _terminer(conn, import_id, "EN_ATTENTE", message, lues=lues)
+        return Resultat(fichier.nom, "EN_ATTENTE", import_id, message)
+
+    chargees = publier(conn, import_id)
+    return Resultat(fichier.nom, "PUBLIE", import_id, f"{chargees} valeurs publiées")
+
+
+def _charger(conn, import_id, connecteur, chemin) -> tuple[int, set[tuple[str, str]]]:
+    """Lit le fichier dans ingest.ligne. Renvoie le nombre de valeurs lues et les inconnus."""
+    referentiel = charger_referentiel(conn)
+    indicateurs = dict(
+        (i["code"], i["indicateur_id"])
+        for i in conn.execute("SELECT code, indicateur_id FROM ref.indicateur").fetchall()
+    )
+    lues, inconnus = 0, set()
+    with conn.cursor().copy(
+        """COPY ingest.ligne (import_id, indicateur_id, territoire_id, periode, periode_type,
+                              sexe, age_min, age_max, valeur, statut, a_publier)
+           FROM STDIN"""
+    ) as copie:
+        for ligne in connecteur.lire(chemin, referentiel):
+            lues += 1
+            territoire_id = referentiel.identifiants.get((ligne.niveau, ligne.code))
+            if territoire_id is None:
+                inconnus.add((ligne.niveau, ligne.code))
+                continue
+            if ligne.indicateur not in indicateurs:
+                raise FichierIllisible(f"Indicateur inconnu : {ligne.indicateur}")
+            copie.write_row(
+                (
+                    import_id,
+                    indicateurs[ligne.indicateur],
+                    territoire_id,
+                    ligne.periode,
+                    ligne.periode_type,
+                    ligne.sexe,
+                    ligne.age_min,
+                    ligne.age_max,
+                    ligne.valeur,
+                    ligne.statut,
+                    ligne.niveau in connecteur.niveaux_publies,
+                )
+            )
+    if lues == 0:
+        raise FichierIllisible("Aucune valeur lue")
+    conn.commit()
+    return lues, inconnus
+
+
+def _controler(conn, import_id: int) -> list[str]:
+    erreurs = []
+    bilan = conn.execute(
+        charger_sql(_SQL, "controle_doublons_negatifs"), {"import_id": import_id}
+    ).fetchone()
+    if bilan["negatifs"]:
+        erreurs.append(f"{bilan['negatifs']} valeur(s) négative(s)")
+    if bilan["doublons"]:
+        erreurs.append(f"{bilan['doublons']} valeur(s) en double")
+    parametres = {"import_id": import_id, "tolerance": TOLERANCE_SOMMES}
+    for e in conn.execute(charger_sql(_SQL, "controle_sommes"), parametres).fetchall()[:5]:
+        erreurs.append(
+            f"{e['code']} {e['periode']:%Y} sexe {e['sexe']} : publié {e['publie']}, "
+            f"somme des territoires {e['somme']}"
+        )
+    for e in conn.execute(charger_sql(_SQL, "controle_tranches"), parametres).fetchall()[:5]:
+        erreurs.append(
+            f"{e['niveau']} {e['code']} {e['periode']:%Y} {e['controle']} : "
+            f"total {e['publie']}, somme {e['somme']}"
+        )
+    return erreurs
+
+
+def _terminer(conn, import_id, statut, message, lues=None, chargees=None) -> None:
+    conn.execute(
+        """UPDATE ingest.import
+           SET statut = %s, message = %s, fin = now(),
+               lignes_lues = coalesce(%s, lignes_lues), lignes_chargees = %s
+           WHERE import_id = %s""",
+        (statut, message, lues, chargees, import_id),
+    )
+    conn.commit()
+
+
+def _rejeter(conn, import_id, fichier, message, lues=None) -> Resultat:
+    conn.execute("DELETE FROM ingest.ligne WHERE import_id = %s", (import_id,))
+    _terminer(conn, import_id, "REJETE", message, lues=lues)
+    return Resultat(fichier.nom, "REJETE", import_id, message)
+
+
+def publier(conn: psycopg.Connection, import_id: int) -> int:
+    """Écrit les lignes préparées dans stat.observation, en une transaction."""
+    try:
+        chargees = conn.execute(charger_sql(_SQL, "publier"), {"import_id": import_id}).rowcount
+        conn.execute("DELETE FROM ingest.ligne WHERE import_id = %s", (import_id,))
+        _terminer(conn, import_id, "PUBLIE", None, chargees=chargees)
+    except Exception:
+        conn.rollback()
+        raise
+    conn.execute("SELECT stat.rafraichir_vues()")
+    conn.commit()
+    return chargees
+
+
+def valider(conn: psycopg.Connection, import_id: int) -> int:
+    """Publie un import EN_ATTENTE après vérification humaine."""
+    ligne = conn.execute(
+        "SELECT statut FROM ingest.import WHERE import_id = %s FOR UPDATE", (import_id,)
+    ).fetchone()
+    if ligne is None:
+        raise ImportImpossible(f"Import n° {import_id} inconnu")
+    if ligne["statut"] != "EN_ATTENTE":
+        raise ImportImpossible(f"Import n° {import_id} : statut {ligne['statut']}, rien à valider")
+    return publier(conn, import_id)
+
+
+def journal(conn: psycopg.Connection, nombre: int = 20) -> list[dict]:
+    """Derniers imports, du plus récent au plus ancien."""
+    return conn.execute(
+        """SELECT i.import_id, s.code AS source, i.fichier_nom, i.statut, i.debut, i.fin,
+                  i.lignes_lues, i.lignes_chargees, i.message
+           FROM ingest.import i JOIN ref.source s USING (source_id)
+           ORDER BY i.import_id DESC LIMIT %s""",
+        (nombre,),
+    ).fetchall()

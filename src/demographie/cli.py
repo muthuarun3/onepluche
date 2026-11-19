@@ -2,8 +2,15 @@
 
 import argparse
 import sys
+from decimal import ROUND_HALF_UP, Decimal
+from pathlib import Path
 
-from demographie import db, migrations
+from demographie import config, db, migrations
+from demographie.catalogue.references import REFERENCES_INSEE
+from demographie.donnees import series
+from demographie.imports import pipeline
+from demographie.imports.connecteurs import CONNECTEURS
+from demographie.imports.modele import Fichier
 
 
 def _migrer(_args: argparse.Namespace) -> int:
@@ -32,6 +39,78 @@ def _etat(_args: argparse.Namespace) -> int:
     return 0
 
 
+def _importer(args: argparse.Namespace) -> int:
+    connecteurs = CONNECTEURS[args.source]
+    dossier_brut = config.charger().donnees_brutes
+    travaux: list[tuple] = []
+    if args.fichier:
+        for chemin in args.fichier:
+            chemin = Path(chemin)
+            retenus = [c for c in connecteurs if c.accepte(chemin.name)]
+            if not retenus:
+                print(f"{chemin.name} : nom de fichier non reconnu pour « {args.source} »")
+                return 2
+            fichier = Fichier(url=chemin.resolve().as_uri(), nom=chemin.name)
+            travaux.append((retenus[0], fichier, chemin))
+    else:
+        travaux = [(c, f, None) for c in connecteurs for f in c.fichiers()]
+    code_retour = 0
+    with db.connexion("import") as conn:
+        for connecteur, fichier, chemin in travaux:
+            print(f"{fichier.nom} …", flush=True)
+            resultat = pipeline.importer(
+                conn, connecteur, fichier, dossier_brut, chemin, args.seuil / 100
+            )
+            print(f"  {resultat.statut} (import n° {resultat.import_id}) {resultat.message}")
+            if resultat.statut == "REJETE":
+                code_retour = 1
+    return code_retour
+
+
+def _imports(_args: argparse.Namespace) -> int:
+    with db.connexion("import") as conn:
+        for i in pipeline.journal(conn):
+            print(
+                f"{i['import_id']:>4}  {i['debut']:%Y-%m-%d %H:%M}  {i['statut']:<10}  "
+                f"{i['source']:<10}  {i['fichier_nom']}"
+            )
+            if i["message"] and i["statut"] != "PUBLIE":
+                print("      " + i["message"].replace("\n", "\n      "))
+    return 0
+
+
+def _valider(args: argparse.Namespace) -> int:
+    with db.connexion("import") as conn:
+        chargees = pipeline.valider(conn, args.import_id)
+    print(f"Import n° {args.import_id} publié : {chargees} valeurs.")
+    return 0
+
+
+def _arrondi(valeur: Decimal | None) -> Decimal | None:
+    return None if valeur is None else valeur.quantize(Decimal("0.1"), ROUND_HALF_UP)
+
+
+def _verifier(_args: argparse.Namespace) -> int:
+    """Compare les chiffres servis par l'application aux valeurs publiées par l'INSEE."""
+    ecarts = 0
+    with db.connexion("lecture") as conn:
+        for ref in REFERENCES_INSEE:
+            valeurs = {}
+            for indicateur in ("POP", "PART_60_PLUS"):
+                serie = series.serie(conn, indicateur, ref.niveau, ref.code, ref.annee, ref.annee)
+                valeurs[indicateur] = serie[0]["valeur"] if serie else None
+            population, part = valeurs["POP"], _arrondi(valeurs["PART_60_PLUS"])
+            attendu = Decimal(str(ref.part_60_plus))
+            ok = population == ref.population and part == attendu
+            ecarts += not ok
+            print(
+                f"{'OK ' if ok else 'ÉCART'}  {ref.libelle:<22} {ref.annee}  "
+                f"population {population} (INSEE {ref.population})  "
+                f"60 ans et plus {part} % (INSEE {attendu} %)"
+            )
+    return 1 if ecarts else 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parseur = argparse.ArgumentParser(prog="demo", description="Administration de Démographie")
     sous = parseur.add_subparsers(dest="commande", required=True)
@@ -39,6 +118,23 @@ def main(argv: list[str] | None = None) -> int:
         action=_migrer
     )
     sous.add_parser("etat", help="afficher l'état de la base").set_defaults(action=_etat)
+    imp = sous.add_parser("importer", help="importer les derniers fichiers d'une source")
+    imp.add_argument("source", choices=sorted(CONNECTEURS))
+    imp.add_argument("--fichier", action="append", help="fichier local déjà téléchargé (répétable)")
+    imp.add_argument(
+        "--seuil",
+        type=float,
+        default=pipeline.SEUIL_VARIATION * 100,
+        help="variation (en %%) au-delà de laquelle une validation est demandée",
+    )
+    imp.set_defaults(action=_importer)
+    sous.add_parser("imports", help="journal des derniers imports").set_defaults(action=_imports)
+    val = sous.add_parser("valider", help="publier un import en attente de validation")
+    val.add_argument("import_id", type=int)
+    val.set_defaults(action=_valider)
+    sous.add_parser(
+        "verifier", help="comparer les chiffres servis aux valeurs publiées par l'INSEE"
+    ).set_defaults(action=_verifier)
     args = parseur.parse_args(argv)
     return args.action(args)
 
