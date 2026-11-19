@@ -1,0 +1,24 @@
+# Modèle : __DOMAINE__ est remplacé par deploy/installer.sh.
+# Certificat HTTPS obtenu et renouvelé automatiquement par Caddy.
+__DOMAINE__ {
+	encode zstd gzip
+
+	# Accès réservé au petit cercle d'utilisateurs : un identifiant par personne.
+	# Ajouter quelqu'un : echo "nom $(caddy hash-password)" >> /etc/caddy/demographie-utilisateurs
+	basic_auth {
+		import /etc/caddy/demographie-utilisateurs
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		-Server
+	}
+
+	reverse_proxy 127.0.0.1:8000
+
+	log {
+		output file /var/log/caddy/demographie.log {
+			roll_keep 10
+		}
+	}
+}

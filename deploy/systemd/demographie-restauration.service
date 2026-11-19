@@ -1,0 +1,11 @@
+[Unit]
+Description=Démographie France : test de restauration de la dernière sauvegarde
+After=postgresql.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/demographie-test-restauration
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectHome=yes

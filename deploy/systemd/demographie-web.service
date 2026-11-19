@@ -1,0 +1,32 @@
+[Unit]
+Description=Démographie France : application web et API
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+User=demographie
+Group=demographie
+WorkingDirectory=/opt/demographie/app
+EnvironmentFile=/etc/demographie/env
+ExecStart=/opt/demographie/app/.venv/bin/uvicorn demographie.app:app --host 127.0.0.1 --port 8000 --workers 2 --proxy-headers --no-server-header
+Restart=on-failure
+RestartSec=5
+
+# Durcissement : l'application ne lit que son code et ne peut écrire nulle part.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+MemoryMax=512M
+
+[Install]
+WantedBy=multi-user.target
