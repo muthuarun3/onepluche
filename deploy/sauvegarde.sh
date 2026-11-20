@@ -18,6 +18,9 @@ ping /start
 horodatage="$(date -u +%Y%m%dT%H%M%SZ)"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
+# ProtectHome=yes rend /root inaccessible : gpg travaille dans un dossier temporaire.
+export GNUPGHOME="$tmp/gnupg"
+install -d -m 700 "$GNUPGHOME"
 
 runuser -u postgres -- pg_dump --format=custom --dbname="$BASE" > "$tmp/base.dump"
 gpg --batch --yes --quiet --pinentry-mode loopback \
