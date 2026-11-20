@@ -20,6 +20,9 @@ ping /start
 tmp="$(mktemp -d)"
 chmod 755 "$tmp"
 trap 'rm -rf "$tmp"; runuser -u postgres -- dropdb --if-exists "$BASE_TEST"' EXIT
+# ProtectHome=yes rend /root inaccessible : gpg travaille dans un dossier temporaire.
+export GNUPGHOME="$tmp/gnupg"
+install -d -m 700 "$GNUPGHOME"
 
 dernier="$("${RCLONE[@]}" lsf "$DEMO_RCLONE_DEST/base/" | sort | tail -n 1)"
 [[ -n "$dernier" ]] || echec "aucune sauvegarde trouvée dans $DEMO_RCLONE_DEST/base/"
