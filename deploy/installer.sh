@@ -51,7 +51,8 @@ fi
 runuser -u demographie -- env -C "$APP_DIR" uv sync --frozen --no-dev
 
 echo "== PostgreSQL : rôles, mots de passe, base"
-runuser -u postgres -- psql -q -v ON_ERROR_STOP=1 -f "$APP_DIR/sql/roles.sql"
+# Lu par root et transmis sur l'entrée standard : postgres n'a pas accès à $APP_DIR (750).
+runuser -u postgres -- psql -q -v ON_ERROR_STOP=1 < "$APP_DIR/sql/roles.sql"
 if [[ ! -f "$CONF_DIR/env" ]]; then
   declare -A mdp
   for role in proprietaire import lecture; do
