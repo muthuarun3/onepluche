@@ -110,6 +110,20 @@ Les tests créent une base temporaire et la suppriment ensuite. Ils (re)créent 
 `demo_*` et **changent leur mot de passe** : n'utilisez jamais `DEMO_TEST_ADMIN_URL` sur le
 serveur de production. Sans cette variable, les tests qui demandent une base sont ignorés.
 
+## Vitrine
+
+`vitrine/index.html` est la page de présentation publiée sur
+<https://onepluche.neocities.org/>. Un seul fichier, CSS intégré, sans JavaScript.
+
+- **Toujours à jour** : toute modification visible de l'appli (nouvelle question, nouveau
+  thème, changement d'état) met aussi à jour la vitrine dans la même PR : cartes
+  « Les questions », journal « Ce qui avance » et date « Page mise à jour le ».
+- **Même direction artistique** : la vitrine reprend les variables de couleur de
+  `src/demographie/web/static/style.css`. `tests/test_vitrine.py` échoue si elles divergent.
+- **Publication automatique** : le workflow `vitrine.yml` envoie le fichier sur Neocities à
+  chaque fusion dans `main` qui touche `vitrine/`, si le secret `NEOCITIES_API_KEY` est défini
+  (clé API du site Neocities, à ajouter dans *Settings → Secrets and variables → Actions*).
+
 ## Production
 
 Voir [deploy/README.md](deploy/README.md) : installation sur un VPS Debian 13, HTTPS et accès

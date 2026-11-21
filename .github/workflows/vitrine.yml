@@ -1,0 +1,39 @@
+name: Vitrine Neocities
+
+# Publie vitrine/index.html sur https://onepluche.neocities.org/ à chaque
+# changement fusionné dans main. Nécessite le secret NEOCITIES_API_KEY
+# (clé API du site, dans les réglages Neocities) ; sans lui, rien n'est envoyé.
+
+on:
+  push:
+    branches: [main]
+    paths: [vitrine/**]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vitrine
+  cancel-in-progress: true
+
+jobs:
+  publier:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Envoi sur Neocities
+        env:
+          NEOCITIES_API_KEY: ${{ secrets.NEOCITIES_API_KEY }}
+        run: |
+          if [ -z "$NEOCITIES_API_KEY" ]; then
+            echo "::warning::Secret NEOCITIES_API_KEY absent : vitrine non publiée."
+            exit 0
+          fi
+          curl -fsS --retry 3 \
+            -H "Authorization: Bearer $NEOCITIES_API_KEY" \
+            -F "index.html=@vitrine/index.html" \
+            https://neocities.org/api/upload
+          echo
+          curl -fsS --retry 3 -o /dev/null -w "Vitrine en ligne (HTTP %{http_code})\n" \
+            https://onepluche.neocities.org/
