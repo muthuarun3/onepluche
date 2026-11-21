@@ -1,0 +1,310 @@
+{
+"filiere": "Electricit\u00e9",
+"lignes": [
+{
+"annee": 2011,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 412266.87,
+"filiere": "Electricit\u00e9",
+"nb_sites": 91181,
+"operateur": "Enedis"
+},
+{
+"annee": 2011,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 6545169.53,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1598570,
+"operateur": "Enedis"
+},
+{
+"annee": 2012,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 440490.67,
+"filiere": "Electricit\u00e9",
+"nb_sites": 91479,
+"operateur": "Enedis"
+},
+{
+"annee": 2012,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 6826865.32,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1601395,
+"operateur": "Enedis"
+},
+{
+"annee": 2013,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 453776.09,
+"filiere": "Electricit\u00e9",
+"nb_sites": 91718,
+"operateur": "Enedis"
+},
+{
+"annee": 2013,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 6923962.04,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1602995,
+"operateur": "Enedis"
+},
+{
+"annee": 2014,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 407870.45,
+"filiere": "Electricit\u00e9",
+"nb_sites": 91517,
+"operateur": "Enedis"
+},
+{
+"annee": 2014,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 6268734.21,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1603683,
+"operateur": "Enedis"
+},
+{
+"annee": 2015,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 417090.02,
+"filiere": "Electricit\u00e9",
+"nb_sites": 91705,
+"operateur": "Enedis"
+},
+{
+"annee": 2015,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 6360020.62,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1602836,
+"operateur": "Enedis"
+},
+{
+"annee": 2016,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 431722.57,
+"filiere": "Electricit\u00e9",
+"nb_sites": 91954,
+"operateur": "Enedis"
+},
+{
+"annee": 2016,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 6461126.46,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1604379,
+"operateur": "Enedis"
+},
+{
+"annee": 2017,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 421426.84,
+"filiere": "Electricit\u00e9",
+"nb_sites": 91591,
+"operateur": "Enedis"
+},
+{
+"annee": 2017,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 6314994.47,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1611323,
+"operateur": "Enedis"
+},
+{
+"annee": 2018,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 325882.3333163511,
+"filiere": "Electricit\u00e9",
+"nb_sites": 77907,
+"operateur": "Enedis"
+},
+{
+"annee": 2018,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 4138769.441101034,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1367887,
+"operateur": "Enedis"
+},
+{
+"annee": 2019,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 321130.2720225697,
+"filiere": "Electricit\u00e9",
+"nb_sites": 77727,
+"operateur": "Enedis"
+},
+{
+"annee": 2019,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 4018460.352391754,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1366266,
+"operateur": "Enedis"
+},
+{
+"annee": 2020,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 320873.3723029394,
+"filiere": "Electricit\u00e9",
+"nb_sites": 77961,
+"operateur": "Enedis"
+},
+{
+"annee": 2020,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 4056469.975036691,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1361474,
+"operateur": "Enedis"
+},
+{
+"annee": 2021,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 346975.4935063233,
+"filiere": "Electricit\u00e9",
+"nb_sites": 78476,
+"operateur": "Enedis"
+},
+{
+"annee": 2021,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 4095712.984774187,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1359208,
+"operateur": "Enedis"
+},
+{
+"annee": 2021,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"filiere": "Electricit\u00e9",
+"operateur": "Gazelec de P\u00e9ronne"
+},
+{
+"annee": 2022,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 310110.37,
+"filiere": "Electricit\u00e9",
+"nb_sites": 78831,
+"operateur": "Enedis"
+},
+{
+"annee": 2022,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 3649099.596,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1358713,
+"operateur": "Enedis"
+},
+{
+"annee": 2022,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"filiere": "Electricit\u00e9",
+"operateur": "Gazelec de P\u00e9ronne"
+},
+{
+"annee": 2023,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 304652.082,
+"filiere": "Electricit\u00e9",
+"nb_sites": 79195,
+"operateur": "Enedis"
+},
+{
+"annee": 2023,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 3554526.746,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1358416,
+"operateur": "Enedis"
+},
+{
+"annee": 2023,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"filiere": "Electricit\u00e9",
+"operateur": "Gazelec de P\u00e9ronne"
+},
+{
+"annee": 2024,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 303918.021,
+"filiere": "Electricit\u00e9",
+"nb_sites": 79248,
+"operateur": "Enedis"
+},
+{
+"annee": 2024,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 3573119.455,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1358011,
+"operateur": "Enedis"
+},
+{
+"annee": 2024,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"filiere": "Electricit\u00e9",
+"operateur": "Gazelec de P\u00e9ronne"
+},
+{
+"annee": 2025,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 305315.219,
+"filiere": "Electricit\u00e9",
+"nb_sites": 80061,
+"operateur": "Enedis"
+},
+{
+"annee": 2025,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 3548530.716,
+"filiere": "Electricit\u00e9",
+"nb_sites": 1364031,
+"operateur": "Enedis"
+},
+{
+"annee": 2025,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"filiere": "Electricit\u00e9",
+"operateur": "Gazelec de P\u00e9ronne"
+}
+]
+}

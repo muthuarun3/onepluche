@@ -12,6 +12,7 @@ from demographie.imports.connecteurs.besoins import (
 )
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.dvf import VENTES
+from demographie.imports.connecteurs.energie import DIAGNOSTICS, ELECTRICITE, GAZ, PRIX
 from demographie.imports.connecteurs.esr import DISCIPLINES, FORMATIONS
 from demographie.imports.connecteurs.estimations import (
     EstimationsDepartements,
@@ -49,4 +50,5 @@ CONNECTEURS = {
         VENTES,
         PARC_SOCIAL,
     ),
+    "energie": (ELECTRICITE, GAZ, DIAGNOSTICS, PRIX),
 }

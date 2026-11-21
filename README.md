@@ -69,6 +69,7 @@ uv run demo importer retraites            # retraités tous régimes, minimum vi
 uv run demo importer etudiants            # étudiants du supérieur par formation et discipline
 uv run demo importer sante                # patients par groupe de pathologies (Assurance maladie)
 uv run demo importer logement             # besoins : logements, revenus, loyers, ventes (DVF), parc social
+uv run demo importer energie              # besoins : électricité et gaz (Agence ORE), DPE (ADEME), prix (IPC)
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)
 uv run demo verifier                      # compare aux chiffres publiés par l'INSEE
 uv run uvicorn demographie.app:app --reload
