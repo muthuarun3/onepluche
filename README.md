@@ -68,7 +68,7 @@ uv run demo importer recensement          # statut d'activité, catégories soci
 uv run demo importer retraites            # retraités tous régimes, minimum vieillesse (DREES)
 uv run demo importer etudiants            # étudiants du supérieur par formation et discipline
 uv run demo importer sante                # patients par groupe de pathologies (Assurance maladie)
-uv run demo importer logement             # besoins : logements, revenus (Filosofi), poids communaux, loyers (ANIL)
+uv run demo importer logement             # besoins : logements, revenus, loyers, ventes (DVF), parc social
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)
 uv run demo verifier                      # compare aux chiffres publiés par l'INSEE
 uv run uvicorn demographie.app:app --reload
