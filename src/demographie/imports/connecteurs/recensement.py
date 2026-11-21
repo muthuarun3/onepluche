@@ -62,6 +62,9 @@ class JeuRecensement:
     departements_absents: frozenset[str] = frozenset()
     # Contrôle des sommes France = somme des départements (voir modele.Connecteur).
     tolerance_sommes: float = 0.005
+    # Valeurs de l'attribut OBS_STATUS qui signalent une valeur provisoire (comptes
+    # nationaux) ; vide : tout est définitif (recensement).
+    statuts_provisoires: frozenset[str] = frozenset()
 
     @property
     def nom_fichier(self) -> str:
@@ -120,13 +123,15 @@ class JeuRecensement:
             raise FichierIllisible("Aucune observation")
         connues = {"GEO", "TIME_PERIOD", "FREQ", self.dimension_age, self.dimension, *self.filtres}
         for obs in observations:
+            dim = obs.get("dimensions") if isinstance(obs, dict) else None
+            if not isinstance(dim, dict):
+                raise FichierIllisible(f"Observation illisible : {obs}")
+            if dim.get(self.dimension) not in self.modalites:
+                continue  # sous-catégories plus fines non retenues
             try:
-                dim = obs["dimensions"]
                 valeur = Decimal(str(obs["measures"]["OBS_VALUE_NIVEAU"]["value"]))
             except (KeyError, TypeError, ArithmeticError) as erreur:
                 raise FichierIllisible(f"Observation illisible : {obs}") from erreur
-            if dim.get(self.dimension) not in self.modalites:
-                continue  # sous-catégories plus fines non retenues
             if self.ages and dim.get(self.dimension_age) not in self.ages:
                 continue
             inattendues = {
@@ -151,7 +156,11 @@ class JeuRecensement:
                 age_min=age_min,
                 age_max=age_max,
                 valeur=valeur,
-                statut="DEFINITIF",
+                statut=(
+                    "PROVISOIRE"
+                    if obs.get("attributes", {}).get("OBS_STATUS") in self.statuts_provisoires
+                    else "DEFINITIF"
+                ),
                 modalite=(self.dimension_ref, modalite) if modalite else None,
             )
 

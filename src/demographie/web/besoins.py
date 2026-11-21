@@ -1,5 +1,6 @@
-"""Pages de la rubrique « De quoi les Français ont besoin ? » (appli 2) : choix du
-département et fiche département (thèmes × accès, coût, manque, valeur France à côté)."""
+"""Pages de la rubrique « De quoi les Français ont besoin ? » (appli 2) : vue d'ensemble
+(budget des ménages, prix, un chiffre France par thème, choix du département) et fiche
+département (thèmes × accès, coût, manque, valeur France à côté)."""
 
 from decimal import Decimal
 from typing import Annotated
@@ -14,6 +15,7 @@ from demographie.web.pages import Connexion, _decimal_fr, gabarits
 routeur = APIRouter(prefix="/besoins", include_in_schema=False)
 
 THEMES = {
+    "BUDGET": "Budget des ménages",
     "LOGEMENT": "Logement",
     "ENERGIE": "Énergie",
     "EAU": "Eau",
@@ -31,7 +33,9 @@ ANGLES = {
 # Chiffres en tête de fiche, dans cet ordre.
 CHIFFRES_CLES = ("LOYER_APPARTEMENT_M2", "PART_DPE_FG", "APL_MG")
 # Publiés pour la France seulement : affichés sur la vue d'ensemble, pas sur la fiche.
-NATIONAUX = frozenset({"IPC"})
+NATIONAUX = frozenset({"IPC", "DEPENSE_CONSO_MENAGES", "PART_DEPENSE_PRE_ENGAGEE"})
+# Point de départ de la hausse des prix sur la vue d'ensemble.
+PRIX_DEPUIS = 2015
 # Encadré 18-39 ans : indicateurs Filosofi publiés par âge de la personne de référence.
 JEUNES = ("NIVEAU_VIE_MEDIAN", "TAUX_PAUVRETE")
 
@@ -66,7 +70,49 @@ def besoins(request: Request, conn: Connexion) -> HTMLResponse:
     for t in tous:
         if t["niveau"] == "DEP":
             departements.setdefault(t["parent_code"], []).append(t)
+    toutes = {i["code"]: i for i in series.indicateurs(conn, rubrique="BESOINS")}
+    france = {ligne["indicateur"]: ligne for ligne in series.fiche(conn, "FRANCE", "FR", "BESOINS")}
+
+    def mesure(indicateur: str) -> dict | None:
+        if indicateur not in toutes:
+            return None
+        return {"definition": toutes[indicateur], "ligne": france.get(indicateur)}
+
+    postes = series.repartition(conn, "DEPENSE_CONSO_MENAGES", "FRANCE", "FR")
+    budget = None
+    if postes and postes[0]["total"]:
+        total = postes[0]["total"]
+        lignes = sorted(
+            ({"libelle": p["libelle"], "part": float(100 * p["valeur"] / total)} for p in postes),
+            key=lambda p: -p["part"],
+        )
+        budget = {
+            "annee": postes[0]["annee"],
+            "provisoire": postes[0]["provisoire"],
+            "total_milliards": float(total) / 1000,
+            "postes": lignes,
+            "max": lignes[0]["part"],
+            "definition": toutes["DEPENSE_CONSO_MENAGES"],
+            "pre_engagee": mesure("PART_DEPENSE_PRE_ENGAGEE"),
+        }
+    hausses = series.hausse_prix(conn, PRIX_DEPUIS)
+    prix = None
+    if hausses:
+        prix = {
+            "debut": hausses[0]["debut"],
+            "fin": hausses[0]["fin"],
+            "postes": hausses,
+            "max": max(abs(float(h["hausse"])) for h in hausses) or 1,
+            "definition": toutes.get("IPC"),
+        }
     contexte = {
+        "budget": budget,
+        "prix": prix,
+        "themes": [
+            {"titre": THEMES[toutes[c]["theme"]], "mesure": mesure(c)}
+            for c in CHIFFRES_CLES
+            if c in toutes
+        ],
         "regions": sorted((t for t in tous if t["niveau"] == "REG"), key=lambda t: t["libelle"]),
         "departements": departements,
     }

@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 024).
+   le catalogue change (prochain numéro : 025).
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -78,6 +78,10 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   `api.serie_age`) ; trois chiffres clés, un bloc par thème en colonnes Accès / Coût / Manque avec la valeur France, encadré 18-39 ans, lien vers
   la fiche de l'appli 1.
   *Critère :* moins d'une seconde côté serveur ; lisible à 390 px.
+- [x] **D3. Vue d'ensemble `/besoins`** — migration 024 (thème `BUDGET`, comptes nationaux
+  `DEPENSE_CONSO_MENAGES` par poste COICOP et `PART_DEPENSE_PRE_ENGAGEE`, groupe
+  `demo importer budget`) ; budget des ménages en barres, hausse des prix depuis 2015 par
+  poste, un chiffre France par thème, choix du département.
 
 ## En cours
 
@@ -94,8 +98,6 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 ### Appli 2 — interface (phase D)
 
-- [ ] **D3. Vue d'ensemble `/besoins`** — budget des ménages par poste (France), évolution
-  des prix depuis 2015, un chiffre France par thème, choix du département.
 - [ ] **D4. Carte des départements partagée** — contours IGN Admin Express simplifiés
   (environ 300 Ko, versionnés), dessinés par ECharts ; page `/besoins/theme/{theme}` : carte,
   classement, valeur France.

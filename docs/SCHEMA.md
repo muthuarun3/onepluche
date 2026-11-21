@@ -1,7 +1,7 @@
 # Schéma de base de données
 
 **Base :** PostgreSQL 17, base `demographie`. **État au :** 21 novembre 2026 (migrations
-001 à 023). La source de vérité est `sql/migrations/` ; ce document en donne la vue
+001 à 024). La source de vérité est `sql/migrations/` ; ce document en donne la vue
 d'ensemble.
 
 ## 1. Principe
@@ -102,6 +102,7 @@ Indicateurs actuels :
 | QUI — santé | `PATIENTS_PATHOLOGIE` |
 | BESOINS — logement | `LOGEMENTS`, `RESIDENCES_PRINC`, `RESIDENCES_PRINC_CHAUFFAGE`, `PART_PROPRIETAIRES`, `PART_LOCATAIRES_HLM`, `PART_LOGEMENTS_VACANTS`, `PART_CHAUFFAGE_FIOUL`, `NIVEAU_VIE_MEDIAN`, `TAUX_PAUVRETE`, `LOYER_APPARTEMENT_M2`, `LOYER_MAISON_M2`, `PRIX_VENTE_M2`, `ANNEES_REVENU_60M2`, `LOGEMENTS_SOCIAUX` |
 | BESOINS — énergie | `CONSO_ELEC_RESID`, `POINTS_ELEC_RESID`, `CONSO_MOY_ELEC_LOGEMENT`, `CONSO_GAZ_RESID`, `POINTS_GAZ_RESID`, `CONSO_MOY_GAZ_LOGEMENT`, `DPE_ETABLIS`, `PART_DPE_FG`, `IPC` |
+| BESOINS — budget (France) | `DEPENSE_CONSO_MENAGES`, `PART_DEPENSE_PRE_ENGAGEE` |
 | BESOINS — soins | `APL_MG`, `PART_POP_APL_MG_FAIBLE`, `ALD_SANS_MT`, `LIEUX_MG`, `PHARMACIES`, `URGENCES`, `MAISONS_SANTE`, `MG_10000`, `PHARMACIES_10000` |
 
 ### `ref.modalite` — valeurs d'une dimension
@@ -115,7 +116,7 @@ Indicateurs actuels :
 
 Dimensions actuelles : `statut_activite`, `pcs`, `secteur`, `scolarisation`, `formation`,
 `discipline`, `pathologie`, `categorie_logement`, `statut_occupation`, `combustible`,
-`taille_appartement`, `type_logement`, `etiquette_dpe`, `poste_ipc`.
+`taille_appartement`, `type_logement`, `etiquette_dpe`, `poste_ipc`, `poste_conso`.
 Les codes reprennent ceux des sources quand c'est possible (traçabilité).
 
 ### `ingest.import` — journal, une ligne par fichier
@@ -225,6 +226,6 @@ Privilèges par défaut : toute nouvelle table de `ingest`/`stat` est accessible
    import ; l'ancienne reste dans le fichier brut.
 5. **Pas de communes en base** : les sources communales sont agrégées au département dans
    le connecteur.
-6. **Une migration par livraison**, numérotée à la suite (prochaine : 024), jamais modifiée
+6. **Une migration par livraison**, numérotée à la suite (prochaine : 025), jamais modifiée
    après fusion. Toute redéfinition de `api.serie` reprend la vue entière et ajoute les
    colonnes en fin.

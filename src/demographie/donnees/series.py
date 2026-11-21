@@ -77,3 +77,9 @@ def par_age(conn: psycopg.Connection, niveau: str, code: str, indicateurs: list[
     avec la valeur France de la même période."""
     parametres = {"niveau": niveau, "code": code, "indicateurs": indicateurs}
     return conn.execute(charger_sql(_SQL, "par_age"), parametres).fetchall()
+
+
+def hausse_prix(conn: psycopg.Connection, debut: int) -> list[dict]:
+    """Hausse des prix (France), ensemble et postes, de `debut` (ou la première année
+    complète) à la dernière année complète, en %."""
+    return conn.execute(charger_sql(_SQL, "hausse_prix"), {"debut": debut}).fetchall()
