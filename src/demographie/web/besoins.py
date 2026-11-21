@@ -10,6 +10,7 @@ from fastapi import Path as Chemin
 from fastapi.responses import HTMLResponse
 
 from demographie.donnees import series, territoires
+from demographie.web.carte import choix_territoire
 from demographie.web.pages import Connexion, _decimal_fr, gabarits
 
 routeur = APIRouter(prefix="/besoins", include_in_schema=False)
@@ -115,6 +116,7 @@ def besoins(request: Request, conn: Connexion) -> HTMLResponse:
         ],
         "regions": sorted((t for t in tous if t["niveau"] == "REG"), key=lambda t: t["libelle"]),
         "departements": departements,
+        "choix": choix_territoire(tous, ("DEP",), "/besoins/DEP/{code}"),
     }
     return gabarits.TemplateResponse(request, "besoins.html", contexte)
 

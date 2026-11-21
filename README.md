@@ -77,7 +77,8 @@ uv run demo verifier                      # compare aux chiffres publiés par l'
 uv run uvicorn demographie.app:app --reload
 ```
 
-Pages : http://localhost:8000/ (choix du territoire), puis `/territoire/DEP/23` par exemple.
+Pages : http://localhost:8000/ (accueil), `/francais` (carte de choix du territoire), puis
+`/territoire/DEP/23` par exemple. Contours de la carte : `outils/contours_svg.py` (voir le TRD).
 
 ## Imports
 

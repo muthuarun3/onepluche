@@ -1,9 +1,26 @@
 {% extends "base.html" %}
+{% from "_carte.html" import choix_territoire %}
 {% block titre %}De quoi les Français ont besoin ? · On épluche{% endblock %}
 {% block contenu %}
 <h1>De quoi les Français ont besoin ?</h1>
 <p class="intro">Se loger, se chauffer, se soigner : ce que coûtent les besoins essentiels
   et qui a du mal à y accéder. D'abord pour la France, puis département par département.</p>
+
+{% call choix_territoire(choix, "Choisir un département",
+  "Touchez un département pour ouvrir sa fiche. Sans choix, les chiffres ci-dessous portent sur la France entière.") %}
+<div class="regions">
+  {% for r in regions %}
+  <section class="region">
+    <h3>{{ r.libelle }}</h3>
+    <ul>
+      {% for d in departements.get(r.code, []) %}
+      <li><a href="/besoins/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+{% endcall %}
 
 <div class="blocs">
   {% if budget %}
@@ -64,17 +81,4 @@
 </div>
 {% endif %}
 
-<h2 class="choisir">Choisir un département</h2>
-<div class="regions">
-  {% for r in regions %}
-  <section class="region">
-    <h2>{{ r.libelle }}</h2>
-    <ul>
-      {% for d in departements.get(r.code, []) %}
-      <li><a href="/besoins/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endfor %}
-</div>
 {% endblock %}

@@ -187,6 +187,10 @@ def test_pages(urls_module):
     francais = client.get("/francais")
     assert francais.status_code == 200
     assert 'href="/territoire/DEP/23"' in francais.text
+    # Carte de choix : régions et départements de métropole, outre-mer en boutons.
+    assert '<svg class="carte"' in francais.text
+    assert '<a href="/territoire/REG/75" aria-label="Nouvelle-Aquitaine"><path' in francais.text
+    assert '<li><a href="/territoire/DEP/976">Mayotte</a></li>' in francais.text
     assert '<a href="/francais" aria-current="page">' in francais.text
     # Résumé : seuls les blocs dont les données sont importées apparaissent.
     assert "Quel âge avons-nous ?" in francais.text
