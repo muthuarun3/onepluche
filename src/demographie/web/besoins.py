@@ -5,7 +5,7 @@ département (thèmes × accès, coût, manque, valeur France à côté)."""
 from decimal import Decimal
 from typing import Annotated
 
-from fastapi import APIRouter, HTTPException, Request, status
+from fastapi import APIRouter, HTTPException, Query, Request, status
 from fastapi import Path as Chemin
 from fastapi.responses import HTMLResponse
 
@@ -107,6 +107,7 @@ def besoins(request: Request, conn: Connexion) -> HTMLResponse:
         }
     contexte = {
         "budget": budget,
+        "pages_themes": _pages_themes(toutes),
         "prix": prix,
         "themes": [
             {"titre": THEMES[toutes[c]["theme"]], "mesure": mesure(c)}
@@ -151,7 +152,7 @@ def departement(
             }
             for angle in ANGLES
         ]
-        themes.append({"code": theme, "titre": titre, "colonnes": colonnes})
+        themes.append({"code": theme, "titre": titre, "colonnes": colonnes, "lien": theme.lower()})
     jeunes = series.par_age(conn, "DEP", code, list(JEUNES))
     contexte = {
         "fiche": fiche,
@@ -180,3 +181,76 @@ def _encadre_jeunes(lignes: list[dict], definitions: dict) -> dict | None:
         "tranches": [tranches[k] for k in sorted(tranches)],
         "annee": annee,
     }
+
+
+def _cartographiables(toutes: dict, theme: str | None = None) -> list[dict]:
+    """Indicateurs publiés par département (rangés par angle), d'un thème ou de tous."""
+    ordre = list(ANGLES)
+    return sorted(
+        (
+            i
+            for c, i in toutes.items()
+            if i["angle"] and c not in NATIONAUX and (theme is None or i["theme"] == theme)
+        ),
+        key=lambda i: (ordre.index(i["angle"]), i["code"]),
+    )
+
+
+def _pages_themes(toutes: dict) -> list[dict]:
+    """Thèmes ayant au moins un indicateur départemental, pour les liens vers leur carte."""
+    presents = {i["theme"] for i in _cartographiables(toutes)}
+    return [{"lien": t.lower(), "titre": titre} for t, titre in THEMES.items() if t in presents]
+
+
+@routeur.get("/theme/{theme}", response_class=HTMLResponse)
+def theme(
+    request: Request,
+    conn: Connexion,
+    theme: Annotated[str, Chemin(pattern=r"^[a-z]+$")],
+    indicateur: Annotated[str | None, Query(pattern=r"^[A-Z0-9_]+$")] = None,
+) -> HTMLResponse:
+    code_theme = theme.upper()
+    toutes = {i["code"]: i for i in series.indicateurs(conn, rubrique="BESOINS")}
+    choix = _cartographiables(toutes, code_theme)
+    if code_theme not in THEMES or not choix:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Thème inconnu")
+    if indicateur is None:
+        # Le chiffre clé du thème s'il y en a un, sinon le premier indicateur.
+        cles = [c for c in CHIFFRES_CLES if toutes.get(c) in choix]
+        indicateur = cles[0] if cles else choix[0]["code"]
+    elif toutes.get(indicateur) not in choix:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Indicateur inconnu pour ce thème")
+    definition = toutes[indicateur]
+    lignes = series.classement(conn, indicateur)
+    avec = [ligne for ligne in lignes if ligne["valeur"] is not None]
+    sans = [ligne for ligne in lignes if ligne["valeur"] is None]
+    france = None
+    if avec and avec[0]["france_code"] and definition["nature"] not in ("effectif", "flux"):
+        france = {
+            "code": avec[0]["france_code"],
+            "valeur": avec[0]["france_valeur"],
+            "provisoire": avec[0]["france_provisoire"],
+        }
+    modele_unite = _UNITES.get(definition["unite"], ("{}", 0))
+    donnees = {
+        "indicateur": {"code": indicateur, "libelle": definition["libelle"]},
+        # Format des nombres repris par le script de la carte (« {} €/m² », 1 décimale).
+        "format": dict(zip(("modele", "chiffres"), modele_unite, strict=True)),
+        "valeurs": [
+            {"code": ligne["code"], "nom": ligne["libelle"], "valeur": float(ligne["valeur"])}
+            for ligne in avec
+        ],
+    }
+    contexte = {
+        "theme": {"code": code_theme, "lien": theme, "titre": THEMES[code_theme]},
+        "choix": choix,
+        "definition": definition,
+        "annee": avec[0]["annee"] if avec else None,
+        "provisoire": any(ligne["provisoire"] for ligne in avec),
+        "france": france,
+        "classement": avec,
+        "sans_donnee": sans,
+        "pages_themes": _pages_themes(toutes),
+        "donnees": donnees,
+    }
+    return gabarits.TemplateResponse(request, "besoins_theme.html", contexte)

@@ -64,6 +64,13 @@
 </div>
 {% endif %}
 
+{% if pages_themes %}
+<h2 class="choisir">Comparer les départements, thème par thème</h2>
+<nav class="onglets" aria-label="Thèmes">
+  {% for t in pages_themes %}<a href="/besoins/theme/{{ t.lien }}">{{ t.titre }}</a>{% endfor %}
+</nav>
+{% endif %}
+
 <h2 class="choisir">Choisir un département</h2>
 <div class="regions">
   {% for r in regions %}

@@ -35,7 +35,7 @@ Navigateur ──► https://onepluche.duckdns.org
 │   └── /questions                 Questions guidées de l'appli 1                   ⬜
 ├── /besoins                       De quoi les Français ont besoin ? vue d'ensemble ✅
 │   ├── /besoins/DEP/{code}        Fiche département : thèmes × Accès/Coût/Manque  ✅
-│   └── /besoins/theme/{theme}     Carte et classement d'un thème                   ⬜
+│   └── /besoins/theme/{theme}     Carte et classement d'un thème                   ✅
 ├── /sources                       État des imports, licences                       ✅
 └── /api/docs                      Documentation de l'API (Swagger)                 ✅
 ```
@@ -97,13 +97,13 @@ Tableau : source, fichier, état (À jour, En attente de validation, Dernier fic
 Import en cours, Pas encore importé), dernière publication, millésime, lien et licence.
 Défilement horizontal du seul tableau sur téléphone.
 
-### Rubrique `/besoins` (⬜, appli 2 phase D)
+### Rubrique `/besoins` (🔶, appli 2 phase D)
 
 | Page | Contenu | Interactions |
 | --- | --- | --- |
 | `/besoins` | Part de chaque poste dans la dépense de consommation des ménages et part des dépenses pré-engagées dans leur revenu (comptes nationaux, France) ; hausse des prix depuis 2015 en barres (ensemble, énergie, électricité, gaz, loyers, santé ; moyennes annuelles, dernière année complète) ; un chiffre France par thème ; choix du département | Choix du département → `/besoins/DEP/{code}` ; thème → `/besoins/theme/{theme}` |
 | `/besoins/DEP/{code}` | Trois chiffres clés (loyer au m², part des DPE F ou G, accès aux généralistes) ; un bloc par thème en trois colonnes Accès, Coût, Manque, valeur France à côté ; encadré 18-39 ans | Lien vers `/territoire/DEP/{code}` (même département dans l'appli 1) ; lien vers chaque thème |
-| `/besoins/theme/{theme}` | Carte des départements, classement, valeur France | Liste de l'indicateur ; clic sur un département (carte ou classement) → sa fiche |
+| `/besoins/theme/{theme}` (`logement`, `energie`, `soins`…) | Onglets des thèmes ; définition de l'indicateur ; valeur France (masquée pour les effectifs), département le plus haut et le plus bas ; carte en une seule teinte (outre-mer en médaillons) ; classement ; départements sans donnée listés | Liste de l'indicateur (`?indicateur=`, recharge la page) ; clic sur un département (carte ou classement) → sa fiche ; indicateur ou thème inconnu → 404 |
 
 Absences de données affichées comme telles (exemple : Alsace-Moselle et Mayotte pour DVF),
 jamais comme zéro : « — » et « Pas de donnée pour ce département ». Sur la fiche, la valeur

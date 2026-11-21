@@ -26,7 +26,7 @@ Muthu.
 | Gabarits | Jinja2 | React, Svelte, Vue, toute application monopage |
 | Interactivité | JavaScript natif servi tel quel (`static/app.js`) | htmx, Alpine, npm, bundler |
 | Graphiques et carte | Apache ECharts, fichier local `static/echarts.min.js` | Chart.js, D3, Leaflet, tuiles externes |
-| Fond de carte (prévu) | Contours IGN Admin Express simplifiés, versionnés dans le dépôt | PostGIS |
+| Fond de carte | Contours IGN Admin Express simplifiés (`outils/carte_departements.py` → `static/carte-departements.js`), versionnés dans le dépôt | PostGIS, tuiles |
 | Lecture XLSX | openpyxl | pandas, polars |
 | XML sûr | defusedxml | lxml |
 | Base | PostgreSQL 17 (paquet Debian ; 15 minimum, pour `NULLS NOT DISTINCT`) | Base managée |

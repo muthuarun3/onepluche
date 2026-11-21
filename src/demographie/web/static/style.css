@@ -183,3 +183,18 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .encadre th, .encadre td { padding: .3rem .75rem .3rem 0; text-align: left;
   border-bottom: 1px solid var(--grille); }
 @media (max-width: 48rem) { .angles { grid-template-columns: minmax(0, 1fr); } }
+
+/* Pages par thème de l'appli 2 : onglets des thèmes, choix de l'indicateur, carte. */
+.onglets { display: flex; flex-wrap: wrap; gap: .25rem .5rem; margin: .5rem 0 1rem; }
+.onglets a { padding: .25rem .6rem; border: 1px solid var(--bordure); border-radius: 999px;
+  text-decoration: none; font-size: .9rem; }
+.onglets a[aria-current="page"] { background: var(--serie); border-color: var(--serie);
+  color: var(--surface); }
+.choix-indicateur { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.choix-indicateur select { max-width: 100%; min-width: 0; font: inherit; padding: .25rem; }
+.choix-indicateur button { font: inherit; padding: .25rem .75rem; }
+.graphique.carte { height: 36rem; }
+.classement table { width: 100%; }
+.classement th[scope="row"] { text-align: left; font-weight: 400; }
+.lien-theme { font-size: .9rem; font-weight: 400; margin-left: .5rem; }
+@media (max-width: 48rem) { .graphique.carte { height: 26rem; } }

@@ -82,6 +82,12 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   `DEPENSE_CONSO_MENAGES` par poste COICOP et `PART_DEPENSE_PRE_ENGAGEE`, groupe
   `demo importer budget`) ; budget des ménages en barres, hausse des prix depuis 2015 par
   poste, un chiffre France par thème, choix du département.
+- [x] **D4. Carte des départements partagée** — contours IGN Admin Express (COG, via
+  france-geojson) simplifiés par `outils/carte_departements.py` en
+  `static/carte-departements.js` (environ 180 Ko, outre-mer en médaillons), dessinés par
+  ECharts (`static/carte.js`) ; page `/besoins/theme/{theme}` : choix de l'indicateur,
+  valeur France, plus haut et plus bas, carte, classement, départements sans donnée listés.
+  *Critère :* clic sur un département (carte ou classement) → sa fiche.
 
 ## En cours
 
@@ -98,10 +104,6 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 ### Appli 2 — interface (phase D)
 
-- [ ] **D4. Carte des départements partagée** — contours IGN Admin Express simplifiés
-  (environ 300 Ko, versionnés), dessinés par ECharts ; page `/besoins/theme/{theme}` : carte,
-  classement, valeur France.
-  *Critère :* clic sur un département → sa fiche ; départements sans donnée signalés.
 - [ ] **D5. Six questions guidées de l'appli 2** — formulaire en listes, réponse = phrase à
   modèle fixe + graphique + source.
 - [ ] **D6. Clôture du MVP de l'appli 2** — vitrine à jour ; les sept critères du dossier

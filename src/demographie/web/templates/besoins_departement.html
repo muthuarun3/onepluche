@@ -34,7 +34,7 @@
 
 {% for theme in themes %}
 <section class="bloc theme" id="{{ theme.code|lower }}">
-  <h2>{{ theme.titre }}</h2>
+  <h2>{{ theme.titre }} <a class="lien-theme" href="/besoins/theme/{{ theme.lien }}">Comparer les départements</a></h2>
   <div class="angles">
     {% for colonne in theme.colonnes %}
     <div class="angle">

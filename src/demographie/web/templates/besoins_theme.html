@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block titre %}{{ theme.titre }} par département · On épluche{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/besoins">De quoi les Français ont besoin ?</a> › {{ theme.titre }}
+</nav>
+<h1>{{ theme.titre }} <span class="niveau">par département</span></h1>
+
+<nav class="onglets" aria-label="Thèmes">
+  {% for t in pages_themes %}
+  <a href="/besoins/theme/{{ t.lien }}"{% if t.lien == theme.lien %} aria-current="page"{% endif %}>{{ t.titre }}</a>
+  {% endfor %}
+</nav>
+
+<form class="choix-indicateur" method="get" action="/besoins/theme/{{ theme.lien }}">
+  <label for="indicateur">Indicateur</label>
+  <select id="indicateur" name="indicateur">
+    {% for i in choix %}
+    <option value="{{ i.code }}"{% if i.code == definition.code %} selected{% endif %}>{{ i.libelle }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">Afficher</button>
+</form>
+
+<p class="intro">{{ definition.definition }}</p>
+
+{% if classement %}
+<div class="chiffres">
+  <div class="chiffre">
+    <div class="chiffre-libelle">France{% if france and france.code == "FM" %} métropolitaine{% endif %}</div>
+    <div class="chiffre-valeur">{{ (france.valeur if france else None)|valeur_unite(definition.unite) }}</div>
+    <div class="chiffre-note">{{ annee }}{% if provisoire %}, provisoire{% endif %}</div>
+  </div>
+  <div class="chiffre">
+    <div class="chiffre-libelle">Le plus élevé · {{ classement[0].libelle }}</div>
+    <div class="chiffre-valeur">{{ classement[0].valeur|valeur_unite(definition.unite) }}</div>
+    <div class="chiffre-note">{{ annee }}</div>
+  </div>
+  <div class="chiffre">
+    <div class="chiffre-libelle">Le plus bas · {{ classement[-1].libelle }}</div>
+    <div class="chiffre-valeur">{{ classement[-1].valeur|valeur_unite(definition.unite) }}</div>
+    <div class="chiffre-note">{{ annee }}</div>
+  </div>
+</div>
+
+<section class="graphique-bloc">
+  <div class="graphique-titre"><h2>{{ definition.libelle }}, {{ annee }}</h2></div>
+  <p class="legende">Plus la couleur est foncée, plus la valeur est élevée. Cliquer sur un
+    département ouvre sa fiche. Sans donnée : laissé sans couleur. Outre-mer en médaillons à gauche.</p>
+  <div id="carte" class="graphique carte" role="img"
+       aria-label="Carte des départements : {{ definition.libelle }}, {{ annee }}. Le classement ci-dessous donne les mêmes valeurs."></div>
+</section>
+
+<section class="bloc classement">
+  <h2>Classement</h2>
+  <div class="tableau-defilant">
+    <table>
+      <thead><tr><th>Rang</th><th>Département</th><th>Valeur</th></tr></thead>
+      <tbody>
+        {% for l in classement %}
+        <tr><td>{{ loop.index }}</td>
+          <th scope="row"><a href="/besoins/DEP/{{ l.code }}"><span class="code">{{ l.code }}</span>{{ l.libelle }}</a></th>
+          <td>{{ l.valeur|valeur_unite(definition.unite) }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if sans_donnee %}
+  <p class="muet">Sans donnée pour {{ annee }} ({{ sans_donnee|length }}) :
+    {% for l in sans_donnee %}<a href="/besoins/DEP/{{ l.code }}">{{ l.libelle }}</a>{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+  {% endif %}
+  <p class="source">Source : <a href="{{ definition.source_url }}" rel="noopener">{{ definition.source_libelle }}</a>, {{ definition.source_licence }}.{% if definition.avertissement %} {{ definition.avertissement }}{% endif %}</p>
+</section>
+<script type="application/json" id="donnees">{{ donnees|tojson }}</script>
+{% else %}
+<p class="bandeau">Pas encore de donnée par département pour cet indicateur.</p>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+{% if classement %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/carte-departements.js"></script>
+{% endif %}
+<script src="/static/carte.js"></script>
+{% endblock %}

@@ -104,6 +104,8 @@ changement d'interface est vérifié à 1280 px et 390 px.
 | Menu latéral | `.barre-laterale` | Liens `--texte-2` ; survol fond `--grille` ; page courante : fond `--grille`, gras, filet gauche intérieur 3px `--serie`. |
 | État d'import | `.etat-*` | Préfixe texte « ✓ » ou « ! » : l'état ne repose jamais sur la couleur seule. |
 | Fil d'Ariane | `.fil` | Texte `--texte-2`, séparateur « › ». |
+| Onglets | `.onglets` | Liens en pilule, bordure `--bordure` ; page courante : fond `--serie`, texte `--surface`. |
+| Carte des départements | `.graphique.carte` | Une seule teinte de `--grille` (valeur basse) à `--serie` (valeur haute), jamais de couleur « bonne » ou « mauvaise » ; sans donnée : fond `--fond` et liste sous le classement ; le classement sert de tableau équivalent. |
 
 Rayon des coins : 8px (blocs), 6px (liens du menu), 2px (pastilles de légende).
 Bordures : 1px `--bordure`. Pas d'ombres dans l'appli.
