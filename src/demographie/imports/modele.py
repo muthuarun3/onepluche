@@ -43,6 +43,17 @@ class Ligne:
 
 
 @dataclass(frozen=True)
+class Poids:
+    """Poids d'une commune (résidences principales louées, population…), lu par un
+    connecteur de poids communaux et rangé dans ingest.poids_commune, jamais publié."""
+
+    dimension: str
+    annee: int
+    commune: str
+    poids: Decimal
+
+
+@dataclass(frozen=True)
 class Referentiel:
     """Ce que les connecteurs doivent savoir des territoires connus en base."""
 
@@ -78,7 +89,12 @@ class Connecteur(Protocol):
     Attributs facultatifs lus par le pipeline :
     - tolerance_sommes : tolérance du contrôle des sommes (défaut 0,5 %) ;
     - controle_couverture : True pour exiger tous les départements à la dernière période ;
-    - departements_absents : départements que la source ne couvre pas (ex. DVF).
+    - departements_absents : départements que la source ne couvre pas (ex. DVF) ;
+    - poids_communaux : True pour un connecteur dont `lire` donne des `Poids` (rangés
+      dans ingest.poids_commune) au lieu de lignes ; communes_min : nombre minimal de
+      communes attendu par dimension et par année ;
+    - lit_le_nom : True si `lire` a besoin du nom d'origine du fichier (sinon il reçoit
+      le brut archivé, nommé par son empreinte).
     """
 
     source: str

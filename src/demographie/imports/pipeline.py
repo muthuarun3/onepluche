@@ -7,10 +7,15 @@ Chaque fichier donne une ligne dans ingest.import :
                l'indicateur : prix, médianes) par rapport à la valeur déjà publiée ;
                publication après « demo valider <n° d'import> » ;
 - PUBLIE     : valeurs écrites dans stat.observation, vues recalculées.
+Un connecteur de poids communaux (`poids_communaux`) remplace à la place les poids de
+ingest.poids_commune pour chaque dimension et année du fichier.
 Le fichier brut est conservé sous son empreinte SHA-256 dans le dossier des bruts.
 """
 
 import shutil
+import tempfile
+from collections.abc import Iterator
+from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -18,11 +23,12 @@ import psycopg
 
 from demographie.db import charger_sql
 from demographie.imports import telechargement
-from demographie.imports.modele import Connecteur, Fichier, FichierIllisible, Referentiel
+from demographie.imports.modele import Connecteur, Fichier, FichierIllisible, Poids, Referentiel
 
 _SQL = Path(__file__).parent / "sql"
 TOLERANCE_SOMMES = 0.005
 SEUIL_VARIATION = 0.03
+COMMUNES_MIN = 30_000  # poids communaux : en deçà, le fichier est incomplet
 _VERROU = 7_204_011  # verrou consultatif : un seul import à la fois
 
 
@@ -132,8 +138,12 @@ def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_varia
         ).fetchone()["import_id"]
     conn.commit()
 
+    if getattr(connecteur, "poids_communaux", False):
+        return _importer_poids(conn, import_id, connecteur, brut, fichier)
+
     try:
-        lues, inconnus = _charger(conn, import_id, connecteur, brut)
+        with _sous_son_nom(brut, fichier, getattr(connecteur, "lit_le_nom", False)) as chemin:
+            lues, inconnus = _charger(conn, import_id, connecteur, chemin)
     except FichierIllisible as erreur:
         conn.rollback()
         return _rejeter(conn, import_id, fichier, f"Fichier illisible : {erreur}")
@@ -163,6 +173,19 @@ def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_varia
 
     chargees = publier(conn, import_id)
     return Resultat(fichier.nom, "PUBLIE", import_id, f"{chargees} valeurs publiées")
+
+
+@contextmanager
+def _sous_son_nom(brut: Path, fichier: Fichier, actif: bool) -> Iterator[Path]:
+    """Le brut archivé, vu sous le nom d'origine du fichier quand le connecteur en a besoin
+    (le nom porte l'année ou le contenu du fichier : Carte des loyers…)."""
+    if not actif:
+        yield brut
+        return
+    with tempfile.TemporaryDirectory() as dossier:
+        lien = Path(dossier) / Path(fichier.nom).name
+        lien.symlink_to(brut.resolve())
+        yield lien
 
 
 def _charger(conn, import_id, connecteur, chemin) -> tuple[int, set[tuple[str, str]]]:
@@ -213,6 +236,48 @@ def _charger(conn, import_id, connecteur, chemin) -> tuple[int, set[tuple[str, s
         raise FichierIllisible("Aucune valeur lue")
     conn.commit()
     return lues, inconnus
+
+
+def _importer_poids(conn, import_id, connecteur, chemin, fichier) -> Resultat:
+    """Remplace les poids communaux des dimensions et années lues dans le fichier."""
+    minimum = getattr(connecteur, "communes_min", COMMUNES_MIN)
+    try:
+        poids: list[Poids] = list(connecteur.lire(chemin, Referentiel(identifiants={})))
+    except FichierIllisible as erreur:
+        return _rejeter(conn, import_id, fichier, f"Fichier illisible : {erreur}")
+    erreurs = []
+    vus: dict[tuple[str, int], set[str]] = {}
+    for p in poids:
+        communes = vus.setdefault((p.dimension, p.annee), set())
+        if p.commune in communes:
+            erreurs.append(f"Poids en double : {p.dimension} {p.annee} {p.commune}")
+        communes.add(p.commune)
+        if p.poids < 0:
+            erreurs.append(f"Poids négatif : {p.dimension} {p.annee} {p.commune}")
+    if not vus:
+        erreurs.append("Aucun poids lu")
+    for (dimension, annee), communes in sorted(vus.items()):
+        if len(communes) < minimum:
+            erreurs.append(f"{dimension} {annee} : {len(communes)} communes (minimum {minimum})")
+    if erreurs:
+        return _rejeter(conn, import_id, fichier, "\n".join(erreurs[:5]), len(poids))
+    try:
+        for dimension, annee in vus:
+            conn.execute(
+                "DELETE FROM ingest.poids_commune WHERE dimension = %s AND annee = %s",
+                (dimension, annee),
+            )
+        with conn.cursor().copy(
+            "COPY ingest.poids_commune (dimension, annee, commune, poids, import_id) FROM STDIN"
+        ) as copie:
+            for p in poids:
+                copie.write_row((p.dimension, p.annee, p.commune, p.poids, import_id))
+        _terminer(conn, import_id, "PUBLIE", None, lues=len(poids), chargees=len(poids))
+    except Exception:
+        conn.rollback()
+        raise
+    annees = ", ".join(f"{d} {a}" for d, a in sorted(vus))
+    return Resultat(fichier.nom, "PUBLIE", import_id, f"{len(poids)} poids communaux ({annees})")
 
 
 def _controler(conn, import_id: int, tolerance: float = TOLERANCE_SOMMES) -> list[str]:
