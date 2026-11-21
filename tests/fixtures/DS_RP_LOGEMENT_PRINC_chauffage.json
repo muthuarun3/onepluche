@@ -1,0 +1,3680 @@
+{
+"jeu": "DS_RP_LOGEMENT_PRINC",
+"observations": [
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2301.19844
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2017.26089
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1857.39366
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11161.35421
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11358.24284
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 12844.72954
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14404.80402
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 13439.8621
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11648.05416
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 20187.97135
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 21212.40639
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 22333.49811
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 9482.23511
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 9517.87207
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 9409.06263
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 57537.56313
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 57545.64427
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 58092.7381
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3282.91292
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3013.47727
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3477.07713
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 474140.65069
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 471997.03765
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 472632.56337
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 62877.12962
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 46640.05642
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 32857.60536
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5505.45893
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4577.19192
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5048.64127
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 613299.16264
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 615395.34752
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 610506.46929
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1159105.31481
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1141623.11077
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1124522.35642
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 167655.05502
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 171987.75088
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 179833.12523
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 167655.05502
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 171987.75088
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 179833.12523
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 302322.26959
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 328194.50263
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 359288.03316
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 302322.26959
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 328194.50263
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 359288.03316
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 530936.56652
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 475663.71726
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 428324.88371
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8933690.48812
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 9769909.30871
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11229623.01263
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3583679.33521
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3117933.88473
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2384257.99717
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3316357.40683
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3669571.16118
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4175224.71413
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11202634.4686
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11701355.33557
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 12203426.86558
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 28268897.55067
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 29479745.53046
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 31220146.88319
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 701599.2854
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 745312.123
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 799289.40997
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 530936.56652
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 475663.71726
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 428324.88371
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8933690.48812
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 9769909.30871
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11229623.01263
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3583679.33521
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3117933.88473
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2384257.99717
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3316357.40683
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3669571.16118
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4175224.71413
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11202634.4686
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11701355.33557
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 12203426.86558
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 27567298.26527
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 28734433.40746
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 30420857.47323
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 30066.865
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 28186.794
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "BOT_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 29393.93892
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1621090.42411
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1740198.57935
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "ELC",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1907077.70039
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 386443.6553
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 301337.15508
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OIL",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 218737.25609
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 141772.48756
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 163030.07432
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "OTH",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 198216.26961
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2832673.23992
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2952838.92566
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "TOWN_GAS",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3094166.48511
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5012046.67189
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5185591.5284
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_T",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5447591.65011
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2012",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2017",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"BUILD_END": "_T",
+"CARPARK": "_T",
+"CARS": "_T",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"L_STAY": "_T",
+"NOR": "_T",
+"NRG_SRC": "_Z",
+"OCS": "DW_MAIN",
+"RP_MEASURE": "DWELLINGS",
+"TDW": "_T",
+"TIME_PERIOD": "2023",
+"TSH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.0
+}
+}
+}
+]
+}

@@ -2,6 +2,13 @@
 
 from demographie.imports.connecteurs.ameli import PATHOLOGIES
 from demographie.imports.connecteurs.bdm import CHOMAGE
+from demographie.imports.connecteurs.besoins import (
+    CHAUFFAGE,
+    LOGEMENTS,
+    NIVEAU_DE_VIE,
+    PAUVRETE,
+    RESIDENCES_PRINCIPALES,
+)
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.esr import DISCIPLINES, FORMATIONS
 from demographie.imports.connecteurs.estimations import (
@@ -25,4 +32,6 @@ CONNECTEURS = {
     "retraites": (EACR, MINIMUM_VIEILLESSE),
     "etudiants": (FORMATIONS, DISCIPLINES),
     "sante": (PATHOLOGIES,),
+    # Appli 2 : de quoi les Français ont-ils besoin ?
+    "logement": (LOGEMENTS, RESIDENCES_PRINCIPALES, CHAUFFAGE, NIVEAU_DE_VIE, PAUVRETE),
 }

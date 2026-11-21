@@ -60,6 +60,10 @@ class Indicateur(BaseModel):
     source_url: str
     source_licence: str
     mis_a_jour_le: datetime | None
+    # Appli 2 : rubrique (QUI ou BESOINS), thème et angle de lecture (accès, coût, manque).
+    rubrique: str = "QUI"
+    theme: str | None = None
+    angle: str | None = None
 
 
 class TerritoireCourt(BaseModel):
