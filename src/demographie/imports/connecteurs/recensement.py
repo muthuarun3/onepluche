@@ -44,17 +44,28 @@ class JeuRecensement:
     dimension: str
     dimension_ref: str  # dimension de ref.modalite
     modalites: dict[str, str | None]
-    # Code AGE -> (âge minimal, âge maximal ou None).
-    ages: dict[str, tuple[int, int | None]]
+    # Code d'âge -> (âge minimal ou None, âge maximal ou None) ; (None, None) = tous âges.
+    ages: dict[str, tuple[int | None, int | None]]
     source: str = "INSEE_RP"
     niveaux_publies: frozenset[str] = frozenset({"FRANCE", "REG", "DEP"})
     niveaux_geo: tuple[str, ...] = ("FRANCE", "REG", "DEP")
     # Ages interrogés un par un (sinon : tous les âges en un seul appel).
     requete_par_age: bool = True
+    # Nom de la dimension d'âge du jeu (« AGE_GP » pour Filosofi). Avec `ages` vide, le jeu
+    # n'a pas de tranche d'âge : toutes les valeurs sont « tous âges ».
+    dimension_age: str = "AGE"
+    periode_type: str = "RP"
+    # Distingue plusieurs indicateurs tirés du même jeu (un fichier brut chacun).
+    suffixe: str = ""
+    # Contrôle de couverture départementale (voir modele.Connecteur).
+    controle_couverture: bool = False
+    departements_absents: frozenset[str] = frozenset()
+    # Contrôle des sommes France = somme des départements (voir modele.Connecteur).
+    tolerance_sommes: float = 0.005
 
     @property
     def nom_fichier(self) -> str:
-        return f"{self.jeu}.json"
+        return f"{self.jeu}{self.suffixe}.json"
 
     def accepte(self, nom_fichier: str) -> bool:
         return nom_fichier == self.nom_fichier
@@ -63,7 +74,10 @@ class JeuRecensement:
         return [Fichier(url=f"{API}/{self.jeu}", nom=self.nom_fichier)]
 
     def _requetes(self) -> Iterator[str]:
-        ages = [{"AGE": a} for a in self.ages] if self.requete_par_age else [{}]
+        if self.requete_par_age and self.ages:
+            ages = [{self.dimension_age: a} for a in self.ages]
+        else:
+            ages = [{}]
         for niveau, age in itertools.product(self.niveaux_geo, ages):
             filtres = {"GEO": niveau, **age, **self.filtres}
             yield f"{API}/{self.jeu}?{urllib.parse.urlencode(filtres)}&maxResult={PAR_PAGE}"
@@ -104,15 +118,17 @@ class JeuRecensement:
             raise FichierIllisible(f"JSON illisible : {erreur}") from erreur
         if not observations:
             raise FichierIllisible("Aucune observation")
-        connues = {"GEO", "TIME_PERIOD", "FREQ", "AGE", self.dimension, *self.filtres}
+        connues = {"GEO", "TIME_PERIOD", "FREQ", self.dimension_age, self.dimension, *self.filtres}
         for obs in observations:
             try:
                 dim = obs["dimensions"]
                 valeur = Decimal(str(obs["measures"]["OBS_VALUE_NIVEAU"]["value"]))
             except (KeyError, TypeError, ArithmeticError) as erreur:
                 raise FichierIllisible(f"Observation illisible : {obs}") from erreur
-            if dim.get(self.dimension) not in self.modalites or dim.get("AGE") not in self.ages:
+            if dim.get(self.dimension) not in self.modalites:
                 continue  # sous-catégories plus fines non retenues
+            if self.ages and dim.get(self.dimension_age) not in self.ages:
+                continue
             inattendues = {
                 k: v
                 for k, v in dim.items()
@@ -123,14 +139,14 @@ class JeuRecensement:
             territoire = self._territoire(dim.get("GEO", ""))
             if territoire is None:
                 continue
-            age_min, age_max = self.ages[dim["AGE"]]
+            age_min, age_max = self.ages[dim[self.dimension_age]] if self.ages else (None, None)
             modalite = self.modalites[dim[self.dimension]]
             yield Ligne(
                 indicateur=self.indicateur,
                 niveau=territoire[0],
                 code=territoire[1],
                 periode=date(int(dim["TIME_PERIOD"]), 1, 1),
-                periode_type="RP",
+                periode_type=self.periode_type,
                 sexe="T",
                 age_min=age_min,
                 age_max=age_max,

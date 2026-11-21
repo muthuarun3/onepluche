@@ -148,10 +148,14 @@ def test_lire_xlsx(tmp_path):
 
 def test_catalogue_etendu(base_test):
     with psycopg.connect(base_test["proprietaire"]) as conn:
-        rubriques = conn.execute(
-            "SELECT DISTINCT rubrique, theme, angle FROM ref.indicateur"
+        # Les indicateurs de l'appli 1 restent dans la rubrique QUI, sans thème ni angle.
+        qui = conn.execute(
+            "SELECT DISTINCT theme, angle FROM ref.indicateur WHERE rubrique = 'QUI'"
         ).fetchall()
-        assert rubriques == [("QUI", None, None)]
+        assert qui == [(None, None)]
+        assert conn.execute(
+            "SELECT rubrique FROM ref.indicateur WHERE code = 'POP'"
+        ).fetchone() == ("QUI",)
         colonnes = {
             r[0]
             for r in conn.execute(

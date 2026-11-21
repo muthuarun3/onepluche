@@ -1,0 +1,107 @@
+"""Appli 2, phase B : logement (recensement) et revenus (Filosofi), extraits réels Melodi."""
+
+import dataclasses
+from datetime import date
+
+import pytest
+from conftest import FIXTURES
+from fastapi.testclient import TestClient
+
+from demographie import config, db
+from demographie.app import app
+from demographie.imports import pipeline
+from demographie.imports.connecteurs import besoins
+from demographie.imports.modele import Fichier, Referentiel
+
+REFERENTIEL = Referentiel(identifiants={})
+JEUX = (
+    besoins.LOGEMENTS,
+    besoins.RESIDENCES_PRINCIPALES,
+    besoins.CHAUFFAGE,
+    besoins.NIVEAU_DE_VIE,
+    besoins.PAUVRETE,
+)
+client = TestClient(app)
+
+
+def _valeurs(jeu, code, annee):
+    return {
+        (x.modalite[1] if x.modalite else "TOTAL", x.age_min, x.age_max): x.valeur
+        for x in jeu.lire(FIXTURES / jeu.nom_fichier, REFERENTIEL)
+        if x.code == code and x.periode == date(annee, 1, 1)
+    }
+
+
+def test_logements_de_la_creuse():
+    creuse = _valeurs(besoins.LOGEMENTS, "23", 2023)
+    assert round(creuse[("TOTAL", None, None)]) == 89365
+    assert round(creuse[("RESIDENCE_PRINCIPALE", None, None)]) == 58093
+    categories = [v for (m, _, _), v in creuse.items() if m != "TOTAL"]
+    assert round(sum(categories)) == 89365
+
+
+def test_statut_d_occupation_sans_doublon_des_locataires():
+    paris = _valeurs(besoins.RESIDENCES_PRINCIPALES, "75", 2023)
+    assert set(m for m, _, _ in paris) == {
+        "TOTAL", "PROPRIETAIRE", "LOCATAIRE_PRIVE", "LOCATAIRE_HLM", "LOCATAIRE_MEUBLE",
+        "LOGE_GRATUIT",
+    }  # fmt: skip
+    detail = sum(v for (m, _, _), v in paris.items() if m != "TOTAL")
+    assert round(detail) == round(paris[("TOTAL", None, None)])
+
+
+def test_chauffage_hors_outre_mer():
+    # La question n'est pas posée en outre-mer : la Guadeloupe n'est pas publiée, et le
+    # total de la France ne compte que les logements au chauffage connu.
+    assert _valeurs(besoins.CHAUFFAGE, "971", 2023) == {}
+    france = _valeurs(besoins.CHAUFFAGE, "FR", 2023)
+    metropole = _valeurs(besoins.CHAUFFAGE, "FM", 2023)
+    assert france[("TOTAL", None, None)] < 31_220_147  # résidences principales, DROM inclus
+    assert round(france[("FIOUL", None, None)]) == round(metropole[("FIOUL", None, None)])
+    detail = sum(v for (m, _, _), v in france.items() if m != "TOTAL")
+    assert round(detail) == round(france[("TOTAL", None, None)])
+
+
+def test_filosofi():
+    creuse = _valeurs(besoins.NIVEAU_DE_VIE, "23", 2023)
+    assert creuse[("TOTAL", None, None)] == 23210
+    assert {(m, a, b) for m, a, b in creuse} == {
+        ("TOTAL", None, None), ("TOTAL", 18, 29), ("TOTAL", 30, 39), ("PROPRIETAIRE", None, None),
+        ("LOCATAIRE", None, None),
+    }  # fmt: skip
+    assert _valeurs(besoins.PAUVRETE, "23", 2023)[("TOTAL", None, None)] == pytest.approx(19.5)
+    # Filosofi : métropole et La Réunion seulement.
+    assert _valeurs(besoins.NIVEAU_DE_VIE, "971", 2023) == {}
+    assert _valeurs(besoins.NIVEAU_DE_VIE, "974", 2023)
+
+
+def test_import_et_api(urls_module):
+    brut = config.charger().donnees_brutes
+    with db.connexion("import") as conn:
+        for jeu in JEUX:
+            # Extraits réduits : ni la couverture départementale ni les sommes ne peuvent
+            # être complètes (contrôlées sur les fichiers entiers avant la PR).
+            jeu = dataclasses.replace(jeu, controle_couverture=False, tolerance_sommes=1.0)
+            chemin = FIXTURES / jeu.nom_fichier
+            fichier = Fichier(url=chemin.resolve().as_uri(), nom=chemin.name)
+            resultat = pipeline.importer(conn, jeu, fichier, brut, chemin_local=chemin)
+            assert resultat.statut == "PUBLIE", resultat.message
+
+    def derniere(indicateur, code="23"):
+        serie = client.get(
+            "/api/v1/series", params={"indicateur": indicateur, "niveau": "DEP", "code": code}
+        ).json()
+        return serie["valeurs"][-1]
+
+    assert derniere("PART_PROPRIETAIRES") == {
+        "annee": 2023, "periode": "2023-01-01", "periode_type": "RP", "valeur": 73.0,
+        "provisoire": False,
+    }  # fmt: skip
+    assert derniere("PART_LOGEMENTS_VACANTS")["valeur"] == 15.3
+    assert derniere("PART_CHAUFFAGE_FIOUL")["valeur"] == 20.1
+    assert derniere("PART_LOCATAIRES_HLM", "75")["valeur"] == 18.1
+    assert derniere("NIVEAU_VIE_MEDIAN")["valeur"] == 23210
+    assert derniere("TAUX_PAUVRETE")["periode_type"] == "ANNEE"
+    indicateurs = {i["code"]: i for i in client.get("/api/v1/indicateurs").json()}
+    assert indicateurs["PART_CHAUFFAGE_FIOUL"]["theme"] == "ENERGIE"
+    assert indicateurs["NIVEAU_VIE_MEDIAN"]["rubrique"] == "BESOINS"

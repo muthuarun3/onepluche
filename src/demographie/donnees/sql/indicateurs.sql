@@ -1,5 +1,6 @@
 SELECT code, libelle, definition, unite, nature, formule, avertissement, comparabilite,
-       source_code, source_libelle, source_url, source_licence, mis_a_jour_le
+       source_code, source_libelle, source_url, source_licence, mis_a_jour_le,
+       rubrique, theme, angle
 FROM api.indicateur
 WHERE %(code)s::text IS NULL OR code = %(code)s::text
 ORDER BY array_position(
