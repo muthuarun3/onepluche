@@ -181,10 +181,16 @@ def test_erreurs(urls_module, url, attendu):
 def test_pages(urls_module):
     accueil = client.get("/")
     assert accueil.status_code == 200
-    assert 'href="/territoire/DEP/23"' in accueil.text
+    # Accueil : le texte d'introduction et un lien par question ; barre latérale.
+    assert "Muthu" in accueil.text and 'href="/francais"' in accueil.text
+    assert 'href="/besoins"' in accueil.text and "Quel âge" not in accueil.text
+    francais = client.get("/francais")
+    assert francais.status_code == 200
+    assert 'href="/territoire/DEP/23"' in francais.text
+    assert '<a href="/francais" aria-current="page">' in francais.text
     # Résumé : seuls les blocs dont les données sont importées apparaissent.
-    assert "Quel âge avons-nous ?" in accueil.text and "Muthu" in accueil.text
-    assert "Quels métiers ?" not in accueil.text
+    assert "Quel âge avons-nous ?" in francais.text
+    assert "Quels métiers ?" not in francais.text
     page = client.get("/territoire/DEP/23")
     assert page.status_code == 200
     assert "Creuse" in page.text and "40,8&nbsp;%" in page.text

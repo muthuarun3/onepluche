@@ -7,16 +7,33 @@
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <header class="entete">
-    <a class="marque" href="/">On épluche</a>
-    <nav><a href="/sources">Sources</a> · <a href="/api/docs">API</a></nav>
-  </header>
-  <main>
-    {% block contenu %}{% endblock %}
-  </main>
-  <footer class="pied">
-    Données : INSEE, DREES, Assurance maladie, ministère de l'Enseignement supérieur ; Licence Ouverte 2.0 (Etalab). Graphiques : Apache ECharts.
-  </footer>
+  {% set chemin = request.url.path %}
+  <div class="cadre">
+    <aside class="barre-laterale">
+      <a class="marque" href="/">On épluche</a>
+      <nav aria-label="Applications">
+        <ul>
+          <li><a href="/"{% if chemin == "/" %} aria-current="page"{% endif %}>Accueil</a></li>
+          {% for q in questions_menu %}
+          <li><a href="{{ q.lien }}"{% if chemin == q.lien or chemin.startswith(q.lien ~ "/") or (q.lien == "/francais" and chemin.startswith("/territoire/")) %} aria-current="page"{% endif %}>{{ q.titre }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="secondaire">
+          <li><a href="/sources"{% if chemin == "/sources" %} aria-current="page"{% endif %}>Sources</a></li>
+          <li><a href="/api/docs">API</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="colonne">
+      <main>
+        {% block contenu %}{% endblock %}
+      </main>
+      <footer class="pied">
+        Données : INSEE, DREES, Assurance maladie, ministère de l'Enseignement supérieur ;
+        Licence Ouverte 2.0 (Etalab). Graphiques : Apache ECharts.
+      </footer>
+    </div>
+  </div>
   {% block scripts %}{% endblock %}
 </body>
 </html>

@@ -51,9 +51,42 @@ body {
 }
 a { color: var(--lien); }
 main { max-width: 64rem; margin: 0 auto; padding: 1rem 1rem 3rem; }
+/* Barre latérale de navigation entre les applications ; en haut sur téléphone. */
+.cadre { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100vh; }
+.barre-laterale { background: var(--surface); border-right: 1px solid var(--bordure);
+  padding: 1rem; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+.barre-laterale .marque { display: block; font-size: 1.15rem; margin-bottom: 1rem; }
+.barre-laterale ul { list-style: none; padding: 0; margin: 0 0 1rem; }
+.barre-laterale li a { display: block; padding: .4rem .6rem; border-radius: 6px;
+  color: var(--texte-2); text-decoration: none; line-height: 1.3; }
+.barre-laterale li a:hover, .barre-laterale li a:focus-visible { background: var(--grille);
+  color: var(--texte); }
+.barre-laterale li a[aria-current="page"] { background: var(--grille); color: var(--texte);
+  font-weight: 600; box-shadow: inset 3px 0 0 var(--serie); }
+.barre-laterale .secondaire { border-top: 1px solid var(--bordure); padding-top: .75rem;
+  font-size: .9rem; }
+.colonne { min-width: 0; }
+.colonne .pied { max-width: 64rem; }
+@media (max-width: 48rem) {
+  .cadre { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .barre-laterale { position: static; height: auto; border-right: 0;
+    border-bottom: 1px solid var(--bordure); padding: .75rem 1rem; }
+  .barre-laterale .marque { margin-bottom: .5rem; }
+  .barre-laterale nav { display: flex; flex-wrap: wrap; gap: .25rem; }
+  .barre-laterale ul { display: flex; flex-wrap: wrap; gap: .25rem; margin: 0; }
+  .barre-laterale .secondaire { border-top: 0; padding-top: 0; }
+  .barre-laterale li a { padding: .3rem .55rem; font-size: .9rem; }
+}
+/* Page d'accueil : les questions */
+.questions { list-style: none; padding: 0; margin: 1rem 0 2rem; display: grid; gap: .75rem; }
+.question { display: block; background: var(--surface); border: 1px solid var(--bordure);
+  border-radius: 8px; padding: 1rem 1.25rem; text-decoration: none; color: var(--texte); }
+.question:hover, .question:focus-visible { border-color: var(--serie); }
+.question-titre { display: block; font-size: 1.2rem; font-weight: 600; color: var(--lien); }
+.question-resume { display: block; color: var(--texte-2); margin-top: .25rem; }
 h1 { font-size: 1.75rem; margin: .5rem 0; }
 h2 { font-size: 1.15rem; margin: 0; }
-.entete, .pied { display: flex; justify-content: space-between; align-items: center;
+.pied { display: flex; justify-content: space-between; align-items: center;
   max-width: 64rem; margin: 0 auto; padding: .75rem 1rem; }
 .pied { color: var(--texte-3); font-size: .85rem; border-top: 1px solid var(--bordure); }
 .marque { font-weight: 600; text-decoration: none; color: var(--texte); }

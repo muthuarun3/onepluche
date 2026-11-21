@@ -2,7 +2,7 @@
 {% block titre %}{{ fiche.libelle }} · On épluche{% endblock %}
 {% block contenu %}
 <nav class="fil" aria-label="Fil d'Ariane">
-  <a href="/">Accueil</a>
+  <a href="/francais">Qui sont les Français ?</a>
   {% if fiche.parent_code %}
   › <a href="/territoire/{{ fiche.parent_niveau }}/{{ fiche.parent_code }}">{{ fiche.parent_libelle }}</a>
   {% endif %}
