@@ -66,7 +66,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 ### Appli 2 — données (phases B et C)
 
-- [ ] **B2. Loyers** — poids communaux (résidences principales louées, recensement
+- [~] **B2. Loyers** (PR #23) — poids communaux (résidences principales louées, recensement
   communal Melodi) ; connecteur Carte des loyers (CSV Latin-1, virgule décimale, un jeu
   data.gouv par année trouvé par recherche) ; indicateur `LOYER_ANNONCE_M2` par type de
   bien, moyenne pondérée au département.
