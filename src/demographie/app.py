@@ -12,7 +12,7 @@ from demographie.api import v1
 from demographie.web import pages
 
 app = FastAPI(
-    title="Démographie France",
+    title="On épluche",
     version=__version__,
     docs_url="/api/docs",
     redoc_url=None,
