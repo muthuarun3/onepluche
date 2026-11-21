@@ -160,7 +160,6 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .barre { display: block; height: 100%; min-width: 2px; background: var(--serie);
   border-radius: 0 4px 4px 0; }
 .barre-valeur { text-align: right; font-variant-numeric: tabular-nums; }
-.choisir { font-size: 1.4rem; margin-top: 2rem; }
 @media (max-width: 40rem) {
   .barres li { grid-template-columns: minmax(0, 8.5rem) 1fr 3rem; }
   .bloc { padding: .75rem 1rem; }
@@ -183,6 +182,55 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .encadre th, .encadre td { padding: .3rem .75rem .3rem 0; text-align: left;
   border-bottom: 1px solid var(--grille); }
 @media (max-width: 48rem) { .angles { grid-template-columns: minmax(0, 1fr); } }
+/* Choix du territoire : carte de France (SVG), outre-mer à côté, liste complète repliée. */
+.cache { position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap; }
+.choix-territoire { background: var(--surface); border: 1px solid var(--bordure);
+  border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
+.choix-entete { display: flex; justify-content: space-between; align-items: center;
+  gap: .5rem 1rem; flex-wrap: wrap; }
+.consigne { color: var(--texte-2); font-size: .9rem; margin: .35rem 0 .75rem; }
+.bascule { display: inline-flex; border: 1px solid var(--bordure); border-radius: 6px;
+  overflow: hidden; font-size: .9rem; }
+.bascule label { padding: .3rem .75rem; cursor: pointer; color: var(--texte-2); }
+.bascule label + label { border-left: 1px solid var(--bordure); }
+#niveau-REG:checked ~ .choix-entete label[for="niveau-REG"],
+#niveau-DEP:checked ~ .choix-entete label[for="niveau-DEP"] { background: var(--grille);
+  color: var(--texte); font-weight: 600; box-shadow: inset 0 -3px 0 var(--serie); }
+#niveau-REG:focus-visible ~ .choix-entete label[for="niveau-REG"],
+#niveau-DEP:focus-visible ~ .choix-entete label[for="niveau-DEP"] { outline: 2px solid var(--lien);
+  outline-offset: -2px; }
+/* Première vue affichée par défaut ; l'autre quand son bouton est coché. */
+.vue { display: grid; grid-template-columns: minmax(0, 25rem) minmax(0, 1fr); gap: 1rem 1.5rem;
+  align-items: start; }
+.vue + .vue { display: none; }
+#niveau-DEP:checked ~ .vue-REG { display: none; }
+#niveau-DEP:checked ~ .vue-DEP { display: grid; }
+.carte { width: 100%; height: auto; display: block; }
+.carte path { fill: var(--bordure); stroke: var(--surface); stroke-width: 1.5;
+  stroke-linejoin: round; transition: none; }
+.carte a { outline: none; }
+.carte a:hover path, .carte a:focus-visible path { fill: var(--serie); }
+.carte a:focus-visible path { stroke: var(--texte); stroke-width: 3; }
+.carte .encart rect { fill: var(--surface); stroke: var(--bordure); stroke-width: 1.5; }
+.carte .encart text { fill: var(--texte-2); font-size: 30px; }
+.outre-mer-titre { display: block; color: var(--texte-2); font-size: .85rem; margin-bottom: .35rem; }
+.outre-mer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap;
+  gap: .4rem; }
+.outre-mer a { display: block; padding: .35rem .7rem; border: 1px solid var(--bordure);
+  border-radius: 6px; text-decoration: none; color: var(--texte); font-size: .9rem; }
+.outre-mer a:hover, .outre-mer a:focus-visible { border-color: var(--serie); background: var(--grille); }
+.liste-complete { margin-top: 1rem; }
+.liste-complete summary { cursor: pointer; color: var(--lien); }
+.region h3 { font-size: 1rem; margin: 0; }
+@media (max-width: 40rem) {
+  .choix-territoire { padding: .75rem 1rem; }
+  .vue, #niveau-DEP:checked ~ .vue-DEP { grid-template-columns: minmax(0, 1fr); }
+}
+@media (forced-colors: active) {
+  .carte path { fill: Canvas; stroke: CanvasText; stroke-width: 1; }
+  .carte a:hover path, .carte a:focus-visible path { fill: Highlight; }
+}
 
 /* Pages par thème de l'appli 2 : onglets des thèmes, choix de l'indicateur, carte. */
 .onglets { display: flex; flex-wrap: wrap; gap: .25rem .5rem; margin: .5rem 0 1rem; }
@@ -193,8 +241,18 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .choix-indicateur { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
 .choix-indicateur select { max-width: 100%; min-width: 0; font: inherit; padding: .25rem; }
 .choix-indicateur button { font: inherit; padding: .25rem .75rem; }
-.graphique.carte { height: 36rem; }
+/* Carte colorée : la teinte de chaque département vient du gabarit (color-mix). */
+.carte.coloree path { stroke: var(--surface); stroke-width: 1; }
+.carte.coloree path.sans-donnee, .carte.coloree a:hover path.sans-donnee { fill: var(--surface);
+  stroke: var(--bordure); }
+.carte.coloree a:hover path, .carte.coloree a:focus-visible path { stroke: var(--texte);
+  stroke-width: 3; }
+.degrade { display: flex; align-items: center; gap: .5rem; font-size: .85rem;
+  color: var(--texte-2); font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+.degrade-barre { flex: 1 1 6rem; height: .7rem; border-radius: 2px;
+  background: linear-gradient(to right, var(--grille), var(--serie)); }
+.pastille.sans-donnee { background: var(--surface); border: 1px solid var(--bordure); }
+.outre-mer .pastille { margin: 0 .4rem 0 0; vertical-align: -1px; }
 .classement table { width: 100%; }
 .classement th[scope="row"] { text-align: left; font-weight: 400; }
 .lien-theme { font-size: .9rem; font-weight: 400; margin-left: .5rem; }
-@media (max-width: 48rem) { .graphique.carte { height: 26rem; } }

@@ -25,8 +25,9 @@ Muthu.
 | Migrations | Fichiers SQL numérotés `sql/migrations/NNN_*.sql` + `demo migrer` | Alembic |
 | Gabarits | Jinja2 | React, Svelte, Vue, toute application monopage |
 | Interactivité | JavaScript natif servi tel quel (`static/app.js`) | htmx, Alpine, npm, bundler |
-| Graphiques et carte | Apache ECharts, fichier local `static/echarts.min.js` | Chart.js, D3, Leaflet, tuiles externes |
-| Fond de carte | Contours IGN Admin Express simplifiés (`outils/carte_departements.py` → `static/carte-departements.js`), versionnés dans le dépôt | PostGIS, tuiles |
+| Graphiques | Apache ECharts, fichier local `static/echarts.min.js` | Chart.js, D3, Leaflet, tuiles externes |
+| Carte de choix du territoire | SVG dessiné par le serveur (`web/carte.py`, `templates/_carte.html`), un lien par territoire, sans JavaScript | ECharts pour ce choix (1 Mo de script pour une page de liens) |
+| Fond de carte | Contours IGN Admin Express COG simplifiés (via france-geojson, Licence ouverte), projetés et versionnés dans `web/contours.json` (36 Ko, 12 Ko compressé) ; régénérés par `outils/contours_svg.py` | PostGIS |
 | Lecture XLSX | openpyxl | pandas, polars |
 | XML sûr | defusedxml | lxml |
 | Base | PostgreSQL 17 (paquet Debian ; 15 minimum, pour `NULLS NOT DISTINCT`) | Base managée |

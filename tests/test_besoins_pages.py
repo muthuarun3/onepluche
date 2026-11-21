@@ -74,6 +74,10 @@ def test_pages(urls_module):
     assert accueil.status_code == 200
     vue = accueil.text
     assert 'href="/besoins/DEP/23"' in vue
+    # Carte des départements seulement (pas de bascule régions), Mayotte en bouton.
+    assert '<a href="/besoins/DEP/23" aria-label="Creuse"><path' in vue
+    assert 'for="niveau-REG"' not in vue
+    assert '<li><a href="/besoins/DEP/976">Mayotte</a></li>' in vue
     # Budget 2025 (provisoire) : logement en tête, dépenses pré-engagées.
     assert "Le budget des ménages" in vue and "milliards d'euros" in vue
     assert vue.index("Logement, eau, gaz") < vue.index("Alimentation et boissons")
@@ -112,7 +116,11 @@ def test_pages(urls_module):
     assert soins_html.index('href="/besoins/DEP/75"') < soins_html.index('href="/besoins/DEP/23"')
     assert "2,40 consultations" in soins_html
     assert "Sans donnée pour 2024" in soins_html and 'href="/besoins/DEP/2A"' in soins_html
-    assert 'id="donnees"' in soins_html and "/static/carte-departements.js" in soins_html
+    # Carte SVG colorée : Paris dans l'encart, la plus forte valeur à 100 %.
+    assert 'class="carte coloree"' in soins_html
+    assert "Paris (75) : 4,57 consultations" in soins_html
+    assert "var(--serie) 100%" in soins_html and 'class="sans-donnee"' in soins_html
+    assert "echarts" not in soins_html
     ald = client.get("/besoins/theme/soins", params={"indicateur": "ALD_SANS_MT"}).text
     assert '<option value="ALD_SANS_MT" selected>' in ald and "4,3\u00a0%" in ald
     assert client.get("/besoins/theme/inconnu").status_code == 404

@@ -10,6 +10,7 @@ from fastapi import Path as Chemin
 from fastapi.responses import HTMLResponse
 
 from demographie.donnees import series, territoires
+from demographie.web.carte import choix_territoire
 from demographie.web.pages import Connexion, _decimal_fr, gabarits
 
 routeur = APIRouter(prefix="/besoins", include_in_schema=False)
@@ -116,6 +117,7 @@ def besoins(request: Request, conn: Connexion) -> HTMLResponse:
         ],
         "regions": sorted((t for t in tous if t["niveau"] == "REG"), key=lambda t: t["libelle"]),
         "departements": departements,
+        "choix": choix_territoire(tous, ("DEP",), "/besoins/DEP/{code}"),
     }
     return gabarits.TemplateResponse(request, "besoins.html", contexte)
 
@@ -231,16 +233,7 @@ def theme(
             "valeur": avec[0]["france_valeur"],
             "provisoire": avec[0]["france_provisoire"],
         }
-    modele_unite = _UNITES.get(definition["unite"], ("{}", 0))
-    donnees = {
-        "indicateur": {"code": indicateur, "libelle": definition["libelle"]},
-        # Format des nombres repris par le script de la carte (« {} €/m² », 1 décimale).
-        "format": dict(zip(("modele", "chiffres"), modele_unite, strict=True)),
-        "valeurs": [
-            {"code": ligne["code"], "nom": ligne["libelle"], "valeur": float(ligne["valeur"])}
-            for ligne in avec
-        ],
-    }
+    carte = _carte_coloree(lignes, definition["unite"])
     contexte = {
         "theme": {"code": code_theme, "lien": theme, "titre": THEMES[code_theme]},
         "choix": choix,
@@ -251,6 +244,34 @@ def theme(
         "classement": avec,
         "sans_donnee": sans,
         "pages_themes": _pages_themes(toutes),
-        "donnees": donnees,
+        "carte": carte,
     }
     return gabarits.TemplateResponse(request, "besoins_theme.html", contexte)
+
+
+def _carte_coloree(lignes: list[dict], unite: str) -> dict:
+    """Contours du choix du territoire, chaque département avec sa valeur et sa teinte :
+    ``teinte`` va de 0 (valeur la plus basse) à 100 (la plus haute), None sans donnée."""
+    carte = choix_territoire(
+        [{**ligne, "niveau": "DEP"} for ligne in lignes], ("DEP",), "/besoins/DEP/{code}"
+    )
+    par_code = {ligne["code"]: ligne["valeur"] for ligne in lignes}
+    connues = [float(v) for v in par_code.values() if v is not None]
+    bas, haut = (min(connues), max(connues)) if connues else (0.0, 0.0)
+    vue = carte["vues"][0]
+    for t in (*vue["sur_carte"], *vue["encart"], *vue["outre_mer"]):
+        valeur = par_code.get(t["code"])
+        t["texte"] = valeur_unite(valeur, unite) if valeur is not None else "pas de donnée"
+        t["teinte"] = (
+            None
+            if valeur is None
+            else round(100 * (float(valeur) - bas) / (haut - bas))
+            if haut > bas
+            else 100
+        )
+    return {
+        **carte,
+        "vue": vue,
+        "bas": valeur_unite(bas, unite) if connues else None,
+        "haut": valeur_unite(haut, unite) if connues else None,
+    }

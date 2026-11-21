@@ -12,6 +12,7 @@ from fastapi.templating import Jinja2Templates
 
 from demographie import donnees
 from demographie.donnees import series, sources, territoires
+from demographie.web.carte import choix_territoire
 from demographie.web.resume import resume
 
 DOSSIER = Path(__file__).parent
@@ -95,6 +96,7 @@ def francais(request: Request, conn: Connexion) -> HTMLResponse:
         "france": [t for t in tous if t["niveau"] == "FRANCE"],
         "regions": sorted((t for t in tous if t["niveau"] == "REG"), key=lambda t: t["libelle"]),
         "departements": departements,
+        "choix": choix_territoire(tous, ("REG", "DEP"), "/territoire/{niveau}/{code}"),
         "resume": resume(conn),
     }
     return gabarits.TemplateResponse(request, "francais.html", contexte)

@@ -1,0 +1,53 @@
+{# Choix du territoire par une carte de France. Sans choix, la page reste sur la France
+   entière. caller() : la liste complète, repliée, pour le clavier et les petits territoires. #}
+{% macro choix_territoire(choix, titre, consigne) %}
+<section class="choix-territoire" aria-labelledby="choix-titre">
+  {% for v in choix.vues %}
+  <input type="radio" name="niveau-carte" id="niveau-{{ v.niveau }}" class="cache"{% if loop.first %} checked{% endif %}>
+  {% endfor %}
+  <div class="choix-entete">
+    <h2 id="choix-titre">{{ titre }}</h2>
+    {% if choix.vues|length > 1 %}
+    <div class="bascule" role="group" aria-label="Niveau de la carte">
+      {% for v in choix.vues %}<label for="niveau-{{ v.niveau }}">{{ v.libelle }}</label>{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <p class="consigne">{{ consigne }}</p>
+  {% for v in choix.vues %}
+  <div class="vue vue-{{ v.niveau }}">
+    {% set c = choix.cadre_encart %}
+    <svg class="carte" viewBox="{{ choix.viewBox }}" role="group"
+         aria-label="Carte de France métropolitaine, {{ v.libelle|lower }}">
+      {% for t in v.sur_carte %}
+      <a href="{{ t.lien }}" aria-label="{{ t.libelle }}"><path d="{{ t.d }}"><title>{{ t.libelle }}{% if v.niveau == "DEP" %} ({{ t.code }}){% endif %}</title></path></a>
+      {% endfor %}
+      {% if v.encart %}
+      <g class="encart">
+        <rect x="{{ c[0] }}" y="{{ c[1] }}" width="{{ c[2] }}" height="{{ c[3] }}" rx="8"></rect>
+        <text x="{{ c[0] + 14 }}" y="{{ c[1] + c[3] - 44 }}">Paris et</text>
+        <text x="{{ c[0] + 14 }}" y="{{ c[1] + c[3] - 12 }}">petite couronne</text>
+        {% for t in v.encart %}
+        <a href="{{ t.lien }}" aria-label="{{ t.libelle }}"><path d="{{ t.d }}"><title>{{ t.libelle }} ({{ t.code }})</title></path></a>
+        {% endfor %}
+      </g>
+      {% endif %}
+    </svg>
+    {% if v.outre_mer %}
+    <div class="outre-mer">
+      <span class="outre-mer-titre">Outre-mer</span>
+      <ul>
+        {% for t in v.outre_mer %}<li><a href="{{ t.lien }}">{{ t.libelle }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+  {% if caller %}
+  <details class="liste-complete">
+    <summary>Liste de tous les territoires</summary>
+    {{ caller() }}
+  </details>
+  {% endif %}
+</section>
+{% endmacro %}

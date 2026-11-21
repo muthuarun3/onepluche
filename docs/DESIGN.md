@@ -104,8 +104,9 @@ changement d'interface est vérifié à 1280 px et 390 px.
 | Menu latéral | `.barre-laterale` | Liens `--texte-2` ; survol fond `--grille` ; page courante : fond `--grille`, gras, filet gauche intérieur 3px `--serie`. |
 | État d'import | `.etat-*` | Préfixe texte « ✓ » ou « ! » : l'état ne repose jamais sur la couleur seule. |
 | Fil d'Ariane | `.fil` | Texte `--texte-2`, séparateur « › ». |
+| Choix du territoire | `.choix-territoire` | En tête des pages `/francais` et `/besoins`. Bloc : titre, bascule Régions / Départements (`.bascule`, entrée cochée en fond `--grille` et filet bas 3px `--serie`), consigne, carte SVG (25rem max ; pleine largeur sur téléphone), boutons « Outre-mer », liste complète repliée. Territoires en `--bordure`, frontières en `--surface`, survol et focus en `--serie`. Paris et la petite couronne agrandis dans un encart en bas à gauche. L'outre-mer n'est jamais dessiné sur la carte. |
 | Onglets | `.onglets` | Liens en pilule, bordure `--bordure` ; page courante : fond `--serie`, texte `--surface`. |
-| Carte des départements | `.graphique.carte` | Une seule teinte de `--grille` (valeur basse) à `--serie` (valeur haute), jamais de couleur « bonne » ou « mauvaise » ; sans donnée : fond `--fond` et liste sous le classement ; le classement sert de tableau équivalent. |
+| Carte colorée | `.carte.coloree` | Mêmes contours que le choix du territoire. Une seule teinte, de `--grille` (valeur basse) à `--serie` (valeur haute) par `color-mix`, jamais de couleur « bonne » ou « mauvaise » ; sans donnée : `--surface` hachuré de `--bordure` et liste sous le classement ; survol et focus : contour `--texte`. Outre-mer en pastilles de la même couleur. Le classement sert de tableau équivalent. |
 
 Rayon des coins : 8px (blocs), 6px (liens du menu), 2px (pastilles de légende).
 Bordures : 1px `--bordure`. Pas d'ombres dans l'appli.

@@ -82,11 +82,16 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   `DEPENSE_CONSO_MENAGES` par poste COICOP et `PART_DEPENSE_PRE_ENGAGEE`, groupe
   `demo importer budget`) ; budget des ménages en barres, hausse des prix depuis 2015 par
   poste, un chiffre France par thème, choix du département.
-- [x] **D4. Carte des départements partagée** — contours IGN Admin Express (COG, via
-  france-geojson) simplifiés par `outils/carte_departements.py` en
-  `static/carte-departements.js` (environ 180 Ko, outre-mer en médaillons), dessinés par
-  ECharts (`static/carte.js`) ; page `/besoins/theme/{theme}` : choix de l'indicateur,
-  valeur France, plus haut et plus bas, carte, classement, départements sans donnée listés.
+- [x] **Choix du territoire par une carte** (demande de Muthu, 21/11/2026) — sur
+  `/francais` et `/besoins`, la liste des régions est remplacée par une carte de France en
+  SVG (bascule Régions / Départements sur `/francais`, encart Paris et petite couronne),
+  outre-mer en boutons à côté, liste complète repliée. Sans choix : France entière.
+  Contours dans `web/contours.json`, régénérés par `outils/contours_svg.py`.
+  *Critère :* toucher un territoire ouvre sa fiche ; aucun défilement horizontal à 390 px.
+- [x] **D4. Carte des départements partagée** — reprend les contours de `web/contours.json`
+  (SVG dessiné par le serveur, sans JavaScript), colorés par indicateur en une seule teinte ;
+  page `/besoins/theme/{theme}` : choix de l'indicateur, valeur France, plus haut et plus
+  bas, carte (outre-mer en pastilles), classement, départements sans donnée listés.
   *Critère :* clic sur un département (carte ou classement) → sa fiche.
 
 ## En cours

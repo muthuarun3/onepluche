@@ -43,12 +43,38 @@
   </div>
 </div>
 
+{% macro zone(t) -%}
+<a href="{{ t.lien }}" aria-label="{{ t.libelle }} : {{ t.texte }}"><path d="{{ t.d }}"{% if t.teinte is none %} class="sans-donnee"{% else %} style="fill: color-mix(in srgb, var(--serie) {{ t.teinte }}%, var(--grille))"{% endif %}><title>{{ t.libelle }} ({{ t.code }}) : {{ t.texte }}</title></path></a>
+{%- endmacro %}
 <section class="graphique-bloc">
   <div class="graphique-titre"><h2>{{ definition.libelle }}, {{ annee }}</h2></div>
-  <p class="legende">Plus la couleur est foncée, plus la valeur est élevée. Cliquer sur un
-    département ouvre sa fiche. Sans donnée : laissé sans couleur. Outre-mer en médaillons à gauche.</p>
-  <div id="carte" class="graphique carte" role="img"
-       aria-label="Carte des départements : {{ definition.libelle }}, {{ annee }}. Le classement ci-dessous donne les mêmes valeurs."></div>
+  <p class="legende">Plus la couleur est foncée, plus la valeur est élevée. Toucher un
+    département ouvre sa fiche.</p>
+  {% set v = carte.vue %}{% set c = carte.cadre_encart %}
+  <div class="vue">
+    <svg class="carte coloree" viewBox="{{ carte.viewBox }}" role="group"
+         aria-label="Carte des départements de France métropolitaine : {{ definition.libelle }}, {{ annee }}. Le classement ci-dessous donne les mêmes valeurs.">
+      {% for t in v.sur_carte %}{{ zone(t) }}{% endfor %}
+      <g class="encart">
+        <rect x="{{ c[0] }}" y="{{ c[1] }}" width="{{ c[2] }}" height="{{ c[3] }}" rx="8"></rect>
+        <text x="{{ c[0] + 14 }}" y="{{ c[1] + c[3] - 44 }}">Paris et</text>
+        <text x="{{ c[0] + 14 }}" y="{{ c[1] + c[3] - 12 }}">petite couronne</text>
+        {% for t in v.encart %}{{ zone(t) }}{% endfor %}
+      </g>
+    </svg>
+    <div>
+      <div class="degrade" aria-hidden="true"><span>{{ carte.bas }}</span><span class="degrade-barre"></span><span>{{ carte.haut }}</span></div>
+      <p class="muet"><span class="pastille sans-donnee"></span> Pas de donnée</p>
+      {% if v.outre_mer %}
+      <div class="outre-mer">
+        <span class="outre-mer-titre">Outre-mer</span>
+        <ul>
+          {% for t in v.outre_mer %}<li><a href="{{ t.lien }}"><span class="pastille{% if t.teinte is none %} sans-donnee{% endif %}"{% if t.teinte is not none %} style="background: color-mix(in srgb, var(--serie) {{ t.teinte }}%, var(--grille))"{% endif %}></span>{{ t.libelle }} · {{ t.texte }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
 </section>
 
 <section class="bloc classement">
@@ -71,15 +97,7 @@
   {% endif %}
   <p class="source">Source : <a href="{{ definition.source_url }}" rel="noopener">{{ definition.source_libelle }}</a>, {{ definition.source_licence }}.{% if definition.avertissement %} {{ definition.avertissement }}{% endif %}</p>
 </section>
-<script type="application/json" id="donnees">{{ donnees|tojson }}</script>
 {% else %}
 <p class="bandeau">Pas encore de donnée par département pour cet indicateur.</p>
 {% endif %}
-{% endblock %}
-{% block scripts %}
-{% if classement %}
-<script src="/static/echarts.min.js"></script>
-<script src="/static/carte-departements.js"></script>
-{% endif %}
-<script src="/static/carte.js"></script>
 {% endblock %}
