@@ -8,8 +8,8 @@ from fastapi.testclient import TestClient
 from demographie import config, db
 from demographie.app import app
 from demographie.imports import pipeline
-from demographie.imports.connecteurs import EstimationsDepartements, besoins, soins
-from demographie.imports.modele import Fichier
+from demographie.imports.connecteurs import EstimationsDepartements, besoins, energie, soins
+from demographie.imports.modele import Fichier, Referentiel
 from demographie.web.besoins import valeur_unite
 
 client = TestClient(app)
@@ -20,6 +20,26 @@ def test_valeur_unite():
     assert valeur_unite(29.5, "pourcentage") == "29,5 %"
     assert valeur_unite(5416826, "logements") == "5 416 826"
     assert valeur_unite(None, "euros") == "—"
+
+
+def test_budget_des_menages():
+    lignes = list(
+        besoins.DEPENSES_MENAGES.lire(
+            FIXTURES / besoins.DEPENSES_MENAGES.nom_fichier, Referentiel(identifiants={})
+        )
+    )
+    an_2024 = [x for x in lignes if x.periode.year == 2024]
+    total = next(x.valeur for x in an_2024 if x.modalite is None)
+    assert len(an_2024) == 14  # total + 13 postes
+    assert abs(sum(x.valeur for x in an_2024 if x.modalite) - total) < 1
+    assert {x.statut for x in an_2024} == {"PROVISOIRE"}
+    assert {x.statut for x in lignes if x.periode.year == 2022} == {"DEFINITIF"}
+    pre = list(
+        besoins.DEPENSE_PRE_ENGAGEE.lire(
+            FIXTURES / besoins.DEPENSE_PRE_ENGAGEE.nom_fichier, Referentiel(identifiants={})
+        )
+    )
+    assert str(next(x.valeur for x in pre if x.periode.year == 2024)) == "30.077"
 
 
 def _importer(connecteur, nom):
@@ -42,6 +62,9 @@ def test_pages(urls_module):
         (apl, apl.nom_fichier),
         (soins.ALD_SANS_MEDECIN_TRAITANT, soins.ALD_SANS_MEDECIN_TRAITANT.nom_fichier),
         *((j, j.nom_fichier) for j in filosofi),
+        (besoins.DEPENSES_MENAGES, besoins.DEPENSES_MENAGES.nom_fichier),
+        (besoins.DEPENSE_PRE_ENGAGEE, besoins.DEPENSE_PRE_ENGAGEE.nom_fichier),
+        (energie.PRIX, energie.PRIX.nom_fichier),
     ]
     for connecteur, nom in etapes:
         resultat = _importer(connecteur, nom)
@@ -49,7 +72,15 @@ def test_pages(urls_module):
 
     accueil = client.get("/besoins")
     assert accueil.status_code == 200
-    assert 'href="/besoins/DEP/23"' in accueil.text
+    vue = accueil.text
+    assert 'href="/besoins/DEP/23"' in vue
+    # Budget 2025 (provisoire) : logement en tête, dépenses pré-engagées.
+    assert "Le budget des ménages" in vue and "milliards d'euros" in vue
+    assert vue.index("Logement, eau, gaz") < vue.index("Alimentation et boissons")
+    assert "30,3\u00a0%" in vue
+    # Prix : l'extrait commence en 2024, première année complète.
+    assert "Les prix depuis 2024" in vue and "Entre 2024 et 2025" in vue
+    assert "Accès aux soins · Accès aux médecins généralistes" in vue
 
     page = client.get("/besoins/DEP/23")
     assert page.status_code == 200

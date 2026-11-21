@@ -4,6 +4,8 @@ from demographie.imports.connecteurs.ameli import PATHOLOGIES
 from demographie.imports.connecteurs.bdm import CHOMAGE
 from demographie.imports.connecteurs.besoins import (
     CHAUFFAGE,
+    DEPENSE_PRE_ENGAGEE,
+    DEPENSES_MENAGES,
     LOGEMENTS,
     NIVEAU_DE_VIE,
     PAUVRETE,
@@ -59,6 +61,7 @@ CONNECTEURS = {
         PARC_SOCIAL,
     ),
     "energie": (ELECTRICITE, GAZ, DIAGNOSTICS, PRIX),
+    "budget": (DEPENSES_MENAGES, DEPENSE_PRE_ENGAGEE),
     "soins": (
         APL_MEDECINS,
         ALD_SANS_MEDECIN_TRAITANT,

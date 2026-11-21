@@ -205,3 +205,68 @@ POIDS_RP_LOUEES = PoidsRecensement(
     niveaux_geo=("COM", "ARM"),
     niveaux_publies=frozenset(),
 )
+
+
+# Comptes nationaux (INSEE, Melodi) : dépense de consommation des ménages par fonction
+# (nomenclature COICOP 2018, 13 postes), en millions d'euros courants, France entière.
+# Les trois dernières années sont provisoires ou semi-définitives (OBS_STATUS « P »).
+_COMPTES = {
+    "PRICES": "V",
+    "TRANSFORMATION": "N",
+    "COUNTERPART_AREA": "W2",
+    "REF_SECTOR": "S14",
+    "INSTR_ASSET": "_Z",
+    "PRODUCT": "_T",  # hors détail des services d'assurance
+}
+POSTES_CONSO = {
+    "_Z": None,
+    "CP01": "ALIMENTATION",
+    "CP02": "ALCOOL_TABAC",
+    "CP03": "HABILLEMENT",
+    "CP04": "LOGEMENT",
+    "CP05": "EQUIPEMENT_MAISON",
+    "CP06": "SANTE",
+    "CP07": "TRANSPORTS",
+    "CP08": "COMMUNICATION",
+    "CP09": "LOISIRS",
+    "CP10": "ENSEIGNEMENT",
+    "CP11": "RESTAURANTS_HOTELS",
+    "CP12": "ASSURANCES_FINANCE",
+    "CP13": "AUTRES",
+}
+
+DEPENSES_MENAGES = JeuRecensement(
+    jeu="DD_CNA_CONSO_MENAGES_COICOP",
+    suffixe="_depense",
+    source="INSEE_CNA",
+    indicateur="DEPENSE_CONSO_MENAGES",
+    filtres={**_COMPTES, "STO": "P31", "UNIT_MEASURE": "XDC", "ACCOUNTING_ENTRY": "D"},
+    dimension="EXPENDITURE",
+    dimension_ref="poste_conso",
+    modalites=POSTES_CONSO,
+    ages={},
+    requete_par_age=False,
+    niveaux_geo=("FRANCE",),
+    niveaux_publies=frozenset({"FRANCE"}),
+    periode_type="ANNEE",
+    statuts_provisoires=frozenset({"P"}),
+)
+
+# Dépenses « pré-engagées » (logement, énergie, assurances, abonnements, cantines…) en
+# part du revenu disponible brut des ménages.
+DEPENSE_PRE_ENGAGEE = JeuRecensement(
+    jeu="DD_CNA_CONSO_MENAGES_COICOP",
+    suffixe="_pre_engagee",
+    source="INSEE_CNA",
+    indicateur="PART_DEPENSE_PRE_ENGAGEE",
+    filtres={**_COMPTES, "STO": "_DEP_REVENU", "UNIT_MEASURE": "PT", "ACCOUNTING_ENTRY": "_Z"},
+    dimension="EXPENDITURE",
+    dimension_ref="poste_conso",
+    modalites={"CPDPE": None},
+    ages={},
+    requete_par_age=False,
+    niveaux_geo=("FRANCE",),
+    niveaux_publies=frozenset({"FRANCE"}),
+    periode_type="ANNEE",
+    statuts_provisoires=frozenset({"P"}),
+)

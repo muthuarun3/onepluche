@@ -71,6 +71,7 @@ uv run demo importer sante                # patients par groupe de pathologies (
 uv run demo importer logement             # besoins : logements, revenus, loyers, ventes (DVF), parc social
 uv run demo importer energie              # besoins : électricité et gaz (Agence ORE), DPE (ADEME), prix (IPC)
 uv run demo importer soins                # besoins : accès aux médecins (DREES), ALD sans médecin traitant, équipements (BPE)
+uv run demo importer budget               # besoins : dépense des ménages par poste, dépenses pré-engagées (comptes nationaux)
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)
 uv run demo verifier                      # compare aux chiffres publiés par l'INSEE
 uv run uvicorn demographie.app:app --reload

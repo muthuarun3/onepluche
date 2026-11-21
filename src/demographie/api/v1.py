@@ -110,7 +110,15 @@ def _territoire(conn: psycopg.Connection, niveau: str, code: str) -> dict:
 
 Rubrique = Literal["QUI", "BESOINS"]
 Theme = Literal[
-    "LOGEMENT", "ENERGIE", "EAU", "ALIMENTATION", "TRANSPORTS", "SOINS", "NUMERIQUE", "GARDE"
+    "BUDGET",
+    "LOGEMENT",
+    "ENERGIE",
+    "EAU",
+    "ALIMENTATION",
+    "TRANSPORTS",
+    "SOINS",
+    "NUMERIQUE",
+    "GARDE",
 ]
 
 

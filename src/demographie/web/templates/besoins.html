@@ -3,7 +3,66 @@
 {% block contenu %}
 <h1>De quoi les Français ont besoin ?</h1>
 <p class="intro">Se loger, se chauffer, se soigner : ce que coûtent les besoins essentiels
-  dans chaque département, et qui a du mal à y accéder, toujours comparé à la France.</p>
+  et qui a du mal à y accéder. D'abord pour la France, puis département par département.</p>
+
+<div class="blocs">
+  {% if budget %}
+  <section class="bloc">
+    <h2>Le budget des ménages</h2>
+    <p class="phrase">En {{ budget.annee }}, les ménages ont dépensé
+      <strong>{{ budget.total_milliards|entier }} milliards d'euros</strong> pour leur
+      consommation{% if budget.provisoire %} (chiffre provisoire){% endif %}.
+      {% if budget.pre_engagee and budget.pre_engagee.ligne %}
+      <strong>{{ budget.pre_engagee.ligne.valeur|valeur_unite("pourcentage") }}</strong> de leur
+      revenu part en dépenses pré-engagées : logement, énergie, assurances, abonnements.
+      {% endif %}</p>
+    <figure class="barres">
+      <figcaption>Part de chaque poste dans la dépense de consommation</figcaption>
+      <ul>
+        {% for p in budget.postes %}
+        <li><span class="barre-libelle">{{ p.libelle }}</span>
+          <span class="barre-piste"><span class="barre" style="width: {{ (100 * p.part / budget.max)|round(1) }}%"></span></span>
+          <span class="barre-valeur">{{ p.part|pct }}</span></li>
+        {% endfor %}
+      </ul>
+    </figure>
+    <p class="source">Source : <a href="{{ budget.definition.source_url }}" rel="noopener">{{ budget.definition.source_libelle }}</a>, {{ budget.definition.source_licence }}. {{ budget.definition.avertissement }}</p>
+  </section>
+  {% endif %}
+
+  {% if prix %}
+  <section class="bloc">
+    <h2>Les prix depuis {{ prix.debut }}</h2>
+    {% set ensemble = prix.postes[0] %}
+    <p class="phrase">Entre {{ prix.debut }} et {{ prix.fin }}, les prix à la consommation ont
+      augmenté de <strong>{{ ensemble.hausse|valeur_unite("pourcentage") }}</strong> en moyenne.</p>
+    <figure class="barres">
+      <figcaption>Hausse des prix de {{ prix.debut }} à {{ prix.fin }} (moyennes annuelles)</figcaption>
+      <ul>
+        {% for h in prix.postes %}
+        <li><span class="barre-libelle">{{ h.libelle }}</span>
+          <span class="barre-piste"><span class="barre" style="width: {{ (100 * (h.hausse|float|abs) / prix.max)|round(1) }}%"></span></span>
+          <span class="barre-valeur">{% if h.hausse > 0 %}+{% endif %}{{ h.hausse|valeur_unite("pourcentage") }}</span></li>
+        {% endfor %}
+      </ul>
+    </figure>
+    {% if prix.definition %}<p class="source">Source : <a href="{{ prix.definition.source_url }}" rel="noopener">{{ prix.definition.source_libelle }}</a>, {{ prix.definition.source_licence }}. {{ prix.definition.avertissement }}</p>{% endif %}
+  </section>
+  {% endif %}
+</div>
+
+{% if themes %}
+<h2>Un chiffre par thème, pour la France</h2>
+<div class="chiffres">
+  {% for t in themes %}{% set m = t.mesure %}
+  <div class="chiffre" title="{{ m.definition.definition }}">
+    <div class="chiffre-libelle">{{ t.titre }} · {{ m.definition.libelle }}</div>
+    <div class="chiffre-valeur">{% if m.ligne %}{{ m.ligne.valeur|valeur_unite(m.definition.unite) }}{% else %}—{% endif %}</div>
+    <div class="chiffre-note">{% if m.ligne %}{{ m.ligne.annee }}{% if m.ligne.provisoire %}, provisoire{% endif %} · {{ m.definition.source_libelle }}{% else %}Pas encore de donnée{% endif %}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
 
 <h2 class="choisir">Choisir un département</h2>
 <div class="regions">
