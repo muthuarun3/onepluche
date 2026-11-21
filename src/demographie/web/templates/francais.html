@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_carte.html" import choix_territoire %}
 {% block titre %}Qui sont les Français ? · On épluche{% endblock %}
 
 {% macro barres(liste, titre) %}
@@ -19,8 +20,29 @@
 {% block contenu %}
 
 <h1>Qui sont les Français ?</h1>
-<p class="intro">France entière, derniers chiffres publiés. Le détail par région et par
-  département est en bas de page.</p>
+<p class="intro">France entière, derniers chiffres publiés. Pour une région ou un
+  département, touchez-le sur la carte.</p>
+
+{% call choix_territoire(choix, "Choisir un territoire",
+  "Touchez une région ou un département pour ouvrir sa fiche. Sans choix, les chiffres ci-dessous portent sur la France entière.") %}
+<ul class="liste-france">
+  {% for t in france %}
+  <li><a href="/territoire/FRANCE/{{ t.code }}">{{ t.libelle }}</a></li>
+  {% endfor %}
+</ul>
+<div class="regions">
+  {% for r in regions %}
+  <section class="region">
+    <h3><a href="/territoire/REG/{{ r.code }}">{{ r.libelle }}</a></h3>
+    <ul>
+      {% for d in departements.get(r.code, []) %}
+      <li><a href="/territoire/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+{% endcall %}
 
 <div class="blocs">
   {% set b = resume.combien %}
@@ -118,22 +140,4 @@
   {% endif %}
 </div>
 
-<h2 class="choisir">Choisir un territoire</h2>
-<ul class="liste-france">
-  {% for t in france %}
-  <li><a href="/territoire/FRANCE/{{ t.code }}">{{ t.libelle }}</a></li>
-  {% endfor %}
-</ul>
-<div class="regions">
-  {% for r in regions %}
-  <section class="region">
-    <h2><a href="/territoire/REG/{{ r.code }}">{{ r.libelle }}</a></h2>
-    <ul>
-      {% for d in departements.get(r.code, []) %}
-      <li><a href="/territoire/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endfor %}
-</div>
 {% endblock %}

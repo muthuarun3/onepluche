@@ -74,6 +74,10 @@ def test_pages(urls_module):
     assert accueil.status_code == 200
     vue = accueil.text
     assert 'href="/besoins/DEP/23"' in vue
+    # Carte des départements seulement (pas de bascule régions), Mayotte en bouton.
+    assert '<a href="/besoins/DEP/23" aria-label="Creuse"><path' in vue
+    assert 'for="niveau-REG"' not in vue
+    assert '<li><a href="/besoins/DEP/976">Mayotte</a></li>' in vue
     # Budget 2025 (provisoire) : logement en tête, dépenses pré-engagées.
     assert "Le budget des ménages" in vue and "milliards d'euros" in vue
     assert vue.index("Logement, eau, gaz") < vue.index("Alimentation et boissons")

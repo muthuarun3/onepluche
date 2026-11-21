@@ -92,7 +92,7 @@ n'est décidée à ce jour.
 | F7 | Imports automatiques hebdomadaires, contrôles, validation manuelle, alertes | En service |
 | F8 | Sauvegarde chiffrée quotidienne, test de restauration mensuel | En service |
 | F9 | Rubrique `/besoins` : vue d'ensemble, fiche département, page thème | Prévu (appli 2, phase D) |
-| F10 | Carte des départements, construite une fois pour les deux applis | Prévu (appli 2, phase D) |
+| F10 | Carte des départements, construite une fois pour les deux applis | Choix du territoire par la carte en service ; carte colorée par indicateur prévue (D4) |
 | F11 | Questions guidées (réponse = phrase + graphique + source) | Prévu |
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
 | F13 | Vitrine Neocities à jour, même direction artistique que l'appli | PR #22 ouverte |
