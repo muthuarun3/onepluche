@@ -78,14 +78,14 @@ Codes actuels : `INSEE_COG`, `INSEE_EST`, `INSEE_RP`, `INSEE_EC`, `INSEE_CHOM`, 
 | `indicateur_id` | smallint | clé primaire, identité |
 | `code` | text | unique, `^[A-Z][A-Z0-9_]+$` |
 | `libelle`, `definition` | text | obligatoires |
-| `unite` | text | `personnes`, `pourcentage`, `pour_mille`, `ratio`, `annees`, `logements`, `nombre`, `euros`, `euros_m2`, `mwh`, `indice`, `consultations_hab`, `pour_10000` |
+| `unite` | text | `personnes`, `pourcentage`, `pour_mille`, `ratio`, `annees`, `logements`, `nombre`, `euros`, `euros_m2`, `mwh`, `indice`, `consultations_hab`, `pour_10000`, `millions_euros` |
 | `nature` | text | `effectif`, `taux`, `flux`, `ratio`, `prix` |
 | `source_id` | smallint | → `ref.source` |
 | `formule` | text | NULL si publié tel quel ; sinon formule lisible du calcul |
 | `avertissement` | text | mise en garde affichée avec le chiffre |
 | `comparabilite` | text | règle de comparaison dans le temps et entre territoires |
 | `rubrique` | text | `QUI` (défaut, appli 1) ou `BESOINS` (appli 2) |
-| `theme` | text | `LOGEMENT`, `ENERGIE`, `EAU`, `ALIMENTATION`, `TRANSPORTS`, `SOINS`, `NUMERIQUE`, `GARDE` ; obligatoire si et seulement si `rubrique = 'BESOINS'` |
+| `theme` | text | `BUDGET` (vue d'ensemble, France), `LOGEMENT`, `ENERGIE`, `EAU`, `ALIMENTATION`, `TRANSPORTS`, `SOINS`, `NUMERIQUE`, `GARDE` ; obligatoire si et seulement si `rubrique = 'BESOINS'` |
 | `angle` | text | `ACCES`, `COUT`, `MANQUE` ou NULL ; seulement pour `BESOINS` |
 | `borne_min`, `borne_max` | numeric | bornes plausibles (rejet hors bornes) ; `borne_min <= borne_max` |
 | `seuil_variation` | numeric | entre 0 et 1 ; NULL = règle générale (3 % pour les effectifs) |
