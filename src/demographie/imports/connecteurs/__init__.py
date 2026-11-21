@@ -7,6 +7,7 @@ from demographie.imports.connecteurs.besoins import (
     LOGEMENTS,
     NIVEAU_DE_VIE,
     PAUVRETE,
+    POIDS_RP_LOUEES,
     RESIDENCES_PRINCIPALES,
 )
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
@@ -15,6 +16,7 @@ from demographie.imports.connecteurs.estimations import (
     EstimationsDepartements,
     EstimationsRegions,
 )
+from demographie.imports.connecteurs.loyers import CARTE_DES_LOYERS
 from demographie.imports.connecteurs.melodi import DECES, NAISSANCES
 from demographie.imports.connecteurs.recensement import (
     CATEGORIES,
@@ -33,5 +35,14 @@ CONNECTEURS = {
     "etudiants": (FORMATIONS, DISCIPLINES),
     "sante": (PATHOLOGIES,),
     # Appli 2 : de quoi les Français ont-ils besoin ?
-    "logement": (LOGEMENTS, RESIDENCES_PRINCIPALES, CHAUFFAGE, NIVEAU_DE_VIE, PAUVRETE),
+    # Les poids communaux avant la Carte des loyers, qui les utilise.
+    "logement": (
+        LOGEMENTS,
+        RESIDENCES_PRINCIPALES,
+        CHAUFFAGE,
+        NIVEAU_DE_VIE,
+        PAUVRETE,
+        POIDS_RP_LOUEES,
+        CARTE_DES_LOYERS,
+    ),
 }

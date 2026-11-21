@@ -6,7 +6,7 @@ ou moyenne pondérée par un poids communal (loyers, accessibilité aux soins…
 """
 
 from collections import defaultdict
-from collections.abc import Iterable, Mapping
+from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass
 from decimal import Decimal
 
@@ -46,10 +46,14 @@ def sommer(valeurs: Iterable[tuple[str, Decimal]]) -> dict[str, Agregat]:
 
 
 def moyenne_ponderee(
-    valeurs: Iterable[tuple[str, Decimal]], poids: Mapping[str, Decimal]
+    valeurs: Iterable[tuple[str, Decimal]],
+    poids: Mapping[str, Decimal],
+    groupe: Callable[[str], str | None] = departement_de,
 ) -> dict[str, Agregat]:
     """Moyenne par département de valeurs communales, pondérée par le poids de chaque commune.
 
+    `groupe` change le regroupement (région, France…) : il reçoit le code commune et
+    renvoie le code du groupe, ou None pour laisser la commune de côté.
     Une commune sans poids (ou de poids nul) est ignorée et comptée dans « sans_poids ».
     """
     if not poids:
@@ -59,7 +63,9 @@ def moyenne_ponderee(
     nombres: dict[str, int] = defaultdict(int)
     ignorees: dict[str, int] = defaultdict(int)
     for commune, valeur in valeurs:
-        dep = departement_de(commune)
+        dep = groupe(commune)
+        if dep is None:
+            continue
         p = poids.get(commune.strip().zfill(5))
         if not p:
             ignorees[dep] += 1

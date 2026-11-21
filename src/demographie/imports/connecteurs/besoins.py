@@ -4,12 +4,14 @@ connecteur du recensement ; les autres sources ont leur propre module.
 """
 
 import dataclasses
+import json
 from collections import defaultdict
 from collections.abc import Iterator
+from decimal import Decimal
 from pathlib import Path
 
 from demographie.imports.connecteurs.recensement import JeuRecensement
-from demographie.imports.modele import Ligne, Referentiel
+from demographie.imports.modele import FichierIllisible, Ligne, Poids, Referentiel
 
 # Les autres dimensions du jeu logement, fixées à leur total.
 _LOGEMENT_TOTAUX = {
@@ -153,4 +155,53 @@ PAUVRETE = JeuRecensement(
     periode_type="ANNEE",
     controle_couverture=True,
     departements_absents=_FILOSOFI_ABSENTS,
+)
+
+
+@dataclasses.dataclass(frozen=True)
+class PoidsRecensement(JeuRecensement):
+    """Poids communaux tirés du recensement, pour ramener une source communale au
+    département. Les arrondissements de Paris, Lyon et Marseille sont lus avec les
+    communes : la Carte des loyers les détaille.
+    """
+
+    poids_communaux: bool = True
+    communes_min: int = 30_000
+
+    def lire(self, chemin: Path, referentiel: Referentiel) -> Iterator[Poids]:
+        try:
+            observations = json.loads(chemin.read_text(encoding="utf-8"))["observations"]
+        except (ValueError, KeyError, TypeError) as erreur:
+            raise FichierIllisible(f"JSON illisible : {erreur}") from erreur
+        for obs in observations:
+            try:
+                dim = obs["dimensions"]
+                mesure = obs["measures"]["OBS_VALUE_NIVEAU"]
+                if "value" not in mesure:
+                    continue  # commune absente de ce millésime (fusion, création)
+                valeur = Decimal(str(mesure["value"]))
+                _millesime, niveau, commune = dim["GEO"].split("-", 2)
+                annee = int(dim["TIME_PERIOD"])
+            except (KeyError, TypeError, ValueError, ArithmeticError) as erreur:
+                raise FichierIllisible(f"Observation illisible : {obs}") from erreur
+            inattendues = {k: v for k, v in self.filtres.items() if dim.get(k, v) != v}
+            if inattendues or niveau not in self.niveaux_geo:
+                raise FichierIllisible(f"Observation inattendue : {dim}")
+            yield Poids(self.indicateur, annee, commune, valeur)
+
+
+# Résidences principales louées (vides ou meublées, parc privé et social) de chaque
+# commune : poids de la Carte des loyers.
+POIDS_RP_LOUEES = PoidsRecensement(
+    jeu="DS_RP_LOGEMENT_PRINC",
+    suffixe="_communes_louees",
+    indicateur="RP_LOUEES",
+    filtres={**_LOGEMENT_TOTAUX, "OCS": "DW_MAIN", "TSH": "200", "NRG_SRC": "_T"},
+    dimension="TSH",
+    dimension_ref="statut_occupation",
+    modalites={"200": None},
+    ages={},
+    requete_par_age=False,
+    niveaux_geo=("COM", "ARM"),
+    niveaux_publies=frozenset(),
 )
