@@ -137,7 +137,8 @@ def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_varia
         liste = ", ".join(f"{n}/{c}" for n, c in sorted(inconnus)[:10])
         return _rejeter(conn, import_id, fichier, f"Territoires inconnus : {liste}", lues)
 
-    erreurs = _controler(conn, import_id)
+    tolerance = getattr(connecteur, "tolerance_sommes", TOLERANCE_SOMMES)
+    erreurs = _controler(conn, import_id, tolerance)
     if erreurs:
         return _rejeter(conn, import_id, fichier, "\n".join(erreurs), lues)
 
@@ -207,7 +208,7 @@ def _charger(conn, import_id, connecteur, chemin) -> tuple[int, set[tuple[str, s
     return lues, inconnus
 
 
-def _controler(conn, import_id: int) -> list[str]:
+def _controler(conn, import_id: int, tolerance: float = TOLERANCE_SOMMES) -> list[str]:
     erreurs = []
     bilan = conn.execute(
         charger_sql(_SQL, "controle_doublons_negatifs"), {"import_id": import_id}
@@ -218,7 +219,7 @@ def _controler(conn, import_id: int) -> list[str]:
         erreurs.append(f"{bilan['hors_bornes']} taux hors bornes (> 100 % ou > 1000 ‰)")
     if bilan["doublons"]:
         erreurs.append(f"{bilan['doublons']} valeur(s) en double")
-    parametres = {"import_id": import_id, "tolerance": TOLERANCE_SOMMES}
+    parametres = {"import_id": import_id, "tolerance": tolerance}
     for e in conn.execute(charger_sql(_SQL, "controle_sommes"), parametres).fetchall()[:5]:
         erreurs.append(
             f"{e['indicateur']} {e['code']} {e['periode']:%Y} sexe {e['sexe']} : "

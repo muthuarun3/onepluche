@@ -1,5 +1,6 @@
 """Un connecteur par source : découverte des fichiers publiés et lecture de leur contenu."""
 
+from demographie.imports.connecteurs.ameli import PATHOLOGIES
 from demographie.imports.connecteurs.bdm import CHOMAGE
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.esr import DISCIPLINES, FORMATIONS
@@ -23,4 +24,5 @@ CONNECTEURS = {
     "recensement": (RECENSEMENT, CATEGORIES, SECTEURS, SCOLARISATION),
     "retraites": (EACR, MINIMUM_VIEILLESSE),
     "etudiants": (FORMATIONS, DISCIPLINES),
+    "sante": (PATHOLOGIES,),
 }
