@@ -102,3 +102,35 @@ table.sources td, table.sources th { text-align: left; vertical-align: top; }
 .etat-publie::before { content: "✓ "; }
 .etat-rejete::before, .etat-en_attente::before { content: "! "; font-weight: 700; }
 table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color: var(--texte-2); }
+
+/* Accueil « Qui sont les Français ? » */
+.bandeau { background: var(--surface); border: 1px solid var(--bordure);
+  border-left: 4px solid var(--serie); border-radius: 8px; padding: .75rem 1.25rem;
+  margin: .5rem 0 1.5rem; font-size: 1.05rem; }
+.bandeau p { margin: .25rem 0; }
+.blocs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+  gap: 1rem; margin: 1rem 0 2rem; }
+.bloc { background: var(--surface); border: 1px solid var(--bordure); border-radius: 8px;
+  padding: 1rem 1.25rem; min-width: 0; }
+.bloc .phrase { margin: .5rem 0 .75rem; }
+.bloc .chiffres { margin: .5rem 0; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.bloc .chiffre { padding: .5rem .75rem; min-width: 0; }
+.bloc .source { margin-top: .75rem; }
+.bloc .detail { font-size: .9rem; }
+.barres { margin: .75rem 0 0; }
+.barres figcaption { color: var(--texte-2); font-size: .85rem; margin-bottom: .25rem; }
+.barres ul { list-style: none; padding: 0; margin: 0; }
+.barres li { display: grid; grid-template-columns: minmax(0, 11rem) 1fr 3.5rem;
+  gap: .5rem; align-items: center; font-size: .85rem; padding: .15rem 0; }
+.barre-libelle { color: var(--texte-2); line-height: 1.25; }
+.barre-piste { display: block; height: .7rem; }
+.barre { display: block; height: 100%; min-width: 2px; background: var(--serie);
+  border-radius: 0 4px 4px 0; }
+.barre-valeur { text-align: right; font-variant-numeric: tabular-nums; }
+.choisir { font-size: 1.4rem; margin-top: 2rem; }
+@media (max-width: 40rem) {
+  .barres li { grid-template-columns: minmax(0, 8.5rem) 1fr 3rem; }
+  .bloc { padding: .75rem 1rem; }
+  .bloc .chiffre-valeur { font-size: 1.2rem; }
+}
+@media (forced-colors: active) { .barre { background: CanvasText; } }

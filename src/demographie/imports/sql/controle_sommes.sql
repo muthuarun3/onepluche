@@ -1,8 +1,9 @@
 -- France et France métropolitaine comparées à la somme des territoires les plus fins
 -- du même fichier (tous âges, par indicateur et par sexe), pour les effectifs et les
--- flux seulement : un taux ne s'additionne pas. Renvoie les écarts au-delà de la tolérance.
+-- flux seulement : un taux ne s'additionne pas. Chaque modalité (catégorie, secteur…)
+-- est contrôlée séparément. Renvoie les écarts au-delà de la tolérance.
 WITH l AS (
-  SELECT l.indicateur_id, l.periode, l.sexe, l.valeur, t.niveau, t.code,
+  SELECT l.indicateur_id, l.periode, l.sexe, l.modalite_id, l.valeur, t.niveau, t.code,
          CASE WHEN t.niveau = 'DEP' THEN p.code ELSE t.code END AS region
   FROM ingest.ligne l
   JOIN ref.indicateur i USING (indicateur_id)
@@ -19,18 +20,20 @@ plus_fin AS (
   GROUP BY indicateur_id
 ),
 sommes AS (
-  SELECT l.indicateur_id, l.periode, l.sexe,
+  SELECT l.indicateur_id, l.periode, l.sexe, l.modalite_id,
          sum(l.valeur) AS fr,
          sum(l.valeur) FILTER (WHERE l.region NOT IN ('01', '02', '03', '04', '06')) AS fm
   FROM l
   JOIN plus_fin f ON f.indicateur_id = l.indicateur_id AND f.niveau = l.niveau
-  GROUP BY l.indicateur_id, l.periode, l.sexe
+  GROUP BY l.indicateur_id, l.periode, l.sexe, l.modalite_id
 )
 SELECT i.code AS indicateur, a.code, a.periode, a.sexe, a.valeur AS publie,
        CASE a.code WHEN 'FR' THEN s.fr ELSE s.fm END AS somme
 FROM l a
-JOIN sommes s USING (indicateur_id, periode, sexe)
-JOIN ref.indicateur i USING (indicateur_id)
+JOIN sommes s
+  ON s.indicateur_id = a.indicateur_id AND s.periode = a.periode AND s.sexe = a.sexe
+ AND s.modalite_id IS NOT DISTINCT FROM a.modalite_id
+JOIN ref.indicateur i ON i.indicateur_id = a.indicateur_id
 WHERE a.niveau = 'FRANCE'
   AND abs(a.valeur - coalesce(CASE a.code WHEN 'FR' THEN s.fr ELSE s.fm END, 0))
       > %(tolerance)s * a.valeur

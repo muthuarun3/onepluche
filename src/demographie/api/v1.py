@@ -160,6 +160,64 @@ def lire_structure(
     }
 
 
+class Part(BaseModel):
+    modalite: str
+    libelle: str
+    age_min: int | None
+    age_max: int | None
+    valeur: Nombre
+    part: float | None = Field(description="en % du total de la même tranche d'âge")
+
+
+class Repartition(BaseModel):
+    indicateur: Indicateur
+    territoire: TerritoireCourt
+    annee: int
+    periode_type: str
+    provisoire: bool
+    parts: list[Part]
+
+
+@routeur.get("/repartition", response_model=Repartition)
+def lire_repartition(
+    conn: Connexion,
+    indicateur: Annotated[str, Query(pattern=r"^[A-Z][A-Z0-9_]+$")],
+    niveau: Niveau,
+    code: CodeTerritoire,
+    annee: Annee = None,
+) -> dict:
+    """Répartition d'un effectif entre catégories (catégories socioprofessionnelles,
+    secteurs d'activité, statut d'activité…) ; dernière année par défaut.
+
+    Certaines modalités s'emboîtent (ex. « actifs » = « en emploi » + « chômeurs ») :
+    les parts ne s'additionnent pas toujours à 100 %.
+    """
+    definition = series.indicateurs(conn, indicateur)
+    if not definition:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"Indicateur inconnu : {indicateur}")
+    territoire = _territoire(conn, niveau, code)
+    lignes = series.repartition(conn, indicateur, niveau, code, annee)
+    if not lignes:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Aucune répartition pour cette demande")
+    parts = [
+        {
+            **{k: ligne[k] for k in ("modalite", "libelle", "age_min", "age_max", "valeur")},
+            "part": round(float(100 * ligne["valeur"] / ligne["total"]), 1)
+            if ligne["total"]
+            else None,
+        }
+        for ligne in lignes
+    ]
+    return {
+        "indicateur": definition[0],
+        "territoire": territoire,
+        "annee": lignes[0]["annee"],
+        "periode_type": lignes[0]["periode_type"],
+        "provisoire": any(ligne["provisoire"] for ligne in lignes),
+        "parts": parts,
+    }
+
+
 class EtatSource(BaseModel):
     source: str
     producteur: str

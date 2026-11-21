@@ -1,4 +1,4 @@
-"""Pages HTML : accueil (choix du territoire) et fiche d'un territoire."""
+"""Pages HTML : accueil (« Qui sont les Français ? », choix du territoire), fiches."""
 
 from decimal import Decimal
 from pathlib import Path
@@ -12,11 +12,33 @@ from fastapi.templating import Jinja2Templates
 
 from demographie import donnees
 from demographie.donnees import series, sources, territoires
+from demographie.web.resume import resume
 
 DOSSIER = Path(__file__).parent
 STATIQUE = DOSSIER / "static"
 gabarits = Jinja2Templates(directory=DOSSIER / "templates")
 routeur = APIRouter(include_in_schema=False)
+
+
+def _decimal_fr(valeur: float, chiffres: int = 1) -> str:
+    return f"{valeur:,.{chiffres}f}".replace(",", "\u202f").replace(".", ",")
+
+
+def _millions(valeur: float) -> str:
+    """69 081 996 -> « 69,1 millions »."""
+    return f"{_decimal_fr(valeur / 1e6)} millions"
+
+
+def _entier(valeur: float) -> str:
+    """642 905 -> « 642 905 » (espace fine insécable)."""
+    return _decimal_fr(valeur, 0)
+
+
+def _pct(valeur: float, chiffres: int = 1) -> str:
+    return f"{_decimal_fr(valeur, chiffres)}\u00a0%"
+
+
+gabarits.env.filters.update(millions=_millions, entier=_entier, pct=_pct)
 Connexion = Annotated[psycopg.Connection, Depends(donnees.connexion_lecture)]
 
 # Ordre et libellés courts des chiffres clés.
@@ -51,6 +73,7 @@ def accueil(request: Request, conn: Connexion) -> HTMLResponse:
         "france": [t for t in tous if t["niveau"] == "FRANCE"],
         "regions": sorted((t for t in tous if t["niveau"] == "REG"), key=lambda t: t["libelle"]),
         "departements": departements,
+        "resume": resume(conn),
     }
     return gabarits.TemplateResponse(request, "accueil.html", contexte)
 

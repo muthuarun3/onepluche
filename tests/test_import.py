@@ -182,6 +182,9 @@ def test_pages(urls_module):
     accueil = client.get("/")
     assert accueil.status_code == 200
     assert 'href="/territoire/DEP/23"' in accueil.text
+    # Résumé : seuls les blocs dont les données sont importées apparaissent.
+    assert "Quel âge avons-nous ?" in accueil.text and "Muthu" in accueil.text
+    assert "Quels métiers ?" not in accueil.text
     page = client.get("/territoire/DEP/23")
     assert page.status_code == 200
     assert "Creuse" in page.text and "40,8&nbsp;%" in page.text
