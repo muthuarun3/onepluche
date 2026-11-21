@@ -25,9 +25,8 @@ from pathlib import Path
 from defusedxml.ElementTree import iterparse
 
 from demographie.imports import telechargement
+from demographie.imports.connecteurs.communes import DROM
 from demographie.imports.modele import Fichier, FichierIllisible, Ligne, Referentiel
-
-DROM = frozenset({"971", "972", "973", "974", "976"})
 
 
 def _ecrire_json(dossier: Path, contenu: dict) -> Path:

@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 022).
+   le catalogue change (prochain numéro : 023).
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -64,6 +64,13 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   l'avertissement « logements diagnostiqués seulement ») ; indice des prix BDM base 2025
   (`IPC`, mensuel, France, par poste). Groupe `demo importer energie`.
   *Critère :* une valeur par source identique au producteur.
+- [x] **C2. Accès aux soins** — migration 022 : APL de la DREES aux médecins généralistes
+  de 65 ans ou moins, moyenne des communes pondérée par la population standardisée
+  (`APL_MG`), part des habitants sous 2,5 consultations (`PART_POP_APL_MG_FAIBLE`) ; ALD
+  sans médecin traitant, Assurance maladie, département et région (`ALD_SANS_MT`) ; BPE
+  Melodi, un indicateur par équipement (`LIEUX_MG`, `PHARMACIES`, `URGENCES`,
+  `MAISONS_SANTE`) et densités `MG_10000`, `PHARMACIES_10000`. Groupe `demo importer soins`.
+  *Critère :* une valeur par source identique au producteur.
 
 ## En cours
 
@@ -77,11 +84,6 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 ## À faire
 
 ### Appli 2 — données (phases B et C)
-
-- [ ] **C2. Accès aux soins** — BPE santé (`EQUIPEMENTS_SANTE`, `PHARMACIES_10000`,
-  `MG_10000`) ; APL DREES agrégé par population communale (`APL_MG`) ; ALD sans médecin
-  traitant (`ALD_SANS_MT`, maille à confirmer). Groupe `demo importer soins`.
-  *Critère :* une valeur par source identique au producteur.
 
 ### Appli 2 — interface (phase D)
 

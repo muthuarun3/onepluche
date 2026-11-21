@@ -15,6 +15,7 @@ from pathlib import Path
 
 from demographie.imports import telechargement
 from demographie.imports.connecteurs import communes, fichier
+from demographie.imports.connecteurs.communes import DROM
 from demographie.imports.modele import Fichier, FichierIllisible, Ligne, Referentiel
 
 RECHERCHE = (
@@ -34,7 +35,6 @@ FORMAT = fichier.FormatCSV(encodage="latin-1")
 COLONNES = frozenset({"INSEE_C", "DEP", "loypredm2"})
 # Part maximale de communes sans poids (communes créées depuis le recensement…).
 PART_SANS_POIDS_MAX = 0.02
-DROM = frozenset({"971", "972", "973", "974", "976"})
 
 
 @dataclass(frozen=True)
