@@ -70,3 +70,10 @@ def repartition(
     """Effectif par modalité (catégorie, secteur…) et total ; dernière année par défaut."""
     parametres = {"indicateur": indicateur, "niveau": niveau, "code": code, "annee": annee}
     return conn.execute(charger_sql(_SQL, "repartition"), parametres).fetchall()
+
+
+def par_age(conn: psycopg.Connection, niveau: str, code: str, indicateurs: list[str]) -> list[dict]:
+    """Dernière valeur par tranche d'âge des indicateurs demandés (rubrique « besoins »),
+    avec la valeur France de la même période."""
+    parametres = {"niveau": niveau, "code": code, "indicateurs": indicateurs}
+    return conn.execute(charger_sql(_SQL, "par_age"), parametres).fetchall()
