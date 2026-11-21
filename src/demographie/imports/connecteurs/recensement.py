@@ -1,20 +1,26 @@
-"""Recensement de la population : population de 15 ans ou plus selon le statut d'activité.
+"""Recensement de la population : jeux Melodi interrogés par l'API de données.
 
-Jeu Melodi DS_RP_EMPLOI_LR_PRINC (« Population active et chômage »). Le fichier complet
-pèse 120 Mo car il descend à la commune : on interroge plutôt l'API de données, niveau
-par niveau (France, régions, départements), et on assemble les réponses dans un seul
-fichier JSON trié, archivé comme brut. Une dizaine d'appels espacés de 2 secondes.
+Les fichiers complets descendent à la commune (plus de 100 Mo) : on interroge plutôt
+l'API, niveau par niveau (France, régions, départements) et pour chaque combinaison de
+filtres utile, puis on assemble les réponses dans un seul fichier JSON trié, archivé
+comme brut. Quelques appels espacés de 2 secondes par jeu.
+
+Chaque jeu est décrit par un `JeuRecensement` : les dimensions fixées, la dimension
+traduite en modalités (statut d'activité, catégorie socioprofessionnelle…) et les
+tranches d'âge retenues.
 
 Les millésimes du recensement sont des moyennes sur 5 ans : l'INSEE déconseille de
 comparer deux millésimes séparés de moins de 5 ans (avertissement porté par les
 indicateurs).
 """
 
+import itertools
 import json
 import tempfile
 import time
 import urllib.parse
 from collections.abc import Iterator
+from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
@@ -26,25 +32,25 @@ API = "https://api.insee.fr/melodi/data"
 PAR_PAGE = 1000
 PAUSE = 2.0  # secondes entre deux appels (limite officielle : 30 par minute)
 _FRANCE = {"F": "FR", "FM": "FM"}
-_AGES = {"Y15T64": (15, 64), "Y_GE15": (15, None)}
-# Statut d'activité déclaré au recensement -> modalité « statut_activite ».
-_STATUTS = {
-    "_T": None,
-    "1T2": "ACTIF",
-    "1": "ACTIF_OCCUPE",
-    "2": "CHOMEUR",
-    "3": "INACTIF",
-    "31": "RETRAITE",
-    "33": "ETUDIANT",
-    "35T36": "AUTRE_INACTIF",
-}
 
 
-class RecensementActivite:
-    source = "INSEE_RP"
-    jeu = "DS_RP_EMPLOI_LR_PRINC"
-    niveaux_publies = frozenset({"FRANCE", "REG", "DEP"})
-    niveaux_geo = ("FRANCE", "REG", "DEP")
+@dataclass(frozen=True)
+class JeuRecensement:
+    jeu: str
+    indicateur: str
+    # Dimensions fixées à une valeur ; les autres doivent valoir « _T » ou être absentes.
+    filtres: dict[str, str]
+    # Dimension détaillée -> code de modalité (None = total de la dimension).
+    dimension: str
+    dimension_ref: str  # dimension de ref.modalite
+    modalites: dict[str, str | None]
+    # Code AGE -> (âge minimal, âge maximal ou None).
+    ages: dict[str, tuple[int, int | None]]
+    source: str = "INSEE_RP"
+    niveaux_publies: frozenset[str] = frozenset({"FRANCE", "REG", "DEP"})
+    niveaux_geo: tuple[str, ...] = ("FRANCE", "REG", "DEP")
+    # Ages interrogés un par un (sinon : tous les âges en un seul appel).
+    requete_par_age: bool = True
 
     @property
     def nom_fichier(self) -> str:
@@ -57,10 +63,10 @@ class RecensementActivite:
         return [Fichier(url=f"{API}/{self.jeu}", nom=self.nom_fichier)]
 
     def _requetes(self) -> Iterator[str]:
-        for niveau in self.niveaux_geo:
-            for age in _AGES:
-                filtres = {"GEO": niveau, "AGE": age, "SEX": "_T", "EDUC": "_T"}
-                yield f"{API}/{self.jeu}?{urllib.parse.urlencode(filtres)}&maxResult={PAR_PAGE}"
+        ages = [{"AGE": a} for a in self.ages] if self.requete_par_age else [{}]
+        for niveau, age in itertools.product(self.niveaux_geo, ages):
+            filtres = {"GEO": niveau, **age, **self.filtres}
+            yield f"{API}/{self.jeu}?{urllib.parse.urlencode(filtres)}&maxResult={PAR_PAGE}"
 
     def telecharger(self, fichier: Fichier, dossier: Path) -> Path:
         """Interroge l'API page par page et écrit les observations triées dans un JSON."""
@@ -98,23 +104,29 @@ class RecensementActivite:
             raise FichierIllisible(f"JSON illisible : {erreur}") from erreur
         if not observations:
             raise FichierIllisible("Aucune observation")
+        connues = {"GEO", "TIME_PERIOD", "FREQ", "AGE", self.dimension, *self.filtres}
         for obs in observations:
             try:
                 dim = obs["dimensions"]
                 valeur = Decimal(str(obs["measures"]["OBS_VALUE_NIVEAU"]["value"]))
             except (KeyError, TypeError, ArithmeticError) as erreur:
                 raise FichierIllisible(f"Observation illisible : {obs}") from erreur
-            if dim.get("EMPSTA_ENQ") not in _STATUTS or dim.get("AGE") not in _AGES:
+            if dim.get(self.dimension) not in self.modalites or dim.get("AGE") not in self.ages:
                 continue  # sous-catégories plus fines non retenues
-            if dim.get("SEX") != "_T" or dim.get("EDUC") != "_T" or dim.get("RP_MEASURE") != "POP":
-                raise FichierIllisible(f"Dimensions inattendues : {dim}")
+            inattendues = {
+                k: v
+                for k, v in dim.items()
+                if (k in self.filtres and v != self.filtres[k]) or (k not in connues and v != "_T")
+            }
+            if inattendues:
+                raise FichierIllisible(f"Dimensions inattendues : {inattendues}")
             territoire = self._territoire(dim.get("GEO", ""))
             if territoire is None:
                 continue
-            age_min, age_max = _AGES[dim["AGE"]]
-            statut = _STATUTS[dim["EMPSTA_ENQ"]]
+            age_min, age_max = self.ages[dim["AGE"]]
+            modalite = self.modalites[dim[self.dimension]]
             yield Ligne(
-                indicateur="POP_RP",
+                indicateur=self.indicateur,
                 niveau=territoire[0],
                 code=territoire[1],
                 periode=date(int(dim["TIME_PERIOD"]), 1, 1),
@@ -124,7 +136,7 @@ class RecensementActivite:
                 age_max=age_max,
                 valeur=valeur,
                 statut="DEFINITIF",
-                modalite=("statut_activite", statut) if statut else None,
+                modalite=(self.dimension_ref, modalite) if modalite else None,
             )
 
     @staticmethod
@@ -141,4 +153,81 @@ class RecensementActivite:
         return None
 
 
-RECENSEMENT = RecensementActivite()
+# Population de 15 ans ou plus selon le statut d'activité déclaré.
+RECENSEMENT = JeuRecensement(
+    jeu="DS_RP_EMPLOI_LR_PRINC",
+    indicateur="POP_RP",
+    filtres={"SEX": "_T", "EDUC": "_T", "RP_MEASURE": "POP"},
+    dimension="EMPSTA_ENQ",
+    dimension_ref="statut_activite",
+    modalites={
+        "_T": None,
+        "1T2": "ACTIF",
+        "1": "ACTIF_OCCUPE",
+        "2": "CHOMEUR",
+        "3": "INACTIF",
+        "31": "RETRAITE",
+        "33": "ETUDIANT",
+        "35T36": "AUTRE_INACTIF",
+    },
+    ages={"Y15T64": (15, 64), "Y_GE15": (15, None)},
+)
+
+# Population de 15 ans ou plus selon la catégorie socioprofessionnelle (groupes).
+CATEGORIES = JeuRecensement(
+    jeu="DS_RP_POPULATION_COMP",
+    indicateur="POP_PCS",
+    filtres={"SEX": "_T", "RP_MEASURE": "POP"},
+    dimension="PCS",
+    dimension_ref="pcs",
+    modalites={
+        "_T": None,
+        "1": "AGRICULTEURS",
+        "2": "ARTISANS_COMMERCANTS",
+        "3": "CADRES",
+        "4": "PROF_INTERMEDIAIRES",
+        "5": "EMPLOYES",
+        "6": "OUVRIERS",
+        "7": "RETRAITES",
+        "9": "AUTRES_SANS_ACTIVITE",
+    },
+    ages={"Y_GE15": (15, None)},
+)
+
+# Actifs en emploi (15 ans ou plus) selon le secteur d'activité.
+SECTEURS = JeuRecensement(
+    jeu="DS_RP_TD_ACTIVITE_PCSACTIVITY_COMP",
+    indicateur="EMPLOIS_RP",
+    filtres={"SEX": "_T", "PCS": "_T", "EMPSTA_ENQ": "1", "RP_MEASURE": "POP"},
+    dimension="EMP_ACTIVITY",
+    dimension_ref="secteur",
+    modalites={
+        "_T": None,
+        "AZ": "AGRICULTURE",
+        "BE": "INDUSTRIE",
+        "FZ": "CONSTRUCTION",
+        "GU": "COMMERCE_SERVICES",
+        "OQ": "ADMIN_ENSEIGNEMENT_SANTE",
+    },
+    ages={"Y_GE15": (15, None)},
+)
+
+# Population de 2 ans ou plus selon la scolarisation, par tranche d'âge.
+SCOLARISATION = JeuRecensement(
+    jeu="DS_RP_EDUCATION_PRINC",
+    indicateur="POP_SCOLARISATION",
+    filtres={"SEX": "_T", "STUD_AREA": "_T", "RP_MEASURE": "POP"},
+    dimension="STUD",
+    dimension_ref="scolarisation",
+    modalites={"_T": None, "1": "SCOLARISE"},
+    ages={
+        "Y2T5": (2, 5),
+        "Y6T10": (6, 10),
+        "Y11T14": (11, 14),
+        "Y15T17": (15, 17),
+        "Y18T24": (18, 24),
+        "Y25T29": (25, 29),
+        "Y_GE30": (30, None),
+    },
+    requete_par_age=False,
+)
