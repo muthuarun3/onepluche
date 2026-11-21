@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 019).
+   le catalogue change (prochain numéro : 022).
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -52,6 +52,18 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   *Critère :* tests verts, appli 1 inchangée.
 - [x] **B1. Logement, partie 1** (PR #20) — migration 018 : logements, statut d'occupation,
   chauffage (recensement), niveau de vie et pauvreté (Filosofi).
+- [x] **B2. Loyers** (PR #23) — migration 019 : poids communaux (résidences principales
+  louées, recensement communal Melodi) ; Carte des loyers de l'ANIL, moyenne pondérée au
+  département : `LOYER_APPARTEMENT_M2` (et par taille), `LOYER_MAISON_M2`.
+- [x] **B3. Ventes et parc social** (PR #25) — migration 020 : DVF lu en flux,
+  `PRIX_VENTE_M2` (appartements, maisons), calcul `ANNEES_REVENU_60M2` ; RPLS
+  `LOGEMENTS_SOCIAUX`. Alsace-Moselle et Mayotte absentes de DVF.
+- [x] **C1. Énergie** (PR #26) — migration 021 : Agence ORE par data-fair, électricité et
+  gaz séparés (`CONSO_ELEC_RESID`, `POINTS_ELEC_RESID`, `CONSO_MOY_ELEC_LOGEMENT`, et de
+  même pour le gaz) ; DPE ADEME agrégé par l'API (`DPE_ETABLIS`, `PART_DPE_FG`, avec
+  l'avertissement « logements diagnostiqués seulement ») ; indice des prix BDM base 2025
+  (`IPC`, mensuel, France, par poste). Groupe `demo importer energie`.
+  *Critère :* une valeur par source identique au producteur.
 
 ## En cours
 
@@ -66,22 +78,6 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 ### Appli 2 — données (phases B et C)
 
-- [~] **B2. Loyers** (PR #23) — poids communaux (résidences principales louées, recensement
-  communal Melodi) ; connecteur Carte des loyers (CSV Latin-1, virgule décimale, un jeu
-  data.gouv par année trouvé par recherche) ; indicateur `LOYER_ANNONCE_M2` par type de
-  bien, moyenne pondérée au département.
-  *Critère :* Creuse et Paris identiques à la source (`demo verifier`) ; bornes 3-60 €/m².
-- [ ] **B3. Ventes et parc social** — DVF lu par département en flux : ventes d'un seul
-  logement, surface ≥ 9 m², prix ≥ 1 000 €, 1 % extrêmes exclus, médiane publiée seulement
-  au-dessus de 30 ventes, Alsace-Moselle et Mayotte déclarées absentes ; `PRIX_VENTE_M2`,
-  `VENTES` ; RPLS `LOGEMENTS_SOCIAUX` ; calcul `ANNEES_REVENU_60M2` (« calcul On épluche »).
-  *Critère :* une valeur par source identique au producteur ; seuil de variation 15 % pour
-  les prix.
-- [ ] **C1. Énergie** — Agence ORE par data-fair (`CONSO_RESIDENTIELLE`,
-  `POINTS_LIVRAISON_RESID`, `CONSO_MOY_LOGEMENT`) ; DPE ADEME agrégé par l'API
-  (`DPE_ETABLIS`, `PART_DPE_FG`, avec l'avertissement « logements diagnostiqués seulement ») ;
-  indice des prix Melodi (`IPC`, mensuel, France). Groupe `demo importer energie`.
-  *Critère :* une valeur par source identique au producteur.
 - [ ] **C2. Accès aux soins** — BPE santé (`EQUIPEMENTS_SANTE`, `PHARMACIES_10000`,
   `MG_10000`) ; APL DREES agrégé par population communale (`APL_MG`) ; ALD sans médecin
   traitant (`ALD_SANS_MT`, maille à confirmer). Groupe `demo importer soins`.

@@ -117,7 +117,8 @@ utilisée.
 | `retraites` | DREES, retraités tous régimes (EACR), minimum vieillesse |
 | `etudiants` | Ministère de l'Enseignement supérieur (Opendatasoft), formations et disciplines |
 | `sante` | Assurance maladie (data.ameli), cartographie des pathologies |
-| `logement` | INSEE Melodi, logements, statut d'occupation, chauffage ; Filosofi niveau de vie et pauvreté |
+| `logement` | INSEE Melodi, logements, statut d'occupation, chauffage, poids communaux ; Filosofi niveau de vie et pauvreté ; ANIL Carte des loyers ; DGFiP DVF ; SDES RPLS |
+| `energie` | Agence ORE, consommations résidentielles ; ADEME, DPE ; INSEE BDM, indice des prix |
 
 `demo importer tout` lance l'ensemble, dans cet ordre (estimations d'abord).
 

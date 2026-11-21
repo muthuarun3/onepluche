@@ -1,7 +1,7 @@
 # Schéma de base de données
 
 **Base :** PostgreSQL 17, base `demographie`. **État au :** 21 novembre 2026 (migrations
-001 à 018). La source de vérité est `sql/migrations/` ; ce document en donne la vue
+001 à 021). La source de vérité est `sql/migrations/` ; ce document en donne la vue
 d'ensemble.
 
 ## 1. Principe
@@ -100,12 +100,11 @@ Indicateurs actuels :
 | QUI — retraites | `PENSIONNES`, `PENSIONNES_DROIT_DIRECT`, `PENSIONNES_POUR_100_ACTIFS`, `MIN_VIEILLESSE`, `TAUX_MIN_VIEILLESSE_60P` |
 | QUI — études | `POP_SCOLARISATION`, `TAUX_SCOLARISATION_18_24`, `ETUDIANTS`, `ETUDIANTS_UNIVERSITE` |
 | QUI — santé | `PATIENTS_PATHOLOGIE` |
-| BESOINS — logement, énergie | `LOGEMENTS`, `RESIDENCES_PRINC`, `RESIDENCES_PRINC_CHAUFFAGE`, `PART_PROPRIETAIRES`, `PART_LOCATAIRES_HLM`, `PART_LOGEMENTS_VACANTS`, `PART_CHAUFFAGE_FIOUL`, `NIVEAU_VIE_MEDIAN`, `TAUX_PAUVRETE` |
+| BESOINS — logement | `LOGEMENTS`, `RESIDENCES_PRINC`, `RESIDENCES_PRINC_CHAUFFAGE`, `PART_PROPRIETAIRES`, `PART_LOCATAIRES_HLM`, `PART_LOGEMENTS_VACANTS`, `PART_CHAUFFAGE_FIOUL`, `NIVEAU_VIE_MEDIAN`, `TAUX_PAUVRETE`, `LOYER_APPARTEMENT_M2`, `LOYER_MAISON_M2`, `PRIX_VENTE_M2`, `ANNEES_REVENU_60M2`, `LOGEMENTS_SOCIAUX` |
+| BESOINS — énergie | `CONSO_ELEC_RESID`, `POINTS_ELEC_RESID`, `CONSO_MOY_ELEC_LOGEMENT`, `CONSO_GAZ_RESID`, `POINTS_GAZ_RESID`, `CONSO_MOY_GAZ_LOGEMENT`, `DPE_ETABLIS`, `PART_DPE_FG`, `IPC` |
 
-Prévus (appli 2, voir [TASKS.md](TASKS.md)) : `LOYER_ANNONCE_M2`, `PRIX_VENTE_M2`, `VENTES`,
-`LOGEMENTS_SOCIAUX`, `ANNEES_REVENU_60M2`, `CONSO_RESIDENTIELLE`, `POINTS_LIVRAISON_RESID`,
-`CONSO_MOY_LOGEMENT`, `DPE_ETABLIS`, `PART_DPE_FG`, `IPC`, `APL_MG`, `ALD_SANS_MT`,
-`EQUIPEMENTS_SANTE`, `PHARMACIES_10000`, `MG_10000`.
+Prévus (appli 2, voir [TASKS.md](TASKS.md)) : `APL_MG`, `ALD_SANS_MT`, `EQUIPEMENTS_SANTE`,
+`PHARMACIES_10000`, `MG_10000`.
 
 ### `ref.modalite` — valeurs d'une dimension
 
@@ -117,8 +116,8 @@ Prévus (appli 2, voir [TASKS.md](TASKS.md)) : `LOYER_ANNONCE_M2`, `PRIX_VENTE_M
 | `libelle` | text | |
 
 Dimensions actuelles : `statut_activite`, `pcs`, `secteur`, `scolarisation`, `formation`,
-`discipline`, `pathologie`, `categorie_logement`, `statut_occupation`, `combustible`.
-Prévues : `type_bien`, `filiere_energie`, `etiquette_dpe`, `poste_ipc`, `equipement_sante`.
+`discipline`, `pathologie`, `categorie_logement`, `statut_occupation`, `combustible`,
+`taille_appartement`, `type_logement`, `etiquette_dpe`, `poste_ipc`.
 Les codes reprennent ceux des sources quand c'est possible (traçabilité).
 
 ### `ingest.import` — journal, une ligne par fichier
@@ -227,6 +226,6 @@ Privilèges par défaut : toute nouvelle table de `ingest`/`stat` est accessible
    import ; l'ancienne reste dans le fichier brut.
 5. **Pas de communes en base** : les sources communales sont agrégées au département dans
    le connecteur.
-6. **Une migration par livraison**, numérotée à la suite (prochaine : 019), jamais modifiée
+6. **Une migration par livraison**, numérotée à la suite (prochaine : 022), jamais modifiée
    après fusion. Toute redéfinition de `api.serie` reprend la vue entière et ajoute les
    colonnes en fin.
