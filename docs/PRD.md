@@ -66,7 +66,8 @@ Plus une **fiche territoire** (France, région, département) : chiffres clés, 
 Pour chaque département : ce qui existe (**accès**), ce que ça coûte (**coût**) et qui en
 manque (**manque**). Huit thèmes prévus : logement, énergie, eau, alimentation, transports,
 accès aux soins, numérique, garde d'enfants. **MVP : logement, énergie, accès aux soins**
-(25 indicateurs). Les coûts sont rapportés au revenu local (niveau de vie Filosofi), avec
+(25 indicateurs), puis transports et courses (prix des carburants, trajets, dépenses par
+ménage ; demande du 21/11/2026). Les coûts sont rapportés au revenu local (niveau de vie Filosofi), avec
 une mise en avant des 18-39 ans.
 
 Écrans du MVP : vue d'ensemble (budget des ménages, évolution des prix), fiche département

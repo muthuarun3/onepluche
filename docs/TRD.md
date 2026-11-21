@@ -121,6 +121,7 @@ utilisée.
 | `logement` | INSEE Melodi, logements, statut d'occupation, chauffage, poids communaux ; Filosofi niveau de vie et pauvreté ; ANIL Carte des loyers ; DGFiP DVF ; SDES RPLS |
 | `energie` | Agence ORE, consommations résidentielles ; ADEME, DPE ; INSEE BDM, indice des prix |
 | `budget` | INSEE Melodi, comptes nationaux : dépense des ménages par poste, dépenses pré-engagées |
+| `transports` | Ministère de l'Économie, prix des carburants déclarés par les stations (moyennes par département calculées par l'API Opendatasoft, un relevé par mois) ; INSEE Melodi, trajets domicile-travail et voitures des ménages (recensement), dépense en carburants (comptes nationaux) |
 | `soins` | DREES, accessibilité aux médecins généralistes (APL) ; Assurance maladie, ALD sans médecin traitant ; INSEE Melodi, équipements de santé (BPE) |
 
 `demo importer tout` lance l'ensemble, dans cet ordre (estimations d'abord).

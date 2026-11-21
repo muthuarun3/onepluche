@@ -2,6 +2,7 @@
 (budget des ménages, prix, un chiffre France par thème, choix du département) et fiche
 département (thèmes × accès, coût, manque, valeur France à côté)."""
 
+from datetime import date
 from decimal import Decimal
 from typing import Annotated
 
@@ -34,15 +35,32 @@ ANGLES = {
 # Chiffres en tête de fiche, dans cet ordre.
 CHIFFRES_CLES = ("LOYER_APPARTEMENT_M2", "PART_DPE_FG", "APL_MG")
 # Publiés pour la France seulement : affichés sur la vue d'ensemble, pas sur la fiche.
-NATIONAUX = frozenset({"IPC", "DEPENSE_CONSO_MENAGES", "PART_DEPENSE_PRE_ENGAGEE"})
+NATIONAUX = frozenset(
+    {
+        "IPC",
+        "DEPENSE_CONSO_MENAGES",
+        "PART_DEPENSE_PRE_ENGAGEE",
+        "DEPENSE_CARBURANTS",
+        "DEPENSE_MOIS_ALIMENTATION",
+        "DEPENSE_MOIS_TRANSPORTS",
+        "DEPENSE_MOIS_CARBURANTS",
+    }
+)
 # Point de départ de la hausse des prix sur la vue d'ensemble.
 PRIX_DEPUIS = 2015
+# Vue d'ensemble, « Courses et transports » : dépenses par ménage et par mois (France),
+# puis prix des carburants (métropole, les stations d'outre-mer ne les déclarant pas).
+PAR_MENAGE = ("DEPENSE_MOIS_ALIMENTATION", "DEPENSE_MOIS_TRANSPORTS", "DEPENSE_MOIS_CARBURANTS")
+CARBURANTS = {"PRIX_GAZOLE": "gazole", "PRIX_SP95_E10": "sans-plomb 95-E10"}
+_MOIS = ("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
+         "septembre", "octobre", "novembre", "décembre")  # fmt: skip
 # Encadré 18-39 ans : indicateurs Filosofi publiés par âge de la personne de référence.
 JEUNES = ("NIVEAU_VIE_MEDIAN", "TAUX_PAUVRETE")
 
 _UNITES = {
     "euros_m2": ("{} €/m²", 1),
     "euros": ("{} €", 0),
+    "euros_litre": ("{} €/L", 3),
     "pourcentage": ("{} %", 1),
     "consultations_hab": ("{} consultations", 2),
     "pour_10000": ("{} pour 10 000 hab.", 1),
@@ -61,7 +79,12 @@ def valeur_unite(valeur: Decimal | float | int | None, unite: str) -> str:
     return modele.format(_decimal_fr(float(valeur), chiffres)).replace(" %", " %")
 
 
-gabarits.env.filters["valeur_unite"] = valeur_unite
+def mois(jour: date) -> str:
+    """date(2026, 11, 1) -> « novembre 2026 »."""
+    return f"{_MOIS[jour.month - 1]} {jour.year}"
+
+
+gabarits.env.filters.update(valeur_unite=valeur_unite, mois=mois)
 
 
 @routeur.get("", response_class=HTMLResponse)
@@ -96,6 +119,20 @@ def besoins(request: Request, conn: Connexion) -> HTMLResponse:
             "definition": toutes["DEPENSE_CONSO_MENAGES"],
             "pre_engagee": mesure("PART_DEPENSE_PRE_ENGAGEE"),
         }
+    metropole = {
+        ligne["indicateur"]: ligne
+        for ligne in series.fiche(conn, "FRANCE", "FM", "BESOINS", "TRANSPORTS")
+    }
+    courses = [
+        {"definition": toutes[c], "ligne": france[c]}
+        for c in PAR_MENAGE
+        if c in toutes and c in france
+    ]
+    carburants = [
+        {"definition": toutes[c], "ligne": metropole[c], "nom": nom}
+        for c, nom in CARBURANTS.items()
+        if c in toutes and c in metropole
+    ]
     hausses = series.hausse_prix(conn, PRIX_DEPUIS)
     prix = None
     if hausses:
@@ -110,6 +147,9 @@ def besoins(request: Request, conn: Connexion) -> HTMLResponse:
         "budget": budget,
         "pages_themes": _pages_themes(toutes),
         "prix": prix,
+        "courses": {"par_menage": courses, "carburants": carburants}
+        if courses or carburants
+        else None,
         "themes": [
             {"titre": THEMES[toutes[c]["theme"]], "mesure": mesure(c)}
             for c in CHIFFRES_CLES

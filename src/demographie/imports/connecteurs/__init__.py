@@ -37,6 +37,13 @@ from demographie.imports.connecteurs.soins import (
     PHARMACIES,
     URGENCES,
 )
+from demographie.imports.connecteurs.transports import (
+    DEPENSE_CARBURANTS,
+    PRIX_GAZOLE,
+    PRIX_SP95_E10,
+    TRAJETS_TRAVAIL,
+    VOITURES_MENAGES,
+)
 
 # Ordre d'exécution de « demo importer tout » : les estimations d'abord.
 CONNECTEURS = {
@@ -69,5 +76,13 @@ CONNECTEURS = {
         PHARMACIES,
         URGENCES,
         MAISONS_DE_SANTE,
+    ),
+    # Après « logement » (nombre de ménages) et « budget » : dépenses par ménage.
+    "transports": (
+        PRIX_GAZOLE,
+        PRIX_SP95_E10,
+        TRAJETS_TRAVAIL,
+        VOITURES_MENAGES,
+        DEPENSE_CARBURANTS,
     ),
 }

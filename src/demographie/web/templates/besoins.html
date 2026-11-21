@@ -47,6 +47,29 @@
   </section>
   {% endif %}
 
+  {% if courses %}
+  <section class="bloc">
+    <h2>Courses et transports</h2>
+    {% if courses.par_menage %}
+    <p class="phrase">Ce qu'un ménage dépense en moyenne chaque mois{% set a = courses.par_menage[0].ligne %}, en {{ a.annee }}{% if a.provisoire %} (chiffres provisoires){% endif %}.</p>
+    <div class="chiffres">
+      {% for m in courses.par_menage %}
+      <div class="chiffre" title="{{ m.definition.definition }}">
+        <div class="chiffre-libelle">{{ m.definition.libelle }}</div>
+        <div class="chiffre-valeur">{{ m.ligne.valeur|valeur_unite(m.definition.unite) }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if courses.carburants %}
+    <p class="phrase">À la pompe, en {{ courses.carburants[0].ligne.periode|mois }} (moyenne des stations de métropole) :
+      {% for m in courses.carburants %}<strong>{{ m.ligne.valeur|valeur_unite(m.definition.unite) }}</strong> le litre de {{ m.nom }}{% if not loop.last %}, {% else %}.{% endif %}{% endfor %}
+      <a href="/besoins/theme/transports?indicateur=PRIX_GAZOLE">Par département</a></p>
+    {% endif %}
+    <p class="source">Sources : comptes nationaux et recensement de l'INSEE, prix des carburants du ministère de l'Économie ; Licence Ouverte 2.0. Moyennes de tous les ménages, France entière : aucune source publique ne donne de panier moyen par département.</p>
+  </section>
+  {% endif %}
+
   {% if prix %}
   <section class="bloc">
     <h2>Les prix depuis {{ prix.debut }}</h2>
