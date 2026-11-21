@@ -112,7 +112,9 @@ caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
 echo "== Services systemd"
 install -m 644 "$APP_DIR"/deploy/systemd/*.service "$APP_DIR"/deploy/systemd/*.timer /etc/systemd/system/
 systemctl daemon-reload
-systemctl enable --now demographie-web.service
+systemctl enable demographie-web.service
+# restart et non « enable --now » : à chaque mise à jour, l'appli doit recharger le code.
+systemctl restart demographie-web.service
 systemctl enable --now demographie-sauvegarde.timer demographie-restauration.timer
 systemctl enable --now demographie-import.timer
 systemctl reload caddy
