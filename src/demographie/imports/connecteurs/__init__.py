@@ -11,6 +11,7 @@ from demographie.imports.connecteurs.besoins import (
     RESIDENCES_PRINCIPALES,
 )
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
+from demographie.imports.connecteurs.dvf import VENTES
 from demographie.imports.connecteurs.esr import DISCIPLINES, FORMATIONS
 from demographie.imports.connecteurs.estimations import (
     EstimationsDepartements,
@@ -24,6 +25,7 @@ from demographie.imports.connecteurs.recensement import (
     SCOLARISATION,
     SECTEURS,
 )
+from demographie.imports.connecteurs.rpls import PARC_SOCIAL
 
 # Ordre d'exécution de « demo importer tout » : les estimations d'abord.
 CONNECTEURS = {
@@ -44,5 +46,7 @@ CONNECTEURS = {
         PAUVRETE,
         POIDS_RP_LOUEES,
         CARTE_DES_LOYERS,
+        VENTES,
+        PARC_SOCIAL,
     ),
 }
