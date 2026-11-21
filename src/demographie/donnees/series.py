@@ -47,3 +47,11 @@ def structure(
     """Population par sexe et tranche d'âge ; dernière année disponible par défaut."""
     parametres = {"niveau": niveau, "code": code, "annee": annee}
     return conn.execute(charger_sql(_SQL, "structure"), parametres).fetchall()
+
+
+def repartition(
+    conn: psycopg.Connection, indicateur: str, niveau: str, code: str, annee: int | None = None
+) -> list[dict]:
+    """Effectif par modalité (catégorie, secteur…) et total ; dernière année par défaut."""
+    parametres = {"indicateur": indicateur, "niveau": niveau, "code": code, "annee": annee}
+    return conn.execute(charger_sql(_SQL, "repartition"), parametres).fetchall()
