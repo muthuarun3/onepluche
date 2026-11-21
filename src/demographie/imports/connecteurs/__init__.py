@@ -2,6 +2,7 @@
 
 from demographie.imports.connecteurs.bdm import CHOMAGE
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
+from demographie.imports.connecteurs.esr import DISCIPLINES, FORMATIONS
 from demographie.imports.connecteurs.estimations import (
     EstimationsDepartements,
     EstimationsRegions,
@@ -21,4 +22,5 @@ CONNECTEURS = {
     "chomage": (CHOMAGE,),
     "recensement": (RECENSEMENT, CATEGORIES, SECTEURS, SCOLARISATION),
     "retraites": (EACR, MINIMUM_VIEILLESSE),
+    "etudiants": (FORMATIONS, DISCIPLINES),
 }
