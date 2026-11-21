@@ -1,6 +1,7 @@
 """Un connecteur par source : découverte des fichiers publiés et lecture de leur contenu."""
 
 from demographie.imports.connecteurs.bdm import CHOMAGE
+from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.estimations import (
     EstimationsDepartements,
     EstimationsRegions,
@@ -14,4 +15,5 @@ CONNECTEURS = {
     "etat-civil": (NAISSANCES, DECES),
     "chomage": (CHOMAGE,),
     "recensement": (RECENSEMENT,),
+    "retraites": (EACR, MINIMUM_VIEILLESSE),
 }
