@@ -1,0 +1,275 @@
+{
+"filiere": "Gaz",
+"lignes": [
+{
+"annee": 2011,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 186750,
+"filiere": "Gaz",
+"nb_sites": 10161,
+"operateur": "GRDF"
+},
+{
+"annee": 2011,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 7459298,
+"filiere": "Gaz",
+"nb_sites": 556269,
+"operateur": "GRDF"
+},
+{
+"annee": 2012,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 218113,
+"filiere": "Gaz",
+"nb_sites": 10132,
+"operateur": "GRDF"
+},
+{
+"annee": 2012,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 8326241,
+"filiere": "Gaz",
+"nb_sites": 545082,
+"operateur": "GRDF"
+},
+{
+"annee": 2013,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 230687,
+"filiere": "Gaz",
+"nb_sites": 10174,
+"operateur": "GRDF"
+},
+{
+"annee": 2013,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 8803392,
+"filiere": "Gaz",
+"nb_sites": 534268,
+"operateur": "GRDF"
+},
+{
+"annee": 2014,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 185801,
+"filiere": "Gaz",
+"nb_sites": 10106,
+"operateur": "GRDF"
+},
+{
+"annee": 2014,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 7103073,
+"filiere": "Gaz",
+"nb_sites": 522556,
+"operateur": "GRDF"
+},
+{
+"annee": 2015,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 195704,
+"filiere": "Gaz",
+"nb_sites": 10435,
+"operateur": "GRDF"
+},
+{
+"annee": 2015,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 7442058,
+"filiere": "Gaz",
+"nb_sites": 529686,
+"operateur": "GRDF"
+},
+{
+"annee": 2016,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 206288,
+"filiere": "Gaz",
+"nb_sites": 10413,
+"operateur": "GRDF"
+},
+{
+"annee": 2016,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 8109521,
+"filiere": "Gaz",
+"nb_sites": 518375,
+"operateur": "GRDF"
+},
+{
+"annee": 2017,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 192149,
+"filiere": "Gaz",
+"nb_sites": 10399,
+"operateur": "GRDF"
+},
+{
+"annee": 2017,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 7590994,
+"filiere": "Gaz",
+"nb_sites": 506816,
+"operateur": "GRDF"
+},
+{
+"annee": 2018,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 125421.48485000001,
+"filiere": "Gaz",
+"nb_sites": 9613,
+"operateur": "GRDF"
+},
+{
+"annee": 2018,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 5666976.23272,
+"filiere": "Gaz",
+"nb_sites": 468449,
+"operateur": "GRDF"
+},
+{
+"annee": 2019,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 124266.88008,
+"filiere": "Gaz",
+"nb_sites": 9585,
+"operateur": "GRDF"
+},
+{
+"annee": 2019,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 5510951.7610100005,
+"filiere": "Gaz",
+"nb_sites": 457169,
+"operateur": "GRDF"
+},
+{
+"annee": 2020,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 112501.70363,
+"filiere": "Gaz",
+"nb_sites": 9440,
+"operateur": "GRDF"
+},
+{
+"annee": 2020,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 5023350.66225,
+"filiere": "Gaz",
+"nb_sites": 440795,
+"operateur": "GRDF"
+},
+{
+"annee": 2021,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 126374.69044,
+"filiere": "Gaz",
+"nb_sites": 9345,
+"operateur": "GRDF"
+},
+{
+"annee": 2021,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 5469983.24161,
+"filiere": "Gaz",
+"nb_sites": 428109,
+"operateur": "GRDF"
+},
+{
+"annee": 2022,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 99405.13717,
+"filiere": "Gaz",
+"nb_sites": 9260,
+"operateur": "GRDF"
+},
+{
+"annee": 2022,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 4398620.42646,
+"filiere": "Gaz",
+"nb_sites": 414517,
+"operateur": "GRDF"
+},
+{
+"annee": 2023,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 94088.48968,
+"filiere": "Gaz",
+"nb_sites": 9105,
+"operateur": "GRDF"
+},
+{
+"annee": 2023,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 4115250.00616,
+"filiere": "Gaz",
+"nb_sites": 401601,
+"operateur": "GRDF"
+},
+{
+"annee": 2024,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 93180.65427,
+"filiere": "Gaz",
+"nb_sites": 8995,
+"operateur": "GRDF"
+},
+{
+"annee": 2024,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 4268672.8305,
+"filiere": "Gaz",
+"nb_sites": 390518,
+"operateur": "GRDF"
+},
+{
+"annee": 2025,
+"code_departement": "23",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 90017.07055,
+"filiere": "Gaz",
+"nb_sites": 8860,
+"operateur": "GRDF"
+},
+{
+"annee": 2025,
+"code_departement": "75",
+"code_grand_secteur": "RESIDENTIEL",
+"conso_totale_mwh": 4135337.61201,
+"filiere": "Gaz",
+"nb_sites": 379655,
+"operateur": "GRDF"
+}
+]
+}

@@ -75,7 +75,7 @@ class TerritoireCourt(BaseModel):
 class Valeur(BaseModel):
     annee: int
     periode: date = Field(description="1er jour de la période (année, trimestre ou date)")
-    periode_type: Literal["1ER_JANVIER", "ANNEE", "TRIMESTRE", "RP"]
+    periode_type: Literal["1ER_JANVIER", "ANNEE", "TRIMESTRE", "MOIS", "RP"]
     valeur: Nombre
     provisoire: bool
 
