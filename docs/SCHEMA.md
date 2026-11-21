@@ -1,7 +1,7 @@
 # Schéma de base de données
 
 **Base :** PostgreSQL 17, base `demographie`. **État au :** 21 novembre 2026 (migrations
-001 à 022). La source de vérité est `sql/migrations/` ; ce document en donne la vue
+001 à 023). La source de vérité est `sql/migrations/` ; ce document en donne la vue
 d'ensemble.
 
 ## 1. Principe
@@ -191,6 +191,7 @@ migration modifiée après application est détectée.
 | `api.source` | simple | Sources et licences |
 | `api.indicateur` | simple | Catalogue + source + date de dernière publication + rubrique, thème, angle, bornes |
 | `api.serie` | simple | **Toutes les séries** « tous âges » : indicateur, niveau, code, année, valeur, provisoire, sexe, période, type de période ; inclut les dérivés (parts d'âge, solde naturel, recensement, pensionnés pour 100 actifs, scolarisation, `stat.besoins_derives`) |
+| `api.serie_age` | simple | Valeurs par tranche d'âge (tous sexes, sans modalité) des indicateurs de la rubrique BESOINS : encadré 18-39 ans de la fiche département (migration 023) |
 | `api.structure` | simple | Pyramide : effectifs `POP` par sexe et tranche d'âge |
 | `api.repartition` | simple | Valeur d'une modalité avec le total de la même série (calcul des parts) |
 | `api.etat_import` | simple | Dernier essai et dernière publication par fichier de chaque source |
@@ -224,6 +225,6 @@ Privilèges par défaut : toute nouvelle table de `ingest`/`stat` est accessible
    import ; l'ancienne reste dans le fichier brut.
 5. **Pas de communes en base** : les sources communales sont agrégées au département dans
    le connecteur.
-6. **Une migration par livraison**, numérotée à la suite (prochaine : 023), jamais modifiée
+6. **Une migration par livraison**, numérotée à la suite (prochaine : 024), jamais modifiée
    après fusion. Toute redéfinition de `api.serie` reprend la vue entière et ajoute les
    colonnes en fin.

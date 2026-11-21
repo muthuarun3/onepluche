@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 023).
+   le catalogue change (prochain numéro : 024).
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -74,6 +74,10 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 - [x] **D1. API de l'appli 2** — filtres `rubrique` et `theme` sur `/api/v1/indicateurs` ;
   nouveau `GET /api/v1/fiche` (dernière valeur par indicateur, valeur France, source).
   *Critère :* aucune route existante ne change de forme ; tests d'API.
+- [x] **D2. Fiche département `/besoins/DEP/{code}`** — migration 023 (vue
+  `api.serie_age`) ; trois chiffres clés, un bloc par thème en colonnes Accès / Coût / Manque avec la valeur France, encadré 18-39 ans, lien vers
+  la fiche de l'appli 1.
+  *Critère :* moins d'une seconde côté serveur ; lisible à 390 px.
 
 ## En cours
 
@@ -90,10 +94,6 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 ### Appli 2 — interface (phase D)
 
-- [ ] **D2. Fiche département `/besoins/DEP/{code}`** — trois chiffres clés, un bloc par
-  thème en colonnes Accès / Coût / Manque avec la valeur France, encadré 18-39 ans, lien vers
-  la fiche de l'appli 1.
-  *Critère :* moins d'une seconde côté serveur ; lisible à 390 px.
 - [ ] **D3. Vue d'ensemble `/besoins`** — budget des ménages par poste (France), évolution
   des prix depuis 2015, un chiffre France par thème, choix du département.
 - [ ] **D4. Carte des départements partagée** — contours IGN Admin Express simplifiés

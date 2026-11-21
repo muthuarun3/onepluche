@@ -167,3 +167,19 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
   .bloc .chiffre-valeur { font-size: 1.2rem; }
 }
 @media (forced-colors: active) { .barre { background: CanvasText; } }
+/* Fiche département de l'appli 2 : un bloc par thème, trois colonnes accès, coût, manque. */
+.theme, .encadre { margin: 1.5rem 0; }
+.angles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.angle h3 { font-size: 1rem; margin: .25rem 0 .5rem; border-bottom: 1px solid var(--bordure);
+  padding-bottom: .25rem; }
+.angle h3 .muet { font-weight: 400; }
+.mesures { list-style: none; padding: 0; margin: 0; display: grid; gap: .75rem; }
+.mesures li { display: grid; gap: .1rem; }
+.mesure-libelle { color: var(--texte-2); font-size: .9rem; line-height: 1.3; }
+.mesure-valeur { font-size: 1.2rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.mesure-note { color: var(--texte-3); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.mesure-source { color: var(--texte-3); font-size: .75rem; line-height: 1.3; }
+.encadre table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.encadre th, .encadre td { padding: .3rem .75rem .3rem 0; text-align: left;
+  border-bottom: 1px solid var(--grille); }
+@media (max-width: 48rem) { .angles { grid-template-columns: minmax(0, 1fr); } }

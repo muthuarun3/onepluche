@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% macro valeur(m) -%}
+  {%- if m.ligne -%}{{ m.ligne.valeur|valeur_unite(m.definition.unite) }}{%- else -%}—{%- endif -%}
+{%- endmacro %}
+{% macro note(m) -%}
+  {%- if m.ligne -%}
+    {%- if m.ligne.france_code and m.definition.nature not in ("effectif", "flux") %}France : {{ m.ligne.france_valeur|valeur_unite(m.definition.unite) }}{% if m.ligne.france_code == "FM" %} (métropole){% endif %} · {% endif -%}
+    {{ m.ligne.annee }}{% if m.ligne.provisoire %}, provisoire{% endif %}
+  {%- else -%}
+    Pas de donnée pour ce département
+  {%- endif -%}
+{%- endmacro %}
+{% block titre %}{{ fiche.libelle }} : besoins · On épluche{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/besoins">De quoi les Français ont besoin ?</a> › {{ fiche.libelle }}
+</nav>
+<h1>{{ fiche.libelle }} <span class="niveau">Département {{ fiche.code }}</span></h1>
+<p class="intro">Ce que coûtent les besoins essentiels et qui a du mal à y accéder, à côté
+  de la valeur pour la France. <a href="/territoire/DEP/{{ fiche.code }}">Qui sont les
+  habitants de ce département ?</a></p>
+
+{% if chiffres %}
+<div class="chiffres">
+  {% for m in chiffres %}
+  <div class="chiffre" title="{{ m.definition.definition }}">
+    <div class="chiffre-libelle">{{ m.definition.libelle }}</div>
+    <div class="chiffre-valeur">{{ valeur(m) }}</div>
+    <div class="chiffre-note">{{ note(m) }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% for theme in themes %}
+<section class="bloc theme" id="{{ theme.code|lower }}">
+  <h2>{{ theme.titre }}</h2>
+  <div class="angles">
+    {% for colonne in theme.colonnes %}
+    <div class="angle">
+      <h3>{{ colonne.titre }} <span class="muet">{{ colonne.sous_titre }}</span></h3>
+      {% if colonne.mesures %}
+      <ul class="mesures">
+        {% for m in colonne.mesures %}
+        <li title="{{ m.definition.definition }}">
+          <span class="mesure-libelle">{{ m.definition.libelle }}</span>
+          <span class="mesure-valeur">{{ valeur(m) }}</span>
+          <span class="mesure-note">{{ note(m) }}</span>
+          <span class="mesure-source"><a href="{{ m.definition.source_url }}" rel="noopener">{{ m.definition.source_libelle }}</a>{% if m.ligne and m.definition.avertissement %}. {{ m.definition.avertissement }}{% endif %}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="muet">Pas encore d'indicateur.</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+{% if jeunes %}
+<section class="bloc encadre">
+  <h2>Les 18-39 ans</h2>
+  <p class="phrase">Ménages dont la personne de référence a entre 18 et 39 ans, en {{ jeunes.annee }}.</p>
+  <div class="tableau-defilant">
+    <table>
+      <thead><tr><th>Âge</th>{% for c in jeunes.colonnes %}<th>{{ c.libelle }}</th><th>France</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for t in jeunes.tranches %}
+        <tr><th scope="row">{{ t.libelle }}</th>
+          {% for c in jeunes.colonnes %}{% set l = t.valeurs.get(c.code) %}
+          <td>{{ (l.valeur if l else None)|valeur_unite(c.unite) }}</td>
+          <td class="muet">{{ (l.france_valeur if l else None)|valeur_unite(c.unite) }}{% if l and l.france_code == "FM" %} (métropole){% endif %}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if jeunes.colonnes %}<p class="source">Source : <a href="{{ jeunes.colonnes[0].source_url }}" rel="noopener">{{ jeunes.colonnes[0].source_libelle }}</a>, {{ jeunes.colonnes[0].source_licence }}.</p>{% endif %}
+</section>
+{% endif %}
+{% endblock %}

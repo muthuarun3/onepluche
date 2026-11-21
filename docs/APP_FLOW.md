@@ -33,8 +33,8 @@ Navigateur ──► https://onepluche.duckdns.org
 │   ├── /comparer                  2 à 4 territoires côte à côte                    ⬜
 │   ├── /carte                     Carte et classement d'un indicateur              ⬜
 │   └── /questions                 Questions guidées de l'appli 1                   ⬜
-├── /besoins                       De quoi les Français ont besoin ? vue d'ensemble ⬜
-│   ├── /besoins/DEP/{code}        Fiche département : thèmes × Accès/Coût/Manque  ⬜
+├── /besoins                       De quoi les Français ont besoin ? (choix du dép.) ✅ (vue d'ensemble : D3)
+│   ├── /besoins/DEP/{code}        Fiche département : thèmes × Accès/Coût/Manque  ✅
 │   └── /besoins/theme/{theme}     Carte et classement d'un thème                   ⬜
 ├── /sources                       État des imports, licences                       ✅
 └── /api/docs                      Documentation de l'API (Swagger)                 ✅
@@ -106,7 +106,9 @@ Défilement horizontal du seul tableau sur téléphone.
 | `/besoins/theme/{theme}` | Carte des départements, classement, valeur France | Liste de l'indicateur ; clic sur un département (carte ou classement) → sa fiche |
 
 Absences de données affichées comme telles (exemple : Alsace-Moselle et Mayotte pour DVF),
-jamais comme zéro.
+jamais comme zéro : « — » et « Pas de donnée pour ce département ». Sur la fiche, la valeur
+France n'est pas montrée à côté des effectifs (nombre de pharmacies, d'urgences…), qui ne
+se comparent pas à un total national ; l'indice des prix, national, n'y figure pas.
 
 ### Questions guidées (⬜)
 
