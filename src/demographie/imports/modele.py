@@ -52,6 +52,16 @@ class Referentiel:
     libelles_regions: dict[str, str] = field(default_factory=dict)
     # code département -> code région
     region_du_departement: dict[str, str] = field(default_factory=dict)
+    # (dimension, année) -> {code commune: poids}, ex. ("RP_LOUEES", 2023)
+    poids_communes: dict[tuple[str, int], dict[str, Decimal]] = field(default_factory=dict)
+
+    def poids(self, dimension: str, annee: int | None = None) -> dict[str, Decimal]:
+        """Poids communaux de la dimension, de l'année la plus récente <= annee (ou la
+        plus récente tout court). Vide si aucun poids n'a encore été importé."""
+        annees = sorted(
+            a for d, a in self.poids_communes if d == dimension and (annee is None or a <= annee)
+        )
+        return self.poids_communes[(dimension, annees[-1])] if annees else {}
 
     def region_mono_departementale(self, departement: str) -> str | None:
         """Code de la région si elle ne compte que ce département (outre-mer), sinon None."""
@@ -63,7 +73,13 @@ class Referentiel:
 
 
 class Connecteur(Protocol):
-    """Une source : où trouver ses fichiers et comment les lire."""
+    """Une source : où trouver ses fichiers et comment les lire.
+
+    Attributs facultatifs lus par le pipeline :
+    - tolerance_sommes : tolérance du contrôle des sommes (défaut 0,5 %) ;
+    - controle_couverture : True pour exiger tous les départements à la dernière période ;
+    - departements_absents : départements que la source ne couvre pas (ex. DVF).
+    """
 
     source: str
     # Niveaux publiés ; les autres lignes lues ne servent qu'aux contrôles.

@@ -3,8 +3,9 @@
 Chaque fichier donne une ligne dans ingest.import :
 - EN_COURS   : lecture en cours (ou interrompue : un nouvel essai la reprend) ;
 - REJETE     : fichier illisible, territoire inconnu ou incohérence ; rien n'est publié ;
-- EN_ATTENTE : contrôles passés mais un total varie de plus de 3 % par rapport à la
-               valeur déjà publiée ; publication après « demo valider <n° d'import> » ;
+- EN_ATTENTE : contrôles passés mais un total varie de plus de 3 % (ou du seuil propre à
+               l'indicateur : prix, médianes) par rapport à la valeur déjà publiée ;
+               publication après « demo valider <n° d'import> » ;
 - PUBLIE     : valeurs écrites dans stat.observation, vues recalculées.
 Le fichier brut est conservé sous son empreinte SHA-256 dans le dossier des bruts.
 """
@@ -49,7 +50,10 @@ def charger_referentiel(conn: psycopg.Connection) -> Referentiel:
             regions[t["code"]] = t["libelle"]
         elif t["niveau"] == "DEP":
             region_du_departement[t["code"]] = t["parent_code"]
-    return Referentiel(identifiants, regions, region_du_departement)
+    poids: dict[tuple[str, int], dict] = {}
+    for p in conn.execute("SELECT dimension, annee, commune, poids FROM ingest.poids_commune"):
+        poids.setdefault((p["dimension"], p["annee"]), {})[p["commune"]] = p["poids"]
+    return Referentiel(identifiants, regions, region_du_departement, poids)
 
 
 def importer(
@@ -139,6 +143,9 @@ def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_varia
 
     tolerance = getattr(connecteur, "tolerance_sommes", TOLERANCE_SOMMES)
     erreurs = _controler(conn, import_id, tolerance)
+    if getattr(connecteur, "controle_couverture", False):
+        absents = sorted(getattr(connecteur, "departements_absents", frozenset()))
+        erreurs += _controler_couverture(conn, import_id, absents)
     if erreurs:
         return _rejeter(conn, import_id, fichier, "\n".join(erreurs), lues)
 
@@ -231,7 +238,27 @@ def _controler(conn, import_id: int, tolerance: float = TOLERANCE_SOMMES) -> lis
             f"{e['indicateur']} {e['niveau']} {e['code']} {e['periode']:%Y} {e['controle']} : "
             f"total {e['publie']}, somme {e['somme']}"
         )
+    hors_bornes = conn.execute(
+        charger_sql(_SQL, "controle_bornes"), {"import_id": import_id}
+    ).fetchall()
+    for e in hors_bornes[:5]:
+        erreurs.append(
+            f"{e['indicateur']} {e['niveau']} {e['code']} {e['periode']:%Y-%m} : "
+            f"{e['valeur']} hors des bornes [{e['borne_min']} ; {e['borne_max']}]"
+        )
     return erreurs
+
+
+def _controler_couverture(conn, import_id: int, absents: list[str]) -> list[str]:
+    """Départements manquants à la dernière période, hors absences connues de la source."""
+    manques = conn.execute(
+        charger_sql(_SQL, "controle_couverture"), {"import_id": import_id, "absents": absents}
+    ).fetchall()
+    return [
+        f"{m['indicateur']} {m['periode']:%Y-%m} : {len(m['manquants'])} département(s) "
+        f"manquant(s) ({', '.join(m['manquants'][:10])})"
+        for m in manques[:5]
+    ]
 
 
 def _terminer(conn, import_id, statut, message, lues=None, chargees=None) -> None:
