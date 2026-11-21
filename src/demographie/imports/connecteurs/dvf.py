@@ -24,6 +24,7 @@ from pathlib import Path
 
 from demographie.imports import telechargement
 from demographie.imports.connecteurs import communes, fichier
+from demographie.imports.connecteurs.communes import DROM
 from demographie.imports.modele import Fichier, FichierIllisible, Ligne, Referentiel
 
 INDEX = "https://files.data.gouv.fr/geo-dvf/latest/csv/"
@@ -41,7 +42,6 @@ EXCLUS = 0.01  # part écartée de chaque côté
 VENTES_MIN = 30
 ABSENTS = frozenset({"57", "67", "68", "976"})
 REGIONS_INCOMPLETES = frozenset({"44"})  # Grand Est, sans l'Alsace ni la Moselle
-DROM = frozenset({"971", "972", "973", "974", "976"})
 _NOM = re.compile(r"^dvf-(\d{4})\.csv\.gz$")
 
 

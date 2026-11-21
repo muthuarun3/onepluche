@@ -27,6 +27,14 @@ from demographie.imports.connecteurs.recensement import (
     SECTEURS,
 )
 from demographie.imports.connecteurs.rpls import PARC_SOCIAL
+from demographie.imports.connecteurs.soins import (
+    ALD_SANS_MEDECIN_TRAITANT,
+    APL_MEDECINS,
+    MAISONS_DE_SANTE,
+    MEDECINS_GENERALISTES,
+    PHARMACIES,
+    URGENCES,
+)
 
 # Ordre d'exécution de « demo importer tout » : les estimations d'abord.
 CONNECTEURS = {
@@ -51,4 +59,12 @@ CONNECTEURS = {
         PARC_SOCIAL,
     ),
     "energie": (ELECTRICITE, GAZ, DIAGNOSTICS, PRIX),
+    "soins": (
+        APL_MEDECINS,
+        ALD_SANS_MEDECIN_TRAITANT,
+        MEDECINS_GENERALISTES,
+        PHARMACIES,
+        URGENCES,
+        MAISONS_DE_SANTE,
+    ),
 }

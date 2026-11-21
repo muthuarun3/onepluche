@@ -14,6 +14,7 @@ from pathlib import Path
 
 from demographie.imports import telechargement
 from demographie.imports.connecteurs import fichier
+from demographie.imports.connecteurs.communes import DROM
 from demographie.imports.modele import Fichier, FichierIllisible, Ligne, Referentiel
 
 DATAFILE = (
@@ -22,7 +23,6 @@ DATAFILE = (
 )
 PREMIER_MILLESIME = 2022  # millésimes servis par l'API (les plus anciens : fichiers à part)
 FORMAT = fichier.FormatCSV(encodage="utf-8-sig", separateur=";", decimale=".")
-DROM = frozenset({"971", "972", "973", "974", "976"})
 _NOM = re.compile(r"^rpls-(\d{4})\.csv$")
 
 

@@ -12,6 +12,9 @@ from decimal import Decimal
 
 from demographie.imports.modele import FichierIllisible
 
+# Départements et régions d'outre-mer : hors de la France métropolitaine (« FM »).
+DROM = frozenset({"971", "972", "973", "974", "976"})
+
 
 def departement_de(commune: str) -> str:
     """Code département d'un code commune INSEE (5 caractères, Corse et outre-mer compris).
