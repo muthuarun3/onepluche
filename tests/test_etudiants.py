@@ -79,3 +79,5 @@ def test_import_et_api(urls_module):
         params={"indicateur": "ETUDIANTS", "niveau": "FRANCE", "code": "FR", "debut": 2025},
     ).json()
     assert [v["valeur"] for v in serie["valeurs"]] == [3103827]
+    accueil = client.get("/").text
+    assert "<strong>3,1 millions</strong> d'étudiants à la rentrée" in accueil
