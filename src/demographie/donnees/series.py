@@ -9,9 +9,24 @@ from demographie.db import charger_sql
 _SQL = Path(__file__).parent / "sql"
 
 
-def indicateurs(conn: psycopg.Connection, code: str | None = None) -> list[dict]:
+def indicateurs(
+    conn: psycopg.Connection,
+    code: str | None = None,
+    rubrique: str | None = None,
+    theme: str | None = None,
+) -> list[dict]:
     """Définitions des indicateurs, avec leur source et la date de dernière mise à jour."""
-    return conn.execute(charger_sql(_SQL, "indicateurs"), {"code": code}).fetchall()
+    parametres = {"code": code, "rubrique": rubrique, "theme": theme}
+    return conn.execute(charger_sql(_SQL, "indicateurs"), parametres).fetchall()
+
+
+def fiche(
+    conn: psycopg.Connection, niveau: str, code: str, rubrique: str, theme: str | None = None
+) -> list[dict]:
+    """Dernière valeur de chaque indicateur d'une rubrique pour un territoire, avec la
+    valeur France de la même période."""
+    parametres = {"niveau": niveau, "code": code, "rubrique": rubrique, "theme": theme}
+    return conn.execute(charger_sql(_SQL, "fiche"), parametres).fetchall()
 
 
 def serie(

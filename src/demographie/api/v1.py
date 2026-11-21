@@ -108,10 +108,80 @@ def _territoire(conn: psycopg.Connection, niveau: str, code: str) -> dict:
     return trouve
 
 
+Rubrique = Literal["QUI", "BESOINS"]
+Theme = Literal[
+    "LOGEMENT", "ENERGIE", "EAU", "ALIMENTATION", "TRANSPORTS", "SOINS", "NUMERIQUE", "GARDE"
+]
+
+
 @routeur.get("/indicateurs", response_model=list[Indicateur])
-def lister_indicateurs(conn: Connexion) -> list[dict]:
-    """Indicateurs disponibles, avec définition, source et date de mise à jour."""
-    return series.indicateurs(conn)
+def lister_indicateurs(
+    conn: Connexion, rubrique: Rubrique | None = None, theme: Theme | None = None
+) -> list[dict]:
+    """Indicateurs disponibles, avec définition, source et date de mise à jour.
+
+    `rubrique` : QUI (« Qui sont les Français ? ») ou BESOINS (« De quoi les Français ont
+    besoin ? ») ; `theme` : thème de la rubrique BESOINS (LOGEMENT, ENERGIE, SOINS…).
+    """
+    return series.indicateurs(conn, rubrique=rubrique, theme=theme)
+
+
+class ValeurFrance(BaseModel):
+    code: Literal["FR", "FM"] = Field(description="FR : France entière ; FM : métropole")
+    valeur: Nombre
+    provisoire: bool
+
+
+class LigneFiche(BaseModel):
+    indicateur: Indicateur
+    annee: int
+    periode: date
+    periode_type: Literal["1ER_JANVIER", "ANNEE", "TRIMESTRE", "MOIS", "RP"]
+    valeur: Nombre
+    provisoire: bool
+    france: ValeurFrance | None = Field(description="même période ; null si non publiée")
+
+
+class Fiche(BaseModel):
+    territoire: TerritoireCourt
+    rubrique: str
+    theme: str | None
+    lignes: list[LigneFiche]
+
+
+@routeur.get("/fiche", response_model=Fiche)
+def lire_fiche(
+    conn: Connexion,
+    niveau: Niveau,
+    code: CodeTerritoire,
+    rubrique: Rubrique = "BESOINS",
+    theme: Theme | None = None,
+) -> dict:
+    """Dernière valeur de chaque indicateur d'une rubrique (ou d'un thème) pour un
+    territoire, avec la valeur France de la même période et la source de l'indicateur.
+
+    Triée par thème puis par angle de lecture (accès, coût, manque).
+    """
+    territoire = _territoire(conn, niveau, code)
+    definitions = {i["code"]: i for i in series.indicateurs(conn, rubrique=rubrique)}
+    lignes = []
+    for ligne in series.fiche(conn, niveau, code, rubrique, theme):
+        france = None
+        if ligne["france_code"] is not None:
+            france = {
+                "code": ligne["france_code"],
+                "valeur": ligne["france_valeur"],
+                "provisoire": ligne["france_provisoire"],
+            }
+        lignes.append(
+            {
+                "indicateur": definitions[ligne["indicateur"]],
+                **{k: ligne[k] for k in ("annee", "periode", "periode_type", "valeur")},
+                "provisoire": ligne["provisoire"],
+                "france": france,
+            }
+        )
+    return {"territoire": territoire, "rubrique": rubrique, "theme": theme, "lignes": lignes}
 
 
 @routeur.get("/series", response_model=Serie)

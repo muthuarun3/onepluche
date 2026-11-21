@@ -135,8 +135,8 @@ Contrat pour l'écosystème : une route existante ne change jamais de forme ; on
 | `GET /api/v1/structure?niveau=&code=&annee=` | Pyramide des âges | En service |
 | `GET /api/v1/repartition?indicateur=&niveau=&code=&annee=` | Répartition par modalité avec total | En service |
 | `GET /api/v1/sources` | État des imports par fichier | En service |
-| `GET /api/v1/indicateurs?rubrique=&theme=` | Filtres de l'appli 2 | Prévu |
-| `GET /api/v1/fiche?territoire=&theme=` | Dernière valeur par indicateur, valeur France, source | Prévu |
+| `GET /api/v1/indicateurs?rubrique=&theme=` | Filtres de l'appli 2 | En service |
+| `GET /api/v1/fiche?niveau=&code=&rubrique=&theme=` | Dernière valeur par indicateur, valeur France de la même période (FR, sinon FM), source ; tri par thème puis accès, coût, manque | En service |
 | `GET /api/v1/classement?indicateur=&niveau=&periode=` | Tous les territoires d'un niveau, triés | Prévu |
 
 Paramètres validés par FastAPI (motifs `^[0-9A-Z]{2,3}$`, `^[A-Z][A-Z0-9_]+$`, années

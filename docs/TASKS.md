@@ -71,6 +71,9 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   Melodi, un indicateur par équipement (`LIEUX_MG`, `PHARMACIES`, `URGENCES`,
   `MAISONS_SANTE`) et densités `MG_10000`, `PHARMACIES_10000`. Groupe `demo importer soins`.
   *Critère :* une valeur par source identique au producteur.
+- [x] **D1. API de l'appli 2** — filtres `rubrique` et `theme` sur `/api/v1/indicateurs` ;
+  nouveau `GET /api/v1/fiche` (dernière valeur par indicateur, valeur France, source).
+  *Critère :* aucune route existante ne change de forme ; tests d'API.
 
 ## En cours
 
@@ -87,9 +90,6 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 ### Appli 2 — interface (phase D)
 
-- [ ] **D1. API de l'appli 2** — filtres `rubrique` et `theme` sur `/api/v1/indicateurs` ;
-  nouveau `GET /api/v1/fiche` (dernière valeur par indicateur, valeur France, source).
-  *Critère :* aucune route existante ne change de forme ; tests d'API.
 - [ ] **D2. Fiche département `/besoins/DEP/{code}`** — trois chiffres clés, un bloc par
   thème en colonnes Accès / Coût / Manque avec la valeur France, encadré 18-39 ans, lien vers
   la fiche de l'appli 1.
