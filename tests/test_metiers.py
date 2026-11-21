@@ -98,6 +98,6 @@ def test_import_et_api(urls_module):
     )
     assert inconnu.status_code == 404
 
-    accueil = client.get("/").text
+    accueil = client.get("/francais").text
     assert "<strong>Employés</strong> (27 %)" in accueil
     assert "Que faisons-nous ?" not in accueil  # statut d'activité non importé ici

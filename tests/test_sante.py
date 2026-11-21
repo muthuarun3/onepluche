@@ -70,7 +70,7 @@ def test_import_et_api(urls_module):
     assert parts["DIABETE"] == 6.6  # 4 471 940 / 67 612 360
     assert parts["AUCUNE"] == 53.0
 
-    accueil = client.get("/").text
+    accueil = client.get("/francais").text
     assert "De quoi souffrons-nous ?" in accueil
     assert "maladies cardio-neurovasculaires</strong>" in accueil and "(8,3 %)" in accueil
     assert "Les 4 autres groupes" in accueil

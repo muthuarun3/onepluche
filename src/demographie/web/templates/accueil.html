@@ -1,147 +1,21 @@
 {% extends "base.html" %}
-{% block titre %}Qui sont les Français ? · On épluche{% endblock %}
-
-{% macro barres(liste, titre) %}
-<figure class="barres">
-  {% if titre %}<figcaption>{{ titre }}</figcaption>{% endif %}
-  <ul>
-    {% for b in liste %}
-    <li title="{{ b.libelle }} : {{ b.valeur|entier }} personnes">
-      <span class="barre-libelle">{{ b.libelle }}</span>
-      <span class="barre-piste"><span class="barre" style="width: {{ '%.1f'|format(b.largeur) }}%"></span></span>
-      <span class="barre-valeur">{{ b.part|pct }}</span>
-    </li>
-    {% endfor %}
-  </ul>
-</figure>
-{% endmacro %}
-
 {% block contenu %}
 <section class="bandeau">
   <p>Je m'appelle Muthu, j'ai 30 ans et la prochaine élection présidentielle approche.
     Avant de choisir, je veux comprendre le pays sur des faits, pas sur des impressions.
-    Je me pose plusieurs questions ; la première est simple : <strong>qui sont les
-    Français ?</strong> Cette application y répond avec les données publiques
-    officielles (INSEE, DREES, Assurance maladie, ministère de l'Enseignement
-    supérieur).</p>
+    Je me pose plusieurs questions, et chacune a son application, qui y répond avec les
+    données publiques officielles.</p>
 </section>
 
-<h1>Qui sont les Français ?</h1>
-<p class="intro">France entière, derniers chiffres publiés. Le détail par région et par
-  département est en bas de page.</p>
-
-<div class="blocs">
-  {% set b = resume.combien %}
-  {% if b %}
-  <section class="bloc">
-    <h2>{{ b.titre }}</h2>
-    <p class="phrase"><strong>{{ b.population|millions }}</strong> d'habitants au
-      1er janvier {{ b.annee }}{% if b.provisoire %} (estimation provisoire){% endif %}.
-      {% if b.naissances %}En {{ b.annee_flux }}, {{ b.naissances|entier }} naissances et
-      {{ b.deces|entier }} décès :
-      {% if b.deces > b.naissances %}un peu plus de décès que de naissances.{% else %}plus de
-      naissances que de décès.{% endif %}{% endif %}</p>
-    <a class="detail" href="{{ b.lien }}">Évolution depuis 1975</a>
-  </section>
-  {% endif %}
-
-  {% set b = resume.age %}
-  {% if b %}
-  <section class="bloc">
-    <h2>{{ b.titre }}</h2>
-    <p class="phrase"><strong>{{ b.plus_60|pct }}</strong> des Français ont 60 ans ou plus,
-      {% if b.plus_60 > b.moins_20 %}plus que les moins de 20 ans{% else %}moins que les
-      moins de 20 ans{% endif %} ({{ b.moins_20|pct }}).</p>
-    <div class="chiffres">
-      <div class="chiffre"><div class="chiffre-libelle">Moins de 20 ans</div>
-        <div class="chiffre-valeur">{{ b.moins_20|pct }}</div></div>
-      <div class="chiffre"><div class="chiffre-libelle">60 ans et plus</div>
-        <div class="chiffre-valeur">{{ b.plus_60|pct }}</div></div>
-      <div class="chiffre"><div class="chiffre-libelle">75 ans et plus</div>
-        <div class="chiffre-valeur">{{ b.plus_75|pct }}</div></div>
-    </div>
-    <p class="source">Au 1er janvier {{ b.annee }}, estimations de l'INSEE.</p>
-    <a class="detail" href="{{ b.lien }}">Pyramide des âges</a>
-  </section>
-  {% endif %}
-
-  {% set b = resume.activite %}
-  {% if b %}
-  <section class="bloc">
-    <h2>{{ b.titre }}</h2>
-    <p class="phrase">Sur {{ b.total|millions }} de personnes de 15 ans ou plus,
-      <strong>{{ b.barres[0].part|pct(0) }}</strong> travaillent et
-      {{ b.barres[2].part|pct(0) }} sont retraités.{% if b.chomage %} Taux de chômage :
-      {{ b.chomage|pct }} des actifs en {{ b.annee_chomage }}.{% endif %}</p>
-    {{ barres(b.barres, "Population de 15 ans ou plus selon l'activité déclarée") }}
-    <p class="source">Recensement {{ b.annee }} (INSEE, moyenne de 5 ans) ; chômage au sens du BIT.</p>
-  </section>
-  {% endif %}
-
-  {% set b = resume.metiers %}
-  {% if b %}
-  {% set tri = b.barres|sort(attribute="valeur", reverse=true) %}
-  <section class="bloc">
-    <h2>{{ b.titre }}</h2>
-    <p class="phrase"><strong>{{ tri[0].libelle }}</strong> ({{ tri[0].part|pct(0) }}) et
-      {{ tri[1].libelle|lower }} ({{ tri[1].part|pct(0) }}) sont les deux plus grands groupes
-      parmi les {{ b.actifs|millions }} d'actifs (en emploi ou au chômage).</p>
-    {{ barres(b.barres, "Catégorie socioprofessionnelle (hors retraités)") }}
-    {% if b.secteurs %}{{ barres(b.secteurs, "Secteur d'activité des personnes en emploi") }}{% endif %}
-    <p class="source">Recensement {{ b.annee }} (INSEE), 15 ans ou plus.</p>
-  </section>
-  {% endif %}
-
-  {% set b = resume.etudes %}
-  {% if b %}
-  <section class="bloc">
-    <h2>{{ b.titre }}</h2>
-    <p class="phrase"><strong>{{ b.total|millions }}</strong> d'étudiants à la rentrée
-      {{ b.annee }}{% if b.disciplines %} ; à l'université, {{ b.disciplines[0].libelle|lower }}
-      en tête ({{ b.disciplines[0].part|pct(0) }}){% endif %}.</p>
-    {{ barres(b.barres, "Type de formation") }}
-    {% if b.disciplines %}{{ barres(b.disciplines, "Discipline, universités publiques (rentrée " ~ b.annee_univ ~ ")") }}{% endif %}
-    <p class="source">Ministère de l'Enseignement supérieur. Comptés là où ils étudient.</p>
-  </section>
-  {% endif %}
-
-  {% set b = resume.sante %}
-  {% if b %}
-  <section class="bloc">
-    <h2>{{ b.titre }}</h2>
-    <p class="phrase">{% if b.aucune %}{{ b.aucune|pct(0) }} des assurés n'ont eu ni maladie
-      chronique, ni traitement au long cours, ni hospitalisation. {% endif %}{% if b.maladies|length == 2 %}Maladies chroniques les plus
-      fréquentes : <strong>{{ b.maladies[0].libelle|lower }}</strong>
-      ({{ b.maladies[0].part|pct }}) et {{ b.maladies[1].libelle|lower }}
-      ({{ b.maladies[1].part|pct }}).{% endif %}</p>
-    {{ barres(b.barres, "Part des assurés pris en charge, " ~ b.annee) }}
-    {% if b.reste %}
-    <details><summary>Les {{ b.reste|length }} autres groupes</summary>
-      {{ barres(b.reste, "") }}
-    </details>
-    {% endif %}
-    <p class="source">Assurance maladie, cartographie des pathologies ({{ b.total|millions }}
-      d'assurés). Une personne peut compter dans plusieurs groupes.</p>
-  </section>
-  {% endif %}
-</div>
-
-<h2 class="choisir">Choisir un territoire</h2>
-<ul class="liste-france">
-  {% for t in france %}
-  <li><a href="/territoire/FRANCE/{{ t.code }}">{{ t.libelle }}</a></li>
+<h1>Mes questions</h1>
+<ol class="questions">
+  {% for q in questions %}
+  <li>
+    <a class="question" href="{{ q.lien }}">
+      <span class="question-titre">{{ q.titre }}</span>
+      <span class="question-resume">{{ q.resume }}</span>
+    </a>
+  </li>
   {% endfor %}
-</ul>
-<div class="regions">
-  {% for r in regions %}
-  <section class="region">
-    <h2><a href="/territoire/REG/{{ r.code }}">{{ r.libelle }}</a></h2>
-    <ul>
-      {% for d in departements.get(r.code, []) %}
-      <li><a href="/territoire/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endfor %}
-</div>
+</ol>
 {% endblock %}

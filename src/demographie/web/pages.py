@@ -41,6 +41,23 @@ def _pct(valeur: float, chiffres: int = 1) -> str:
 gabarits.env.filters.update(millions=_millions, entier=_entier, pct=_pct)
 Connexion = Annotated[psycopg.Connection, Depends(donnees.connexion_lecture)]
 
+# Les questions de la page d'accueil, chacune avec l'application qui y répond ; la barre
+# latérale les reprend.
+QUESTIONS = (
+    {
+        "titre": "Qui sont les Français ?",
+        "lien": "/francais",
+        "resume": "Combien, quel âge, quel travail, quelles études, quelle santé.",
+    },
+    {
+        "titre": "De quoi les Français ont besoin ?",
+        "lien": "/besoins",
+        "resume": "Logement, énergie, eau, alimentation, transports, soins, numérique, "
+        "garde d'enfants.",
+    },
+)
+gabarits.env.globals["questions_menu"] = QUESTIONS
+
 # Ordre et libellés courts des chiffres clés.
 CHIFFRES_CLES = (
     ("POP", "Population"),
@@ -63,7 +80,12 @@ def _niveau_libelle(niveau: str) -> str:
 
 
 @routeur.get("/", response_class=HTMLResponse)
-def accueil(request: Request, conn: Connexion) -> HTMLResponse:
+def accueil(request: Request) -> HTMLResponse:
+    return gabarits.TemplateResponse(request, "accueil.html", {"questions": QUESTIONS})
+
+
+@routeur.get("/francais", response_class=HTMLResponse)
+def francais(request: Request, conn: Connexion) -> HTMLResponse:
     tous = territoires.lister(conn)
     departements: dict[str, list[dict]] = {}
     for t in tous:
@@ -75,7 +97,7 @@ def accueil(request: Request, conn: Connexion) -> HTMLResponse:
         "departements": departements,
         "resume": resume(conn),
     }
-    return gabarits.TemplateResponse(request, "accueil.html", contexte)
+    return gabarits.TemplateResponse(request, "francais.html", contexte)
 
 
 @routeur.get("/territoire/{niveau}/{code}", response_class=HTMLResponse)
