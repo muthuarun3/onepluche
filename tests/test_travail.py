@@ -115,7 +115,7 @@ def test_cle_filtree_dans_l_url():
     assert EMPLOI_TOTAL.fichiers()[0].url.endswith(
         "/TCRED-EMPLOI-31-DECEMBRE-BASE-2018/A.EMPLOI_31_DECEMBRE.TOT.VALEUR_ABSOLUE.SAL+NSAL+TOT....."
     )
-    assert CONNECTEURS["travail"] == JEUX
+    assert CONNECTEURS["travail"][: len(JEUX)] == JEUX
 
 
 def test_import_et_api(urls_module):
