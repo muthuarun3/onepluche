@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 
 from demographie import __version__
 from demographie.api import v1
-from demographie.web import avenir, besoins, pages
+from demographie.web import avenir, besoins, pages, securite
 
 app = FastAPI(
     title="On épluche",
@@ -22,6 +22,7 @@ app.include_router(v1.routeur)
 app.include_router(pages.routeur)
 app.include_router(besoins.routeur)
 app.include_router(avenir.routeur)
+app.include_router(securite.routeur)
 app.mount("/static", StaticFiles(directory=pages.STATIQUE), name="static")
 
 _ENTETES_SECURITE = {

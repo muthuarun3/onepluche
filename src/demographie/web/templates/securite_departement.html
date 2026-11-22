@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block titre %}{{ fiche.libelle }} : sécurité · On épluche{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/securite">Les Français sont-ils en sécurité ?</a> › {{ fiche.libelle }}
+</nav>
+<h1>{{ fiche.libelle }} <span class="niveau">Département {{ fiche.code }}</span></h1>
+<p class="intro">Chaque atteinte enregistrée dans le département, son taux à côté de celui de
+  la France et son rang parmi les départements (rang 1 : le taux le plus élevé).
+  <a href="/territoire/DEP/{{ fiche.code }}">Qui sont les habitants de ce département ?</a></p>
+
+{% if paris or touristique %}
+<div class="bandeau">
+  {% if paris %}
+  <p>Paris accueille chaque jour bien plus de monde qu'il n'y vit : travailleurs venus
+    d'ailleurs, touristes. Les faits étant comptés là où ils sont commis, ses taux rapportés
+    aux seuls habitants sont mécaniquement élevés.</p>
+  {% else %}
+  <p>Département très touristique : les faits commis par et sur des visiteurs sont comptés
+    ici, mais rapportés aux seuls habitants, ce qui gonfle les taux.</p>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if not avec_donnees %}
+<p class="bandeau">Pas encore de chiffre de sécurité pour ce département.</p>
+{% else %}
+{% for f in familles %}
+<section class="bloc theme" id="{{ f.code|lower }}">
+  <h2>{{ f.titre }} <a class="lien-theme" href="{{ f.lien }}">Comparer les départements</a></h2>
+  <ul class="mesures atteintes">
+    {% for l in f.lignes %}{% set n = l.nombre %}{% set t = l.taux %}
+    <li title="{{ l.definition.definition }}">
+      <span class="mesure-libelle">{{ l.definition.libelle }}</span>
+      {% if t %}
+      <span class="mesure-valeur">{{ t.valeur|chiffre(l.taux_definition.unite) }}</span>
+      <span class="mesure-note">France : {{ t.france_valeur|chiffre(l.taux_definition.unite) }}{% if t.france_code == "FM" %} (métropole){% endif %} · rang <strong>{{ t.rang }}</strong> sur {{ t.classes }} · nombre en {{ t.annee }} : {{ n.valeur|chiffre("nombre") if n else "—" }}</span>
+      {% elif n %}
+      <span class="mesure-valeur">{{ n.valeur|chiffre("nombre") }}</span>
+      <span class="mesure-note">{{ n.annee }} · rang <strong>{{ n.rang }}</strong> sur {{ n.classes }}</span>
+      {% else %}
+      <span class="mesure-valeur">—</span>
+      <span class="mesure-note">Pas de donnée pour ce département</span>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% set d = f.lignes[0].definition %}
+  <p class="source">Source : <a href="{{ d.source_url }}" rel="noopener">{{ d.source_libelle }}</a>, {{ d.source_licence }}.{% if d.avertissement %} {{ d.avertissement }}{% endif %}</p>
+</section>
+{% endfor %}
+<p class="muet">Le ressenti (sentiment d'insécurité) n'est mesuré que pour la France :
+  <a href="/securite#ressenti">voir ce que ressentent les Français</a>.</p>
+{% endif %}
+{% endblock %}

@@ -122,15 +122,19 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/SGDKic
   départementale du SSMSI, 16 atteintes de 2016 à 2025 ; France, France métropolitaine et
   régions = somme des départements, taux rapporté à la somme des habitants ou logements.
   *Critère :* Paris 7 072 cambriolages en 2025, France 975 homicides en 2025 (fichier complet).
-- [~] **S2. Routes et ressenti** — migration 029 : ONISR (fichiers BAAC « caractéristiques »
+- [x] **S2. Routes et ressenti** (PR #37) — migration 029 : ONISR (fichiers BAAC « caractéristiques »
   et « usagers » de chaque année, deux formats, collectivités d'outre-mer écartées) : tués et
   blessés hospitalisés depuis 2016, tués par million d'habitants (vue `stat.securite_derives`) ;
   sentiment d'insécurité, France métropolitaine : enquête CVS 2007-2019 (cube data.gouv.fr)
   puis VRS 2022 et 2024 (`imports/fichiers/vrs.csv`, chiffres des fiches Insee). Taux de
   plainte reportés : publiés seulement dans les rapports PDF du SSMSI.
   *Critère :* 3 655 tués en 2016 (3 477 en métropole), 2 944 en métropole en 2021.
-- [ ] **S3. Pages `/securite`** — France, département, comparer ; six questions guidées ;
-  accueil, barre latérale, PRD, APP_FLOW, DESIGN et vitrine.
+- [~] **S3. Pages `/securite`** — France (une carte par famille, phrase et courbe ECharts,
+  évolution depuis 2016, violences sexuelles, ressenti coupé entre CVS et VRS), fiche
+  département (taux, France, rang ; bandeau Paris et départements touristiques), carte par
+  famille ; six questions guidées ; accueil, barre latérale, PRD, APP_FLOW, DESIGN et vitrine.
+  *Critère :* chaque page s'affiche sans données, avec données, et 404 pour un département ou
+  une famille inconnus (`tests/test_securite_pages.py`).
 
 ### Appli 5 « Quel avenir pour les Français ? »
 

@@ -104,9 +104,12 @@ changement d'interface est vérifié à 1280 px et 390 px.
 | Menu latéral | `.barre-laterale` | Liens `--texte-2` ; survol fond `--grille` ; page courante : fond `--grille`, gras, filet gauche intérieur 3px `--serie`. |
 | État d'import | `.etat-*` | Préfixe texte « ✓ » ou « ! » : l'état ne repose jamais sur la couleur seule. |
 | Fil d'Ariane | `.fil` | Texte `--texte-2`, séparateur « › ». |
-| Choix du territoire | `.choix-territoire` | En tête des pages `/francais` et `/besoins`. Bloc : titre, bascule Régions / Départements (`.bascule`, entrée cochée en fond `--grille` et filet bas 3px `--serie`), consigne, carte SVG (25rem max ; pleine largeur sur téléphone), boutons « Outre-mer », liste complète repliée. Territoires en `--bordure`, frontières en `--surface`, survol et focus en `--serie`. Paris et la petite couronne agrandis dans un encart en bas à gauche. L'outre-mer n'est jamais dessiné sur la carte. |
+| Choix du territoire | `.choix-territoire` | En tête des pages `/francais` et `/besoins`, en bas de `/securite` (après les faits et le ressenti). Bloc : titre, bascule Régions / Départements (`.bascule`, entrée cochée en fond `--grille` et filet bas 3px `--serie`), consigne, carte SVG (25rem max ; pleine largeur sur téléphone), boutons « Outre-mer », liste complète repliée. Territoires en `--bordure`, frontières en `--surface`, survol et focus en `--serie`. Paris et la petite couronne agrandis dans un encart en bas à gauche. L'outre-mer n'est jamais dessiné sur la carte. |
 | Onglets | `.onglets` | Liens en pilule, bordure `--bordure` ; page courante : fond `--serie`, texte `--surface`. |
 | Carte colorée | `.carte.coloree` | Mêmes contours que le choix du territoire. Une seule teinte, de `--grille` (valeur basse) à `--serie` (valeur haute) par `color-mix`, jamais de couleur « bonne » ou « mauvaise » ; sans donnée : `--surface` hachuré de `--bordure` et liste sous le classement ; survol et focus : contour `--texte`. Outre-mer en pastilles de la même couleur. Le classement sert de tableau équivalent. |
+
+| Petite courbe | `.courbe` | Rubrique sécurité : une courbe ECharts par famille (11rem de haut, 16rem pour le ressenti), données dans l'attribut `data-courbe` du bloc (plusieurs par page). Texte équivalent : la phrase au-dessus (dernière valeur, évolution depuis la première année) ou les chiffres clés. Une valeur absente coupe la courbe (ressenti : rien entre les enquêtes CVS et VRS). |
+| Atteinte phare | `.phrase .grand` | Chiffre de 1,5rem en tête de phrase, chiffres tabulaires ; les autres atteintes de la famille dans un `<details class="autres">` replié. |
 
 Rayon des coins : 8px (blocs), 6px (liens du menu), 2px (pastilles de légende).
 Bordures : 1px `--bordure`. Pas d'ombres dans l'appli.
@@ -116,8 +119,9 @@ Bordures : 1px `--bordure`. Pas d'ombres dans l'appli.
 - Fichier local `static/echarts.min.js`, chargé seulement sur les pages qui en ont besoin.
 - Couleurs, textes, grilles et infobulles lus depuis les jetons CSS ; un changement de thème
   du système redessine les graphiques.
-- Données passées au navigateur dans `<script type="application/json" id="donnees">`, jamais
-  par un appel d'API en JavaScript.
+- Données passées au navigateur dans `<script type="application/json" id="donnees">` (ou,
+  pour les petites courbes de `/securite`, dans `data-courbe`), jamais par un appel d'API en
+  JavaScript.
 - Chaque graphique a `role="img"`, un `aria-label` et un tableau équivalent.
 - Infobulles : fond `--surface`, bordure `--bordure`, texte 13px, nombres au format
   français (`Intl.NumberFormat("fr-FR")`).

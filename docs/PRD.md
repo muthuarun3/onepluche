@@ -89,6 +89,19 @@ et la France y est la somme des départements.
 Écrans : vue France (projections nationales, choix du département, thèmes), fiche
 département, page thème (carte et classement). Six questions guidées. Dossier de conception
 validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv9wfVht4xEcUs5hnE>.
+### Appli 4 — « Les Français sont-ils en sécurité ? » (`/securite`)
+
+Les faits de délinquance enregistrés par la police et la gendarmerie (SSMSI, 16 atteintes
+en cinq familles : personnes, vols, biens, stupéfiants ; nombre et taux par département
+depuis 2016), les victimes de la route (ONISR : tués et blessés hospitalisés, tués par
+million d'habitants) et, après les faits, le sentiment d'insécurité (enquêtes CVS puis VRS,
+France métropolitaine). Pas de total par famille (unités différentes). Chaque chiffre
+rappelle qu'un fait enregistré n'est pas un fait commis.
+
+Écrans : vue France (une carte par famille avec sa phrase et sa courbe, « la délinquance
+augmente-t-elle ? », violences sexuelles, ressenti), fiche département (taux, valeur France,
+rang ; bandeau pour Paris et les départements très touristiques), carte par famille. Six
+questions guidées. Taux de plainte reportés (rapports VRS en PDF seulement).
 
 ### Autres questions
 
@@ -112,6 +125,7 @@ n'est décidée à ce jour.
 | F11 | Questions guidées (réponse = phrase + graphique + source) | Prévu |
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
 | F14 | Rubrique `/avenir` : projections de population (vue France, fiche département) ; climat et risques ensuite | Population en PR (appli 5, phase A) |
+| F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
 | F13 | Vitrine Neocities à jour, même direction artistique que l'appli | PR #22 ouverte |
 
 Le détail et l'ordre de livraison sont dans [TASKS.md](TASKS.md).

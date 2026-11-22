@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% from "_carte.html" import choix_territoire %}
+{% macro courbe(donnees, libelle, unite="nombre") -%}
+<div class="courbe" role="img" aria-label="{{ libelle }}" data-unite="{{ unite }}" data-courbe='{{ donnees|tojson }}'></div>
+{%- endmacro %}
+{% macro source(d) -%}
+<p class="source">Source : <a href="{{ d.source_url }}" rel="noopener">{{ d.source_libelle }}</a>, {{ d.source_licence }}.{% if d.avertissement %} {{ d.avertissement }}{% endif %}</p>
+{%- endmacro %}
+{% block titre %}Les Français sont-ils en sécurité ? · On épluche{% endblock %}
+{% block contenu %}
+<h1>Les Français sont-ils en sécurité&nbsp;?</h1>
+<p class="intro">Les faits de délinquance enregistrés par la police et la gendarmerie, et les
+  victimes de la route, comptés là où ils se produisent. Un fait que personne ne déclare n'y
+  figure pas : le ressenti des Français, plus bas, complète le tableau.</p>
+
+{% if not familles %}
+<p class="bandeau">Les chiffres de la sécurité ne sont pas encore importés.</p>
+{% endif %}
+
+<div class="blocs">
+  {% for f in familles %}
+  <section class="bloc famille" id="{{ f.ancre }}">
+    <h2>{{ f.titre }} <a class="lien-theme" href="{{ f.lien }}">Comparer les départements</a></h2>
+    {% if f.phare %}{% set r = f.phare.resume %}
+    <p class="phrase"><strong class="grand">{{ r.valeur|chiffre("nombre") }}</strong>
+      {{ f.fin_phrase }} en {{ r.annee }}{% if r.provisoire %} (provisoire){% endif %}{% if r.phrase %}, {{ r.phrase }}{% endif %}.</p>
+    {{ courbe(r.courbe, f.phare.definition.libelle ~ ", France, de " ~ r.debut ~ " à " ~ r.annee) }}
+    {% endif %}
+    {% if f.autres %}
+    <details class="autres">
+      <summary>{% if f.phare %}Les autres atteintes ({{ f.autres|length }}){% else %}Les atteintes{% endif %}</summary>
+      <ul class="mesures">
+        {% for a in f.autres %}
+        <li title="{{ a.definition.definition }}">
+          <span class="mesure-libelle">{{ a.definition.libelle }}</span>
+          <span class="mesure-valeur">{{ a.resume.valeur|chiffre("nombre") }}</span>
+          <span class="mesure-note">{{ a.resume.annee }}{% if a.resume.phrase %}, {{ a.resume.phrase }}{% endif %}{% if a.taux %} · {{ a.taux.valeur|chiffre(a.taux_definition.unite) }}{% endif %}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </details>
+    {% endif %}
+    {% if f.phare %}{{ source(f.phare.definition) }}{% elif f.autres %}{{ source(f.autres[0].definition) }}{% endif %}
+  </section>
+  {% endfor %}
+</div>
+
+{% if evolution %}
+<section class="bloc" id="evolution">
+  <h2>La délinquance augmente-t-elle ?</h2>
+  <p class="phrase">Selon l'atteinte, oui ou non : chacune est comptée dans sa propre unité
+    (victimes, infractions, véhicules, personnes mises en cause), on ne les additionne pas.
+    Une hausse des faits enregistrés peut venir d'une hausse des plaintes, comme pour les
+    violences sexuelles et intrafamiliales.</p>
+  <div class="angles">
+    <div class="angle">
+      <h3>En hausse</h3>
+      {% if evolution.hausses %}
+      <ul class="mesures">
+        {% for a in evolution.hausses %}
+        <li><span class="mesure-libelle">{{ a.definition.libelle }}</span>
+          <span class="mesure-valeur">+{{ a.resume.evolution|round|int }}&nbsp;%</span>
+          <span class="mesure-note">{{ a.resume.debut }}-{{ a.resume.annee }}, {{ a.resume.valeur|chiffre("nombre") }} en {{ a.resume.annee }}</span></li>
+        {% endfor %}
+      </ul>
+      {% else %}<p class="muet">Aucune.</p>{% endif %}
+    </div>
+    <div class="angle">
+      <h3>Stables ou en baisse</h3>
+      {% if evolution.baisses %}
+      <ul class="mesures">
+        {% for a in evolution.baisses %}
+        <li><span class="mesure-libelle">{{ a.definition.libelle }}</span>
+          <span class="mesure-valeur">{{ "%+d"|format(a.resume.evolution|round|int)|replace("-", "−") }}&nbsp;%</span>
+          <span class="mesure-note">{{ a.resume.debut }}-{{ a.resume.annee }}, {{ a.resume.valeur|chiffre("nombre") }} en {{ a.resume.annee }}</span></li>
+        {% endfor %}
+      </ul>
+      {% else %}<p class="muet">Aucune.</p>{% endif %}
+    </div>
+  </div>
+  <p class="source">Source : ministère de l'Intérieur (SSMSI), Licence Ouverte 2.0. France entière, faits enregistrés.</p>
+</section>
+{% endif %}
+
+{% if violences %}{% set r = violences.resume %}
+<section class="bloc" id="violences-sexuelles">
+  <h2>Les violences sexuelles augmentent-elles vraiment ?</h2>
+  <p class="phrase"><strong class="grand">{{ r.valeur|chiffre("nombre") }}</strong> victimes de
+    violences sexuelles enregistrées en {{ r.annee }}{% if r.phrase %}, {{ r.phrase }}{% endif %}.
+    Les victimes portent davantage plainte depuis 2017 : une part de la hausse vient de
+    faits anciens ou qui n'auraient pas été déclarés avant. Le taux de plainte des victimes,
+    mesuré par l'enquête de victimation, sera affiché ici dès qu'il sera recopié des rapports.</p>
+  {{ courbe(r.courbe, "Violences sexuelles enregistrées, France, de " ~ r.debut ~ " à " ~ r.annee) }}
+  {{ source(violences.definition) }}
+</section>
+{% endif %}
+
+{% if ressenti %}
+<section class="bloc" id="ressenti">
+  <h2>Le chiffre dit-il tout ? Ce que ressentent les Français</h2>
+  <p class="phrase">Part des personnes qui se sentent en insécurité dans leur quartier ou
+    chez elles, ou qui renoncent à sortir seules, d'après les enquêtes de
+    victimation (France métropolitaine). Deux enquêtes se suivent sans se raccorder :
+    « Cadre de vie et sécurité » jusqu'en {{ ressenti.fin_cvs }}, en face à face, puis « Vécu
+    et ressenti en matière de sécurité » depuis {{ ressenti.debut_vrs }}, par internet. La
+    courbe est coupée entre les deux.</p>
+  <div class="chiffres">
+    {% for m in ressenti.mesures %}
+    <div class="chiffre" title="{{ m.definition.definition }}">
+      <div class="chiffre-libelle">{{ m.court }}</div>
+      <div class="chiffre-valeur">{{ m.derniere.valeur|chiffre("pourcentage") }}</div>
+      <div class="chiffre-note">{{ m.derniere.annee }}{% if m.cvs and m.cvs.annee != m.derniere.annee %} · {{ m.cvs.valeur|chiffre("pourcentage") }} en {{ m.cvs.annee }}{% endif %}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {{ courbe(ressenti.courbe, "Sentiment d'insécurité, France métropolitaine", "pourcentage") }}
+  {% set d = ressenti.mesures[-1].definition %}
+  <p class="source">Sources : Insee et ministère de l'Intérieur (SSMSI), enquêtes CVS et VRS, Licence Ouverte 2.0.{% if d.comparabilite %} {{ d.comparabilite }}{% endif %}{% if d.avertissement %} {{ d.avertissement }}{% endif %}</p>
+</section>
+{% endif %}
+
+<section class="bloc questions-guidees">
+  <h2>Questions guidées</h2>
+  <ul>
+    {% for titre, lien in questions %}<li><a href="{{ lien }}">{{ titre }}</a></li>{% endfor %}
+  </ul>
+</section>
+
+{% call choix_territoire(choix, "Choisir un département",
+  "Touchez un département pour voir ses taux et son rang parmi les départements.") %}
+<div class="regions">
+  {% for r in regions %}
+  <section class="region">
+    <h3>{{ r.libelle }}</h3>
+    <ul>
+      {% for d in departements.get(r.code, []) %}
+      <li><a href="/securite/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+{% endcall %}
+{% endblock %}
+{% block scripts %}
+{% if familles or ressenti %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/securite.js"></script>
+{% endif %}
+{% endblock %}

@@ -39,6 +39,9 @@ Navigateur ──► https://onepluche.duckdns.org
 ├── /avenir                        Quel avenir pour les Français ? vue France        🔶
 │   ├── /avenir/DEP/{code}         Fiche département : population projetée, âges    🔶
 │   └── /avenir/theme/{theme}      Carte et classement d'un thème                    ⬜
+├── /securite                      Les Français sont-ils en sécurité ? vue France   ✅
+│   ├── /securite/DEP/{code}       Fiche département : taux, France, rang           ✅
+│   └── /securite/famille/{famille} Carte et classement d'une famille d'atteintes   ✅
 ├── /sources                       État des imports, licences                       ✅
 └── /api/docs                      Documentation de l'API (Swagger)                 ✅
 ```
@@ -69,6 +72,7 @@ par l'accueil et par la barre latérale. Ajouter une application = ajouter une e
 | Carte « Qui sont les Français ? » | `/francais` |
 | Carte « De quoi les Français ont besoin ? » | `/besoins` |
 | Carte « Quel avenir pour les Français ? » | `/avenir` |
+| Carte « Les Français sont-ils en sécurité ? » | `/securite` |
 
 ### Qui sont les Français ? `/francais` (✅ sur `/` aujourd'hui, 🔶 déplacé par la PR #21)
 
@@ -112,6 +116,14 @@ Défilement horizontal du seul tableau sur téléphone.
 | `/besoins` | Courses et transports : dépense moyenne par ménage et par mois (courses alimentaires, transports, carburant ; France) et prix du litre de gazole et de SP95-E10 (moyenne des stations de métropole, lien vers la carte) ; part de chaque poste dans la dépense de consommation des ménages et part des dépenses pré-engagées dans leur revenu (comptes nationaux, France) ; hausse des prix depuis 2015 en barres (ensemble, énergie, électricité, gaz, loyers, santé, alimentation, carburants, transports ; moyennes annuelles, dernière année complète) ; un chiffre France par thème ; carte des départements en tête de page (outre-mer en boutons, liste complète repliée) | Toucher un département → `/besoins/DEP/{code}` ; thème → `/besoins/theme/{theme}` |
 | `/besoins/DEP/{code}` | Trois chiffres clés (loyer au m², part des DPE F ou G, accès aux généralistes) ; un bloc par thème en trois colonnes Accès, Coût, Manque, valeur France à côté ; encadré 18-39 ans | Lien vers `/territoire/DEP/{code}` (même département dans l'appli 1) ; lien vers chaque thème |
 | `/besoins/theme/{theme}` (`logement`, `energie`, `soins`…) | Onglets des thèmes ; définition de l'indicateur ; valeur France (masquée pour les effectifs), département le plus haut et le plus bas ; carte en une seule teinte (outre-mer en médaillons) ; classement ; départements sans donnée listés | Liste de l'indicateur (`?indicateur=`, recharge la page) ; clic sur un département (carte ou classement) → sa fiche ; indicateur ou thème inconnu → 404 |
+
+### Rubrique `/securite` (✅, appli 4)
+
+| Page | Contenu | Interactions |
+| --- | --- | --- |
+| `/securite` | Une carte par famille (personnes, vols, biens, stupéfiants, routes) : l'atteinte phare en grand avec sa phrase (« 211 596 cambriolages de logement enregistrés en 2025, 15 % de moins qu'en 2016 »), sa courbe depuis 2016 et les autres atteintes dépliables ; « La délinquance augmente-t-elle ? » (atteintes en hausse, stables ou en baisse depuis 2016) ; violences sexuelles ; le ressenti (trois parts, courbe coupée entre les enquêtes CVS et VRS), toujours après les faits ; six questions guidées ; carte des départements | Toucher un département → `/securite/DEP/{code}` ; « Comparer les départements » → `/securite/famille/{famille}` ; questions guidées → ancre de la page ou carte |
+| `/securite/DEP/{code}` | Bandeau pour Paris et les départements très touristiques ; par famille, chaque atteinte : taux du département, taux France, rang parmi les départements (1 = le plus élevé), nombre | Lien vers `/territoire/DEP/{code}` ; vers chaque famille ; département inconnu → 404 |
+| `/securite/famille/{famille}` (`personnes`, `vols`, `biens`, `stupefiants`, `routes`) | Onglets des familles ; taux seulement (pour 1 000 habitants ou logements, tués par million) ; valeur France, plus haut et plus bas ; carte colorée ; classement | `?indicateur=` ; famille inconnue, `ressenti` (France seulement) ou indicateur d'une autre famille → 404 |
 
 Absences de données affichées comme telles (exemple : Alsace-Moselle et Mayotte pour DVF),
 jamais comme zéro : « — » et « Pas de donnée pour ce département ». Sur la fiche, la valeur
