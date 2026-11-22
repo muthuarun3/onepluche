@@ -237,3 +237,8 @@ UNION ALL
 -- Appli sécurité : indicateurs calculés (tués sur la route par million d'habitants).
 SELECT indicateur, niveau, code, annee, valeur, provisoire, sexe, periode, periode_type
 FROM stat.securite_derives;
+
+-- Correction d'une définition de la migration 027 (« Nombre de infractions »).
+UPDATE ref.indicateur
+SET definition = replace(definition, 'Nombre de infractions', 'Nombre d''infractions')
+WHERE rubrique = 'SECURITE' AND definition LIKE 'Nombre de infractions%';
