@@ -121,6 +121,10 @@ Bordures : 1px `--bordure`. Pas d'ombres dans l'appli.
 - Chaque graphique a `role="img"`, un `aria-label` et un tableau équivalent.
 - Infobulles : fond `--surface`, bordure `--bordure`, texte 13px, nombres au format
   français (`Intl.NumberFormat("fr-FR")`).
+- Projections (`/avenir`) : scénario central en trait `--serie` ; fourchette des
+  scénarios (bas - haut) en bande `--serie` à 25 % d'opacité, jamais en trois courbes de
+  même poids. Légende par pastilles `.pastille.serie` et `.pastille.fourchette`. Pyramide
+  projetée : barres `--hommes` / `--femmes`, année de départ en contour `--texte-3`.
 - Carte des départements (prévue) : une teinte séquentielle unique dérivée de `--serie`,
   légende des classes, valeur France indiquée ; départements sans donnée en hachures ou gris
   `--grille`, avec la mention « pas de donnée ».

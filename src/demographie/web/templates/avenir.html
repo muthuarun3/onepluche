@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% from "_carte.html" import choix_territoire %}
+{% block titre %}Quel avenir pour les Français ? · On épluche{% endblock %}
+{% block contenu %}
+<h1>Quel avenir pour les Français ?</h1>
+<p class="intro">Combien serons-nous, et à quel âge ; quel climat et quels risques nous
+  attendent. Des projections publiques, avec leur fourchette : ce qui arriverait si les
+  hypothèses se réalisaient, pas des prévisions.</p>
+
+{% if france %}
+<section class="graphique-bloc">
+  <div class="graphique-titre"><h2>La population de la France d'ici {{ france.fin }}</h2></div>
+  <p class="phrase">Selon le scénario central de l'INSEE, la France compterait
+    <strong>{{ france.central|millions }}</strong> d'habitants en {{ france.fin }}, contre
+    {{ france.depart|millions }} en {{ france.debut }}.
+    {% if france.pic.annee < france.fin %}La population atteindrait un maximum de
+    {{ france.pic.valeur|millions }} vers {{ france.pic.annee }}, puis baisserait.{% endif %}
+    {% if france.basse and france.haute %}Selon les hypothèses de fécondité, d'espérance de vie
+    et de migrations, elle serait entre {{ france.basse|millions }} et
+    {{ france.haute|millions }}.{% endif %}</p>
+  <p class="legende"><span class="pastille serie"></span>Scénario central <span class="pastille fourchette"></span>De la population basse à la population haute</p>
+  <div id="projection-france" class="graphique" role="img" aria-label="Population projetée de la France selon trois scénarios"></div>
+  {% if france.groupes %}
+  <div class="tableau-defilant">
+    <table>
+      <caption>Population par grand groupe d'âge (scénario central)</caption>
+      <thead><tr><th>Âge</th>{% for a in france.reperes %}<th>{{ a }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for g in france.groupes %}
+        <tr{% if g.dont %} class="muet"{% endif %}><td>{{ g.libelle }}</td>{% for v in g.valeurs %}<td>{{ v|millions if v is not none else "—" }}</td>{% endfor %}</tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+  {% if france.definition %}
+  <p class="source">Source : <a href="{{ france.definition.source_url }}" rel="noopener">{{ france.definition.source_libelle }}</a>, {{ france.definition.source_licence }}. {{ france.definition.avertissement }}</p>
+  {% endif %}
+</section>
+{% else %}
+<p class="vide">Les projections nationales ne sont pas encore importées.</p>
+{% endif %}
+
+{% call choix_territoire(choix, "Choisir un département",
+  "Touchez un département pour voir sa population projetée jusqu'en 2070, ses âges et la fourchette des scénarios.") %}
+<div class="regions">
+  {% for r in regions %}
+  <section class="region">
+    <h3>{{ r.libelle }}</h3>
+    <ul>
+      {% for d in departements.get(r.code, []) %}
+      <li><a href="/avenir/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+{% endcall %}
+{% if omphale %}
+<p class="encadre">Les projections par département datent de 2022 (modèle Omphale) : elles
+  prévoient plus d'habitants que les projections nationales de 2026. Sur les fiches, la
+  France est la somme des départements, pour comparer dans le même scénario.</p>
+{% endif %}
+
+<div class="blocs">
+  {% for titre, texte in a_venir %}
+  <section class="bloc">
+    <h2>{{ titre }}</h2>
+    <p class="muet">Bientôt : {{ texte }}</p>
+  </section>
+  {% endfor %}
+</div>
+<script type="application/json" id="donnees-avenir">{{ donnees|tojson }}</script>
+{% endblock %}
+{% block scripts %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/avenir.js"></script>
+{% endblock %}

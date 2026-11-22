@@ -127,6 +127,22 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/SGDKic
 - [ ] **S3. Pages `/securite`** — France, département, comparer ; six questions guidées ;
   accueil, barre latérale, PRD, APP_FLOW, DESIGN et vitrine.
 
+### Appli 5 « Quel avenir pour les Français ? »
+
+Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv9wfVht4xEcUs5hnE>.
+
+- [~] **A. Fondations et population** — migration 028 (rubrique `AVENIR`, sept thèmes,
+  `ref.scenario`, `stat.projection`, vues `api.projection` et `api.projection_population`),
+  groupe `demo importer avenir` (Omphale 2022 : trois scénarios ; France 2026), route
+  `/api/v1/projections`, pages `/avenir` et `/avenir/DEP/{code}`, accueil, barre latérale,
+  vitrine. *Critère :* Creuse 2018 = estimation INSEE à moins de 1 % ; France 2070 central
+  65,9 millions (2026) ; tests `test_avenir_population.py`.
+- [ ] **B. Climat** — DRIAS-2020 (RCP 2.6, 4.5, 8.5 ; huit indicateurs ; fichier extrait par
+  Muthu et déposé dans `DEMO_DONNEES_BRUTES/drias/`), sélecteur GIEC (RCP 4.5 par défaut).
+- [ ] **C. Risques naturels** — GASPAR (arrêtés de catastrophe naturelle, PPRN), pages
+  `/avenir/theme/{theme}`, classements. *Critère :* Guéret, 8 arrêtés.
+- [ ] **D. Questions guidées et clôture** — six questions, sept critères du dossier.
+
 ### Appli 2 — données (phases B et C)
 
 - [~] **Courses, carburant et transports** (demande de Muthu, 21/11/2026) — migration 025,

@@ -23,6 +23,8 @@ from demographie.imports.connecteurs.estimations import (
 )
 from demographie.imports.connecteurs.loyers import CARTE_DES_LOYERS
 from demographie.imports.connecteurs.melodi import DECES, NAISSANCES
+from demographie.imports.connecteurs.omphale import PROJECTIONS_DEPARTEMENTALES
+from demographie.imports.connecteurs.projections_france import PROJECTIONS_FRANCE
 from demographie.imports.connecteurs.recensement import (
     CATEGORIES,
     RECENSEMENT,
@@ -88,4 +90,7 @@ CONNECTEURS = {
     ),
     # Appli « Les Français sont-ils en sécurité ? »
     "securite": (DELINQUANCE,),
+    # Appli 5 : quel avenir pour les Français ? Après « estimations » : la population de
+    # départ des projections est comparée aux estimations publiées.
+    "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE),
 }

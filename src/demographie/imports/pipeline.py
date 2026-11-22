@@ -22,7 +22,7 @@ from pathlib import Path
 import psycopg
 
 from demographie.db import charger_sql
-from demographie.imports import telechargement
+from demographie.imports import projections, telechargement
 from demographie.imports.modele import Connecteur, Fichier, FichierIllisible, Poids, Referentiel
 
 _SQL = Path(__file__).parent / "sql"
@@ -49,17 +49,18 @@ def charger_referentiel(conn: psycopg.Connection) -> Referentiel:
         """SELECT t.territoire_id, t.niveau, t.code, t.libelle, p.code AS parent_code
            FROM ref.territoire t LEFT JOIN ref.territoire p ON p.territoire_id = t.parent_id"""
     )
-    identifiants, regions, region_du_departement = {}, {}, {}
+    identifiants, regions, region_du_departement, departements = {}, {}, {}, {}
     for t in lignes.fetchall():
         identifiants[(t["niveau"], t["code"])] = t["territoire_id"]
         if t["niveau"] == "REG":
             regions[t["code"]] = t["libelle"]
         elif t["niveau"] == "DEP":
             region_du_departement[t["code"]] = t["parent_code"]
+            departements[t["code"]] = t["libelle"]
     poids: dict[tuple[str, int], dict] = {}
     for p in conn.execute("SELECT dimension, annee, commune, poids FROM ingest.poids_commune"):
         poids.setdefault((p["dimension"], p["annee"]), {})[p["commune"]] = p["poids"]
-    return Referentiel(identifiants, regions, region_du_departement, poids)
+    return Referentiel(identifiants, regions, region_du_departement, poids, departements)
 
 
 def importer(
@@ -122,6 +123,7 @@ def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_varia
         # Un essai précédent a été rejeté ou interrompu : on reprend la même ligne de journal.
         import_id = existant["import_id"]
         conn.execute("DELETE FROM ingest.ligne WHERE import_id = %s", (import_id,))
+        conn.execute("DELETE FROM ingest.ligne_projection WHERE import_id = %s", (import_id,))
         conn.execute(
             """UPDATE ingest.import SET statut = 'EN_COURS', debut = now(), fin = NULL,
                  url = %s, fichier_nom = %s, millesime = %s, message = NULL,
@@ -140,6 +142,11 @@ def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_varia
 
     if getattr(connecteur, "poids_communaux", False):
         return _importer_poids(conn, import_id, connecteur, brut, fichier)
+    if getattr(connecteur, "projections", False):
+        with _sous_son_nom(brut, fichier, getattr(connecteur, "lit_le_nom", False)) as chemin:
+            return projections.importer(
+                conn, import_id, connecteur, chemin, fichier, seuil_variation
+            )
 
     try:
         with _sous_son_nom(brut, fichier, getattr(connecteur, "lit_le_nom", False)) as chemin:
@@ -339,6 +346,7 @@ def _terminer(conn, import_id, statut, message, lues=None, chargees=None) -> Non
 
 def _rejeter(conn, import_id, fichier, message, lues=None) -> Resultat:
     conn.execute("DELETE FROM ingest.ligne WHERE import_id = %s", (import_id,))
+    conn.execute("DELETE FROM ingest.ligne_projection WHERE import_id = %s", (import_id,))
     _terminer(conn, import_id, "REJETE", message, lues=lues)
     return Resultat(fichier.nom, "REJETE", import_id, message)
 
@@ -366,6 +374,10 @@ def valider(conn: psycopg.Connection, import_id: int) -> int:
         raise ImportImpossible(f"Import n° {import_id} inconnu")
     if ligne["statut"] != "EN_ATTENTE":
         raise ImportImpossible(f"Import n° {import_id} : statut {ligne['statut']}, rien à valider")
+    if conn.execute(
+        "SELECT 1 FROM ingest.ligne_projection WHERE import_id = %s LIMIT 1", (import_id,)
+    ).fetchone():
+        return projections.publier(conn, import_id)
     return publier(conn, import_id)
 
 

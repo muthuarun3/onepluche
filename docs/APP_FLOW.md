@@ -36,6 +36,9 @@ Navigateur ──► https://onepluche.duckdns.org
 ├── /besoins                       De quoi les Français ont besoin ? vue d'ensemble ✅
 │   ├── /besoins/DEP/{code}        Fiche département : thèmes × Accès/Coût/Manque  ✅
 │   └── /besoins/theme/{theme}     Carte et classement d'un thème                   ✅
+├── /avenir                        Quel avenir pour les Français ? vue France        🔶
+│   ├── /avenir/DEP/{code}         Fiche département : population projetée, âges    🔶
+│   └── /avenir/theme/{theme}      Carte et classement d'un thème                    ⬜
 ├── /sources                       État des imports, licences                       ✅
 └── /api/docs                      Documentation de l'API (Swagger)                 ✅
 ```
@@ -65,6 +68,7 @@ par l'accueil et par la barre latérale. Ajouter une application = ajouter une e
 | Bandeau de Muthu (30 ans, présidentielle) | — |
 | Carte « Qui sont les Français ? » | `/francais` |
 | Carte « De quoi les Français ont besoin ? » | `/besoins` |
+| Carte « Quel avenir pour les Français ? » | `/avenir` |
 
 ### Qui sont les Français ? `/francais` (✅ sur `/` aujourd'hui, 🔶 déplacé par la PR #21)
 
@@ -113,6 +117,13 @@ Absences de données affichées comme telles (exemple : Alsace-Moselle et Mayott
 jamais comme zéro : « — » et « Pas de donnée pour ce département ». Sur la fiche, la valeur
 France n'est pas montrée à côté des effectifs (nombre de pharmacies, d'urgences…), qui ne
 se comparent pas à un total national ; l'indice des prix, national, n'y figure pas.
+
+### Rubrique `/avenir` (🔶, appli 5 phase A)
+
+| Page | Contenu | Interactions |
+| --- | --- | --- |
+| `/avenir` | Population de la France d'ici 2070 (projections nationales 2026) : phrase (scénario central, maximum, fourchette), courbe du scénario central dans la bande population basse - population haute, tableau par grand groupe d'âge ; carte des départements ; avertissement sur les projections départementales de 2022 ; blocs « Climat » et « Risques naturels » annoncés | Toucher un département → `/avenir/DEP/{code}` |
+| `/avenir/DEP/{code}` | Quatre chiffres en 2050 (population et fourchette, évolution depuis 2018, part des 75 ans ou plus, seniors pour 100 actifs ; France = somme des départements à côté) ; phrase ; courbe et bande des trois scénarios avec tableau 2018, 2030, 2050, 2070 ; pyramide des âges projetée (scénario central) avec le contour de 2018 | Liste de l'année de la pyramide (sans rechargement) ; liens vers `/territoire/DEP/{code}` et `/besoins/DEP/{code}` ; département sans projection importée : message ; inconnu → 404 |
 
 ### Questions guidées (⬜)
 

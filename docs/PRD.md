@@ -75,6 +75,21 @@ par thème (Accès / Coût / Manque, comparé à la France), page thème (carte 
 Six questions guidées, par exemple « Combien d'années de niveau de vie faut-il pour acheter
 60 m² dans mon département ? ».
 
+### Appli 5 — « Quel avenir pour les Français ? » (`/avenir`, en construction)
+
+Ce qui attend les Français d'ici 2070-2100, par département, toujours avec une fourchette :
+combien d'habitants et de quel âge (INSEE : scénario central, population basse, population
+haute), quel climat (scénarios du GIEC, RCP 2.6, 4.5 et 8.5, par DRIAS-2020 de Météo-France)
+et quels risques naturels (Géorisques). Sept thèmes : population, climat, risques naturels,
+eau, agriculture, santé future, emploi futur ; **MVP : population, climat, risques**.
+Les projections ne sont pas des prévisions : chaque page le dit. Les projections nationales
+de 2026 servent pour la France ; celles par département (Omphale 2022) sont plus anciennes
+et la France y est la somme des départements.
+
+Écrans : vue France (projections nationales, choix du département, thèmes), fiche
+département, page thème (carte et classement). Six questions guidées. Dossier de conception
+validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv9wfVht4xEcUs5hnE>.
+
 ### Autres questions
 
 D'autres applications pourront s'ajouter, chacune avec sa question sur l'accueil. Aucune
@@ -96,6 +111,7 @@ n'est décidée à ce jour.
 | F10 | Carte des départements, construite une fois pour les deux applis | Choix du territoire par la carte en service ; carte colorée par indicateur prévue (D4) |
 | F11 | Questions guidées (réponse = phrase + graphique + source) | Prévu |
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
+| F14 | Rubrique `/avenir` : projections de population (vue France, fiche département) ; climat et risques ensuite | Population en PR (appli 5, phase A) |
 | F13 | Vitrine Neocities à jour, même direction artistique que l'appli | PR #22 ouverte |
 
 Le détail et l'ordre de livraison sont dans [TASKS.md](TASKS.md).

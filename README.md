@@ -73,6 +73,7 @@ uv run demo importer energie              # besoins : électricité et gaz (Agen
 uv run demo importer soins                # besoins : accès aux médecins (DREES), ALD sans médecin traitant, équipements (BPE)
 uv run demo importer budget               # besoins : dépense des ménages par poste, dépenses pré-engagées (comptes nationaux)
 uv run demo importer transports           # besoins : prix des carburants (stations), trajets domicile-travail, voitures, dépense en carburants
+uv run demo importer avenir               # avenir : projections de population (INSEE Omphale 2022 par département, France 2026)
 uv run demo importer securite             # sécurité : délinquance enregistrée par département (SSMSI)
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)
 uv run demo verifier                      # compare aux chiffres publiés par l'INSEE
