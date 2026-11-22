@@ -85,7 +85,11 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 Rubriques ajoutées depuis : `SECURITE` (`/securite`, ordre 6, migration 027, thème obligatoire)
 et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI` ;
 `AVENIR` (`/avenir`, ordre 7, migration 028, thème obligatoire) et ses thèmes `POPULATION`,
-`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI`.
+`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ;
+`TRAVAIL` (`/travail`, ordre 8, migration 030, thème obligatoire) et ses thèmes
+`CHERCHER_CREER`, `EMPLOI`, `CONDITIONS`, `SALAIRES`, `TELETRAVAIL`, `ACCIDENTS`,
+`SYNDICATS_GREVES`. Modalités ajoutées : `secteur` `INTERIM`, `statut_emploi` (`SALARIE`,
+`NON_SALARIE`), `type_entreprise` `MICRO`.
 
 Ordres réservés (unique) : 3 « Comment vivent », 4 « Que votent », 5 « Où va l'argent public »,
 6 « Sécurité », 7 « Avenir », 8 « Comment travaillent ». Deux rubriques peuvent avoir un
