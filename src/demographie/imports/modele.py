@@ -43,6 +43,24 @@ class Ligne:
 
 
 @dataclass(frozen=True)
+class Projection:
+    """Une valeur projetée (scénario × période), lue par un connecteur de projections et
+    publiée dans stat.projection, jamais dans stat.observation."""
+
+    indicateur: str
+    niveau: str
+    code: str
+    scenario: str  # code de ref.scenario
+    periode: date  # 1er janvier de l'année projetée, ou début de la période
+    valeur: Decimal | int
+    periode_fin: date | None = None  # fin d'un flux annuel ou d'une moyenne sur 30 ans
+    sexe: str = "T"
+    age_min: int | None = None
+    age_max: int | None = None
+    statistique: str = "VALEUR"  # VALEUR, MEDIANE, BAS ou HAUT
+
+
+@dataclass(frozen=True)
 class Poids:
     """Poids d'une commune (résidences principales louées, population…), lu par un
     connecteur de poids communaux et rangé dans ingest.poids_commune, jamais publié."""
@@ -65,6 +83,8 @@ class Referentiel:
     region_du_departement: dict[str, str] = field(default_factory=dict)
     # (dimension, année) -> {code commune: poids}, ex. ("RP_LOUEES", 2023)
     poids_communes: dict[tuple[str, int], dict[str, Decimal]] = field(default_factory=dict)
+    # code département -> libellé (« Côtes-d'Armor »)
+    libelles_departements: dict[str, str] = field(default_factory=dict)
 
     def poids(self, dimension: str, annee: int | None = None) -> dict[str, Decimal]:
         """Poids communaux de la dimension, de l'année la plus récente <= annee (ou la
@@ -93,6 +113,9 @@ class Connecteur(Protocol):
     - poids_communaux : True pour un connecteur dont `lire` donne des `Poids` (rangés
       dans ingest.poids_commune) au lieu de lignes ; communes_min : nombre minimal de
       communes attendu par dimension et par année ;
+    - projections : True pour un connecteur dont `lire` donne des `Projection` (publiées
+      dans stat.projection) ; departements_attendus : nombre de départements exigé par
+      indicateur et scénario ;
     - lit_le_nom : True si `lire` a besoin du nom d'origine du fichier (sinon il reçoit
       le brut archivé, nommé par son empreinte).
     """

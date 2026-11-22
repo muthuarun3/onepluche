@@ -126,6 +126,7 @@ utilisée.
 | `budget` | INSEE Melodi, comptes nationaux : dépense des ménages par poste, dépenses pré-engagées |
 | `transports` | Ministère de l'Économie, prix des carburants déclarés par les stations (moyennes par département calculées par l'API Opendatasoft, un relevé par mois) ; INSEE Melodi, trajets domicile-travail et voitures des ménages (recensement), dépense en carburants (comptes nationaux) |
 | `soins` | DREES, accessibilité aux médecins généralistes (APL) ; Assurance maladie, ALD sans médecin traitant ; INSEE Melodi, équipements de santé (BPE) |
+| `avenir` | INSEE, projections de population par département 2018-2070 (Omphale 2022 : scénarios central, population basse, population haute ; XLSX) et pour la France (2026, Insee Première n° 2108). Contrôles propres : 101 départements, population de 2018 à moins de 1 % des estimations, fourchette basse ≤ centrale ≤ haute ; publication dans `stat.projection` |
 | `securite` | Ministère de l'Intérieur (SSMSI), délinquance enregistrée par département (CSV data.gouv.fr, édition de juillet) |
 
 `demo importer tout` lance l'ensemble, dans cet ordre (estimations d'abord).
@@ -144,6 +145,7 @@ Contrat pour l'écosystème : une route existante ne change jamais de forme ; on
 | `GET /api/v1/sources` | État des imports par fichier | En service |
 | `GET /api/v1/indicateurs?rubrique=&theme=` | Filtres par rubrique et thème (codes de `ref.rubrique`, `ref.theme` ; inconnu = 422) | En service |
 | `GET /api/v1/fiche?niveau=&code=&rubrique=&theme=` | Dernière valeur par indicateur, valeur France de la même période (FR, sinon FM), source ; tri par thème puis accès, coût, manque | En service |
+| `GET /api/v1/projections?indicateur=&niveau=&code=&scenario=&sexe=&par_age=` | Valeurs projetées d'un indicateur de la rubrique AVENIR, par scénario (tous si absent) ; scénarios décrits ; inconnu = 404 | En service |
 | `GET /api/v1/classement?indicateur=&niveau=&periode=` | Tous les territoires d'un niveau, triés | Prévu |
 
 Paramètres validés par FastAPI (motifs `^[0-9A-Z]{2,3}$`, `^[A-Z][A-Z0-9_]+$`, années

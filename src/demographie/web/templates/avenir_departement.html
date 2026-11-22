@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% macro evolution(v) -%}
+  {%- if v is none -%}—{%- else -%}{{ "+" if v > 0 else "" }}{{ v|pct }}{%- endif -%}
+{%- endmacro %}
+{% block titre %}{{ fiche.libelle }} : avenir · On épluche{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/avenir">Quel avenir pour les Français ?</a> › {{ fiche.libelle }}
+</nav>
+<h1>{{ fiche.libelle }} <span class="niveau">Département {{ fiche.code }}</span></h1>
+<p class="intro">Combien d'habitants, et de quel âge, d'ici 2070 : les projections de
+  l'INSEE, avec la fourchette de ses scénarios. <a href="/territoire/DEP/{{ fiche.code }}">Qui
+  sont les habitants aujourd'hui ?</a> · <a href="/besoins/DEP/{{ fiche.code }}">De quoi ont-ils besoin ?</a></p>
+
+{% if not projection %}
+<p class="vide">Les projections de population ne sont pas encore importées pour ce département.</p>
+{% else %}
+{% set p = projection %}{% set h = p.horizon %}{% set d = p.depart %}
+<div class="chiffres">
+  <div class="chiffre" title="Population au 1er janvier {{ h.annee }}, scénario central">
+    <div class="chiffre-libelle">Population en {{ h.annee }}</div>
+    <div class="chiffre-valeur">{{ h.population|entier }}</div>
+    <div class="chiffre-note">{% if p.basse and p.haute %}entre {{ p.basse.population|entier }} et {{ p.haute.population|entier }}{% endif %}</div>
+  </div>
+  <div class="chiffre" title="Évolution de la population de {{ d.annee }} à {{ h.annee }}, scénario central">
+    <div class="chiffre-libelle">Évolution {{ d.annee }}-{{ h.annee }}</div>
+    <div class="chiffre-valeur">{{ evolution(p.evolution) }}</div>
+    <div class="chiffre-note">France : {{ evolution(p.evolution_france) }}</div>
+  </div>
+  <div class="chiffre" title="Part des 75 ans ou plus dans la population en {{ h.annee }}">
+    <div class="chiffre-libelle">75 ans ou plus en {{ h.annee }}</div>
+    <div class="chiffre-valeur">{{ h.part_75_plus|pct }}</div>
+    <div class="chiffre-note">{{ d.part_75_plus|pct }} en {{ d.annee }} · France : {{ p.france.part_75_plus|pct if p.france.part_75_plus is not none else "—" }}</div>
+  </div>
+  <div class="chiffre" title="Personnes de 65 ans ou plus pour 100 personnes de 20 à 64 ans">
+    <div class="chiffre-libelle">Seniors pour 100 actifs en {{ h.annee }}</div>
+    <div class="chiffre-valeur">{{ h.seniors_pour_100_actifs|round|int }}</div>
+    <div class="chiffre-note">{{ d.seniors_pour_100_actifs|round|int }} en {{ d.annee }} · France : {{ p.france.seniors_pour_100_actifs|round|int if p.france.seniors_pour_100_actifs is not none else "—" }}</div>
+  </div>
+</div>
+
+<p class="phrase">Selon le scénario central, {{ fiche.libelle }} compterait
+  <strong>{{ h.population|entier }}</strong> habitants en {{ h.annee }}
+  ({{ evolution(p.evolution) }} depuis {{ d.annee }}, contre {{ evolution(p.evolution_france) }}
+  pour la France). Il y aurait <strong>{{ h.seniors_pour_100_actifs|round|int }}</strong>
+  personnes de 65 ans ou plus pour 100 personnes de 20 à 64 ans, contre
+  {{ d.seniors_pour_100_actifs|round|int }} en {{ d.annee }}.</p>
+
+<section class="graphique-bloc">
+  <div class="graphique-titre"><h2>Population projetée</h2></div>
+  <p class="legende"><span class="pastille serie"></span>Scénario central <span class="pastille fourchette"></span>De la population basse à la population haute</p>
+  <div id="projection-departement" class="graphique" role="img" aria-label="Population projetée de {{ fiche.libelle }} selon trois scénarios"></div>
+  <div class="tableau-defilant">
+    <table>
+      <thead><tr><th>Année</th><th>{{ p.scenarios.INSEE_CENTRAL }}</th><th>{{ p.scenarios.INSEE_POP_BASSE }}</th><th>{{ p.scenarios.INSEE_POP_HAUTE }}</th><th>75 ans ou plus</th><th>Seniors pour 100 actifs</th></tr></thead>
+      <tbody>
+        {% for l in p.tableau %}
+        <tr><td>{{ l.annee }}</td>
+          {% for s in ("INSEE_CENTRAL", "INSEE_POP_BASSE", "INSEE_POP_HAUTE") %}<td>{{ l[s].population|entier if l[s] else "—" }}</td>{% endfor %}
+          <td>{{ l.INSEE_CENTRAL.part_75_plus|pct }}</td>
+          <td>{{ l.INSEE_CENTRAL.seniors_pour_100_actifs|round|int }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="graphique-bloc">
+  <div class="graphique-titre">
+    <h2>Pyramide des âges</h2>
+    <label>Année
+      <select id="annee-pyramide">
+        {% for a in p.annees %}{% if a != d.annee %}<option value="{{ a }}"{% if a == h.annee %} selected{% endif %}>{{ a }}</option>{% endif %}{% endfor %}
+      </select>
+    </label>
+  </div>
+  <p class="legende"><span class="pastille hommes"></span>Hommes <span class="pastille femmes"></span>Femmes · scénario central, effectifs par tranche de 5 ans ; trait gris : {{ d.annee }}</p>
+  <div id="pyramide-avenir" class="graphique" role="img" aria-label="Pyramide des âges projetée de {{ fiche.libelle }}"></div>
+</section>
+{% endif %}
+
+<div class="blocs">
+  <section class="bloc">
+    <h2>Climat</h2>
+    <p class="muet">Bientôt : chaleur, nuits tropicales, gel, pluies et sécheresse d'ici la fin du siècle, selon les scénarios du GIEC.</p>
+  </section>
+  <section class="bloc">
+    <h2>Risques naturels</h2>
+    <p class="muet">Bientôt : catastrophes naturelles reconnues et plans de prévention dans le département.</p>
+  </section>
+</div>
+
+{% if definition %}
+<p class="source">Source : <a href="{{ definition.source_url }}" rel="noopener">{{ definition.source_libelle }}</a>, {{ definition.source_licence }}. {{ definition.avertissement }} {{ definition.comparabilite }}</p>
+{% endif %}
+{% if donnees %}<script type="application/json" id="donnees-avenir">{{ donnees|tojson }}</script>{% endif %}
+{% endblock %}
+{% block scripts %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/avenir.js"></script>
+{% endblock %}

@@ -27,7 +27,7 @@ def _decimal_fr(valeur: float, chiffres: int = 1) -> str:
 
 def _millions(valeur: float) -> str:
     """69 081 996 -> « 69,1 millions »."""
-    return f"{_decimal_fr(valeur / 1e6)} millions"
+    return f"{_decimal_fr(float(valeur) / 1e6)} millions"
 
 
 def _entier(valeur: float) -> str:
@@ -55,6 +55,12 @@ QUESTIONS = (
         "lien": "/besoins",
         "resume": "Logement, énergie, eau, alimentation, transports, soins, numérique, "
         "garde d'enfants.",
+    },
+    {
+        "titre": "Quel avenir pour les Français ?",
+        "lien": "/avenir",
+        "resume": "Combien serons-nous et à quel âge d'ici 2070 ; bientôt le climat et les "
+        "risques naturels.",
     },
 )
 gabarits.env.globals["questions_menu"] = QUESTIONS

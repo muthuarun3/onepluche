@@ -83,7 +83,9 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 | `ref.unite` | `code` (clé, minuscules) | `personnes`, `pourcentage`, `pour_mille`, `ratio`, `annees`, `logements`, `nombre`, `euros`, `euros_m2`, `mwh`, `indice`, `consultations_hab`, `pour_10000`, `millions_euros`, `euros_litre` |
 
 Rubriques ajoutées depuis : `SECURITE` (`/securite`, ordre 6, migration 027, thème obligatoire)
-et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI`.
+et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI` ;
+`AVENIR` (`/avenir`, ordre 7, migration 028, thème obligatoire) et ses thèmes `POPULATION`,
+`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI`.
 
 Ordres réservés (unique) : 3 « Comment vivent », 4 « Que votent », 5 « Où va l'argent public »,
 6 « Sécurité », 7 « Avenir », 8 « Comment travaillent ». Deux rubriques peuvent avoir un
@@ -197,6 +199,27 @@ Clé primaire (`dimension`, `annee`, `commune`). Jamais publiée.
   `import_id`.
 - Volume visé : moins d'un million de lignes, moins de 200 Mo.
 
+### `stat.projection` — projections (migration 028, appli 5)
+
+Table de faits séparée : une projection a un **scénario** et une **statistique**, qu'une
+observation n'a pas, et ne doit jamais se mélanger aux séries observées.
+
+| Colonne | Type | Contraintes |
+| --- | --- | --- |
+| `indicateur_id`, `territoire_id` | smallint | → `ref.indicateur`, `ref.territoire` |
+| `scenario_id` | smallint | → `ref.scenario` |
+| `periode`, `periode_fin` | date | `periode_fin` NULL = instant (1er janvier) ; sinon flux annuel ou moyenne sur 30 ans |
+| `sexe`, `age_min`, `age_max` | | comme `stat.observation` |
+| `statistique` | text | `VALEUR` (défaut), `MEDIANE`, `BAS`, `HAUT` (ensemble de modèles climatiques) |
+| `valeur` | numeric | obligatoire |
+| `import_id` | integer | → `ingest.import` |
+
+Unicité `NULLS NOT DISTINCT` sur toutes les dimensions. `ref.scenario` : `code`, `libelle`,
+`famille` (`INSEE`, `GIEC`, `NIVEAU_RECHAUFFEMENT`, `REFERENCE`), `description`,
+`equivalent_giec`, `ordre` ; aujourd'hui `INSEE_CENTRAL`, `INSEE_POP_BASSE`,
+`INSEE_POP_HAUTE`. Lignes en transit dans `ingest.ligne_projection`. Une publication
+remplace toutes les valeurs de l'indicateur pour le scénario du fichier.
+
 ### `admin.migration`
 
 `nom` (clé primaire), `empreinte` (char(64), SHA-256 du fichier), `appliquee_le`. Une
@@ -216,6 +239,9 @@ migration modifiée après application est détectée.
 | `api.serie_age` | simple | Valeurs par tranche d'âge (tous sexes, sans modalité) des indicateurs de la rubrique BESOINS : encadré 18-39 ans de la fiche département (migration 023) |
 | `api.structure` | simple | Pyramide : effectifs `POP` par sexe et tranche d'âge |
 | `api.repartition` | simple | Valeur d'une modalité avec le total de la même série (calcul des parts) |
+| `api.scenario` | simple | Scénarios dans l'ordre d'affichage (migration 028) |
+| `api.projection` | simple | Valeurs projetées : indicateur, niveau, code, scénario, année, période, sexe, âges, statistique |
+| `api.projection_population` | simple | Par territoire, scénario et année : population, part des moins de 20 ans et des 75 ans ou plus, 65 ans ou plus pour 100 personnes de 20 à 64 ans (calculés depuis `PROJ_POP`) |
 | `api.etat_import` | simple | Dernier essai et dernière publication par fichier de chaque source |
 
 `stat.rafraichir_vues()` (SECURITY DEFINER, exécutable par `demo_import` seulement)

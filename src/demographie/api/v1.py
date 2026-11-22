@@ -9,7 +9,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pydantic import BaseModel, BeforeValidator, Field
 
 from demographie import donnees
-from demographie.donnees import series, sources, territoires
+from demographie.donnees import projections, series, sources, territoires
 
 routeur = APIRouter(prefix="/api/v1", tags=["v1"])
 Connexion = Annotated[psycopg.Connection, Depends(donnees.connexion_lecture)]
@@ -309,6 +309,66 @@ def lire_repartition(
         "periode_type": lignes[0]["periode_type"],
         "provisoire": any(ligne["provisoire"] for ligne in lignes),
         "parts": parts,
+    }
+
+
+class Scenario(BaseModel):
+    code: str
+    libelle: str
+    famille: Literal["INSEE", "GIEC", "NIVEAU_RECHAUFFEMENT", "REFERENCE"]
+    description: str
+    equivalent_giec: str | None = Field(description="réchauffement mondial correspondant")
+
+
+class ValeurProjetee(BaseModel):
+    scenario: str
+    annee: int
+    periode: date = Field(description="1er janvier de l'année projetée, ou début de période")
+    periode_fin: date | None = Field(description="fin d'un flux annuel ou d'une moyenne")
+    sexe: Literal["T", "F", "H"]
+    age_min: int | None
+    age_max: int | None
+    statistique: Literal["VALEUR", "MEDIANE", "BAS", "HAUT"]
+    valeur: Nombre
+
+
+class Projections(BaseModel):
+    indicateur: Indicateur
+    territoire: TerritoireCourt
+    scenarios: list[Scenario]
+    valeurs: list[ValeurProjetee]
+
+
+@routeur.get("/projections", response_model=Projections)
+def lire_projections(
+    conn: Connexion,
+    indicateur: Annotated[str, Query(pattern=r"^[A-Z][A-Z0-9_]+$")],
+    niveau: Niveau,
+    code: CodeTerritoire,
+    scenario: Annotated[str | None, Query(pattern=r"^[A-Z][A-Z0-9_]+$")] = None,
+    sexe: Literal["T", "F", "H"] = "T",
+    par_age: bool = False,
+) -> dict:
+    """Valeurs projetées d'un indicateur de la rubrique AVENIR pour un territoire, par
+    scénario (INSEE : central, population basse et haute ; plus tard GIEC).
+
+    Une projection n'est pas une prévision : chaque valeur porte son scénario et sa
+    statistique (VALEUR pour un chiffre publié tel quel ; MEDIANE, BAS, HAUT pour un
+    ensemble de modèles). Tous âges par défaut ; `par_age=true` ajoute les tranches.
+    """
+    definition = series.indicateurs(conn, indicateur)
+    if not definition or definition[0]["rubrique"] != "AVENIR":
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"Projection inconnue : {indicateur}")
+    connus = projections.scenarios(conn)
+    if scenario is not None and scenario not in {s["code"] for s in connus}:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"Scénario inconnu : {scenario}")
+    valeurs = projections.valeurs(conn, indicateur, niveau, code, scenario, sexe, par_age)
+    presents = {v["scenario"] for v in valeurs}
+    return {
+        "indicateur": definition[0],
+        "territoire": _territoire(conn, niveau, code),
+        "scenarios": [s for s in connus if s["code"] in presents],
+        "valeurs": valeurs,
     }
 
 

@@ -256,3 +256,8 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .classement table { width: 100%; }
 .classement th[scope="row"] { text-align: left; font-weight: 400; }
 .lien-theme { font-size: .9rem; font-weight: 400; margin-left: .5rem; }
+
+/* Quel avenir pour les Français ? : scénario central et fourchette des scénarios. */
+.pastille.serie { background: var(--serie); margin-left: 0; }
+.pastille.fourchette { background: var(--serie); opacity: .25; }
+
