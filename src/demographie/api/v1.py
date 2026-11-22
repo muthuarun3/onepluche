@@ -108,18 +108,28 @@ def _territoire(conn: psycopg.Connection, niveau: str, code: str) -> dict:
     return trouve
 
 
-Rubrique = Literal["QUI", "BESOINS"]
-Theme = Literal[
-    "BUDGET",
-    "LOGEMENT",
-    "ENERGIE",
-    "EAU",
-    "ALIMENTATION",
-    "TRANSPORTS",
-    "SOINS",
-    "NUMERIQUE",
-    "GARDE",
+# Rubriques et thèmes vivent dans ref.rubrique et ref.theme (migration 026) : une nouvelle
+# application n'a pas à modifier l'API. Un code inconnu donne une liste vide.
+Rubrique = Annotated[
+    str, Query(pattern=r"^[A-Z][A-Z0-9_]+$", description="QUI, BESOINS… (ref.rubrique)")
 ]
+Theme = Annotated[
+    str,
+    Query(pattern=r"^[A-Z][A-Z0-9_]+$", description="LOGEMENT, SOINS… (ref.theme)"),
+]
+
+
+def _verifier_filtres(conn: psycopg.Connection, rubrique: str | None, theme: str | None):
+    """Refuse (422) une rubrique ou un thème absent de ref.rubrique / ref.theme."""
+    connus = series.themes(conn)
+    if rubrique is not None and rubrique not in {t["rubrique"] for t in connus}:
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_CONTENT, f"Rubrique inconnue : {rubrique}"
+        )
+    if theme is not None and theme not in {
+        t["theme"] for t in connus if rubrique is None or t["rubrique"] == rubrique
+    }:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, f"Thème inconnu : {theme}")
 
 
 @routeur.get("/indicateurs", response_model=list[Indicateur])
@@ -128,9 +138,10 @@ def lister_indicateurs(
 ) -> list[dict]:
     """Indicateurs disponibles, avec définition, source et date de mise à jour.
 
-    `rubrique` : QUI (« Qui sont les Français ? ») ou BESOINS (« De quoi les Français ont
-    besoin ? ») ; `theme` : thème de la rubrique BESOINS (LOGEMENT, ENERGIE, SOINS…).
+    `rubrique` : QUI (« Qui sont les Français ? »), BESOINS (« De quoi les Français ont
+    besoin ? »)… ; `theme` : thème de la rubrique (LOGEMENT, ENERGIE, SOINS…).
     """
+    _verifier_filtres(conn, rubrique, theme)
     return series.indicateurs(conn, rubrique=rubrique, theme=theme)
 
 
@@ -170,6 +181,7 @@ def lire_fiche(
 
     Triée par thème puis par angle de lecture (accès, coût, manque).
     """
+    _verifier_filtres(conn, rubrique, theme)
     territoire = _territoire(conn, niveau, code)
     definitions = {i["code"]: i for i in series.indicateurs(conn, rubrique=rubrique)}
     lignes = []

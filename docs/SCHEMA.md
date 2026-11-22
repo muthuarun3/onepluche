@@ -71,6 +71,20 @@ communes.
 Codes actuels : `INSEE_COG`, `INSEE_EST`, `INSEE_RP`, `INSEE_EC`, `INSEE_CHOM`, `DREES_PENS`,
 `DREES_ASPA`, `MESR_ETU`, `CNAM_PATHO`, `INSEE_FILOSOFI`.
 
+### `ref.rubrique`, `ref.theme`, `ref.unite` — listes de référence (migration 026)
+
+Une application = une rubrique. Une nouvelle application **ajoute ses lignes** dans ces
+trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
+
+| Table | Colonnes | Lignes actuelles |
+| --- | --- | --- |
+| `ref.rubrique` | `code` (clé), `libelle`, `chemin` (unique, `/francais`), `ordre` (unique), `theme_obligatoire`, `avec_angles` | `QUI` (`/francais`), `BESOINS` (`/besoins`, thème obligatoire, angles) |
+| `ref.theme` | `rubrique` → `ref.rubrique`, `code`, `libelle`, `ordre` ; clé `(rubrique, code)` | `BESOINS` : `BUDGET`, `LOGEMENT`, `ENERGIE`, `EAU`, `ALIMENTATION`, `TRANSPORTS`, `SOINS`, `NUMERIQUE`, `GARDE` |
+| `ref.unite` | `code` (clé, minuscules) | `personnes`, `pourcentage`, `pour_mille`, `ratio`, `annees`, `logements`, `nombre`, `euros`, `euros_m2`, `mwh`, `indice`, `consultations_hab`, `pour_10000`, `millions_euros`, `euros_litre` |
+
+Deux rubriques peuvent avoir un thème de même code (clé composée). Le thème obligatoire et
+les angles sont vérifiés par le déclencheur `indicateur_rubrique` (erreur `check_violation`).
+
 ### `ref.indicateur` — le catalogue
 
 | Colonne | Type | Contraintes |
@@ -78,15 +92,15 @@ Codes actuels : `INSEE_COG`, `INSEE_EST`, `INSEE_RP`, `INSEE_EC`, `INSEE_CHOM`, 
 | `indicateur_id` | smallint | clé primaire, identité |
 | `code` | text | unique, `^[A-Z][A-Z0-9_]+$` |
 | `libelle`, `definition` | text | obligatoires |
-| `unite` | text | `personnes`, `pourcentage`, `pour_mille`, `ratio`, `annees`, `logements`, `nombre`, `euros`, `euros_m2`, `mwh`, `indice`, `consultations_hab`, `pour_10000`, `millions_euros` |
+| `unite` | text | → `ref.unite` (`personnes`, `pourcentage`, `euros`, `euros_m2`…) |
 | `nature` | text | `effectif`, `taux`, `flux`, `ratio`, `prix` |
 | `source_id` | smallint | → `ref.source` |
 | `formule` | text | NULL si publié tel quel ; sinon formule lisible du calcul |
 | `avertissement` | text | mise en garde affichée avec le chiffre |
 | `comparabilite` | text | règle de comparaison dans le temps et entre territoires |
-| `rubrique` | text | `QUI` (défaut, appli 1) ou `BESOINS` (appli 2) |
-| `theme` | text | `BUDGET` (vue d'ensemble, France), `LOGEMENT`, `ENERGIE`, `EAU`, `ALIMENTATION`, `TRANSPORTS`, `SOINS`, `NUMERIQUE`, `GARDE` ; obligatoire si et seulement si `rubrique = 'BESOINS'` |
-| `angle` | text | `ACCES`, `COUT`, `MANQUE` ou NULL ; seulement pour `BESOINS` |
+| `rubrique` | text | → `ref.rubrique` ; défaut `QUI` (appli 1) |
+| `theme` | text | → `ref.theme` (clé `rubrique, theme`) ; obligatoire si la rubrique a `theme_obligatoire` (déclencheur) |
+| `angle` | text | `ACCES`, `COUT`, `MANQUE` ou NULL ; seulement si la rubrique a `avec_angles` (déclencheur) |
 | `borne_min`, `borne_max` | numeric | bornes plausibles (rejet hors bornes) ; `borne_min <= borne_max` |
 | `seuil_variation` | numeric | entre 0 et 1 ; NULL = règle générale (3 % pour les effectifs) |
 
@@ -191,6 +205,7 @@ migration modifiée après application est détectée.
 | `stat.besoins_derives` | simple | Indicateurs calculés de l'appli 2 (parts d'une modalité dans le total, densités, dépenses par ménage et par mois) ; remplacée à chaque thème |
 | `api.territoire` | simple | Territoires avec niveau et code du parent |
 | `api.source` | simple | Sources et licences |
+| `api.theme` | simple | Rubriques (libellé, chemin, ordre) et leurs thèmes ; lue par l'API pour valider les filtres (migration 026) |
 | `api.indicateur` | simple | Catalogue + source + date de dernière publication + rubrique, thème, angle, bornes |
 | `api.serie` | simple | **Toutes les séries** « tous âges » : indicateur, niveau, code, année, valeur, provisoire, sexe, période, type de période ; inclut les dérivés (parts d'âge, solde naturel, recensement, pensionnés pour 100 actifs, scolarisation, `stat.besoins_derives`) |
 | `api.serie_age` | simple | Valeurs par tranche d'âge (tous sexes, sans modalité) des indicateurs de la rubrique BESOINS : encadré 18-39 ans de la fiche département (migration 023) |

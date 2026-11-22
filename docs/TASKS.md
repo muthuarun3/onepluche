@@ -1,6 +1,6 @@
 # Plan d'implémentation (Tasks)
 
-**État au :** 21 novembre 2026. Une tâche = une PR vers `main` (jamais empilée), avec son
+**État au :** 22 novembre 2026. Une tâche = une PR vers `main` (jamais empilée), avec son
 critère de fin vérifiable. On prend la **première tâche non faite** de la section « À
 faire », dans l'ordre, sauf décision contraire de Muthu. La PR coche la tâche ici.
 
@@ -11,7 +11,8 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 025).
+   le catalogue change (prochain numéro : 027). Une nouvelle rubrique, un thème ou une
+   unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -104,6 +105,13 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 - [~] **Mises à jour Dependabot** (PR #2, #3) — actions GitHub.
 
 ## À faire
+
+### Commun aux applis 3 à 8
+
+- [~] **Rubriques et thèmes en tables de référence** (migration 026) — `ref.rubrique`,
+  `ref.theme`, `ref.unite` remplacent les contraintes CHECK de 017 et 024 ; l'API valide
+  les filtres contre la base. Préalable aux six nouvelles applis construites en parallèle.
+  *Critère :* une rubrique d'essai s'ajoute par simples INSERT (test `test_rubriques.py`).
 
 ### Appli 2 — données (phases B et C)
 
