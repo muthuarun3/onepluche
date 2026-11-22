@@ -47,7 +47,7 @@ erDiagram
 | Colonne | Type | Contraintes |
 | --- | --- | --- |
 | `territoire_id` | smallint | clé primaire, identité |
-| `niveau` | text | `FRANCE`, `REG`, `DEP`, `HORS_DEP` (migration 030) |
+| `niveau` | text | `FRANCE`, `REG`, `DEP`, `HORS_DEP` (migration 032) |
 | `code` | text | `^[0-9A-Z]{2,3}$` ; unique avec `niveau` |
 | `libelle` | text | non vide |
 | `parent_id` | smallint | → `ref.territoire` ; NULL seulement pour `FRANCE/FR` |
@@ -89,8 +89,12 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 Rubriques ajoutées depuis : `SECURITE` (`/securite`, ordre 6, migration 027, thème obligatoire)
 et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI` ;
 `AVENIR` (`/avenir`, ordre 7, migration 028, thème obligatoire) et ses thèmes `POPULATION`,
-`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ; `VOTES` (`/votes`, ordre 4,
-migration 030, thème obligatoire) et ses thèmes `PARTICIPATION`, `RESULTATS`, `ELUS`.
+`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ;
+`TRAVAIL` (`/travail`, ordre 8, migration 030, thème obligatoire) et ses thèmes
+`CHERCHER_CREER`, `EMPLOI`, `CONDITIONS`, `SALAIRES`, `TELETRAVAIL`, `ACCIDENTS`,
+`SYNDICATS_GREVES`. Modalités ajoutées : `secteur` `INTERIM`, `statut_emploi` (`SALARIE`,
+`NON_SALARIE`), `type_entreprise` `MICRO` ; `VOTES` (`/votes`, ordre 4, migration 032,
+thème obligatoire) et ses thèmes `PARTICIPATION`, `RESULTATS`, `ELUS`.
 
 Ordres réservés (unique) : 3 « Comment vivent », 4 « Que votent », 5 « Où va l'argent public »,
 6 « Sécurité », 7 « Avenir », 8 « Comment travaillent ». Deux rubriques peuvent avoir un
@@ -190,7 +194,7 @@ Clé primaire (`dimension`, `annee`, `commune`). Jamais publiée.
 | `indicateur_id` | smallint | → `ref.indicateur` |
 | `territoire_id` | smallint | → `ref.territoire` |
 | `periode` | date | |
-| `periode_type` | text | `1ER_JANVIER`, `ANNEE`, `TRIMESTRE`, `RP`, `MOIS`, `SCRUTIN` (jour d'un tour d'élection, migration 030) |
+| `periode_type` | text | `1ER_JANVIER`, `ANNEE`, `TRIMESTRE`, `RP`, `MOIS`, `SCRUTIN` (jour d'un tour d'élection, migration 032) |
 | `sexe` | char(1) | `F`, `H`, `T` (défaut) |
 | `age_min`, `age_max` | smallint | 0 à 130, bornes incluses ; `age_max` NULL = « et plus » ; les deux NULL = tous âges |
 | `modalite_id` | smallint | → `ref.modalite` ; NULL = total |
@@ -225,7 +229,7 @@ Unicité `NULLS NOT DISTINCT` sur toutes les dimensions. `ref.scenario` : `code`
 `INSEE_POP_HAUTE`. Lignes en transit dans `ingest.ligne_projection`. Une publication
 remplace toutes les valeurs de l'indicateur pour le scénario du fichier.
 
-### `ref.scrutin` et `ref.choix_scrutin` — élections (rubrique `VOTES`, migration 030)
+### `ref.scrutin` et `ref.choix_scrutin` — élections (rubrique `VOTES`, migration 032)
 
 Un **scrutin** est un tour d'une élection : une modalité de la dimension `scrutin` (code
 `PRES_2022_T1`, libellé « Présidentielle 2022, 1er tour »), décrite dans `ref.scrutin`.
@@ -273,8 +277,8 @@ migration modifiée après application est détectée.
 | `api.scenario` | simple | Scénarios dans l'ordre d'affichage (migration 028) |
 | `api.projection` | simple | Valeurs projetées : indicateur, niveau, code, scénario, année, période, sexe, âges, statistique |
 | `api.projection_population` | simple | Par territoire, scénario et année : population, part des moins de 20 ans et des 75 ans ou plus, 65 ans ou plus pour 100 personnes de 20 à 64 ans (calculés depuis `PROJ_POP`) |
-| `api.scrutin` | simple | Les 20 tours : code, libellé, élection, année, tour, jour, type de choix (migration 030) |
-| `api.choix_scrutin` | simple | Choix de chaque scrutin : code, libellé officiel, panneau, nuance, sexe (migration 030) |
+| `api.scrutin` | simple | Les 20 tours : code, libellé, élection, année, tour, jour, type de choix (migration 032) |
+| `api.choix_scrutin` | simple | Choix de chaque scrutin : code, libellé officiel, panneau, nuance, sexe (migration 032) |
 | `api.etat_import` | simple | Dernier essai et dernière publication par fichier de chaque source |
 
 `stat.rafraichir_vues()` (SECURITY DEFINER, exécutable par `demo_import` seulement)
