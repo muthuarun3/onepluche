@@ -20,8 +20,11 @@ _INSERER = """INSERT INTO ref.indicateur
 
 def test_rubriques_existantes(base_test):
     with psycopg.connect(base_test["proprietaire"]) as conn:
+        # Les autres applis ajoutent leurs rubriques (ordres 3 à 8) : on ne vérifie que les
+        # deux premières.
         rubriques = conn.execute(
-            "SELECT code, chemin, theme_obligatoire FROM ref.rubrique ORDER BY ordre"
+            "SELECT code, chemin, theme_obligatoire FROM ref.rubrique WHERE ordre <= 2 "
+            "ORDER BY ordre"
         ).fetchall()
         assert rubriques == [("QUI", "/francais", False), ("BESOINS", "/besoins", True)]
         # Chaque indicateur déjà en base a sa rubrique, son thème et son unité en référence.
@@ -39,7 +42,7 @@ def test_nouvelle_rubrique_sans_migration_des_contraintes(base_module):
     with psycopg.connect(base_module["proprietaire"]) as conn:
         conn.execute(
             """INSERT INTO ref.rubrique (code, libelle, chemin, ordre, theme_obligatoire)
-               VALUES ('ESSAI', 'Rubrique d''essai', '/essai', 99, true)"""
+               VALUES ('ESSAI', 'Rubrique d''essai', '/essai', 999, true)"""
         )
         conn.execute(
             "INSERT INTO ref.theme (rubrique, code, libelle, ordre) "
