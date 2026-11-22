@@ -11,8 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 036). Une nouvelle rubrique, un thème ou une
-   unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
+   le catalogue change (prochain numéro : 036 ; 033 réservé à argent public). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -108,12 +107,12 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 ### Commun aux applis 3 à 8
 
-- [~] **Rubriques et thèmes en tables de référence** (migration 026) — `ref.rubrique`,
+- [x] **Rubriques et thèmes en tables de référence** (migration 026, PR #34) — `ref.rubrique`,
   `ref.theme`, `ref.unite` remplacent les contraintes CHECK de 017 et 024 ; l'API valide
   les filtres contre la base. Préalable aux six nouvelles applis construites en parallèle.
   *Critère :* une rubrique d'essai s'ajoute par simples INSERT (test `test_rubriques.py`).
 
-### Appli 3 « Que pensent et votent les Français ? »
+### Appli « Que pensent et votent les Français ? »
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5CjJyHwvtypASUQLfCu>.
 
@@ -134,6 +133,23 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5Cj
 - [ ] **V5. Scrutin et finitions** — `/votes/scrutin/{id}`, croisement avec les rubriques 1
   et 2 (corrélation, pas cause), six questions guidées, accueil, barre latérale, critères de
   fin du dossier.
+
+### Appli 3 « Comment vivent les Français ? »
+
+Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/NoW5WiUnhSjjceKtjqXTfu>.
+
+- [~] **A1. Catalogue, revenus détaillés et salaires** — migration 031 (rubrique `VIVRE`,
+  sept thèmes, `ref.indicateur_affichage` et les six indicateurs partagés des applis 1 et 2,
+  14 indicateurs Filosofi, `SALAIRE_NET_MOYEN`), groupe `demo importer vivre` : Filosofi
+  détaillé, salaires BTS par sexe × catégorie et sexe × âge. *Critère :* Creuse D9 = 37 240 €,
+  Paris 3 836 €, France 2 733 € (2024) ; 97 et 101 départements sur les fichiers complets.
+- [ ] **A2. Séries nationales** — ERFS (1996-2024), comptes nationaux (pouvoir d'achat par
+  unité de consommation, taux d'épargne), patrimoine (enquête et comptes), pension moyenne
+  DREES. *Critère :* taux d'épargne 2025 = 17,9 %.
+- [ ] **B. CAF et Banque de France** — `caf.py` (RSA, aides au logement, décembre),
+  `surendettement.py` (13 XLSX régionaux), vue `stat.vivre_derives` (quatre calculs propres).
+- [ ] **C. Pages `/vivre`** — vue France, fiche département, page thème, six questions
+  guidées ; accueil, barre latérale, APP_FLOW, DESIGN, vitrine ; sept critères du dossier.
 
 ### Appli « Comment travaillent les Français ? »
 

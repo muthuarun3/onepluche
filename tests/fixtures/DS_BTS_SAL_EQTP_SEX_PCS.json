@@ -1,0 +1,3995 @@
+{
+"jeu": "DS_BTS_SAL_EQTP_SEX_PCS",
+"observations": [
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3247.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3238.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3703.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3693.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3530.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3512.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2265.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2301.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2387.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2426.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2322.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2358.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1807.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1850.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1819.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1860.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1811.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1853.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1665.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1709.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1858.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1910.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1828.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1878.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2036.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2080.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2149.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2191.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2100.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2142.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4757.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4900.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 6107.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 6300.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5497.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5663.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2709.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2772.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2843.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2925.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2771.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2842.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2061.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2114.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2060.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2111.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2061.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2112.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1956.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2030.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2077.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2141.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2053.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2119.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3328.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3442.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4052.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4189.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3711.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3836.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3968.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4011.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4679.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4738.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4361.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4409.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2539.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2557.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2727.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2780.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2627.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2661.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1910.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1951.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1969.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2007.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1929.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1969.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1688.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1733.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1932.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1982.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1894.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1942.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2269.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2310.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2445.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2494.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2361.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2405.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3805.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3856.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4453.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4456.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4188.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4209.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2393.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2412.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2552.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2593.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2473.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2502.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1800.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1841.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1828.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1862.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1811.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1849.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1608.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1669.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1884.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1945.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1853.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1912.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2115.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2161.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2236.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2292.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2186.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2237.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4082.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4180.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4811.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4906.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4535.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4629.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2421.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2468.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2728.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2780.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2584.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2633.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1881.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1928.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1923.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1965.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1895.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1941.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1786.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1850.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2035.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2096.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1989.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2051.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2441.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2514.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2815.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2891.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2658.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2733.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4084.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4183.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4813.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4908.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4537.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4631.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2420.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2467.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2729.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2782.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2584.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2633.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1882.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1929.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1924.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1967.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1896.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1942.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1788.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1853.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2038.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2099.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1992.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2054.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2447.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2520.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2825.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2901.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2666.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2741.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3509.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "1T3",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3583.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4103.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "1T3",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4198.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3884.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "1T3",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3969.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2327.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "4",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2370.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2602.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "4",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2652.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2469.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "4",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2515.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1847.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "5",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1895.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1896.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "5",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1921.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1862.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "5",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1903.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1745.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "6",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1811.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1986.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "6",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2043.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1943.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "6",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2002.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2178.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2240.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2471.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2538.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2023"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2345.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYENNE",
+"FREQ": "A",
+"GEO": "2026-REG-75",
+"PCS_ESE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2024"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2409.0
+}
+}
+}
+]
+}
