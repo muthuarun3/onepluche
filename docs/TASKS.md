@@ -113,6 +113,24 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   les filtres contre la base. Préalable aux six nouvelles applis construites en parallèle.
   *Critère :* une rubrique d'essai s'ajoute par simples INSERT (test `test_rubriques.py`).
 
+### Appli « Comment travaillent les Français ? »
+
+Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
+
+- [~] **T1. Catalogue et séries INSEE** — migration 030 (rubrique `TRAVAIL`, ordre 8, sept
+  thèmes, sources `INSEE_EMPLOI` et `INSEE_SIDE`), groupe `demo importer travail` : cinq jeux
+  de la BDM filtrés par clé (`connecteurs/travail.py`) : chômage annuel par sexe et âge,
+  emploi salarié trimestriel par secteur dont intérim (depuis 2011), emploi total salariés
+  et indépendants, créations d'entreprises mensuelles dont micro-entrepreneurs, défaillances
+  trimestrielles (depuis 1995). Parts de l'intérim et des indépendants calculées à l'import.
+  *Critère :* Gironde 702 900 salariés au T2 2026 dont 16 289 intérimaires ; 809 244 emplois
+  fin 2024 dont 105 650 indépendants (fichiers complets publiés sans rejet).
+- [ ] **T2. DARES et enquête BMO** — `dares.py` (demandeurs d'emploi par département,
+  somme demandée à l'API ; trimestriel régional), fichier BMO de France Travail ; contrôle
+  départements contre région (écart > 3 % bloquant).
+- [ ] **T3. Pages `/travail`** — vue d'ensemble, fiche département, carte par thème ; quatre
+  questions guidées ; accueil, barre latérale, PRD, APP_FLOW, DESIGN et vitrine.
+
 ### Appli « Les Français sont-ils en sécurité ? »
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/SGDKicMRrwHwF1qULSCpM2>.
