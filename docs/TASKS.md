@@ -102,6 +102,12 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 - [~] **9. Vitrine au style de l'appli** (PR #22) — mêmes couleurs, test qui le vérifie,
   `CLAUDE.md` avec la règle de mise à jour.
 - [~] **Mises à jour Dependabot** (PR #2, #3) — actions GitHub.
+- [~] **Macro-catégorie « Données »** (PR en cours) — titre « Données » dans la barre latérale
+  au-dessus des questions, accueil « Données » puis « Programmes » annoncé, vitrine.
+  *Critère :* `tests/test_import.py::test_pages` ; vérifié à 1280 px et 390 px.
+- [ ] **Macro-catégorie « Programmes »** — dossier de conception en dix étapes (élection,
+  candidats, sources, analyse par candidat, comparaison par sujet, neutralité), puis les
+  tâches qui en sortent.
 
 ## À faire
 

@@ -42,8 +42,8 @@ def _pct(valeur: float, chiffres: int = 1) -> str:
 gabarits.env.filters.update(millions=_millions, entier=_entier, pct=_pct)
 Connexion = Annotated[psycopg.Connection, Depends(donnees.connexion_lecture)]
 
-# Les questions de la page d'accueil, chacune avec l'application qui y répond ; la barre
-# latérale les reprend.
+# Les questions de la macro-catégorie « Données », chacune avec l'application qui y répond ;
+# l'accueil et la barre latérale les reprennent sous ce titre.
 QUESTIONS = (
     {
         "titre": "Qui sont les Français ?",

@@ -62,12 +62,17 @@ Chaque page hérite de `base.html` :
 
 | Zone | Contenu | Comportement |
 | --- | --- | --- |
-| Barre latérale (ordinateur, 15rem à gauche, fixe au défilement) | « On épluche » (lien vers `/`), Accueil, une entrée par question, puis Sources et API | L'entrée de la page courante est mise en évidence (`aria-current="page"`), y compris pour les sous-pages (`/besoins/...`) |
+| Barre latérale (ordinateur, 15rem à gauche, fixe au défilement) | « On épluche » (lien vers `/`), Accueil, la macro-catégorie « Données » (titre, puis une entrée par question), puis Sources et API. La macro-catégorie « Programmes » s'y ajoutera | L'entrée de la page courante est mise en évidence (`aria-current="page"`), y compris pour les sous-pages (`/besoins/...`) |
 | Barre du haut (téléphone, moins de 48rem) | Les mêmes liens, en ligne, qui passent à la ligne | Aucun menu repliable, aucun JavaScript |
 | Pied de page | Producteurs des données, Licence Ouverte 2.0, ECharts | — |
 
 La liste des questions vient d'une seule constante (`QUESTIONS` dans `web/pages.py`), lue
-par l'accueil et par la barre latérale. Ajouter une application = ajouter une entrée.
+par l'accueil et par la barre latérale sous le titre « Données ». Ajouter une application de
+données = ajouter une entrée.
+
+Deux macro-catégories : **Données** (les applications-questions, chiffres officiels) et
+**Programmes** (analyse du programme de chaque candidat à la présidentielle et comparaison
+par sujet ; en conception, annoncée sur l'accueil sans lien).
 
 ## 4. Pages et interactions
 
@@ -76,12 +81,14 @@ par l'accueil et par la barre latérale. Ajouter une application = ajouter une e
 | Élément | Au clic |
 | --- | --- |
 | Bandeau de Muthu (30 ans, présidentielle) | — |
+| Titre « Données », puis une carte par question : | |
 | Carte « Qui sont les Français ? » | `/francais` |
 | Carte « De quoi les Français ont besoin ? » | `/besoins` |
 | Carte « Quel avenir pour les Français ? » | `/avenir` |
 | Carte « Les Français sont-ils en sécurité ? » | `/securite` |
 | Carte « Comment travaillent les Français ? » | `/travail` |
 | Carte « Où va l'argent public ? » | `/argent-public` |
+| Partie « Programmes » : phrase « En préparation » | — (pas encore de page) |
 
 ### Qui sont les Français ? `/francais` (✅ sur `/` aujourd'hui, 🔶 déplacé par la PR #21)
 
