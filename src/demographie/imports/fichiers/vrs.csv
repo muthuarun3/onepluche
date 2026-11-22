@@ -1,0 +1,7 @@
+indicateur;annee;valeur;champ;source
+PART_INSECURITE_QUARTIER;2022;18;18 à 74 ans, France métropolitaine;https://www.insee.fr/fr/statistiques/8242369
+PART_INSECURITE_DOMICILE;2022;12;18 à 74 ans, France métropolitaine;https://www.insee.fr/fr/statistiques/8242369
+PART_RENONCE_SORTIR;2022;18;18 à 74 ans, France métropolitaine;https://www.insee.fr/fr/statistiques/8242369
+PART_INSECURITE_QUARTIER;2024;22;18 ans ou plus, France métropolitaine, Guadeloupe, Martinique, La Réunion;https://www.insee.fr/fr/statistiques/8612552
+PART_INSECURITE_DOMICILE;2024;15;18 ans ou plus, France métropolitaine, Guadeloupe, Martinique, La Réunion;https://www.insee.fr/fr/statistiques/8612552
+PART_RENONCE_SORTIR;2024;21;18 ans ou plus, France métropolitaine, Guadeloupe, Martinique, La Réunion;https://www.insee.fr/fr/statistiques/8612552

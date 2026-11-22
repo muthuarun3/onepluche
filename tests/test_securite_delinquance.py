@@ -93,5 +93,5 @@ def test_import_publie(urls_module):
     ).json()
     assert [v["valeur"] for v in serie["valeurs"]][-1] == 7072
     indicateurs = client.get("/api/v1/indicateurs", params={"rubrique": "SECURITE"}).json()
-    assert len(indicateurs) == 32
-    assert {i["theme"] for i in indicateurs} == {"PERSONNES", "VOLS", "BIENS", "STUPEFIANTS"}
+    familles = {"PERSONNES", "VOLS", "BIENS", "STUPEFIANTS"}
+    assert len([i for i in indicateurs if i["theme"] in familles]) == 32

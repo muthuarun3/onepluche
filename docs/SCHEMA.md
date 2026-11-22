@@ -80,7 +80,7 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 | --- | --- | --- |
 | `ref.rubrique` | `code` (clé), `libelle`, `chemin` (unique, `/francais`), `ordre` (unique), `theme_obligatoire`, `avec_angles` | `QUI` (`/francais`), `BESOINS` (`/besoins`, thème obligatoire, angles) |
 | `ref.theme` | `rubrique` → `ref.rubrique`, `code`, `libelle`, `ordre` ; clé `(rubrique, code)` | `BESOINS` : `BUDGET`, `LOGEMENT`, `ENERGIE`, `EAU`, `ALIMENTATION`, `TRANSPORTS`, `SOINS`, `NUMERIQUE`, `GARDE` |
-| `ref.unite` | `code` (clé, minuscules) | `personnes`, `pourcentage`, `pour_mille`, `ratio`, `annees`, `logements`, `nombre`, `euros`, `euros_m2`, `mwh`, `indice`, `consultations_hab`, `pour_10000`, `millions_euros`, `euros_litre` |
+| `ref.unite` | `code` (clé, minuscules) | `personnes`, `pourcentage`, `pour_mille`, `ratio`, `annees`, `logements`, `nombre`, `euros`, `euros_m2`, `mwh`, `indice`, `consultations_hab`, `pour_10000`, `millions_euros`, `euros_litre`, `par_million` (029) |
 
 Rubriques ajoutées depuis : `SECURITE` (`/securite`, ordre 6, migration 027, thème obligatoire)
 et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI` ;
@@ -231,11 +231,12 @@ migration modifiée après application est détectée.
 | --- | --- | --- |
 | `stat.structure_age` | matérialisée, index unique (`territoire_id`, `periode`) | Agrégats d'âge de `POP` : population, moins de 20, 60 et plus, 65 et plus, 75 et plus |
 | `stat.besoins_derives` | simple | Indicateurs calculés de l'appli 2 (parts d'une modalité dans le total, densités, dépenses par ménage et par mois) ; remplacée à chaque thème |
+| `stat.securite_derives` | simple | Tués sur la route par million d'habitants (population au 1er janvier) ; ajoutée à `api.serie` (migration 029) |
 | `api.territoire` | simple | Territoires avec niveau et code du parent |
 | `api.source` | simple | Sources et licences |
 | `api.theme` | simple | Rubriques (libellé, chemin, ordre) et leurs thèmes ; lue par l'API pour valider les filtres (migration 026) |
 | `api.indicateur` | simple | Catalogue + source + date de dernière publication + rubrique, thème, angle, bornes |
-| `api.serie` | simple | **Toutes les séries** « tous âges » : indicateur, niveau, code, année, valeur, provisoire, sexe, période, type de période ; inclut les dérivés (parts d'âge, solde naturel, recensement, pensionnés pour 100 actifs, scolarisation, `stat.besoins_derives`) |
+| `api.serie` | simple | **Toutes les séries** « tous âges » : indicateur, niveau, code, année, valeur, provisoire, sexe, période, type de période ; inclut les dérivés (parts d'âge, solde naturel, recensement, pensionnés pour 100 actifs, scolarisation, `stat.besoins_derives`, `stat.securite_derives`) |
 | `api.serie_age` | simple | Valeurs par tranche d'âge (tous sexes, sans modalité) des indicateurs de la rubrique BESOINS : encadré 18-39 ans de la fiche département (migration 023) |
 | `api.structure` | simple | Pyramide : effectifs `POP` par sexe et tranche d'âge |
 | `api.repartition` | simple | Valeur d'une modalité avec le total de la même série (calcul des parts) |
