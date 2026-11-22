@@ -125,7 +125,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/GAgaMw
   trimestrielles (depuis 1995). Parts de l'intérim et des indépendants calculées à l'import.
   *Critère :* Gironde 702 900 salariés au T2 2026 dont 16 289 intérimaires ; 809 244 emplois
   fin 2024 dont 105 650 indépendants (fichiers complets publiés sans rejet).
-- [~] **T2. DARES et enquête BMO** — migration 031 (sources `DARES` et `FT_BMO`, 217 métiers
+- [~] **T2. DARES et enquête BMO** — migration 034 (sources `DARES` et `FT_BMO`, 217 métiers
   et 8 familles BMO), `connecteurs/dares.py` : demandeurs d'emploi A et ABC par département,
   région et France, chaque trimestre depuis 1996, corrigés des variations saisonnières, par
   sexe et âge, dont inscrits depuis un an ou plus (export CSV de l'API ouverte de la DARES ;
