@@ -1,0 +1,1145 @@
+date;code_region;code_departement;categorie;sexe;tranche_d_age;anciennete;nombre_de_demandeurs_d_emploi
+2024-T1;01;971;ABC;Total;Moins de 25 ans;Total;6170
+2024-T1;01;971;ABC;Hommes;Total;Total;22720
+2024-T1;01;971;ABC;Total;Total;Un an ou plus;27450
+2024-T1;01;971;A;Total;Moins de 25 ans;Total;4550
+2024-T1;01;971;A;Total;50 ans et plus;Total;16200
+2024-T1;01;971;ABC;Total;50 ans et plus;Total;20040
+2024-T1;01;971;ABC;Femmes;Total;Total;31840
+2024-T1;01;971;A;Total;Total;Total;41320
+2024-T1;01;971;A;Total;25 à 49 ans;Total;20570
+2024-T1;01;971;A;Hommes;Total;Total;17740
+2024-T1;01;971;A;Femmes;Total;Total;23590
+2024-T1;01;971;ABC;Total;Total;Total;54560
+2024-T1;01;971;ABC;Total;25 à 49 ans;Total;28350
+2024-T1;01;Total;A;Hommes;Total;Total;17740
+2024-T1;01;Total;A;Femmes;Total;Total;23590
+2024-T1;01;Total;ABC;Hommes;Total;Total;22720
+2024-T1;01;Total;ABC;Femmes;Total;Total;31840
+2024-T1;01;Total;ABC;Total;Moins de 25 ans;Total;6170
+2024-T1;01;Total;ABC;Total;50 ans et plus;Total;20040
+2024-T1;01;Total;A;Total;Total;Total;41320
+2024-T1;01;Total;A;Total;Moins de 25 ans;Total;4550
+2024-T1;01;Total;A;Total;25 à 49 ans;Total;20570
+2024-T1;01;Total;A;Total;50 ans et plus;Total;16200
+2024-T1;01;Total;ABC;Total;Total;Total;54560
+2024-T1;01;Total;ABC;Total;25 à 49 ans;Total;28350
+2024-T1;01;Total;ABC;Total;Total;Un an ou plus;27450
+2024-T1;11;75;A;Total;Moins de 25 ans;Total;9080
+2024-T1;11;75;ABC;Total;Total;Total;188380
+2024-T1;11;75;ABC;Total;Moins de 25 ans;Total;13920
+2024-T1;11;75;ABC;Total;25 à 49 ans;Total;118940
+2024-T1;11;75;ABC;Total;50 ans et plus;Total;55520
+2024-T1;11;75;ABC;Femmes;Total;Total;91610
+2024-T1;11;75;A;Total;25 à 49 ans;Total;64640
+2024-T1;11;75;A;Femmes;Total;Total;51340
+2024-T1;11;75;A;Total;Total;Total;106770
+2024-T1;11;75;ABC;Total;Total;Un an ou plus;90090
+2024-T1;11;75;A;Total;50 ans et plus;Total;33050
+2024-T1;11;75;A;Hommes;Total;Total;55420
+2024-T1;11;75;ABC;Hommes;Total;Total;96770
+2024-T1;11;Total;ABC;Hommes;Total;Total;492290
+2024-T1;11;Total;A;Total;Total;Total;590700
+2024-T1;11;Total;A;Total;Moins de 25 ans;Total;68950
+2024-T1;11;Total;A;Femmes;Total;Total;289120
+2024-T1;11;Total;ABC;Total;Total;Total;967660
+2024-T1;11;Total;ABC;Total;Moins de 25 ans;Total;102270
+2024-T1;11;Total;ABC;Total;50 ans et plus;Total;263440
+2024-T1;11;Total;ABC;Femmes;Total;Total;475380
+2024-T1;11;Total;A;Total;25 à 49 ans;Total;357820
+2024-T1;11;Total;A;Total;50 ans et plus;Total;163930
+2024-T1;11;Total;A;Hommes;Total;Total;301580
+2024-T1;11;Total;ABC;Total;25 à 49 ans;Total;601950
+2024-T1;11;Total;ABC;Total;Total;Un an ou plus;416550
+2024-T1;75;33;ABC;Total;Total;Total;136450
+2024-T1;75;33;ABC;Total;Moins de 25 ans;Total;16890
+2024-T1;75;33;ABC;Total;Total;Un an ou plus;58640
+2024-T1;75;33;A;Total;25 à 49 ans;Total;41350
+2024-T1;75;33;A;Total;50 ans et plus;Total;18720
+2024-T1;75;33;ABC;Total;50 ans et plus;Total;35890
+2024-T1;75;33;ABC;Hommes;Total;Total;64420
+2024-T1;75;33;ABC;Femmes;Total;Total;72030
+2024-T1;75;33;A;Total;Total;Total;69790
+2024-T1;75;33;A;Total;Moins de 25 ans;Total;9720
+2024-T1;75;33;A;Hommes;Total;Total;34560
+2024-T1;75;33;A;Femmes;Total;Total;35230
+2024-T1;75;33;ABC;Total;25 à 49 ans;Total;83670
+2024-T1;75;Total;A;Femmes;Total;Total;113510
+2024-T1;75;Total;ABC;Total;Moins de 25 ans;Total;58260
+2024-T1;75;Total;ABC;Total;50 ans et plus;Total;130170
+2024-T1;75;Total;ABC;Hommes;Total;Total;214290
+2024-T1;75;Total;A;Total;Total;Total;227900
+2024-T1;75;Total;A;Hommes;Total;Total;114390
+2024-T1;75;Total;ABC;Femmes;Total;Total;243950
+2024-T1;75;Total;A;Total;Moins de 25 ans;Total;32380
+2024-T1;75;Total;A;Total;25 à 49 ans;Total;129760
+2024-T1;75;Total;A;Total;50 ans et plus;Total;65760
+2024-T1;75;Total;ABC;Total;Total;Total;458240
+2024-T1;75;Total;ABC;Total;25 à 49 ans;Total;269810
+2024-T1;75;Total;ABC;Total;Total;Un an ou plus;200480
+2024-T1;Total France;Total;A;Total;Total;Total;3010100
+2024-T1;Total France;Total;A;Total;Moins de 25 ans;Total;417200
+2024-T1;Total France;Total;A;Total;50 ans et plus;Total;848200
+2024-T1;Total France;Total;A;Hommes;Total;Total;1527600
+2024-T1;Total France;Total;ABC;Total;Moins de 25 ans;Total;688300
+2024-T1;Total France;Total;ABC;Hommes;Total;Total;2615400
+2024-T1;Total France;Total;ABC;Total;25 à 49 ans;Total;3216300
+2024-T1;Total France;Total;ABC;Femmes;Total;Total;2767200
+2024-T1;Total France;Total;A;Total;25 à 49 ans;Total;1744800
+2024-T1;Total France;Total;A;Femmes;Total;Total;1482500
+2024-T1;Total France;Total;ABC;Total;Total;Total;5382500
+2024-T1;Total France;Total;ABC;Total;50 ans et plus;Total;1477900
+2024-T1;Total France;Total;ABC;Total;Total;Un an ou plus;2363800
+2024-T1;Total France métropolitaine;Total;A;Total;Total;Total;2802500
+2024-T1;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;651000
+2024-T1;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2616100
+2024-T1;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;388600
+2024-T1;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1634700
+2024-T1;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;779200
+2024-T1;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2232100
+2024-T1;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1390700
+2024-T1;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2490400
+2024-T1;Total France métropolitaine;Total;A;Hommes;Total;Total;1431900
+2024-T1;Total France métropolitaine;Total;ABC;Total;Total;Total;5106500
+2024-T1;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3064900
+2024-T1;Total France métropolitaine;Total;A;Femmes;Total;Total;1370600
+2024-T2;01;971;A;Total;25 à 49 ans;Total;20460
+2024-T2;01;971;ABC;Total;Moins de 25 ans;Total;6200
+2024-T2;01;971;A;Total;50 ans et plus;Total;16110
+2024-T2;01;971;A;Femmes;Total;Total;23420
+2024-T2;01;971;ABC;Total;Total;Total;54380
+2024-T2;01;971;ABC;Total;50 ans et plus;Total;19930
+2024-T2;01;971;A;Total;Total;Total;41140
+2024-T2;01;971;A;Total;Moins de 25 ans;Total;4570
+2024-T2;01;971;A;Hommes;Total;Total;17720
+2024-T2;01;971;ABC;Total;25 à 49 ans;Total;28260
+2024-T2;01;971;ABC;Hommes;Total;Total;22680
+2024-T2;01;971;ABC;Femmes;Total;Total;31700
+2024-T2;01;971;ABC;Total;Total;Un an ou plus;27560
+2024-T2;01;Total;A;Total;Total;Total;41140
+2024-T2;01;Total;ABC;Total;Total;Un an ou plus;27560
+2024-T2;01;Total;A;Total;Moins de 25 ans;Total;4570
+2024-T2;01;Total;A;Total;25 à 49 ans;Total;20460
+2024-T2;01;Total;A;Total;50 ans et plus;Total;16110
+2024-T2;01;Total;A;Hommes;Total;Total;17720
+2024-T2;01;Total;A;Femmes;Total;Total;23420
+2024-T2;01;Total;ABC;Total;50 ans et plus;Total;19930
+2024-T2;01;Total;ABC;Femmes;Total;Total;31700
+2024-T2;01;Total;ABC;Total;Total;Total;54380
+2024-T2;01;Total;ABC;Total;Moins de 25 ans;Total;6200
+2024-T2;01;Total;ABC;Total;25 à 49 ans;Total;28260
+2024-T2;01;Total;ABC;Hommes;Total;Total;22680
+2024-T2;11;75;A;Femmes;Total;Total;51640
+2024-T2;11;75;ABC;Total;Moins de 25 ans;Total;13920
+2024-T2;11;75;ABC;Hommes;Total;Total;97130
+2024-T2;11;75;ABC;Femmes;Total;Total;92080
+2024-T2;11;75;A;Total;Total;Total;107190
+2024-T2;11;75;ABC;Total;Total;Un an ou plus;89820
+2024-T2;11;75;A;Hommes;Total;Total;55550
+2024-T2;11;75;ABC;Total;25 à 49 ans;Total;119850
+2024-T2;11;75;A;Total;Moins de 25 ans;Total;8980
+2024-T2;11;75;A;Total;25 à 49 ans;Total;65270
+2024-T2;11;75;A;Total;50 ans et plus;Total;32940
+2024-T2;11;75;ABC;Total;Total;Total;189220
+2024-T2;11;75;ABC;Total;50 ans et plus;Total;55450
+2024-T2;11;Total;A;Total;25 à 49 ans;Total;360380
+2024-T2;11;Total;A;Total;50 ans et plus;Total;164400
+2024-T2;11;Total;A;Hommes;Total;Total;302690
+2024-T2;11;Total;ABC;Total;Total;Un an ou plus;414790
+2024-T2;11;Total;ABC;Total;25 à 49 ans;Total;605130
+2024-T2;11;Total;ABC;Total;50 ans et plus;Total;264030
+2024-T2;11;Total;ABC;Hommes;Total;Total;494310
+2024-T2;11;Total;A;Total;Moins de 25 ans;Total;68390
+2024-T2;11;Total;A;Femmes;Total;Total;290480
+2024-T2;11;Total;ABC;Total;Total;Total;971310
+2024-T2;11;Total;ABC;Total;Moins de 25 ans;Total;102150
+2024-T2;11;Total;ABC;Femmes;Total;Total;477000
+2024-T2;11;Total;A;Total;Total;Total;593170
+2024-T2;75;33;A;Total;Moins de 25 ans;Total;9970
+2024-T2;75;33;ABC;Total;Total;Total;137790
+2024-T2;75;33;ABC;Total;Moins de 25 ans;Total;17080
+2024-T2;75;33;ABC;Total;25 à 49 ans;Total;84580
+2024-T2;75;33;ABC;Total;50 ans et plus;Total;36130
+2024-T2;75;33;ABC;Femmes;Total;Total;72470
+2024-T2;75;33;A;Total;Total;Total;70800
+2024-T2;75;33;A;Hommes;Total;Total;35280
+2024-T2;75;33;ABC;Hommes;Total;Total;65320
+2024-T2;75;33;A;Total;25 à 49 ans;Total;41980
+2024-T2;75;33;A;Total;50 ans et plus;Total;18850
+2024-T2;75;33;A;Femmes;Total;Total;35520
+2024-T2;75;33;ABC;Total;Total;Un an ou plus;59070
+2024-T2;75;Total;A;Total;Moins de 25 ans;Total;32730
+2024-T2;75;Total;A;Total;25 à 49 ans;Total;131420
+2024-T2;75;Total;A;Total;50 ans et plus;Total;66110
+2024-T2;75;Total;A;Femmes;Total;Total;114140
+2024-T2;75;Total;ABC;Total;Total;Total;461100
+2024-T2;75;Total;ABC;Femmes;Total;Total;244680
+2024-T2;75;Total;A;Total;Total;Total;230260
+2024-T2;75;Total;ABC;Total;Total;Un an ou plus;201040
+2024-T2;75;Total;ABC;Total;Moins de 25 ans;Total;58420
+2024-T2;75;Total;ABC;Total;50 ans et plus;Total;130770
+2024-T2;75;Total;ABC;Hommes;Total;Total;216420
+2024-T2;75;Total;A;Hommes;Total;Total;116120
+2024-T2;75;Total;ABC;Total;25 à 49 ans;Total;271910
+2024-T2;Total France;Total;A;Femmes;Total;Total;1485300
+2024-T2;Total France;Total;ABC;Total;Moins de 25 ans;Total;689200
+2024-T2;Total France;Total;ABC;Total;Total;Un an ou plus;2361200
+2024-T2;Total France;Total;A;Total;Total;Total;3020900
+2024-T2;Total France;Total;A;Total;25 à 49 ans;Total;1753000
+2024-T2;Total France;Total;A;Total;50 ans et plus;Total;849800
+2024-T2;Total France;Total;A;Hommes;Total;Total;1535500
+2024-T2;Total France;Total;ABC;Femmes;Total;Total;2769500
+2024-T2;Total France;Total;ABC;Hommes;Total;Total;2626300
+2024-T2;Total France;Total;A;Total;Moins de 25 ans;Total;418100
+2024-T2;Total France;Total;ABC;Total;Total;Total;5395700
+2024-T2;Total France;Total;ABC;Total;25 à 49 ans;Total;3225200
+2024-T2;Total France;Total;ABC;Total;50 ans et plus;Total;1481400
+2024-T2;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3073300
+2024-T2;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1642700
+2024-T2;Total France métropolitaine;Total;A;Total;Total;Total;2813100
+2024-T2;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2229500
+2024-T2;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;651700
+2024-T2;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2501200
+2024-T2;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2618100
+2024-T2;Total France métropolitaine;Total;A;Femmes;Total;Total;1373500
+2024-T2;Total France métropolitaine;Total;ABC;Total;Total;Total;5119300
+2024-T2;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1394300
+2024-T2;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;389400
+2024-T2;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;781000
+2024-T2;Total France métropolitaine;Total;A;Hommes;Total;Total;1439600
+2024-T3;01;971;A;Total;Moins de 25 ans;Total;4470
+2024-T3;01;971;A;Total;25 à 49 ans;Total;20320
+2024-T3;01;971;A;Hommes;Total;Total;17580
+2024-T3;01;971;ABC;Total;Total;Total;54250
+2024-T3;01;971;ABC;Femmes;Total;Total;31680
+2024-T3;01;971;A;Femmes;Total;Total;23360
+2024-T3;01;971;ABC;Total;25 à 49 ans;Total;28140
+2024-T3;01;971;ABC;Total;50 ans et plus;Total;20040
+2024-T3;01;971;ABC;Total;Total;Un an ou plus;28140
+2024-T3;01;971;A;Total;50 ans et plus;Total;16160
+2024-T3;01;971;ABC;Total;Moins de 25 ans;Total;6080
+2024-T3;01;971;ABC;Hommes;Total;Total;22570
+2024-T3;01;971;A;Total;Total;Total;40950
+2024-T3;01;Total;A;Total;50 ans et plus;Total;16160
+2024-T3;01;Total;ABC;Total;Total;Total;54250
+2024-T3;01;Total;ABC;Total;Moins de 25 ans;Total;6080
+2024-T3;01;Total;ABC;Femmes;Total;Total;31680
+2024-T3;01;Total;A;Total;Moins de 25 ans;Total;4470
+2024-T3;01;Total;A;Hommes;Total;Total;17580
+2024-T3;01;Total;A;Femmes;Total;Total;23360
+2024-T3;01;Total;ABC;Total;25 à 49 ans;Total;28140
+2024-T3;01;Total;ABC;Total;50 ans et plus;Total;20040
+2024-T3;01;Total;ABC;Total;Total;Un an ou plus;28140
+2024-T3;01;Total;A;Total;25 à 49 ans;Total;20320
+2024-T3;01;Total;ABC;Hommes;Total;Total;22570
+2024-T3;01;Total;A;Total;Total;Total;40950
+2024-T3;11;75;A;Total;Moins de 25 ans;Total;8800
+2024-T3;11;75;A;Femmes;Total;Total;52220
+2024-T3;11;75;ABC;Total;Total;Total;191160
+2024-T3;11;75;ABC;Total;50 ans et plus;Total;55720
+2024-T3;11;75;ABC;Femmes;Total;Total;92910
+2024-T3;11;75;ABC;Total;Total;Un an ou plus;90220
+2024-T3;11;75;ABC;Total;Moins de 25 ans;Total;14050
+2024-T3;11;75;ABC;Hommes;Total;Total;98250
+2024-T3;11;75;A;Total;Total;Total;108740
+2024-T3;11;75;A;Total;25 à 49 ans;Total;66640
+2024-T3;11;75;A;Total;50 ans et plus;Total;33300
+2024-T3;11;75;A;Hommes;Total;Total;56520
+2024-T3;11;75;ABC;Total;25 à 49 ans;Total;121390
+2024-T3;11;Total;A;Total;25 à 49 ans;Total;367000
+2024-T3;11;Total;A;Total;50 ans et plus;Total;165840
+2024-T3;11;Total;A;Femmes;Total;Total;293390
+2024-T3;11;Total;ABC;Total;25 à 49 ans;Total;614970
+2024-T3;11;Total;A;Hommes;Total;Total;307740
+2024-T3;11;Total;ABC;Total;Total;Total;984980
+2024-T3;11;Total;ABC;Total;50 ans et plus;Total;265970
+2024-T3;11;Total;ABC;Femmes;Total;Total;483020
+2024-T3;11;Total;A;Total;Moins de 25 ans;Total;68280
+2024-T3;11;Total;ABC;Total;Moins de 25 ans;Total;104040
+2024-T3;11;Total;ABC;Hommes;Total;Total;501950
+2024-T3;11;Total;A;Total;Total;Total;601130
+2024-T3;11;Total;ABC;Total;Total;Un an ou plus;420190
+2024-T3;75;33;ABC;Total;Moins de 25 ans;Total;17150
+2024-T3;75;33;ABC;Total;25 à 49 ans;Total;85000
+2024-T3;75;33;ABC;Femmes;Total;Total;72830
+2024-T3;75;33;A;Total;Total;Total;71390
+2024-T3;75;33;A;Total;50 ans et plus;Total;19200
+2024-T3;75;33;A;Hommes;Total;Total;35630
+2024-T3;75;33;ABC;Total;50 ans et plus;Total;36420
+2024-T3;75;33;A;Total;Moins de 25 ans;Total;9930
+2024-T3;75;33;A;Total;25 à 49 ans;Total;42250
+2024-T3;75;33;A;Femmes;Total;Total;35760
+2024-T3;75;33;ABC;Total;Total;Total;138570
+2024-T3;75;33;ABC;Hommes;Total;Total;65740
+2024-T3;75;33;ABC;Total;Total;Un an ou plus;59550
+2024-T3;75;Total;A;Total;Moins de 25 ans;Total;32660
+2024-T3;75;Total;A;Femmes;Total;Total;114920
+2024-T3;75;Total;ABC;Total;50 ans et plus;Total;131510
+2024-T3;75;Total;ABC;Femmes;Total;Total;245360
+2024-T3;75;Total;A;Total;50 ans et plus;Total;67070
+2024-T3;75;Total;A;Hommes;Total;Total;116950
+2024-T3;75;Total;ABC;Total;Total;Total;462800
+2024-T3;75;Total;ABC;Total;Moins de 25 ans;Total;58690
+2024-T3;75;Total;ABC;Total;25 à 49 ans;Total;272610
+2024-T3;75;Total;A;Total;Total;Total;231870
+2024-T3;75;Total;A;Total;25 à 49 ans;Total;132140
+2024-T3;75;Total;ABC;Hommes;Total;Total;217450
+2024-T3;75;Total;ABC;Total;Total;Un an ou plus;202850
+2024-T3;Total France;Total;A;Total;Total;Total;3046100
+2024-T3;Total France;Total;A;Total;Moins de 25 ans;Total;417300
+2024-T3;Total France;Total;ABC;Total;Total;Total;5420700
+2024-T3;Total France;Total;ABC;Total;25 à 49 ans;Total;3239600
+2024-T3;Total France;Total;ABC;Femmes;Total;Total;2779400
+2024-T3;Total France;Total;A;Femmes;Total;Total;1494800
+2024-T3;Total France;Total;ABC;Total;Moins de 25 ans;Total;692400
+2024-T3;Total France;Total;ABC;Hommes;Total;Total;2641300
+2024-T3;Total France;Total;A;Total;25 à 49 ans;Total;1771100
+2024-T3;Total France;Total;A;Total;50 ans et plus;Total;857700
+2024-T3;Total France;Total;A;Hommes;Total;Total;1551300
+2024-T3;Total France;Total;ABC;Total;50 ans et plus;Total;1488600
+2024-T3;Total France;Total;ABC;Total;Total;Un an ou plus;2376500
+2024-T3;Total France métropolitaine;Total;ABC;Total;Total;Total;5143500
+2024-T3;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;655100
+2024-T3;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1401400
+2024-T3;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;388900
+2024-T3;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1660500
+2024-T3;Total France métropolitaine;Total;A;Total;Total;Total;2838300
+2024-T3;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3087000
+2024-T3;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2243500
+2024-T3;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2515900
+2024-T3;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2627600
+2024-T3;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;788900
+2024-T3;Total France métropolitaine;Total;A;Hommes;Total;Total;1455100
+2024-T3;Total France métropolitaine;Total;A;Femmes;Total;Total;1383100
+2024-T4;01;971;A;Hommes;Total;Total;17630
+2024-T4;01;971;ABC;Total;Moins de 25 ans;Total;6250
+2024-T4;01;971;ABC;Femmes;Total;Total;31770
+2024-T4;01;971;ABC;Total;Total;Un an ou plus;28310
+2024-T4;01;971;ABC;Total;25 à 49 ans;Total;28080
+2024-T4;01;971;A;Total;Moins de 25 ans;Total;4660
+2024-T4;01;971;A;Total;25 à 49 ans;Total;20360
+2024-T4;01;971;A;Total;50 ans et plus;Total;16140
+2024-T4;01;971;A;Femmes;Total;Total;23540
+2024-T4;01;971;ABC;Total;Total;Total;54380
+2024-T4;01;971;ABC;Total;50 ans et plus;Total;20050
+2024-T4;01;971;ABC;Hommes;Total;Total;22600
+2024-T4;01;971;A;Total;Total;Total;41160
+2024-T4;01;Total;A;Total;25 à 49 ans;Total;20360
+2024-T4;01;Total;A;Hommes;Total;Total;17630
+2024-T4;01;Total;A;Femmes;Total;Total;23540
+2024-T4;01;Total;ABC;Total;Total;Total;54380
+2024-T4;01;Total;A;Total;Total;Total;41160
+2024-T4;01;Total;ABC;Total;25 à 49 ans;Total;28080
+2024-T4;01;Total;ABC;Total;50 ans et plus;Total;20050
+2024-T4;01;Total;A;Total;Moins de 25 ans;Total;4660
+2024-T4;01;Total;A;Total;50 ans et plus;Total;16140
+2024-T4;01;Total;ABC;Total;Moins de 25 ans;Total;6250
+2024-T4;01;Total;ABC;Hommes;Total;Total;22600
+2024-T4;01;Total;ABC;Femmes;Total;Total;31770
+2024-T4;01;Total;ABC;Total;Total;Un an ou plus;28310
+2024-T4;11;75;A;Total;Moins de 25 ans;Total;10140
+2024-T4;11;75;A;Hommes;Total;Total;58510
+2024-T4;11;75;ABC;Total;Total;Total;194850
+2024-T4;11;75;ABC;Total;50 ans et plus;Total;55670
+2024-T4;11;75;A;Femmes;Total;Total;54120
+2024-T4;11;75;ABC;Total;Moins de 25 ans;Total;15180
+2024-T4;11;75;ABC;Hommes;Total;Total;100170
+2024-T4;11;75;ABC;Femmes;Total;Total;94680
+2024-T4;11;75;A;Total;25 à 49 ans;Total;69110
+2024-T4;11;75;A;Total;50 ans et plus;Total;33380
+2024-T4;11;75;ABC;Total;25 à 49 ans;Total;124000
+2024-T4;11;75;A;Total;Total;Total;112630
+2024-T4;11;75;ABC;Total;Total;Un an ou plus;91150
+2024-T4;11;Total;A;Femmes;Total;Total;305490
+2024-T4;11;Total;ABC;Total;Moins de 25 ans;Total;111140
+2024-T4;11;Total;ABC;Femmes;Total;Total;493820
+2024-T4;11;Total;A;Total;Moins de 25 ans;Total;76390
+2024-T4;11;Total;A;Total;25 à 49 ans;Total;380870
+2024-T4;11;Total;A;Total;50 ans et plus;Total;167580
+2024-T4;11;Total;A;Hommes;Total;Total;319360
+2024-T4;11;Total;ABC;Total;Total;Total;1006870
+2024-T4;11;Total;ABC;Total;25 à 49 ans;Total;628330
+2024-T4;11;Total;ABC;Hommes;Total;Total;513050
+2024-T4;11;Total;A;Total;Total;Total;624840
+2024-T4;11;Total;ABC;Total;Total;Un an ou plus;427400
+2024-T4;11;Total;ABC;Total;50 ans et plus;Total;267400
+2024-T4;75;33;A;Hommes;Total;Total;36910
+2024-T4;75;33;A;Total;Total;Total;73420
+2024-T4;75;33;A;Total;25 à 49 ans;Total;43560
+2024-T4;75;33;A;Total;50 ans et plus;Total;19390
+2024-T4;75;33;ABC;Total;Total;Total;140680
+2024-T4;75;33;ABC;Total;50 ans et plus;Total;36810
+2024-T4;75;33;ABC;Hommes;Total;Total;67100
+2024-T4;75;33;A;Total;Moins de 25 ans;Total;10470
+2024-T4;75;33;A;Femmes;Total;Total;36510
+2024-T4;75;33;ABC;Total;Moins de 25 ans;Total;17540
+2024-T4;75;33;ABC;Total;25 à 49 ans;Total;86330
+2024-T4;75;33;ABC;Femmes;Total;Total;73580
+2024-T4;75;33;ABC;Total;Total;Un an ou plus;60370
+2024-T4;75;Total;A;Total;50 ans et plus;Total;67950
+2024-T4;75;Total;A;Hommes;Total;Total;120550
+2024-T4;75;Total;ABC;Total;Total;Total;468440
+2024-T4;75;Total;A;Total;Total;Total;238160
+2024-T4;75;Total;ABC;Total;Total;Un an ou plus;205070
+2024-T4;75;Total;A;Total;Moins de 25 ans;Total;34520
+2024-T4;75;Total;ABC;Hommes;Total;Total;220780
+2024-T4;75;Total;ABC;Femmes;Total;Total;247660
+2024-T4;75;Total;A;Total;25 à 49 ans;Total;135690
+2024-T4;75;Total;A;Femmes;Total;Total;117610
+2024-T4;75;Total;ABC;Total;Moins de 25 ans;Total;60270
+2024-T4;75;Total;ABC;Total;25 à 49 ans;Total;275690
+2024-T4;75;Total;ABC;Total;50 ans et plus;Total;132490
+2024-T4;Total France;Total;A;Total;Moins de 25 ans;Total;446500
+2024-T4;Total France;Total;A;Total;50 ans et plus;Total;866000
+2024-T4;Total France;Total;A;Femmes;Total;Total;1535300
+2024-T4;Total France;Total;ABC;Total;25 à 49 ans;Total;3276900
+2024-T4;Total France;Total;ABC;Hommes;Total;Total;2677900
+2024-T4;Total France;Total;A;Total;25 à 49 ans;Total;1816400
+2024-T4;Total France;Total;ABC;Total;Total;Total;5489300
+2024-T4;Total France;Total;ABC;Total;Moins de 25 ans;Total;718100
+2024-T4;Total France;Total;ABC;Total;Total;Un an ou plus;2394500
+2024-T4;Total France;Total;A;Total;Total;Total;3129000
+2024-T4;Total France;Total;A;Hommes;Total;Total;1593700
+2024-T4;Total France;Total;ABC;Total;50 ans et plus;Total;1494400
+2024-T4;Total France;Total;ABC;Femmes;Total;Total;2811400
+2024-T4;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2259800
+2024-T4;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2551800
+2024-T4;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;417400
+2024-T4;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;797100
+2024-T4;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;680100
+2024-T4;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1407000
+2024-T4;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2658300
+2024-T4;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1704100
+2024-T4;Total France métropolitaine;Total;A;Total;Total;Total;2918600
+2024-T4;Total France métropolitaine;Total;ABC;Total;Total;Total;5210100
+2024-T4;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3123000
+2024-T4;Total France métropolitaine;Total;A;Hommes;Total;Total;1496600
+2024-T4;Total France métropolitaine;Total;A;Femmes;Total;Total;1422000
+2025-T1;01;971;A;Total;Moins de 25 ans;Total;5750
+2025-T1;01;971;ABC;Total;25 à 49 ans;Total;28460
+2025-T1;01;971;ABC;Hommes;Total;Total;23530
+2025-T1;01;971;ABC;Femmes;Total;Total;32520
+2025-T1;01;971;A;Total;25 à 49 ans;Total;20850
+2025-T1;01;971;A;Total;50 ans et plus;Total;16280
+2025-T1;01;971;A;Hommes;Total;Total;18570
+2025-T1;01;971;ABC;Total;Moins de 25 ans;Total;7390
+2025-T1;01;971;A;Total;Total;Total;42880
+2025-T1;01;971;ABC;Total;Total;Un an ou plus;28470
+2025-T1;01;971;A;Femmes;Total;Total;24320
+2025-T1;01;971;ABC;Total;Total;Total;56050
+2025-T1;01;971;ABC;Total;50 ans et plus;Total;20210
+2025-T1;01;Total;A;Total;Moins de 25 ans;Total;5750
+2025-T1;01;Total;A;Total;25 à 49 ans;Total;20850
+2025-T1;01;Total;A;Hommes;Total;Total;18570
+2025-T1;01;Total;ABC;Total;50 ans et plus;Total;20210
+2025-T1;01;Total;ABC;Femmes;Total;Total;32520
+2025-T1;01;Total;ABC;Total;25 à 49 ans;Total;28460
+2025-T1;01;Total;A;Total;50 ans et plus;Total;16280
+2025-T1;01;Total;A;Femmes;Total;Total;24320
+2025-T1;01;Total;ABC;Total;Total;Total;56050
+2025-T1;01;Total;ABC;Total;Moins de 25 ans;Total;7390
+2025-T1;01;Total;ABC;Hommes;Total;Total;23530
+2025-T1;01;Total;A;Total;Total;Total;42880
+2025-T1;01;Total;ABC;Total;Total;Un an ou plus;28470
+2025-T1;11;75;A;Total;25 à 49 ans;Total;73380
+2025-T1;11;75;A;Hommes;Total;Total;62890
+2025-T1;11;75;A;Femmes;Total;Total;57770
+2025-T1;11;75;ABC;Total;Moins de 25 ans;Total;18120
+2025-T1;11;75;ABC;Total;25 à 49 ans;Total;127710
+2025-T1;11;75;A;Total;Total;Total;120670
+2025-T1;11;75;A;Total;50 ans et plus;Total;34140
+2025-T1;11;75;ABC;Hommes;Total;Total;104200
+2025-T1;11;75;ABC;Total;Total;Un an ou plus;92590
+2025-T1;11;75;A;Total;Moins de 25 ans;Total;13140
+2025-T1;11;75;ABC;Total;Total;Total;202130
+2025-T1;11;75;ABC;Total;50 ans et plus;Total;56300
+2025-T1;11;75;ABC;Femmes;Total;Total;97930
+2025-T1;11;Total;A;Total;Moins de 25 ans;Total;107430
+2025-T1;11;Total;A;Hommes;Total;Total;350950
+2025-T1;11;Total;ABC;Total;Moins de 25 ans;Total;141830
+2025-T1;11;Total;ABC;Total;25 à 49 ans;Total;646390
+2025-T1;11;Total;A;Total;Total;Total;682680
+2025-T1;11;Total;ABC;Total;Total;Un an ou plus;432860
+2025-T1;11;Total;A;Total;50 ans et plus;Total;172120
+2025-T1;11;Total;A;Femmes;Total;Total;331730
+2025-T1;11;Total;ABC;Femmes;Total;Total;517490
+2025-T1;11;Total;A;Total;25 à 49 ans;Total;403130
+2025-T1;11;Total;ABC;Total;Total;Total;1059250
+2025-T1;11;Total;ABC;Total;50 ans et plus;Total;271030
+2025-T1;11;Total;ABC;Hommes;Total;Total;541760
+2025-T1;75;33;A;Total;25 à 49 ans;Total;46420
+2025-T1;75;33;A;Total;50 ans et plus;Total;20100
+2025-T1;75;33;A;Hommes;Total;Total;40780
+2025-T1;75;33;A;Femmes;Total;Total;40340
+2025-T1;75;33;ABC;Total;Total;Total;147540
+2025-T1;75;33;ABC;Femmes;Total;Total;76950
+2025-T1;75;33;A;Total;Total;Total;81120
+2025-T1;75;33;A;Total;Moins de 25 ans;Total;14600
+2025-T1;75;33;ABC;Total;Moins de 25 ans;Total;21530
+2025-T1;75;33;ABC;Total;25 à 49 ans;Total;88580
+2025-T1;75;33;ABC;Total;50 ans et plus;Total;37430
+2025-T1;75;33;ABC;Hommes;Total;Total;70600
+2025-T1;75;33;ABC;Total;Total;Un an ou plus;60910
+2025-T1;75;Total;A;Total;Moins de 25 ans;Total;46890
+2025-T1;75;Total;A;Femmes;Total;Total;127600
+2025-T1;75;Total;ABC;Total;25 à 49 ans;Total;280940
+2025-T1;75;Total;ABC;Hommes;Total;Total;230790
+2025-T1;75;Total;A;Total;Total;Total;258760
+2025-T1;75;Total;A;Total;50 ans et plus;Total;69520
+2025-T1;75;Total;ABC;Total;Total;Total;487140
+2025-T1;75;Total;ABC;Total;Moins de 25 ans;Total;72300
+2025-T1;75;Total;A;Total;25 à 49 ans;Total;142360
+2025-T1;75;Total;A;Hommes;Total;Total;131160
+2025-T1;75;Total;ABC;Total;50 ans et plus;Total;133890
+2025-T1;75;Total;ABC;Femmes;Total;Total;256340
+2025-T1;75;Total;ABC;Total;Total;Un an ou plus;205590
+2025-T1;Total France;Total;A;Total;Moins de 25 ans;Total;597100
+2025-T1;Total France;Total;A;Total;50 ans et plus;Total;887400
+2025-T1;Total France;Total;A;Femmes;Total;Total;1658700
+2025-T1;Total France;Total;ABC;Total;25 à 49 ans;Total;3346000
+2025-T1;Total France;Total;ABC;Femmes;Total;Total;2919200
+2025-T1;Total France;Total;A;Total;Total;Total;3390200
+2025-T1;Total France;Total;A;Total;25 à 49 ans;Total;1905800
+2025-T1;Total France;Total;ABC;Total;Moins de 25 ans;Total;865100
+2025-T1;Total France;Total;ABC;Hommes;Total;Total;2803800
+2025-T1;Total France;Total;ABC;Total;Total;Un an ou plus;2409100
+2025-T1;Total France;Total;A;Hommes;Total;Total;1731500
+2025-T1;Total France;Total;ABC;Total;Total;Total;5723000
+2025-T1;Total France;Total;ABC;Total;50 ans et plus;Total;1511900
+2025-T1;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3189600
+2025-T1;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1423500
+2025-T1;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;560900
+2025-T1;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1789900
+2025-T1;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;817200
+2025-T1;Total France métropolitaine;Total;A;Hommes;Total;Total;1628200
+2025-T1;Total France métropolitaine;Total;A;Femmes;Total;Total;1539800
+2025-T1;Total France métropolitaine;Total;ABC;Total;Total;Total;5433400
+2025-T1;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2672200
+2025-T1;Total France métropolitaine;Total;A;Total;Total;Total;3168000
+2025-T1;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2272800
+2025-T1;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;820200
+2025-T1;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2761200
+2025-T2;01;971;ABC;Total;50 ans et plus;Total;20070
+2025-T2;01;971;ABC;Femmes;Total;Total;31880
+2025-T2;01;971;A;Femmes;Total;Total;23420
+2025-T2;01;971;A;Total;Total;Total;41430
+2025-T2;01;971;ABC;Total;Total;Un an ou plus;29030
+2025-T2;01;971;ABC;Hommes;Total;Total;23100
+2025-T2;01;971;A;Total;Moins de 25 ans;Total;4960
+2025-T2;01;971;A;Total;25 à 49 ans;Total;20430
+2025-T2;01;971;A;Total;50 ans et plus;Total;16030
+2025-T2;01;971;A;Hommes;Total;Total;18010
+2025-T2;01;971;ABC;Total;Total;Total;54990
+2025-T2;01;971;ABC;Total;Moins de 25 ans;Total;6660
+2025-T2;01;971;ABC;Total;25 à 49 ans;Total;28260
+2025-T2;01;Total;A;Total;Moins de 25 ans;Total;4960
+2025-T2;01;Total;A;Total;25 à 49 ans;Total;20430
+2025-T2;01;Total;ABC;Total;Total;Total;54990
+2025-T2;01;Total;ABC;Total;25 à 49 ans;Total;28260
+2025-T2;01;Total;ABC;Total;50 ans et plus;Total;20070
+2025-T2;01;Total;A;Total;Total;Total;41430
+2025-T2;01;Total;A;Hommes;Total;Total;18010
+2025-T2;01;Total;A;Femmes;Total;Total;23420
+2025-T2;01;Total;ABC;Total;Moins de 25 ans;Total;6660
+2025-T2;01;Total;ABC;Total;Total;Un an ou plus;29030
+2025-T2;01;Total;A;Total;50 ans et plus;Total;16030
+2025-T2;01;Total;ABC;Hommes;Total;Total;23100
+2025-T2;01;Total;ABC;Femmes;Total;Total;31880
+2025-T2;11;75;A;Total;50 ans et plus;Total;33320
+2025-T2;11;75;A;Hommes;Total;Total;60090
+2025-T2;11;75;ABC;Total;50 ans et plus;Total;55780
+2025-T2;11;75;A;Total;Moins de 25 ans;Total;11250
+2025-T2;11;75;A;Total;25 à 49 ans;Total;71720
+2025-T2;11;75;ABC;Total;25 à 49 ans;Total;127580
+2025-T2;11;75;ABC;Hommes;Total;Total;102500
+2025-T2;11;75;ABC;Femmes;Total;Total;97320
+2025-T2;11;75;A;Total;Total;Total;116280
+2025-T2;11;75;ABC;Total;Total;Un an ou plus;94190
+2025-T2;11;75;A;Femmes;Total;Total;56190
+2025-T2;11;75;ABC;Total;Total;Total;199820
+2025-T2;11;75;ABC;Total;Moins de 25 ans;Total;16460
+2025-T2;11;Total;A;Total;50 ans et plus;Total;168860
+2025-T2;11;Total;A;Femmes;Total;Total;316990
+2025-T2;11;Total;ABC;Total;Moins de 25 ans;Total;123850
+2025-T2;11;Total;ABC;Total;50 ans et plus;Total;269640
+2025-T2;11;Total;A;Total;Total;Total;647960
+2025-T2;11;Total;A;Total;Moins de 25 ans;Total;87010
+2025-T2;11;Total;A;Total;25 à 49 ans;Total;392090
+2025-T2;11;Total;ABC;Total;Total;Total;1036690
+2025-T2;11;Total;ABC;Total;25 à 49 ans;Total;643210
+2025-T2;11;Total;ABC;Femmes;Total;Total;508590
+2025-T2;11;Total;A;Hommes;Total;Total;330970
+2025-T2;11;Total;ABC;Hommes;Total;Total;528100
+2025-T2;11;Total;ABC;Total;Total;Un an ou plus;442300
+2025-T2;75;33;A;Hommes;Total;Total;39310
+2025-T2;75;33;A;Femmes;Total;Total;38870
+2025-T2;75;33;ABC;Total;50 ans et plus;Total;37590
+2025-T2;75;33;A;Total;Total;Total;78180
+2025-T2;75;33;ABC;Total;Total;Total;146710
+2025-T2;75;33;ABC;Total;25 à 49 ans;Total;88940
+2025-T2;75;33;ABC;Femmes;Total;Total;76480
+2025-T2;75;33;ABC;Total;Total;Un an ou plus;62630
+2025-T2;75;33;A;Total;Moins de 25 ans;Total;12820
+2025-T2;75;33;A;Total;25 à 49 ans;Total;45580
+2025-T2;75;33;A;Total;50 ans et plus;Total;19770
+2025-T2;75;33;ABC;Total;Moins de 25 ans;Total;20180
+2025-T2;75;33;ABC;Hommes;Total;Total;70230
+2025-T2;75;Total;A;Total;Moins de 25 ans;Total;41180
+2025-T2;75;Total;A;Femmes;Total;Total;122560
+2025-T2;75;Total;ABC;Total;Total;Total;483110
+2025-T2;75;Total;ABC;Femmes;Total;Total;253950
+2025-T2;75;Total;A;Total;25 à 49 ans;Total;139580
+2025-T2;75;Total;A;Hommes;Total;Total;126530
+2025-T2;75;Total;ABC;Total;25 à 49 ans;Total;281410
+2025-T2;75;Total;A;Total;Total;Total;249090
+2025-T2;75;Total;ABC;Total;Total;Un an ou plus;210350
+2025-T2;75;Total;A;Total;50 ans et plus;Total;68340
+2025-T2;75;Total;ABC;Total;Moins de 25 ans;Total;67910
+2025-T2;75;Total;ABC;Total;50 ans et plus;Total;133790
+2025-T2;75;Total;ABC;Hommes;Total;Total;229160
+2025-T2;Total France;Total;A;Total;Moins de 25 ans;Total;510100
+2025-T2;Total France;Total;A;Total;25 à 49 ans;Total;1844700
+2025-T2;Total France;Total;A;Hommes;Total;Total;1646700
+2025-T2;Total France;Total;ABC;Total;Total;Total;5621100
+2025-T2;Total France;Total;ABC;Femmes;Total;Total;2866700
+2025-T2;Total France;Total;ABC;Hommes;Total;Total;2754400
+2025-T2;Total France;Total;ABC;Total;Total;Un an ou plus;2458800
+2025-T2;Total France;Total;A;Total;Total;Total;3222500
+2025-T2;Total France;Total;A;Femmes;Total;Total;1575800
+2025-T2;Total France;Total;ABC;Total;25 à 49 ans;Total;3324500
+2025-T2;Total France;Total;A;Total;50 ans et plus;Total;867600
+2025-T2;Total France;Total;ABC;Total;Moins de 25 ans;Total;793600
+2025-T2;Total France;Total;ABC;Total;50 ans et plus;Total;1503000
+2025-T2;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2318600
+2025-T2;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2625200
+2025-T2;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;478200
+2025-T2;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;798700
+2025-T2;Total France métropolitaine;Total;A;Femmes;Total;Total;1461400
+2025-T2;Total France métropolitaine;Total;ABC;Total;Total;Total;5337300
+2025-T2;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1731700
+2025-T2;Total France métropolitaine;Total;A;Total;Total;Total;3008700
+2025-T2;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;752400
+2025-T2;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3169500
+2025-T2;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1415400
+2025-T2;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2712100
+2025-T2;Total France métropolitaine;Total;A;Hommes;Total;Total;1547300
+2025-T3;01;971;A;Total;Moins de 25 ans;Total;5220
+2025-T3;01;971;A;Total;25 à 49 ans;Total;20450
+2025-T3;01;971;ABC;Total;Total;Total;55520
+2025-T3;01;971;ABC;Total;25 à 49 ans;Total;28430
+2025-T3;01;971;ABC;Total;50 ans et plus;Total;20250
+2025-T3;01;971;ABC;Femmes;Total;Total;32020
+2025-T3;01;971;A;Total;50 ans et plus;Total;16180
+2025-T3;01;971;A;Hommes;Total;Total;18340
+2025-T3;01;971;A;Femmes;Total;Total;23510
+2025-T3;01;971;ABC;Total;Moins de 25 ans;Total;6840
+2025-T3;01;971;ABC;Total;Total;Un an ou plus;29830
+2025-T3;01;971;ABC;Hommes;Total;Total;23500
+2025-T3;01;971;A;Total;Total;Total;41850
+2025-T3;01;Total;A;Total;50 ans et plus;Total;16180
+2025-T3;01;Total;ABC;Total;Total;Total;55520
+2025-T3;01;Total;ABC;Hommes;Total;Total;23500
+2025-T3;01;Total;A;Total;Total;Total;41850
+2025-T3;01;Total;A;Total;25 à 49 ans;Total;20450
+2025-T3;01;Total;ABC;Total;25 à 49 ans;Total;28430
+2025-T3;01;Total;ABC;Total;50 ans et plus;Total;20250
+2025-T3;01;Total;A;Total;Moins de 25 ans;Total;5220
+2025-T3;01;Total;A;Hommes;Total;Total;18340
+2025-T3;01;Total;A;Femmes;Total;Total;23510
+2025-T3;01;Total;ABC;Total;Moins de 25 ans;Total;6840
+2025-T3;01;Total;ABC;Femmes;Total;Total;32020
+2025-T3;01;Total;ABC;Total;Total;Un an ou plus;29830
+2025-T3;11;75;ABC;Total;Total;Un an ou plus;95770
+2025-T3;11;75;A;Total;Moins de 25 ans;Total;11770
+2025-T3;11;75;A;Hommes;Total;Total;60560
+2025-T3;11;75;ABC;Femmes;Total;Total;97970
+2025-T3;11;75;A;Total;50 ans et plus;Total;33180
+2025-T3;11;75;ABC;Hommes;Total;Total;103690
+2025-T3;11;75;A;Total;Total;Total;117020
+2025-T3;11;75;A;Total;25 à 49 ans;Total;72060
+2025-T3;11;75;A;Femmes;Total;Total;56450
+2025-T3;11;75;ABC;Total;Total;Total;201660
+2025-T3;11;75;ABC;Total;Moins de 25 ans;Total;16880
+2025-T3;11;75;ABC;Total;25 à 49 ans;Total;128910
+2025-T3;11;75;ABC;Total;50 ans et plus;Total;55870
+2025-T3;11;Total;A;Total;Total;Total;660240
+2025-T3;11;Total;A;Total;Moins de 25 ans;Total;92470
+2025-T3;11;Total;A;Total;25 à 49 ans;Total;398460
+2025-T3;11;Total;A;Total;50 ans et plus;Total;169310
+2025-T3;11;Total;A;Femmes;Total;Total;322620
+2025-T3;11;Total;A;Hommes;Total;Total;337620
+2025-T3;11;Total;ABC;Total;Total;Total;1055600
+2025-T3;11;Total;ABC;Total;25 à 49 ans;Total;654110
+2025-T3;11;Total;ABC;Total;Total;Un an ou plus;456270
+2025-T3;11;Total;ABC;Total;Moins de 25 ans;Total;129750
+2025-T3;11;Total;ABC;Total;50 ans et plus;Total;271740
+2025-T3;11;Total;ABC;Hommes;Total;Total;539060
+2025-T3;11;Total;ABC;Femmes;Total;Total;516540
+2025-T3;75;33;A;Hommes;Total;Total;39920
+2025-T3;75;33;ABC;Hommes;Total;Total;71580
+2025-T3;75;33;A;Femmes;Total;Total;39450
+2025-T3;75;33;ABC;Total;Total;Total;149160
+2025-T3;75;33;A;Total;Total;Total;79360
+2025-T3;75;33;A;Total;25 à 49 ans;Total;45960
+2025-T3;75;33;A;Total;50 ans et plus;Total;19740
+2025-T3;75;33;A;Total;Moins de 25 ans;Total;13660
+2025-T3;75;33;ABC;Total;Moins de 25 ans;Total;21130
+2025-T3;75;33;ABC;Total;25 à 49 ans;Total;90110
+2025-T3;75;33;ABC;Total;50 ans et plus;Total;37920
+2025-T3;75;33;ABC;Femmes;Total;Total;77580
+2025-T3;75;33;ABC;Total;Total;Un an ou plus;64050
+2025-T3;75;Total;ABC;Femmes;Total;Total;257180
+2025-T3;75;Total;A;Total;Total;Total;253940
+2025-T3;75;Total;A;Total;25 à 49 ans;Total;141210
+2025-T3;75;Total;A;Total;50 ans et plus;Total;68640
+2025-T3;75;Total;A;Femmes;Total;Total;124880
+2025-T3;75;Total;ABC;Total;Total;Total;490890
+2025-T3;75;Total;ABC;Hommes;Total;Total;233710
+2025-T3;75;Total;ABC;Total;Total;Un an ou plus;215260
+2025-T3;75;Total;A;Total;Moins de 25 ans;Total;44100
+2025-T3;75;Total;A;Hommes;Total;Total;129060
+2025-T3;75;Total;ABC;Total;Moins de 25 ans;Total;71070
+2025-T3;75;Total;ABC;Total;25 à 49 ans;Total;285000
+2025-T3;75;Total;ABC;Total;50 ans et plus;Total;134820
+2025-T3;Total France;Total;A;Hommes;Total;Total;1678900
+2025-T3;Total France;Total;ABC;Total;50 ans et plus;Total;1514100
+2025-T3;Total France;Total;ABC;Total;Total;Un an ou plus;2522100
+2025-T3;Total France;Total;A;Total;25 à 49 ans;Total;1872300
+2025-T3;Total France;Total;A;Total;50 ans et plus;Total;869600
+2025-T3;Total France;Total;A;Femmes;Total;Total;1605100
+2025-T3;Total France;Total;ABC;Total;Total;Total;5710200
+2025-T3;Total France;Total;ABC;Total;Moins de 25 ans;Total;828100
+2025-T3;Total France;Total;A;Total;Total;Total;3284000
+2025-T3;Total France;Total;A;Total;Moins de 25 ans;Total;542100
+2025-T3;Total France;Total;ABC;Total;25 à 49 ans;Total;3368000
+2025-T3;Total France;Total;ABC;Femmes;Total;Total;2904300
+2025-T3;Total France;Total;ABC;Hommes;Total;Total;2805900
+2025-T3;Total France métropolitaine;Total;A;Total;Total;Total;3066400
+2025-T3;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1425200
+2025-T3;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2747800
+2025-T3;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1758100
+2025-T3;Total France métropolitaine;Total;ABC;Total;Total;Total;5422100
+2025-T3;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;785500
+2025-T3;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3211300
+2025-T3;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;508600
+2025-T3;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;799800
+2025-T3;Total France métropolitaine;Total;A;Hommes;Total;Total;1577500
+2025-T3;Total France métropolitaine;Total;A;Femmes;Total;Total;1489000
+2025-T3;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2378600
+2025-T3;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2674200
+2025-T4;01;971;A;Total;Moins de 25 ans;Total;4980
+2025-T4;01;971;A;Femmes;Total;Total;22640
+2025-T4;01;971;ABC;Femmes;Total;Total;31190
+2025-T4;01;971;ABC;Total;Total;Un an ou plus;30010
+2025-T4;01;971;A;Hommes;Total;Total;18060
+2025-T4;01;971;ABC;Total;Total;Total;54390
+2025-T4;01;971;ABC;Total;Moins de 25 ans;Total;6600
+2025-T4;01;971;ABC;Total;25 à 49 ans;Total;27830
+2025-T4;01;971;A;Total;Total;Total;40700
+2025-T4;01;971;A;Total;25 à 49 ans;Total;19880
+2025-T4;01;971;A;Total;50 ans et plus;Total;15840
+2025-T4;01;971;ABC;Total;50 ans et plus;Total;19960
+2025-T4;01;971;ABC;Hommes;Total;Total;23210
+2025-T4;01;Total;A;Total;50 ans et plus;Total;15840
+2025-T4;01;Total;A;Hommes;Total;Total;18060
+2025-T4;01;Total;A;Femmes;Total;Total;22640
+2025-T4;01;Total;ABC;Total;Moins de 25 ans;Total;6600
+2025-T4;01;Total;ABC;Hommes;Total;Total;23210
+2025-T4;01;Total;ABC;Femmes;Total;Total;31190
+2025-T4;01;Total;A;Total;Total;Total;40700
+2025-T4;01;Total;ABC;Total;Total;Un an ou plus;30010
+2025-T4;01;Total;A;Total;Moins de 25 ans;Total;4980
+2025-T4;01;Total;ABC;Total;50 ans et plus;Total;19960
+2025-T4;01;Total;A;Total;25 à 49 ans;Total;19880
+2025-T4;01;Total;ABC;Total;Total;Total;54390
+2025-T4;01;Total;ABC;Total;25 à 49 ans;Total;27830
+2025-T4;11;75;A;Hommes;Total;Total;61840
+2025-T4;11;75;ABC;Hommes;Total;Total;104660
+2025-T4;11;75;ABC;Femmes;Total;Total;98930
+2025-T4;11;75;ABC;Total;Total;Un an ou plus;97470
+2025-T4;11;75;A;Total;25 à 49 ans;Total;73690
+2025-T4;11;75;A;Total;50 ans et plus;Total;33140
+2025-T4;11;75;ABC;Total;50 ans et plus;Total;55520
+2025-T4;11;75;A;Total;Moins de 25 ans;Total;12560
+2025-T4;11;75;A;Femmes;Total;Total;57550
+2025-T4;11;75;ABC;Total;Total;Total;203590
+2025-T4;11;75;ABC;Total;Moins de 25 ans;Total;17910
+2025-T4;11;75;ABC;Total;25 à 49 ans;Total;130160
+2025-T4;11;75;A;Total;Total;Total;119390
+2025-T4;11;Total;A;Total;Moins de 25 ans;Total;96890
+2025-T4;11;Total;ABC;Total;25 à 49 ans;Total;663690
+2025-T4;11;Total;ABC;Femmes;Total;Total;524770
+2025-T4;11;Total;A;Total;Total;Total;676450
+2025-T4;11;Total;A;Total;25 à 49 ans;Total;409040
+2025-T4;11;Total;A;Total;50 ans et plus;Total;170520
+2025-T4;11;Total;A;Hommes;Total;Total;345560
+2025-T4;11;Total;A;Femmes;Total;Total;330880
+2025-T4;11;Total;ABC;Total;Moins de 25 ans;Total;135210
+2025-T4;11;Total;ABC;Total;50 ans et plus;Total;272360
+2025-T4;11;Total;ABC;Hommes;Total;Total;546490
+2025-T4;11;Total;ABC;Total;Total;Un an ou plus;469670
+2025-T4;11;Total;ABC;Total;Total;Total;1071260
+2025-T4;75;33;A;Total;Moins de 25 ans;Total;13850
+2025-T4;75;33;A;Femmes;Total;Total;40150
+2025-T4;75;33;A;Total;Total;Total;81920
+2025-T4;75;33;A;Total;25 à 49 ans;Total;47740
+2025-T4;75;33;A;Hommes;Total;Total;41770
+2025-T4;75;33;ABC;Total;Moins de 25 ans;Total;21430
+2025-T4;75;33;ABC;Total;50 ans et plus;Total;38310
+2025-T4;75;33;ABC;Total;Total;Un an ou plus;65730
+2025-T4;75;33;A;Total;50 ans et plus;Total;20330
+2025-T4;75;33;ABC;Total;Total;Total;150940
+2025-T4;75;33;ABC;Total;25 à 49 ans;Total;91200
+2025-T4;75;33;ABC;Hommes;Total;Total;72970
+2025-T4;75;33;ABC;Femmes;Total;Total;77970
+2025-T4;75;Total;A;Total;50 ans et plus;Total;69760
+2025-T4;75;Total;ABC;Femmes;Total;Total;257670
+2025-T4;75;Total;A;Hommes;Total;Total;131560
+2025-T4;75;Total;ABC;Total;Total;Total;492870
+2025-T4;75;Total;ABC;Total;Moins de 25 ans;Total;70890
+2025-T4;75;Total;ABC;Total;25 à 49 ans;Total;286560
+2025-T4;75;Total;ABC;Total;50 ans et plus;Total;135420
+2025-T4;75;Total;A;Total;Moins de 25 ans;Total;43660
+2025-T4;75;Total;A;Total;25 à 49 ans;Total;144080
+2025-T4;75;Total;A;Femmes;Total;Total;125950
+2025-T4;75;Total;ABC;Total;Total;Un an ou plus;219330
+2025-T4;75;Total;ABC;Hommes;Total;Total;235200
+2025-T4;75;Total;A;Total;Total;Total;257510
+2025-T4;Total France;Total;A;Total;25 à 49 ans;Total;1907200
+2025-T4;Total France;Total;ABC;Total;Total;Total;5747200
+2025-T4;Total France;Total;ABC;Femmes;Total;Total;2920000
+2025-T4;Total France;Total;A;Total;Moins de 25 ans;Total;551000
+2025-T4;Total France;Total;A;Total;50 ans et plus;Total;875700
+2025-T4;Total France;Total;A;Hommes;Total;Total;1706900
+2025-T4;Total France;Total;ABC;Total;Moins de 25 ans;Total;839600
+2025-T4;Total France;Total;ABC;Total;50 ans et plus;Total;1516200
+2025-T4;Total France;Total;ABC;Total;Total;Un an ou plus;2580500
+2025-T4;Total France;Total;A;Total;Total;Total;3333800
+2025-T4;Total France;Total;A;Femmes;Total;Total;1626900
+2025-T4;Total France;Total;ABC;Total;25 à 49 ans;Total;3391500
+2025-T4;Total France;Total;ABC;Hommes;Total;Total;2827300
+2025-T4;Total France métropolitaine;Total;ABC;Total;Total;Total;5461400
+2025-T4;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;517800
+2025-T4;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;807100
+2025-T4;Total France métropolitaine;Total;A;Total;Total;Total;3118400
+2025-T4;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2435600
+2025-T4;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;797300
+2025-T4;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3235600
+2025-T4;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1428400
+2025-T4;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2696300
+2025-T4;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2765100
+2025-T4;Total France métropolitaine;Total;A;Femmes;Total;Total;1512200
+2025-T4;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1793500
+2025-T4;Total France métropolitaine;Total;A;Hommes;Total;Total;1606300
+2026-T1;01;971;A;Total;Moins de 25 ans;Total;4970
+2026-T1;01;971;A;Hommes;Total;Total;18010
+2026-T1;01;971;A;Femmes;Total;Total;22200
+2026-T1;01;971;ABC;Total;Moins de 25 ans;Total;6550
+2026-T1;01;971;ABC;Total;50 ans et plus;Total;19660
+2026-T1;01;971;A;Total;25 à 49 ans;Total;19680
+2026-T1;01;971;A;Total;50 ans et plus;Total;15570
+2026-T1;01;971;ABC;Hommes;Total;Total;23090
+2026-T1;01;971;ABC;Total;Total;Total;53780
+2026-T1;01;971;ABC;Total;25 à 49 ans;Total;27570
+2026-T1;01;971;ABC;Femmes;Total;Total;30700
+2026-T1;01;971;A;Total;Total;Total;40210
+2026-T1;01;971;ABC;Total;Total;Un an ou plus;30110
+2026-T1;01;Total;A;Femmes;Total;Total;22200
+2026-T1;01;Total;A;Total;Total;Total;40210
+2026-T1;01;Total;ABC;Total;Total;Un an ou plus;30110
+2026-T1;01;Total;A;Hommes;Total;Total;18010
+2026-T1;01;Total;ABC;Total;Total;Total;53780
+2026-T1;01;Total;ABC;Total;Moins de 25 ans;Total;6550
+2026-T1;01;Total;ABC;Total;50 ans et plus;Total;19660
+2026-T1;01;Total;ABC;Femmes;Total;Total;30700
+2026-T1;01;Total;A;Total;Moins de 25 ans;Total;4970
+2026-T1;01;Total;A;Total;25 à 49 ans;Total;19680
+2026-T1;01;Total;A;Total;50 ans et plus;Total;15570
+2026-T1;01;Total;ABC;Total;25 à 49 ans;Total;27570
+2026-T1;01;Total;ABC;Hommes;Total;Total;23090
+2026-T1;11;75;A;Total;Moins de 25 ans;Total;12310
+2026-T1;11;75;A;Total;50 ans et plus;Total;32590
+2026-T1;11;75;ABC;Total;Total;Total;201860
+2026-T1;11;75;ABC;Total;25 à 49 ans;Total;129280
+2026-T1;11;75;ABC;Total;50 ans et plus;Total;54770
+2026-T1;11;75;ABC;Total;Total;Un an ou plus;98110
+2026-T1;11;75;A;Total;25 à 49 ans;Total;72800
+2026-T1;11;75;A;Hommes;Total;Total;60890
+2026-T1;11;75;ABC;Total;Moins de 25 ans;Total;17810
+2026-T1;11;75;A;Total;Total;Total;117700
+2026-T1;11;75;A;Femmes;Total;Total;56810
+2026-T1;11;75;ABC;Hommes;Total;Total;103640
+2026-T1;11;75;ABC;Femmes;Total;Total;98230
+2026-T1;11;Total;A;Total;Moins de 25 ans;Total;94780
+2026-T1;11;Total;A;Total;25 à 49 ans;Total;409750
+2026-T1;11;Total;A;Total;50 ans et plus;Total;169070
+2026-T1;11;Total;ABC;Total;25 à 49 ans;Total;667180
+2026-T1;11;Total;ABC;Hommes;Total;Total;548190
+2026-T1;11;Total;A;Hommes;Total;Total;344820
+2026-T1;11;Total;A;Total;Total;Total;673600
+2026-T1;11;Total;ABC;Total;Total;Un an ou plus;481640
+2026-T1;11;Total;A;Femmes;Total;Total;328780
+2026-T1;11;Total;ABC;Total;Total;Total;1073040
+2026-T1;11;Total;ABC;Total;Moins de 25 ans;Total;134700
+2026-T1;11;Total;ABC;Total;50 ans et plus;Total;271160
+2026-T1;11;Total;ABC;Femmes;Total;Total;524850
+2026-T1;75;33;A;Total;25 à 49 ans;Total;47050
+2026-T1;75;33;A;Total;50 ans et plus;Total;20040
+2026-T1;75;33;ABC;Total;25 à 49 ans;Total;90950
+2026-T1;75;33;ABC;Total;50 ans et plus;Total;38140
+2026-T1;75;33;ABC;Femmes;Total;Total;77810
+2026-T1;75;33;A;Femmes;Total;Total;39500
+2026-T1;75;33;ABC;Total;Total;Total;150540
+2026-T1;75;33;ABC;Total;Moins de 25 ans;Total;21450
+2026-T1;75;33;A;Total;Moins de 25 ans;Total;13520
+2026-T1;75;33;A;Hommes;Total;Total;41120
+2026-T1;75;33;ABC;Hommes;Total;Total;72730
+2026-T1;75;33;A;Total;Total;Total;80620
+2026-T1;75;33;ABC;Total;Total;Un an ou plus;67230
+2026-T1;75;Total;A;Total;25 à 49 ans;Total;143020
+2026-T1;75;Total;A;Hommes;Total;Total;130620
+2026-T1;75;Total;A;Femmes;Total;Total;124570
+2026-T1;75;Total;ABC;Total;Moins de 25 ans;Total;70430
+2026-T1;75;Total;ABC;Total;50 ans et plus;Total;135670
+2026-T1;75;Total;A;Total;Total;Total;255200
+2026-T1;75;Total;A;Total;50 ans et plus;Total;69680
+2026-T1;75;Total;ABC;Hommes;Total;Total;235000
+2026-T1;75;Total;A;Total;Moins de 25 ans;Total;42500
+2026-T1;75;Total;ABC;Total;Total;Total;492450
+2026-T1;75;Total;ABC;Total;25 à 49 ans;Total;286350
+2026-T1;75;Total;ABC;Femmes;Total;Total;257450
+2026-T1;75;Total;ABC;Total;Total;Un an ou plus;224760
+2026-T1;Total France;Total;ABC;Femmes;Total;Total;2905700
+2026-T1;Total France;Total;ABC;Total;Total;Un an ou plus;2635100
+2026-T1;Total France;Total;A;Total;Total;Total;3295100
+2026-T1;Total France;Total;ABC;Total;25 à 49 ans;Total;3389400
+2026-T1;Total France;Total;A;Total;Moins de 25 ans;Total;533700
+2026-T1;Total France;Total;A;Femmes;Total;Total;1603000
+2026-T1;Total France;Total;ABC;Total;Total;Total;5728000
+2026-T1;Total France;Total;ABC;Total;Moins de 25 ans;Total;830000
+2026-T1;Total France;Total;A;Total;25 à 49 ans;Total;1895200
+2026-T1;Total France;Total;A;Total;50 ans et plus;Total;866300
+2026-T1;Total France;Total;A;Hommes;Total;Total;1692100
+2026-T1;Total France;Total;ABC;Total;50 ans et plus;Total;1508700
+2026-T1;Total France;Total;ABC;Hommes;Total;Total;2822300
+2026-T1;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2491300
+2026-T1;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1423800
+2026-T1;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2694700
+2026-T1;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2756600
+2026-T1;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;501600
+2026-T1;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1786100
+2026-T1;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;800400
+2026-T1;Total France métropolitaine;Total;ABC;Total;Total;Total;5451300
+2026-T1;Total France métropolitaine;Total;A;Total;Total;Total;3088200
+2026-T1;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;788700
+2026-T1;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3238800
+2026-T1;Total France métropolitaine;Total;A;Hommes;Total;Total;1594900
+2026-T1;Total France métropolitaine;Total;A;Femmes;Total;Total;1493300
+2026-T2;01;971;ABC;Total;50 ans et plus;Total;19840
+2026-T2;01;971;ABC;Hommes;Total;Total;23580
+2026-T2;01;971;ABC;Total;Total;Un an ou plus;30480
+2026-T2;01;971;A;Hommes;Total;Total;18350
+2026-T2;01;971;A;Femmes;Total;Total;22620
+2026-T2;01;971;A;Total;Total;Total;40970
+2026-T2;01;971;A;Total;Moins de 25 ans;Total;5040
+2026-T2;01;971;A;Total;25 à 49 ans;Total;20220
+2026-T2;01;971;A;Total;50 ans et plus;Total;15700
+2026-T2;01;971;ABC;Total;Total;Total;55000
+2026-T2;01;971;ABC;Total;Moins de 25 ans;Total;6670
+2026-T2;01;971;ABC;Total;25 à 49 ans;Total;28480
+2026-T2;01;971;ABC;Femmes;Total;Total;31420
+2026-T2;01;Total;A;Total;Moins de 25 ans;Total;5040
+2026-T2;01;Total;A;Total;25 à 49 ans;Total;20220
+2026-T2;01;Total;A;Total;50 ans et plus;Total;15700
+2026-T2;01;Total;ABC;Total;25 à 49 ans;Total;28480
+2026-T2;01;Total;ABC;Total;50 ans et plus;Total;19840
+2026-T2;01;Total;A;Total;Total;Total;40970
+2026-T2;01;Total;ABC;Total;Total;Un an ou plus;30480
+2026-T2;01;Total;A;Hommes;Total;Total;18350
+2026-T2;01;Total;ABC;Total;Total;Total;55000
+2026-T2;01;Total;ABC;Total;Moins de 25 ans;Total;6670
+2026-T2;01;Total;A;Femmes;Total;Total;22620
+2026-T2;01;Total;ABC;Hommes;Total;Total;23580
+2026-T2;01;Total;ABC;Femmes;Total;Total;31420
+2026-T2;11;75;A;Total;25 à 49 ans;Total;75270
+2026-T2;11;75;ABC;Total;Total;Total;205910
+2026-T2;11;75;ABC;Total;Moins de 25 ans;Total;17760
+2026-T2;11;75;ABC;Total;50 ans et plus;Total;55280
+2026-T2;11;75;ABC;Hommes;Total;Total;106010
+2026-T2;11;75;ABC;Total;Total;Un an ou plus;100930
+2026-T2;11;75;A;Total;50 ans et plus;Total;33170
+2026-T2;11;75;A;Hommes;Total;Total;62590
+2026-T2;11;75;A;Femmes;Total;Total;58050
+2026-T2;11;75;ABC;Femmes;Total;Total;99900
+2026-T2;11;75;A;Total;Moins de 25 ans;Total;12200
+2026-T2;11;75;ABC;Total;25 à 49 ans;Total;132870
+2026-T2;11;75;A;Total;Total;Total;120640
+2026-T2;11;Total;A;Total;25 à 49 ans;Total;418840
+2026-T2;11;Total;ABC;Total;Total;Total;1089960
+2026-T2;11;Total;ABC;Total;25 à 49 ans;Total;682370
+2026-T2;11;Total;ABC;Total;50 ans et plus;Total;272440
+2026-T2;11;Total;ABC;Hommes;Total;Total;557360
+2026-T2;11;Total;A;Total;Total;Total;683430
+2026-T2;11;Total;ABC;Total;Total;Un an ou plus;493700
+2026-T2;11;Total;A;Total;Moins de 25 ans;Total;94400
+2026-T2;11;Total;A;Total;50 ans et plus;Total;170190
+2026-T2;11;Total;A;Hommes;Total;Total;349700
+2026-T2;11;Total;A;Femmes;Total;Total;333730
+2026-T2;11;Total;ABC;Total;Moins de 25 ans;Total;135150
+2026-T2;11;Total;ABC;Femmes;Total;Total;532600
+2026-T2;75;33;A;Total;Moins de 25 ans;Total;14070
+2026-T2;75;33;A;Total;25 à 49 ans;Total;48190
+2026-T2;75;33;A;Total;50 ans et plus;Total;20050
+2026-T2;75;33;A;Hommes;Total;Total;42010
+2026-T2;75;33;A;Femmes;Total;Total;40300
+2026-T2;75;33;ABC;Total;Total;Total;154260
+2026-T2;75;33;ABC;Femmes;Total;Total;79350
+2026-T2;75;33;ABC;Total;Moins de 25 ans;Total;22430
+2026-T2;75;33;A;Total;Total;Total;82310
+2026-T2;75;33;ABC;Total;25 à 49 ans;Total;93270
+2026-T2;75;33;ABC;Total;50 ans et plus;Total;38560
+2026-T2;75;33;ABC;Hommes;Total;Total;74910
+2026-T2;75;33;ABC;Total;Total;Un an ou plus;69590
+2026-T2;75;Total;ABC;Total;Total;Total;502730
+2026-T2;75;Total;ABC;Total;Moins de 25 ans;Total;73040
+2026-T2;75;Total;ABC;Total;25 à 49 ans;Total;292830
+2026-T2;75;Total;ABC;Femmes;Total;Total;261360
+2026-T2;75;Total;ABC;Total;Total;Un an ou plus;231670
+2026-T2;75;Total;A;Total;25 à 49 ans;Total;145900
+2026-T2;75;Total;A;Total;50 ans et plus;Total;69690
+2026-T2;75;Total;A;Hommes;Total;Total;133310
+2026-T2;75;Total;ABC;Total;50 ans et plus;Total;136860
+2026-T2;75;Total;ABC;Hommes;Total;Total;241370
+2026-T2;75;Total;A;Total;Total;Total;259580
+2026-T2;75;Total;A;Total;Moins de 25 ans;Total;43990
+2026-T2;75;Total;A;Femmes;Total;Total;126270
+2026-T2;Total France;Total;A;Total;Total;Total;3323000
+2026-T2;Total France;Total;A;Total;25 à 49 ans;Total;1919500
+2026-T2;Total France;Total;A;Hommes;Total;Total;1711900
+2026-T2;Total France;Total;ABC;Total;Total;Total;5801500
+2026-T2;Total France;Total;ABC;Total;50 ans et plus;Total;1511800
+2026-T2;Total France;Total;ABC;Femmes;Total;Total;2932300
+2026-T2;Total France;Total;ABC;Hommes;Total;Total;2869300
+2026-T2;Total France;Total;ABC;Total;Total;Un an ou plus;2698300
+2026-T2;Total France;Total;A;Total;Moins de 25 ans;Total;540000
+2026-T2;Total France;Total;A;Total;50 ans et plus;Total;863500
+2026-T2;Total France;Total;A;Femmes;Total;Total;1611100
+2026-T2;Total France;Total;ABC;Total;Moins de 25 ans;Total;843900
+2026-T2;Total France;Total;ABC;Total;25 à 49 ans;Total;3445800
+2026-T2;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;801800
+2026-T2;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3291500
+2026-T2;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1426200
+2026-T2;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2739300
+2026-T2;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1807800
+2026-T2;Total France métropolitaine;Total;A;Hommes;Total;Total;1612900
+2026-T2;Total France métropolitaine;Total;A;Femmes;Total;Total;1499500
+2026-T2;Total France métropolitaine;Total;A;Total;Total;Total;3112400
+2026-T2;Total France métropolitaine;Total;ABC;Total;Total;Total;5519500
+2026-T2;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2551300
+2026-T2;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2780200
+2026-T2;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;507300
+2026-T2;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;797300
+2026-T3;01;971;A;Total;25 à 49 ans;Total;20780
+2026-T3;01;971;A;Total;50 ans et plus;Total;15770
+2026-T3;01;971;A;Hommes;Total;Total;18720
+2026-T3;01;971;ABC;Hommes;Total;Total;24040
+2026-T3;01;971;A;Total;Moins de 25 ans;Total;5100
+2026-T3;01;971;ABC;Total;Total;Total;55640
+2026-T3;01;971;ABC;Total;25 à 49 ans;Total;28990
+2026-T3;01;971;ABC;Total;50 ans et plus;Total;19910
+2026-T3;01;971;A;Total;Total;Total;41650
+2026-T3;01;971;ABC;Total;Total;Un an ou plus;30590
+2026-T3;01;971;A;Femmes;Total;Total;22930
+2026-T3;01;971;ABC;Total;Moins de 25 ans;Total;6740
+2026-T3;01;971;ABC;Femmes;Total;Total;31600
+2026-T3;01;Total;ABC;Total;Total;Total;55640
+2026-T3;01;Total;ABC;Total;Moins de 25 ans;Total;6740
+2026-T3;01;Total;ABC;Femmes;Total;Total;31600
+2026-T3;01;Total;A;Total;Moins de 25 ans;Total;5100
+2026-T3;01;Total;A;Total;50 ans et plus;Total;15770
+2026-T3;01;Total;A;Hommes;Total;Total;18720
+2026-T3;01;Total;ABC;Total;25 à 49 ans;Total;28990
+2026-T3;01;Total;A;Total;Total;Total;41650
+2026-T3;01;Total;A;Total;25 à 49 ans;Total;20780
+2026-T3;01;Total;A;Femmes;Total;Total;22930
+2026-T3;01;Total;ABC;Total;50 ans et plus;Total;19910
+2026-T3;01;Total;ABC;Hommes;Total;Total;24040
+2026-T3;01;Total;ABC;Total;Total;Un an ou plus;30590
+2026-T3;11;75;A;Hommes;Total;Total;62300
+2026-T3;11;75;ABC;Femmes;Total;Total;99920
+2026-T3;11;75;A;Total;Total;Total;119660
+2026-T3;11;75;A;Total;Moins de 25 ans;Total;12580
+2026-T3;11;75;A;Total;50 ans et plus;Total;32530
+2026-T3;11;75;A;Femmes;Total;Total;57360
+2026-T3;11;75;ABC;Total;Total;Total;206360
+2026-T3;11;75;ABC;Total;Moins de 25 ans;Total;18020
+2026-T3;11;75;A;Total;25 à 49 ans;Total;74550
+2026-T3;11;75;ABC;Total;25 à 49 ans;Total;133030
+2026-T3;11;75;ABC;Total;50 ans et plus;Total;55310
+2026-T3;11;75;ABC;Hommes;Total;Total;106440
+2026-T3;11;75;ABC;Total;Total;Un an ou plus;100450
+2026-T3;11;Total;A;Total;Moins de 25 ans;Total;98350
+2026-T3;11;Total;A;Femmes;Total;Total;337100
+2026-T3;11;Total;ABC;Total;Moins de 25 ans;Total;138940
+2026-T3;11;Total;ABC;Femmes;Total;Total;538380
+2026-T3;11;Total;A;Hommes;Total;Total;354510
+2026-T3;11;Total;ABC;Total;Total;Total;1103840
+2026-T3;11;Total;ABC;Total;50 ans et plus;Total;273700
+2026-T3;11;Total;ABC;Hommes;Total;Total;565460
+2026-T3;11;Total;ABC;Total;Total;Un an ou plus;500950
+2026-T3;11;Total;A;Total;Total;Total;691610
+2026-T3;11;Total;A;Total;25 à 49 ans;Total;423340
+2026-T3;11;Total;A;Total;50 ans et plus;Total;169910
+2026-T3;11;Total;ABC;Total;25 à 49 ans;Total;691210
+2026-T3;75;33;A;Total;25 à 49 ans;Total;49010
+2026-T3;75;33;A;Femmes;Total;Total;40870
+2026-T3;75;33;ABC;Total;Total;Un an ou plus;71640
+2026-T3;75;33;A;Total;Moins de 25 ans;Total;14200
+2026-T3;75;33;A;Total;50 ans et plus;Total;20580
+2026-T3;75;33;A;Hommes;Total;Total;42920
+2026-T3;75;33;ABC;Total;Total;Total;156520
+2026-T3;75;33;ABC;Hommes;Total;Total;76320
+2026-T3;75;33;ABC;Femmes;Total;Total;80200
+2026-T3;75;33;ABC;Total;Moins de 25 ans;Total;22650
+2026-T3;75;33;ABC;Total;25 à 49 ans;Total;94700
+2026-T3;75;33;ABC;Total;50 ans et plus;Total;39170
+2026-T3;75;33;A;Total;Total;Total;83790
+2026-T3;75;Total;ABC;Total;25 à 49 ans;Total;295920
+2026-T3;75;Total;ABC;Total;50 ans et plus;Total;137530
+2026-T3;75;Total;ABC;Hommes;Total;Total;244700
+2026-T3;75;Total;A;Total;Total;Total;263360
+2026-T3;75;Total;A;Total;50 ans et plus;Total;70450
+2026-T3;75;Total;A;Femmes;Total;Total;127330
+2026-T3;75;Total;ABC;Total;Total;Total;507460
+2026-T3;75;Total;A;Total;Moins de 25 ans;Total;44960
+2026-T3;75;Total;A;Total;25 à 49 ans;Total;147940
+2026-T3;75;Total;A;Hommes;Total;Total;136020
+2026-T3;75;Total;ABC;Total;Moins de 25 ans;Total;74020
+2026-T3;75;Total;ABC;Femmes;Total;Total;262760
+2026-T3;75;Total;ABC;Total;Total;Un an ou plus;236100
+2026-T3;Total France;Total;A;Total;Moins de 25 ans;Total;552700
+2026-T3;Total France;Total;A;Total;50 ans et plus;Total;862700
+2026-T3;Total France;Total;ABC;Total;50 ans et plus;Total;1514800
+2026-T3;Total France;Total;ABC;Femmes;Total;Total;2945400
+2026-T3;Total France;Total;ABC;Total;Total;Un an ou plus;2734900
+2026-T3;Total France;Total;A;Femmes;Total;Total;1620200
+2026-T3;Total France;Total;A;Total;Total;Total;3353400
+2026-T3;Total France;Total;A;Total;25 à 49 ans;Total;1938100
+2026-T3;Total France;Total;ABC;Total;Total;Total;5847500
+2026-T3;Total France;Total;ABC;Total;25 à 49 ans;Total;3476200
+2026-T3;Total France;Total;ABC;Hommes;Total;Total;2902100
+2026-T3;Total France;Total;A;Hommes;Total;Total;1733200
+2026-T3;Total France;Total;ABC;Total;Moins de 25 ans;Total;856400
+2026-T3;Total France métropolitaine;Total;A;Total;Total;Total;3139100
+2026-T3;Total France métropolitaine;Total;A;Total;25 à 49 ans;Total;1823700
+2026-T3;Total France métropolitaine;Total;A;Total;50 ans et plus;Total;795600
+2026-T3;Total France métropolitaine;Total;ABC;Total;Total;Total;5560700
+2026-T3;Total France métropolitaine;Total;ABC;Hommes;Total;Total;2769800
+2026-T3;Total France métropolitaine;Total;ABC;Total;Total;Un an ou plus;2585600
+2026-T3;Total France métropolitaine;Total;ABC;Total;25 à 49 ans;Total;3318700
+2026-T3;Total France métropolitaine;Total;ABC;Total;50 ans et plus;Total;1428000
+2026-T3;Total France métropolitaine;Total;ABC;Femmes;Total;Total;2790900
+2026-T3;Total France métropolitaine;Total;ABC;Total;Moins de 25 ans;Total;813900
+2026-T3;Total France métropolitaine;Total;A;Total;Moins de 25 ans;Total;519700
+2026-T3;Total France métropolitaine;Total;A;Hommes;Total;Total;1632500
+2026-T3;Total France métropolitaine;Total;A;Femmes;Total;Total;1506600

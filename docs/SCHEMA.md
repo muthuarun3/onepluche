@@ -89,7 +89,9 @@ et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI
 `TRAVAIL` (`/travail`, ordre 8, migration 030, thème obligatoire) et ses thèmes
 `CHERCHER_CREER`, `EMPLOI`, `CONDITIONS`, `SALAIRES`, `TELETRAVAIL`, `ACCIDENTS`,
 `SYNDICATS_GREVES`. Modalités ajoutées : `secteur` `INTERIM`, `statut_emploi` (`SALARIE`,
-`NON_SALARIE`), `type_entreprise` `MICRO`.
+`NON_SALARIE`), `type_entreprise` `MICRO` (migration 030) ; `anciennete` `UN_AN_OU_PLUS`,
+`famille_metier` (8 familles de l'enquête BMO, codes A, C, I, O, S, T, V, Z) et `metier_bmo`
+(217 métiers, code FAP de l'enquête) (migration 031).
 
 Ordres réservés (unique) : 3 « Comment vivent », 4 « Que votent », 5 « Où va l'argent public »,
 6 « Sécurité », 7 « Avenir », 8 « Comment travaillent ». Deux rubriques peuvent avoir un
