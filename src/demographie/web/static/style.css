@@ -261,3 +261,14 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .pastille.serie { background: var(--serie); margin-left: 0; }
 .pastille.fourchette { background: var(--serie); opacity: .25; }
 
+/* Rubrique sécurité : petite courbe par famille, atteintes dépliables, questions guidées. */
+.courbe { width: 100%; height: 11rem; margin: .25rem 0 .5rem; }
+#ressenti .courbe { height: 16rem; }
+.phrase .grand { font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.autres { margin: .5rem 0; }
+.autres summary { cursor: pointer; color: var(--lien); }
+.questions-guidees { margin: 0 0 1.5rem; }
+.questions-guidees ul { margin: .5rem 0 0; padding-left: 1.25rem; }
+.questions-guidees li { margin: .35rem 0; }
+#evolution, #violences-sexuelles, #ressenti { margin: 0 0 1rem; }
+.atteintes .mesure-note strong { color: var(--texte); font-weight: 600; }

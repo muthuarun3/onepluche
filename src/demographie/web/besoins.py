@@ -289,19 +289,23 @@ def theme(
     return gabarits.TemplateResponse(request, "besoins_theme.html", contexte)
 
 
-def _carte_coloree(lignes: list[dict], unite: str) -> dict:
+def _carte_coloree(
+    lignes: list[dict],
+    unite: str,
+    lien: str = "/besoins/DEP/{code}",
+    format_valeur=valeur_unite,
+) -> dict:
     """Contours du choix du territoire, chaque département avec sa valeur et sa teinte :
-    ``teinte`` va de 0 (valeur la plus basse) à 100 (la plus haute), None sans donnée."""
-    carte = choix_territoire(
-        [{**ligne, "niveau": "DEP"} for ligne in lignes], ("DEP",), "/besoins/DEP/{code}"
-    )
+    ``teinte`` va de 0 (valeur la plus basse) à 100 (la plus haute), None sans donnée.
+    ``lien`` : page ouverte en touchant un département (sécurité : sa fiche sécurité)."""
+    carte = choix_territoire([{**ligne, "niveau": "DEP"} for ligne in lignes], ("DEP",), lien)
     par_code = {ligne["code"]: ligne["valeur"] for ligne in lignes}
     connues = [float(v) for v in par_code.values() if v is not None]
     bas, haut = (min(connues), max(connues)) if connues else (0.0, 0.0)
     vue = carte["vues"][0]
     for t in (*vue["sur_carte"], *vue["encart"], *vue["outre_mer"]):
         valeur = par_code.get(t["code"])
-        t["texte"] = valeur_unite(valeur, unite) if valeur is not None else "pas de donnée"
+        t["texte"] = format_valeur(valeur, unite) if valeur is not None else "pas de donnée"
         t["teinte"] = (
             None
             if valeur is None
@@ -312,6 +316,6 @@ def _carte_coloree(lignes: list[dict], unite: str) -> dict:
     return {
         **carte,
         "vue": vue,
-        "bas": valeur_unite(bas, unite) if connues else None,
-        "haut": valeur_unite(haut, unite) if connues else None,
+        "bas": format_valeur(bas, unite) if connues else None,
+        "haut": format_valeur(haut, unite) if connues else None,
     }

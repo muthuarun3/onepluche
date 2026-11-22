@@ -95,3 +95,22 @@ def classement(conn: psycopg.Connection, indicateur: str) -> list[dict]:
     de la plus forte à la plus faible (départements sans valeur en dernier), avec la
     valeur France de la même période. Liste vide si aucun département n'est publié."""
     return conn.execute(charger_sql(_SQL, "classement"), {"indicateur": indicateur}).fetchall()
+
+
+def series_rubrique(
+    conn: psycopg.Connection, rubrique: str, niveau: str, code: str
+) -> dict[str, list[dict]]:
+    """Séries annuelles de tous les indicateurs d'une rubrique pour un territoire, en une
+    requête : code d'indicateur -> lignes par année croissante."""
+    parametres = {"rubrique": rubrique, "niveau": niveau, "code": code}
+    resultat: dict[str, list[dict]] = {}
+    for ligne in conn.execute(charger_sql(_SQL, "series_rubrique"), parametres).fetchall():
+        resultat.setdefault(ligne["indicateur"], []).append(ligne)
+    return resultat
+
+
+def rangs(conn: psycopg.Connection, rubrique: str, code: str) -> dict[str, dict]:
+    """Pour un département, la dernière valeur de chaque indicateur départemental d'une
+    rubrique, son rang parmi les départements (1 = la plus forte) et la valeur France."""
+    lignes = conn.execute(charger_sql(_SQL, "rangs"), {"rubrique": rubrique, "code": code})
+    return {ligne["indicateur"]: ligne for ligne in lignes.fetchall()}

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block titre %}{{ famille.titre }} par département · On épluche{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/securite">Les Français sont-ils en sécurité ?</a> › {{ famille.titre }}
+</nav>
+<h1>{{ famille.titre }} <span class="niveau">par département</span></h1>
+
+<nav class="onglets" aria-label="Familles">
+  {% for t in familles %}
+  <a href="/securite/famille/{{ t.lien }}"{% if t.lien == famille.lien %} aria-current="page"{% endif %}>{{ t.titre }}</a>
+  {% endfor %}
+</nav>
+
+<form class="choix-indicateur" method="get" action="/securite/famille/{{ famille.lien }}">
+  <label for="indicateur">Indicateur</label>
+  <select id="indicateur" name="indicateur">
+    {% for i in choix %}
+    <option value="{{ i.code }}"{% if i.code == definition.code %} selected{% endif %}>{{ i.libelle }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">Afficher</button>
+</form>
+
+<p class="intro">{{ definition.definition }}</p>
+
+{% if classement %}
+<div class="chiffres">
+  <div class="chiffre">
+    <div class="chiffre-libelle">France{% if france and france.code == "FM" %} métropolitaine{% endif %}</div>
+    <div class="chiffre-valeur">{{ (france.valeur if france else None)|chiffre(definition.unite) }}</div>
+    <div class="chiffre-note">{{ annee }}</div>
+  </div>
+  <div class="chiffre">
+    <div class="chiffre-libelle">Le plus élevé · {{ classement[0].libelle }}</div>
+    <div class="chiffre-valeur">{{ classement[0].valeur|chiffre(definition.unite) }}</div>
+    <div class="chiffre-note">{{ annee }}</div>
+  </div>
+  <div class="chiffre">
+    <div class="chiffre-libelle">Le plus bas · {{ classement[-1].libelle }}</div>
+    <div class="chiffre-valeur">{{ classement[-1].valeur|chiffre(definition.unite) }}</div>
+    <div class="chiffre-note">{{ annee }}</div>
+  </div>
+</div>
+
+{% macro zone(t) -%}
+<a href="{{ t.lien }}" aria-label="{{ t.libelle }} : {{ t.texte }}"><path d="{{ t.d }}"{% if t.teinte is none %} class="sans-donnee"{% else %} style="fill: color-mix(in srgb, var(--serie) {{ t.teinte }}%, var(--grille))"{% endif %}><title>{{ t.libelle }} ({{ t.code }}) : {{ t.texte }}</title></path></a>
+{%- endmacro %}
+<section class="graphique-bloc">
+  <div class="graphique-titre"><h2>{{ definition.libelle }}, {{ annee }}</h2></div>
+  <p class="legende">Plus la couleur est foncée, plus la valeur est élevée. Toucher un
+    département ouvre sa fiche. Les faits sont comptés là où ils sont commis : Paris et
+    les départements très touristiques ont des taux gonflés par les visiteurs.</p>
+  {% set v = carte.vue %}{% set c = carte.cadre_encart %}
+  <div class="vue">
+    <svg class="carte coloree" viewBox="{{ carte.viewBox }}" role="group"
+         aria-label="Carte des départements de France métropolitaine : {{ definition.libelle }}, {{ annee }}. Le classement ci-dessous donne les mêmes valeurs.">
+      {% for t in v.sur_carte %}{{ zone(t) }}{% endfor %}
+      <g class="encart">
+        <rect x="{{ c[0] }}" y="{{ c[1] }}" width="{{ c[2] }}" height="{{ c[3] }}" rx="8"></rect>
+        <text x="{{ c[0] + 14 }}" y="{{ c[1] + c[3] - 44 }}">Paris et</text>
+        <text x="{{ c[0] + 14 }}" y="{{ c[1] + c[3] - 12 }}">petite couronne</text>
+        {% for t in v.encart %}{{ zone(t) }}{% endfor %}
+      </g>
+    </svg>
+    <div>
+      <div class="degrade" aria-hidden="true"><span>{{ carte.bas }}</span><span class="degrade-barre"></span><span>{{ carte.haut }}</span></div>
+      <p class="muet"><span class="pastille sans-donnee"></span> Pas de donnée</p>
+      {% if v.outre_mer %}
+      <div class="outre-mer">
+        <span class="outre-mer-titre">Outre-mer</span>
+        <ul>
+          {% for t in v.outre_mer %}<li><a href="{{ t.lien }}"><span class="pastille{% if t.teinte is none %} sans-donnee{% endif %}"{% if t.teinte is not none %} style="background: color-mix(in srgb, var(--serie) {{ t.teinte }}%, var(--grille))"{% endif %}></span>{{ t.libelle }} · {{ t.texte }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="bloc classement">
+  <h2>Classement</h2>
+  <div class="tableau-defilant">
+    <table>
+      <thead><tr><th>Rang</th><th>Département</th><th>Taux</th></tr></thead>
+      <tbody>
+        {% for l in classement %}
+        <tr><td>{{ loop.index }}</td>
+          <th scope="row"><a href="/securite/DEP/{{ l.code }}"><span class="code">{{ l.code }}</span>{{ l.libelle }}</a></th>
+          <td>{{ l.valeur|chiffre(definition.unite) }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if sans_donnee %}
+  <p class="muet">Sans donnée pour {{ annee }} ({{ sans_donnee|length }}) :
+    {% for l in sans_donnee %}<a href="/securite/DEP/{{ l.code }}">{{ l.libelle }}</a>{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+  {% endif %}
+  <p class="source">Source : <a href="{{ definition.source_url }}" rel="noopener">{{ definition.source_libelle }}</a>, {{ definition.source_licence }}.{% if definition.avertissement %} {{ definition.avertissement }}{% endif %}</p>
+</section>
+{% else %}
+<p class="bandeau">Pas encore de donnée par département pour cet indicateur.</p>
+{% endif %}
+{% endblock %}

@@ -62,6 +62,12 @@ QUESTIONS = (
         "resume": "Combien serons-nous et à quel âge d'ici 2070 ; bientôt le climat et les "
         "risques naturels.",
     },
+    {
+        "titre": "Les Français sont-ils en sécurité ?",
+        "lien": "/securite",
+        "resume": "Violences, vols, dégradations, stupéfiants, routes, et ce que les Français "
+        "ressentent.",
+    },
 )
 gabarits.env.globals["questions_menu"] = QUESTIONS
 
