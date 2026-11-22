@@ -20,6 +20,11 @@ def indicateurs(
     return conn.execute(charger_sql(_SQL, "indicateurs"), parametres).fetchall()
 
 
+def themes(conn: psycopg.Connection) -> list[dict]:
+    """Rubriques (une par application) et leurs thèmes, dans l'ordre d'affichage."""
+    return conn.execute(charger_sql(_SQL, "themes")).fetchall()
+
+
 def fiche(
     conn: psycopg.Connection, niveau: str, code: str, rubrique: str, theme: str | None = None
 ) -> list[dict]:

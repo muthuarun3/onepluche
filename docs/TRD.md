@@ -1,6 +1,6 @@
 # TRD — Document d'exigences techniques
 
-**État au :** 21 novembre 2026. Ce document fixe la pile et l'architecture. Une
+**État au :** 22 novembre 2026. Ce document fixe la pile et l'architecture. Une
 bibliothèque, un service ou un langage qui n'y figure pas n'est pas ajouté sans l'accord de
 Muthu.
 
@@ -75,7 +75,10 @@ Ces règles sont vérifiées par `tests/test_architecture.py` : une violation fa
 Les applications partagent le même code, la même base et le même serveur. Chacune est une
 **rubrique** : des pages sous son préfixe (`/francais`, `/besoins`), ses indicateurs marqués
 dans `ref.indicateur.rubrique` (`QUI`, `BESOINS`), ses connecteurs regroupés sous un nom
-(`demo importer logement`). Une nouvelle application suit le même modèle.
+(`demo importer logement`). Une nouvelle application suit le même modèle : sa migration
+ajoute une ligne dans `ref.rubrique`, ses thèmes dans `ref.theme` et ses unités nouvelles
+dans `ref.unite` (migration 026), sans réécrire de contrainte ni toucher à l'API, qui lit
+ces tables pour valider ses filtres.
 
 ## 4. Imports
 
@@ -138,12 +141,12 @@ Contrat pour l'écosystème : une route existante ne change jamais de forme ; on
 | `GET /api/v1/structure?niveau=&code=&annee=` | Pyramide des âges | En service |
 | `GET /api/v1/repartition?indicateur=&niveau=&code=&annee=` | Répartition par modalité avec total | En service |
 | `GET /api/v1/sources` | État des imports par fichier | En service |
-| `GET /api/v1/indicateurs?rubrique=&theme=` | Filtres de l'appli 2 | En service |
+| `GET /api/v1/indicateurs?rubrique=&theme=` | Filtres par rubrique et thème (codes de `ref.rubrique`, `ref.theme` ; inconnu = 422) | En service |
 | `GET /api/v1/fiche?niveau=&code=&rubrique=&theme=` | Dernière valeur par indicateur, valeur France de la même période (FR, sinon FM), source ; tri par thème puis accès, coût, manque | En service |
 | `GET /api/v1/classement?indicateur=&niveau=&periode=` | Tous les territoires d'un niveau, triés | Prévu |
 
 Paramètres validés par FastAPI (motifs `^[0-9A-Z]{2,3}$`, `^[A-Z][A-Z0-9_]+$`, années
-1900-2100). Documentation générée sur `/api/docs`.
+1900-2100) ; rubriques et thèmes vérifiés contre la base. Documentation générée sur `/api/docs`.
 
 ## 6. Sécurité
 
