@@ -148,7 +148,7 @@ les angles sont vérifiés par le déclencheur `indicateur_rubrique` (erreur `ch
 | `theme` | text | → `ref.theme` (clé `rubrique, theme`) ; obligatoire si la rubrique a `theme_obligatoire` (déclencheur) |
 | `angle` | text | `ACCES`, `COUT`, `MANQUE` ou NULL ; seulement si la rubrique a `avec_angles` (déclencheur) |
 | `borne_min`, `borne_max` | numeric | bornes plausibles (rejet hors bornes) ; `borne_min <= borne_max` |
-| `seuil_variation` | numeric | entre 0 et 1 ; NULL = règle générale (3 % pour les effectifs) |
+| `seuil_variation` | numeric | de 0 (inclus, migration 036 : toute modification attend une validation, résultats des élections) à 1 ; NULL = règle générale (3 % pour les effectifs) |
 
 Indicateurs actuels :
 
@@ -284,6 +284,14 @@ d'import ajoute un choix par la seule fonction `ref.ajouter_choix(...)` (SECURIT
 il n'écrit jamais directement dans `ref.modalite`. Dimension `mandat` des élus : `MAIRE`,
 `CONSEILLER_DEP`, `DEPUTE`, `SENATEUR`.
 
+Indicateurs (migration 036, source `MI_ELECTIONS`, période = `jour` du tour, type
+`SCRUTIN`, statut `DEFINITIF`, seuil de variation 0) : `INSCRITS`, `VOTANTS`,
+`ABSTENTIONS`, `BLANCS_ET_NULS`, `EXPRIMES` sans modalité (le jour suffit à reconnaître le
+scrutin), `BLANCS` et `NULS` depuis 2014 seulement ; `VOIX` par modalité `choix`. Pour 2002
+et 2007, le fichier source ne contient ni les Français de l'étranger ni les collectivités
+d'outre-mer : pas de valeur `FRANCE/FR`, seulement `FM` et les départements. Le contrôle
+des sommes compte `HORS_DEP` dans la France entière.
+
 ### `admin.migration`
 
 `nom` (clé primaire), `empreinte` (char(64), SHA-256 du fichier), `appliquee_le`. Une
@@ -311,6 +319,8 @@ migration modifiée après application est détectée.
 | `api.projection_population` | simple | Par territoire, scénario et année : population, part des moins de 20 ans et des 75 ans ou plus, 65 ans ou plus pour 100 personnes de 20 à 64 ans (calculés depuis `PROJ_POP`) |
 | `api.scrutin` | simple | Les 20 tours : code, libellé, élection, année, tour, jour, type de choix (migration 032) |
 | `api.choix_scrutin` | simple | Choix de chaque scrutin : code, libellé officiel, panneau, nuance, sexe (migration 032) |
+| `api.participation` | simple | Par scrutin et territoire : inscrits, votants, abstentions, blancs, nuls, blancs et nuls, exprimés, taux d'abstention et de participation, part des blancs (et des blancs et nuls) parmi les votants (migration 036) |
+| `api.resultat` | simple | Voix de chaque choix par territoire, avec la part des exprimés (pourcentage officiel) (migration 036) |
 | `api.etat_import` | simple | Dernier essai et dernière publication par fichier de chaque source |
 
 `stat.rafraichir_vues()` (SECURITY DEFINER, exécutable par `demo_import` seulement)
