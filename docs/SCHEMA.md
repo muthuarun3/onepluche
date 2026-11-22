@@ -42,12 +42,12 @@ erDiagram
 
 ## 4. Tables
 
-### `ref.territoire` — environ 121 lignes
+### `ref.territoire` — environ 123 lignes
 
 | Colonne | Type | Contraintes |
 | --- | --- | --- |
 | `territoire_id` | smallint | clé primaire, identité |
-| `niveau` | text | `FRANCE`, `REG`, `DEP` |
+| `niveau` | text | `FRANCE`, `REG`, `DEP`, `HORS_DEP` (migration 030) |
 | `code` | text | `^[0-9A-Z]{2,3}$` ; unique avec `niveau` |
 | `libelle` | text | non vide |
 | `parent_id` | smallint | → `ref.territoire` ; NULL seulement pour `FRANCE/FR` |
@@ -55,7 +55,11 @@ erDiagram
 
 Contenu : `FR` (France), `FM` (France métropolitaine, enfant de FR), 18 régions (enfants de
 FR), 101 départements (enfants de leur région), géographie au 1er janvier 2026. Pas de
-communes.
+communes. Deux territoires `HORS_DEP`, enfants de FR, pour les élections seulement (rubrique
+`VOTES`) : `ZZ` Français de l'étranger, `COM` collectivités d'outre-mer (Saint-Pierre-et-
+Miquelon, Saint-Barthélemy, Saint-Martin, Wallis-et-Futuna, Polynésie française,
+Nouvelle-Calédonie). Pour cette rubrique, France = 101 départements + `ZZ` + `COM`. Ils ne
+figurent pas parmi les enfants affichés de la France (`donnees/sql/enfants.sql`).
 
 ### `ref.source` — une dizaine de lignes
 
@@ -85,7 +89,8 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 Rubriques ajoutées depuis : `SECURITE` (`/securite`, ordre 6, migration 027, thème obligatoire)
 et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI` ;
 `AVENIR` (`/avenir`, ordre 7, migration 028, thème obligatoire) et ses thèmes `POPULATION`,
-`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI`.
+`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ; `VOTES` (`/votes`, ordre 4,
+migration 030, thème obligatoire) et ses thèmes `PARTICIPATION`, `RESULTATS`, `ELUS`.
 
 Ordres réservés (unique) : 3 « Comment vivent », 4 « Que votent », 5 « Où va l'argent public »,
 6 « Sécurité », 7 « Avenir », 8 « Comment travaillent ». Deux rubriques peuvent avoir un
@@ -185,7 +190,7 @@ Clé primaire (`dimension`, `annee`, `commune`). Jamais publiée.
 | `indicateur_id` | smallint | → `ref.indicateur` |
 | `territoire_id` | smallint | → `ref.territoire` |
 | `periode` | date | |
-| `periode_type` | text | `1ER_JANVIER`, `ANNEE`, `TRIMESTRE`, `RP`, `MOIS` |
+| `periode_type` | text | `1ER_JANVIER`, `ANNEE`, `TRIMESTRE`, `RP`, `MOIS`, `SCRUTIN` (jour d'un tour d'élection, migration 030) |
 | `sexe` | char(1) | `F`, `H`, `T` (défaut) |
 | `age_min`, `age_max` | smallint | 0 à 130, bornes incluses ; `age_max` NULL = « et plus » ; les deux NULL = tous âges |
 | `modalite_id` | smallint | → `ref.modalite` ; NULL = total |
@@ -220,6 +225,31 @@ Unicité `NULLS NOT DISTINCT` sur toutes les dimensions. `ref.scenario` : `code`
 `INSEE_POP_HAUTE`. Lignes en transit dans `ingest.ligne_projection`. Une publication
 remplace toutes les valeurs de l'indicateur pour le scénario du fichier.
 
+### `ref.scrutin` et `ref.choix_scrutin` — élections (rubrique `VOTES`, migration 030)
+
+Un **scrutin** est un tour d'une élection : une modalité de la dimension `scrutin` (code
+`PRES_2022_T1`, libellé « Présidentielle 2022, 1er tour »), décrite dans `ref.scrutin`.
+
+| Colonne de `ref.scrutin` | Type | Contraintes |
+| --- | --- | --- |
+| `modalite_id` | smallint | clé primaire, → `ref.modalite` |
+| `election` | text | `PRESIDENTIELLE`, `LEGISLATIVES`, `EUROPEENNES`, `MUNICIPALES` |
+| `annee`, `tour` | smallint | tour 1 ou 2 ; unique avec `election` |
+| `jour` | date | unique ; même année que `annee` ; c'est la `periode` des observations |
+| `type_choix` | text | `CANDIDAT`, `LISTE`, `NUANCE` ; NULL = participation seulement (municipales) |
+
+20 tours : présidentielles 2002 à 2022 (deux tours), législatives 2022 et 2024 (deux tours),
+européennes 2019 et 2024, municipales 2020 et 2026 (deux tours).
+
+Un **choix** est ce que l'électeur a pu choisir à un scrutin (candidat, liste, ou nuance
+aux législatives) : une modalité de la dimension `choix`, code préfixé par celui du scrutin
+(`PRES_2022_T1_P05`), libellé officiel tel quel. `ref.choix_scrutin` : `modalite_id` (clé),
+`scrutin_id` → `ref.scrutin`, `panneau`, `nuance` et `nuance_libelle` (dictionnaire du
+ministère), `sexe` du candidat ou de la tête de liste. Pas de colonne « bloc ». Le rôle
+d'import ajoute un choix par la seule fonction `ref.ajouter_choix(...)` (SECURITY DEFINER) :
+il n'écrit jamais directement dans `ref.modalite`. Dimension `mandat` des élus : `MAIRE`,
+`CONSEILLER_DEP`, `DEPUTE`, `SENATEUR`.
+
 ### `admin.migration`
 
 `nom` (clé primaire), `empreinte` (char(64), SHA-256 du fichier), `appliquee_le`. Une
@@ -243,6 +273,8 @@ migration modifiée après application est détectée.
 | `api.scenario` | simple | Scénarios dans l'ordre d'affichage (migration 028) |
 | `api.projection` | simple | Valeurs projetées : indicateur, niveau, code, scénario, année, période, sexe, âges, statistique |
 | `api.projection_population` | simple | Par territoire, scénario et année : population, part des moins de 20 ans et des 75 ans ou plus, 65 ans ou plus pour 100 personnes de 20 à 64 ans (calculés depuis `PROJ_POP`) |
+| `api.scrutin` | simple | Les 20 tours : code, libellé, élection, année, tour, jour, type de choix (migration 030) |
+| `api.choix_scrutin` | simple | Choix de chaque scrutin : code, libellé officiel, panneau, nuance, sexe (migration 030) |
 | `api.etat_import` | simple | Dernier essai et dernière publication par fichier de chaque source |
 
 `stat.rafraichir_vues()` (SECURITY DEFINER, exécutable par `demo_import` seulement)

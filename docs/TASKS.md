@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 027). Une nouvelle rubrique, un thème ou une
+   le catalogue change (prochain numéro : 031). Une nouvelle rubrique, un thème ou une
    unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
@@ -112,6 +112,28 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   `ref.theme`, `ref.unite` remplacent les contraintes CHECK de 017 et 024 ; l'API valide
   les filtres contre la base. Préalable aux six nouvelles applis construites en parallèle.
   *Critère :* une rubrique d'essai s'ajoute par simples INSERT (test `test_rubriques.py`).
+
+### Appli 3 « Que pensent et votent les Français ? »
+
+Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5CjJyHwvtypASUQLfCu>.
+
+- [~] **V1. Fondations** — migration 030 : rubrique `VOTES` (`/votes`, ordre 4), thèmes
+  `PARTICIPATION`, `RESULTATS`, `ELUS`, sources `MI_ELECTIONS` et `MI_RNE`, territoires
+  `HORS_DEP` (`ZZ`, `COM`), type de période `SCRUTIN`, 20 tours dans `ref.scrutin`,
+  `ref.choix_scrutin` et `ref.ajouter_choix`, dimension `mandat`, vues `api.scrutin` et
+  `api.choix_scrutin` ; dépendance `pyarrow`. *Critère :* `tests/test_votes_fondations.py`.
+- [ ] **V2. Résultats** — connecteur `elections.py` (Parquet data.gouv.fr par bureau de vote,
+  additionné par département ; date de mise à jour vérifiée avant téléchargement),
+  `controle_votes.sql`, indicateurs `INSCRITS`, `VOTANTS`, `ABSTENTIONS`, `BLANCS`, `NULS`,
+  `EXPRIMES`, `VOIX`, vue `stat.votes_derives`. *Critère :* totaux France des 20 tours égaux
+  aux chiffres officiels du ministère.
+- [ ] **V3. Élus** — connecteur `elus.py` (Répertoire national des élus : maires,
+  conseillers départementaux, députés, sénateurs), `ELUS`, `ELUS_PCS`, `AGE_MEDIAN_ELUS`,
+  `PART_FEMMES_ELUS`. Aucun nom en base.
+- [ ] **V4. Carte et fiche** — `/votes`, `/votes/DEP/{code}`, routes `/api/v1/scrutins`.
+- [ ] **V5. Scrutin et finitions** — `/votes/scrutin/{id}`, croisement avec les rubriques 1
+  et 2 (corrélation, pas cause), six questions guidées, accueil, barre latérale, critères de
+  fin du dossier.
 
 ### Appli « Les Français sont-ils en sécurité ? »
 

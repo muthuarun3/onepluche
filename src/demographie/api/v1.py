@@ -17,7 +17,7 @@ Connexion = Annotated[psycopg.Connection, Depends(donnees.connexion_lecture)]
 
 class Territoire(BaseModel):
     code: str
-    niveau: Literal["FRANCE", "REG", "DEP"]
+    niveau: Literal["FRANCE", "REG", "DEP", "HORS_DEP"]
     libelle: str
     parent_niveau: str | None
     parent_code: str | None
@@ -27,9 +27,12 @@ class Territoire(BaseModel):
 @routeur.get("/territoires", response_model=list[Territoire])
 def lister_territoires(
     conn: Connexion,
-    niveau: Annotated[Literal["FRANCE", "REG", "DEP"] | None, Query()] = None,
+    niveau: Annotated[Literal["FRANCE", "REG", "DEP", "HORS_DEP"] | None, Query()] = None,
 ) -> list[dict]:
-    """France, régions et départements, avec leur rattachement."""
+    """France, régions et départements, avec leur rattachement.
+
+    HORS_DEP : électeurs hors département (Français de l'étranger, collectivités
+    d'outre-mer), pour les résultats des élections seulement."""
     return territoires.lister(conn, niveau)
 
 

@@ -103,6 +103,23 @@ augmente-t-elle ? », violences sexuelles, ressenti), fiche département (taux, 
 rang ; bandeau pour Paris et les départements très touristiques), carte par famille. Six
 questions guidées. Taux de plainte reportés (rapports VRS en PDF seulement).
 
+### Appli 3 — « Que pensent et votent les Français ? » (`/votes`, en construction)
+
+Qui vote, pour qui, et qui sont les élus, par département : participation, blancs et nuls,
+résultats officiels des présidentielles 2002 à 2022, des législatives 2022 et 2024, des
+européennes 2019 et 2024 (municipales 2020 et 2026 : participation seulement), et portrait
+des élus (sexe, âge, métiers) d'après le Répertoire national des élus. Les Français de
+l'étranger et les collectivités d'outre-mer sont deux territoires à part. L'opinion
+(baromètres nationaux) viendra dans un second temps.
+
+Règles de neutralité : libellés officiels tels quels (candidats, listes, nuances), aucun
+regroupement en blocs, ni sondages ni projections ; une seule couleur pour tous les choix,
+triés par voix ; phrases factuelles, sans mot de jugement (test automatique) ; aucun nom
+d'élu. Un croisement avec les rubriques 1 et 2 dit toujours « corrélation, pas cause ».
+
+Écrans : carte de choix du territoire, fiche département, page d'un scrutin. Six questions
+guidées. Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5CjJyHwvtypASUQLfCu>.
+
 ### Autres questions
 
 D'autres applications pourront s'ajouter, chacune avec sa question sur l'accueil. Aucune
@@ -126,6 +143,7 @@ n'est décidée à ce jour.
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
 | F14 | Rubrique `/avenir` : projections de population (vue France, fiche département) ; climat et risques ensuite | Population en PR (appli 5, phase A) |
 | F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
+| F16 | Rubrique `/votes` : participation, résultats et élus par département ; carte, fiche, page d'un scrutin | Fondations en PR (appli 3, V1) |
 | F13 | Vitrine Neocities à jour, même direction artistique que l'appli | PR #22 ouverte |
 
 Le détail et l'ordre de livraison sont dans [TASKS.md](TASKS.md).

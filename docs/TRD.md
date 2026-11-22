@@ -29,6 +29,7 @@ Muthu.
 | Carte de choix du territoire | SVG dessiné par le serveur (`web/carte.py`, `templates/_carte.html`), un lien par territoire, sans JavaScript | ECharts pour ce choix (1 Mo de script pour une page de liens) |
 | Fond de carte | Contours IGN Admin Express COG simplifiés (via france-geojson, Licence ouverte), projetés et versionnés dans `web/contours.json` (36 Ko, 12 Ko compressé) ; régénérés par `outils/contours_svg.py` | PostGIS |
 | Lecture XLSX | openpyxl | pandas, polars |
+| Lecture Parquet | pyarrow, par paquets et colonnes utiles (résultats des élections, 232 Mo au lieu de 2,8 Go en CSV) | pandas, polars, duckdb |
 | XML sûr | defusedxml | lxml |
 | Base | PostgreSQL 17 (paquet Debian ; 15 minimum, pour `NULLS NOT DISTINCT`) | Base managée |
 | Authentification | `basicauth` de Caddy, un identifiant par personne | Clerk, Auth0, table de comptes |
@@ -42,7 +43,7 @@ Muthu.
 | Supervision des imports | Healthchecks.io (gratuit, facultatif) | — |
 | Domaine | `onepluche.duckdns.org` (DuckDNS, gratuit) | — |
 
-**Dépendances d'exécution (6) :** fastapi, uvicorn, psycopg, jinja2, openpyxl, defusedxml.
+**Dépendances d'exécution (7) :** fastapi, uvicorn, psycopg, jinja2, openpyxl, defusedxml, pyarrow.
 **Bibliothèque JavaScript (1) :** ECharts.
 
 ## 3. Architecture
