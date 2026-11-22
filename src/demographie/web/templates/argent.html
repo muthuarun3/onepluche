@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% macro source(d) -%}
+{% if d %}<p class="source">Source : <a href="{{ d.source_url }}" rel="noopener">{{ d.source_libelle }}</a>, {{ d.source_licence }}.{% if d.avertissement %} {{ d.avertissement }}{% endif %}</p>{% endif %}
+{%- endmacro %}
+{% macro barres(liste, titre, valeur) -%}
+<figure class="barres">
+  {% if titre %}<figcaption>{{ titre }}</figcaption>{% endif %}
+  <ul>
+    {% for b in liste %}
+    <li title="{{ b.libelle }} : {{ b.valeur|milliards }}">
+      <span class="barre-libelle">{{ b.libelle }}</span>
+      <span class="barre-piste"><span class="barre{% if b.emprunt %} emprunt{% endif %}" style="width: {{ '%.1f'|format(b.largeur) }}%"></span></span>
+      <span class="barre-valeur">{% if valeur == "mille" %}{{ b.pour_mille|euros }}{% else %}{{ b.part|pct }}{% endif %}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</figure>
+{%- endmacro %}
+{% block titre %}Où va l'argent public ? · On épluche{% endblock %}
+{% block contenu %}
+<h1>Où va l'argent public&nbsp;?</h1>
+<p class="intro">Ce que dépensent l'État, la Sécurité sociale et les collectivités locales,
+  à quoi, d'où vient l'argent, et ce que pèsent le déficit et la dette. Les chiffres des
+  comptes nationaux de l'INSEE, sans opinion ni promesse.</p>
+
+{% if not cles %}
+<p class="bandeau">Les comptes publics ne sont pas encore importés.</p>
+{% else %}
+<div class="chiffres">
+  <div class="chiffre">
+    <div class="chiffre-libelle">Dépense publique {{ cles.annee }}</div>
+    <div class="chiffre-valeur">{{ cles.depense|milliards }}</div>
+    <div class="chiffre-note">{% if cles.depense_pib %}{{ cles.depense_pib|pct }} du PIB{% endif %}{% if cles.provisoire %} · provisoire{% endif %}</div>
+  </div>
+  {% if cles.par_habitant %}
+  <div class="chiffre">
+    <div class="chiffre-libelle">Par habitant</div>
+    <div class="chiffre-valeur">{{ cles.par_habitant|euros }}</div>
+    <div class="chiffre-note">en {{ cles.annee }}</div>
+  </div>
+  {% endif %}
+  {% if cles.solde is not none %}
+  <div class="chiffre">
+    <div class="chiffre-libelle">{% if cles.solde < 0 %}Déficit{% else %}Excédent{% endif %} {{ cles.annee }}</div>
+    <div class="chiffre-valeur">{{ cles.solde|abs|milliards }}</div>
+    <div class="chiffre-note">{% if cles.solde_pib is not none %}{{ cles.solde_pib|abs|pct }} du PIB{% endif %}</div>
+  </div>
+  {% endif %}
+  {% if dette %}
+  <div class="chiffre">
+    <div class="chiffre-libelle">Dette, {{ dette.periode }}</div>
+    <div class="chiffre-valeur">{{ dette.valeur|milliards }}</div>
+    <div class="chiffre-note">{% if dette.pib %}{{ dette.pib|pct }} du PIB{% endif %}{% if dette.par_habitant %} · {{ dette.par_habitant|euros }} par habitant{% endif %}</div>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<nav class="questions-guidees" aria-label="Questions guidées">
+  <h2>Questions guidées</h2>
+  <ul>
+    {% for titre, lien in questions %}<li><a href="{{ lien }}">{{ titre }}</a></li>{% endfor %}
+  </ul>
+</nav>
+
+<div class="blocs">
+  {% if fonctions %}
+  <section class="bloc" id="mille-euros">
+    <h2>Pour 1 000 € de dépense publique</h2>
+    <p class="phrase">En {{ fonctions.annee }}{% if fonctions.provisoire %} (provisoire){% endif %},
+      sur 1 000 € dépensés par les administrations publiques,
+      <strong>{{ fonctions.par_code.PROTECTION_SOCIALE.pour_mille|euros }}</strong> sont allés à la protection
+      sociale (retraites, famille, chômage){% if fonctions.par_code.SANTE %},
+      {{ fonctions.par_code.SANTE.pour_mille|euros }} à la santé{% endif %}{% if fonctions.par_code.ENSEIGNEMENT %}
+      et {{ fonctions.par_code.ENSEIGNEMENT.pour_mille|euros }} à l'enseignement{% endif %}.</p>
+    {{ barres(fonctions.barres, "Répartition par fonction, pour 1 000 €", "mille") }}
+    {{ source(definitions.DEPENSE_FONCTION) }}
+  </section>
+  {% endif %}
+
+  {% if etages %}
+  <section class="bloc" id="qui-depense">
+    <h2>Qui dépense ?</h2>
+    <p class="phrase">La Sécurité sociale dépense plus que l'État :
+      {{ etages.par_code.SECU.part|pct }} de la dépense publique en {{ etages.annee }},
+      contre {{ etages.par_code.CENTRALE.part|pct }} pour l'État et les organismes nationaux et
+      {{ etages.par_code.LOCALE.part|pct }} pour les collectivités locales.</p>
+    {{ barres(etages.barres, "Part de la dépense publique consolidée", "part") }}
+    {{ source(definitions.DEPENSE_ETAGE) }}
+  </section>
+  {% endif %}
+
+  {% if recettes %}
+  <section class="bloc" id="recettes">
+    <h2>D'où vient l'argent ?</h2>
+    <p class="phrase">Pour 1 000 € dépensés en {{ recettes.annee }}{% if recettes.provisoire %} (provisoire){% endif %} :
+      {% for b in recettes.barres %}{{ b.pour_mille|euros }} {% if b.emprunt %}empruntés{% else %}{{ b.phrase }}{% endif %}{{ ", " if not loop.last else "." }}{% endfor %}
+      {% if prelevements %}Les impôts et cotisations (prélèvements obligatoires) représentent
+      {{ prelevements.valeur|pct }} du PIB.{% endif %}</p>
+    {{ barres(recettes.barres, "Financement de 1 000 € de dépense publique", "mille") }}
+    {{ source(definitions.RECETTE_NATURE) }}
+  </section>
+  {% endif %}
+
+  {% if interets %}
+  <section class="bloc" id="interets">
+    <h2>Les intérêts de la dette</h2>
+    <p class="phrase">Les administrations publiques ont versé
+      <strong class="grand">{{ interets.valeur|milliards }}</strong> d'intérêts en
+      {{ interets.annee }}{% if interets.provisoire %} (provisoire){% endif %}{% if interets.par_habitant %},
+      soit {{ interets.par_habitant|euros }} par habitant{% endif %}.
+      {% if comparaison_interets %}En {{ comparaison_interets.annee }}, c'était
+      {{ comparaison_interets.interets|milliards }}, à comparer à
+      {% for f in comparaison_interets.fonctions %}{{ f.valeur|milliards }} pour {{ "la défense" if f.code == "DEFENSE" else "l'enseignement" }}{{ " et " if not loop.last }}{% endfor %}.{% endif %}</p>
+    {{ source(definitions.CHARGE_INTERETS) }}
+  </section>
+  {% endif %}
+</div>
+
+{% if historique %}
+<section class="graphique-bloc" id="dette">
+  <div class="graphique-titre"><h2>Déficit et dette depuis {{ historique.annees[0] }}</h2></div>
+  {% if croissance %}
+  <p class="phrase">De {{ croissance.debut }} à {{ croissance.fin }}, la dette publique a été
+    multipliée par <strong>{{ croissance.dette|round(1)|replace(".", ",") }}</strong>, la richesse
+    produite (PIB) par {{ croissance.pib|round(1)|replace(".", ",") }} : la dette est passée de
+    {{ croissance.ratio_debut|pct }} à {{ croissance.ratio_fin|pct }} du PIB. Le traité de
+    Maastricht fixe un plafond de 60 % pour la dette et de 3 % pour le déficit.</p>
+  {% endif %}
+  <p class="legende"><span class="pastille serie"></span>Dette, en % du PIB <span class="pastille femmes"></span>Solde public, en % du PIB (négatif : déficit)</p>
+  <div id="deficit-dette" class="graphique" role="img" aria-label="Dette et solde publics en pourcentage du PIB, par année"></div>
+  <div class="graphique-titre">
+    <h3>La dette en milliards d'euros</h3>
+    {% if historique.dette_constants %}
+    <div class="bascule" role="group" aria-label="Unité">
+      <label><input type="radio" name="euros" value="constants" checked> Euros de {{ historique.base_prix }}</label>
+      <label><input type="radio" name="euros" value="courants"> Euros de l'époque</label>
+    </div>
+    {% endif %}
+  </div>
+  {% if historique.dette_constants %}<p class="legende">En euros de {{ historique.base_prix }}, l'inflation est retirée (indice des prix à la consommation, connu depuis 1996).</p>{% endif %}
+  <div id="dette-euros" class="graphique" role="img" aria-label="Dette publique en milliards d'euros, par année"></div>
+  {{ source(definitions.DETTE_APU) }}
+</section>
+{% endif %}
+
+<div class="blocs">
+  {% for titre, texte in a_venir %}
+  <section class="bloc">
+    <h2>{{ titre }}</h2>
+    <p class="muet">Bientôt : {{ texte }}</p>
+  </section>
+  {% endfor %}
+</div>
+<script type="application/json" id="donnees-argent">{{ donnees|tojson }}</script>
+{% endblock %}
+{% block scripts %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/argent.js"></script>
+{% endblock %}

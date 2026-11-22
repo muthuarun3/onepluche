@@ -151,6 +151,21 @@ d'élu. Un croisement avec les rubriques 1 et 2 dit toujours « corrélation, pa
 Écrans : carte de choix du territoire, fiche département, page d'un scrutin. Six questions
 guidées. Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5CjJyHwvtypASUQLfCu>.
 
+### Appli « Où va l'argent public ? » (`/argent-public`)
+
+Ce que dépensent les administrations publiques (État et organismes nationaux, Sécurité
+sociale, collectivités locales), à quoi (dix fonctions de la nomenclature COFOG, « pour
+1 000 € de dépense publique »), d'où vient l'argent (cotisations, TVA, impôts sur le revenu
+et le patrimoine, autres recettes, emprunt), le déficit et la dette depuis 1978 (en % du
+PIB ; dette en euros constants ou de l'époque) et la dette du dernier trimestre. Comptes
+nationaux de l'INSEE, consolidés entre administrations. Montants par habitant et en euros
+constants calculés à l'affichage (population et indice des prix déjà en base).
+
+Écrans : vue France (PR A) ; à venir : budget de l'État, fiche département (dépenses du
+département et du bloc communal, catastrophes naturelles), impôts d'un ménage type. Six
+questions guidées. Dossier de conception validé le 22/11/2026 :
+<https://claude.ai/artifact/MmAWsKGAsnpiErF2KEmoRW>.
+
 ### Autres questions
 
 D'autres applications pourront s'ajouter, chacune avec sa question sur l'accueil. Aucune

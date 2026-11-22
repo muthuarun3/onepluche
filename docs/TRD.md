@@ -132,6 +132,8 @@ utilisée.
 | `vivre` | INSEE Melodi : Filosofi détaillé (déciles, Gini, D9/D1, S80/S20, décomposition du revenu disponible ; 2023, métropole et La Réunion ; impôts rangés en positif) ; Base Tous salariés, salaire net mensuel moyen en équivalent temps plein du privé, par sexe × catégorie et par sexe × âge (2023-2024, 101 départements) |
 | `travail` | INSEE BDM, cinq jeux filtrés par clé SDMX (sans clé, réponse refusée car trop volumineuse) : chômage annuel par sexe et âge, emploi salarié par secteur et intérim, emploi total, créations et défaillances d'entreprises ; DARES, demandeurs d'emploi trimestriels par département (export CSV de l'API Opendatasoft) ; France Travail, enquête BMO (xlsx trouvés sur data.gouv.fr, bassins additionnés par département, « * » compté zéro) |
 
+| `argent` | INSEE, comptes nationaux annuels des administrations publiques (base 2020) : sept tableaux XLSX de « Les comptes de la Nation » (3.101 dette, 3.106 solde, 3.201 recettes par nature et intérêts, 3.215 dépenses et recettes, 3.216 prélèvements obligatoires, 3.301 dépenses par fonction, 3.307 par sous-secteur), trouvés depuis la page stable par le lien « Chiffres détaillés » puis le titre de chaque page ; dépenses par fonction lues dans l'édition précédente jusqu'en décembre (`EDITIONS_SECOURS`). INSEE BDM, dette trimestrielle (SDMX). Le jeu Melodi DD_CNA_APU n'est pas utilisé (totaux non consolidés, pas de fonctions) |
+
 `demo importer tout` lance l'ensemble, dans cet ordre (estimations d'abord).
 
 ## 5. API v1

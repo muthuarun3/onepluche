@@ -45,6 +45,10 @@ Navigateur ──► https://onepluche.duckdns.org
 ├── /travail                       Comment travaillent les Français ? vue France     🔶
 │   ├── /travail/DEP/{code}        Fiche département : mêmes blocs, France, rang     🔶
 │   └── /travail/theme/{theme}     Carte et classement (taux et parts)               🔶
+├── /argent-public                 Où va l'argent public ? vue France               🔶
+│   ├── /argent-public/etat        Budget de l'État                                 ⬜
+│   ├── /argent-public/DEP/{code}  Fiche département : dépenses locales, CatNat     ⬜
+│   └── /argent-public/menage      Impôts d'un ménage type                          ⬜
 ├── /sources                       État des imports, licences                       ✅
 └── /api/docs                      Documentation de l'API (Swagger)                 ✅
 ```
@@ -77,6 +81,7 @@ par l'accueil et par la barre latérale. Ajouter une application = ajouter une e
 | Carte « Quel avenir pour les Français ? » | `/avenir` |
 | Carte « Les Français sont-ils en sécurité ? » | `/securite` |
 | Carte « Comment travaillent les Français ? » | `/travail` |
+| Carte « Où va l'argent public ? » | `/argent-public` |
 
 ### Qui sont les Français ? `/francais` (✅ sur `/` aujourd'hui, 🔶 déplacé par la PR #21)
 
@@ -148,6 +153,12 @@ se comparent pas à un total national ; l'indice des prix, national, n'y figure 
 | --- | --- | --- |
 | `/avenir` | Population de la France d'ici 2070 (projections nationales 2026) : phrase (scénario central, maximum, fourchette), courbe du scénario central dans la bande population basse - population haute, tableau par grand groupe d'âge ; carte des départements ; avertissement sur les projections départementales de 2022 ; blocs « Climat » et « Risques naturels » annoncés | Toucher un département → `/avenir/DEP/{code}` |
 | `/avenir/DEP/{code}` | Quatre chiffres en 2050 (population et fourchette, évolution depuis 2018, part des 75 ans ou plus, seniors pour 100 actifs ; France = somme des départements à côté) ; phrase ; courbe et bande des trois scénarios avec tableau 2018, 2030, 2050, 2070 ; pyramide des âges projetée (scénario central) avec le contour de 2018 | Liste de l'année de la pyramide (sans rechargement) ; liens vers `/territoire/DEP/{code}` et `/besoins/DEP/{code}` ; département sans projection importée : message ; inconnu → 404 |
+
+### Rubrique `/argent-public` (🔶, PR A)
+
+| Page | Contenu | Interactions |
+| --- | --- | --- |
+| `/argent-public` | Quatre chiffres (dépense publique de la dernière année en Md€ et en % du PIB, par habitant, déficit, dette du dernier trimestre) ; trois questions guidées ; « Pour 1 000 € de dépense publique » (barres par fonction) ; « Qui dépense ? » ; « D'où vient l'argent ? » (avec la part empruntée) ; intérêts de la dette comparés à la défense et à l'enseignement ; déficit et dette en % du PIB depuis 1978 ; dette en milliards ; blocs à venir (État, département, ménage type, catastrophes naturelles) | Bascule « Euros de N / Euros de l'époque » sur la courbe de la dette (sans rechargement) ; questions → ancres de la page ; sans données : bandeau |
 
 ### Questions guidées (⬜)
 
