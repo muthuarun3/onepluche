@@ -190,7 +190,7 @@ n'est décidée à ce jour.
 | F14 | Rubrique `/avenir` : projections de population (vue France, fiche département) ; climat et risques ensuite | Population en PR (appli 5, phase A) |
 | F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
 | F16 | Rubrique `/travail` : vue France, fiche département, carte par thème, quatre questions guidées | En PR (appli travail, T3) |
-| F17 | Rubrique `/votes` : participation, résultats et élus par département ; carte, fiche, page d'un scrutin | Fondations en PR (appli votes, V1) |
+| F17 | Rubrique `/votes` : participation, résultats et élus par département ; carte, fiche, page d'un scrutin | Fondations faites (V1) ; résultats en PR (V2) |
 | F13 | Vitrine Neocities à jour, même direction artistique que l'appli | PR #22 ouverte |
 
 Le détail et l'ordre de livraison sont dans [TASKS.md](TASKS.md).

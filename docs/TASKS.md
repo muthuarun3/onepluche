@@ -116,16 +116,20 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5CjJyHwvtypASUQLfCu>.
 
-- [~] **V1. Fondations** (PR #40) — migration 032 : rubrique `VOTES` (`/votes`, ordre 4), thèmes
+- [x] **V1. Fondations** (PR #40) — migration 032 : rubrique `VOTES` (`/votes`, ordre 4), thèmes
   `PARTICIPATION`, `RESULTATS`, `ELUS`, sources `MI_ELECTIONS` et `MI_RNE`, territoires
   `HORS_DEP` (`ZZ`, `COM`), type de période `SCRUTIN`, 20 tours dans `ref.scrutin`,
   `ref.choix_scrutin` et `ref.ajouter_choix`, dimension `mandat`, vues `api.scrutin` et
   `api.choix_scrutin` ; dépendance `pyarrow`. *Critère :* `tests/test_votes_fondations.py`.
-- [ ] **V2. Résultats** — connecteur `elections.py` (Parquet data.gouv.fr par bureau de vote,
-  additionné par département ; date de mise à jour vérifiée avant téléchargement),
-  `controle_votes.sql`, indicateurs `INSCRITS`, `VOTANTS`, `ABSTENTIONS`, `BLANCS`, `NULS`,
-  `EXPRIMES`, `VOIX`, vue `stat.votes_derives`. *Critère :* totaux France des 20 tours égaux
-  aux chiffres officiels du ministère.
+- [~] **V2. Résultats** (PR en cours) — migration 036 ; groupe `demo importer votes`,
+  connecteur `elections.py` (Parquet data.gouv.fr par bureau de vote, lu par paquets avec
+  pyarrow et additionné par département ; même date de mise à jour = rien n'est téléchargé),
+  indicateurs `INSCRITS`, `VOTANTS`, `ABSTENTIONS`, `BLANCS`, `NULS`, `BLANCS_ET_NULS`,
+  `EXPRIMES`, `VOIX` ; contrôles d'égalité stricts dans le connecteur et somme France =
+  départements + hors département ; vues `api.participation` et `api.resultat` (à la place
+  de `stat.votes_derives`). *Critère :* totaux France égaux aux chiffres officiels
+  (vérifié sur le fichier complet pour 2022 et 2024), `tests/test_votes_resultats.py`.
+  Prochaine migration : 037.
 - [ ] **V3. Élus** — connecteur `elus.py` (Répertoire national des élus : maires,
   conseillers départementaux, députés, sénateurs), `ELUS`, `ELUS_PCS`, `AGE_MEDIAN_ELUS`,
   `PART_FEMMES_ELUS`. Aucun nom en base.

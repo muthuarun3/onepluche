@@ -84,6 +84,9 @@ def importer(
 
 def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_variation):
     dossier_brut.mkdir(parents=True, exist_ok=True)
+    deja = _millesime_deja_importe(conn, connecteur, fichier, chemin_local)
+    if deja is not None:
+        return deja
     temporaire = None
     if chemin_local is None:
         # Un connecteur qui assemble plusieurs requêtes fournit son propre téléchargement.
@@ -182,6 +185,31 @@ def _importer(conn, connecteur, fichier, dossier_brut, chemin_local, seuil_varia
     return Resultat(fichier.nom, "PUBLIE", import_id, f"{chargees} valeurs publiées")
 
 
+def _millesime_deja_importe(conn, connecteur, fichier, chemin_local) -> Resultat | None:
+    """Gros fichier republié à la même adresse (résultats des élections) : une date de mise
+    à jour déjà importée suffit pour ne pas le télécharger à nouveau."""
+    if chemin_local is not None or not fichier.millesime:
+        return None
+    if not getattr(connecteur, "saute_si_millesime_connu", False):
+        return None
+    existant = conn.execute(
+        """SELECT i.import_id, i.statut FROM ingest.import i JOIN ref.source s USING (source_id)
+           WHERE s.code = %s AND i.url = %s AND i.millesime = %s
+             AND i.statut IN ('PUBLIE', 'EN_ATTENTE')
+           ORDER BY i.import_id DESC LIMIT 1""",
+        (connecteur.source, fichier.url, fichier.millesime),
+    ).fetchone()
+    if existant is None:
+        return None
+    return Resultat(
+        fichier.nom,
+        "DEJA_IMPORTE",
+        existant["import_id"],
+        f"Version du {fichier.millesime} déjà importée (import n° {existant['import_id']}, "
+        f"{existant['statut']}), rien n'est téléchargé",
+    )
+
+
 @contextmanager
 def _sous_son_nom(brut: Path, fichier: Fichier, actif: bool) -> Iterator[Path]:
     """Le brut archivé, vu sous le nom d'origine du fichier quand le connecteur en a besoin
@@ -197,6 +225,15 @@ def _sous_son_nom(brut: Path, fichier: Fichier, actif: bool) -> Iterator[Path]:
 
 def _charger(conn, import_id, connecteur, chemin) -> tuple[int, set[tuple[str, str]]]:
     """Lit le fichier dans ingest.ligne. Renvoie le nombre de valeurs lues et les inconnus."""
+    # Un connecteur dont les modalités viennent du fichier (candidats d'une élection) les
+    # déclare d'abord, par la seule fonction que le rôle d'import peut appeler.
+    declarer = getattr(connecteur, "choix", None)
+    if declarer is not None:
+        for c in declarer(chemin):
+            conn.execute(
+                "SELECT ref.ajouter_choix(%s, %s, %s, %s::smallint, %s, %s, %s)",
+                (c.scrutin, c.code, c.libelle, c.panneau, c.nuance, c.nuance_libelle, c.sexe),
+            )
     referentiel = charger_referentiel(conn)
     indicateurs = dict(
         (i["code"], i["indicateur_id"])

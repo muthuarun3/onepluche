@@ -2,6 +2,8 @@
 -- du même fichier (tous âges, par indicateur et par sexe), pour les effectifs et les
 -- flux seulement : un taux ne s'additionne pas. Chaque modalité (catégorie, secteur…)
 -- est contrôlée séparément. Renvoie les écarts au-delà de la tolérance.
+-- Rubrique VOTES : la France compte aussi les territoires hors département (Français de
+-- l'étranger, collectivités d'outre-mer), jamais la France métropolitaine.
 WITH l AS (
   SELECT l.indicateur_id, l.periode, l.sexe, l.modalite_id, l.valeur, t.niveau, t.code,
          CASE WHEN t.niveau = 'DEP' THEN p.code ELSE t.code END AS region
@@ -22,9 +24,11 @@ plus_fin AS (
 sommes AS (
   SELECT l.indicateur_id, l.periode, l.sexe, l.modalite_id,
          sum(l.valeur) AS fr,
-         sum(l.valeur) FILTER (WHERE l.region NOT IN ('01', '02', '03', '04', '06')) AS fm
+         sum(l.valeur) FILTER (WHERE l.region NOT IN ('01', '02', '03', '04', '06')
+                                 AND l.niveau <> 'HORS_DEP') AS fm
   FROM l
-  JOIN plus_fin f ON f.indicateur_id = l.indicateur_id AND f.niveau = l.niveau
+  JOIN plus_fin f
+    ON f.indicateur_id = l.indicateur_id AND (f.niveau = l.niveau OR l.niveau = 'HORS_DEP')
   GROUP BY l.indicateur_id, l.periode, l.sexe, l.modalite_id
 )
 SELECT i.code AS indicateur, a.code, a.periode, a.sexe, a.valeur AS publie,
