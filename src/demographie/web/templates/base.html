@@ -14,6 +14,9 @@
       <nav aria-label="Applications">
         <ul>
           <li><a href="/"{% if chemin == "/" %} aria-current="page"{% endif %}>Accueil</a></li>
+        </ul>
+        <p class="categorie-menu" id="menu-donnees">Données</p>
+        <ul aria-labelledby="menu-donnees">
           {% for q in questions_menu %}
           <li><a href="{{ q.lien }}"{% if chemin == q.lien or chemin.startswith(q.lien ~ "/") or (q.lien == "/francais" and chemin.startswith("/territoire/")) %} aria-current="page"{% endif %}>{{ q.titre }}</a></li>
           {% endfor %}

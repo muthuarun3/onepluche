@@ -44,6 +44,14 @@ Pas de grand public au MVP, pas de comptes, pas de favoris.
 L'accueil présente le texte de Muthu puis une carte par question, avec un lien vers
 l'application qui y répond. Une barre latérale permet de passer de l'une à l'autre.
 
+Les applications sont rangées en deux macro-catégories (demande de Muthu, 22/11/2026) :
+
+- **Données** : toutes les questions ci-dessous et leurs applications ;
+- **Programmes** : une analyse approfondie du programme de chaque candidat à l'élection
+  présidentielle et une page qui compare les programmes sujet par sujet. Elle a son propre
+  dossier de conception, à valider avant le code ; analyses factuelles, sources citées,
+  même neutralité que l'appli votes.
+
 ### Appli 1 — « Qui sont les Français ? » (`/francais`, en service)
 
 Combien, quel âge, quel travail, quelles études, quelle santé.
@@ -187,6 +195,7 @@ n'est décidée à ce jour.
 | F10 | Carte des départements, construite une fois pour les deux applis | Choix du territoire par la carte en service ; carte colorée par indicateur prévue (D4) |
 | F11 | Questions guidées (réponse = phrase + graphique + source) | Prévu |
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
+| F18 | Macro-catégories « Données » (applis-questions) et « Programmes » (analyse et comparaison des programmes présidentiels) dans la barre latérale et sur l'accueil | « Données » en PR ; « Programmes » en conception |
 | F14 | Rubrique `/avenir` : projections de population (vue France, fiche département) ; climat et risques ensuite | Population en PR (appli 5, phase A) |
 | F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
 | F16 | Rubrique `/travail` : vue France, fiche département, carte par thème, quatre questions guidées | En PR (appli travail, T3) |

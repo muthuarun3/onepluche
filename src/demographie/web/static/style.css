@@ -63,6 +63,8 @@ main { max-width: 64rem; margin: 0 auto; padding: 1rem 1rem 3rem; }
   color: var(--texte); }
 .barre-laterale li a[aria-current="page"] { background: var(--grille); color: var(--texte);
   font-weight: 600; box-shadow: inset 3px 0 0 var(--serie); }
+.barre-laterale .categorie-menu { margin: 0 0 .35rem; padding: 0 .6rem; font-size: .75rem;
+  font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--texte-2); }
 .barre-laterale .secondaire { border-top: 1px solid var(--bordure); padding-top: .75rem;
   font-size: .9rem; }
 .colonne { min-width: 0; }
@@ -72,6 +74,7 @@ main { max-width: 64rem; margin: 0 auto; padding: 1rem 1rem 3rem; }
   .barre-laterale { position: static; height: auto; border-right: 0;
     border-bottom: 1px solid var(--bordure); padding: .75rem 1rem; }
   .barre-laterale .marque { margin-bottom: .5rem; }
+  .barre-laterale .categorie-menu { flex-basis: 100%; margin: .25rem 0 0; padding: 0; }
   .barre-laterale nav { display: flex; flex-wrap: wrap; gap: .25rem; }
   .barre-laterale ul { display: flex; flex-wrap: wrap; gap: .25rem; margin: 0; }
   .barre-laterale .secondaire { border-top: 0; padding-top: 0; }

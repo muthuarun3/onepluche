@@ -184,6 +184,9 @@ def test_pages(urls_module):
     # Accueil : le texte d'introduction et un lien par question ; barre latérale.
     assert "Muthu" in accueil.text and 'href="/francais"' in accueil.text
     assert 'href="/besoins"' in accueil.text and "Quel âge" not in accueil.text
+    # Deux macro-catégories : les applis de questions sous « Données », « Programmes » annoncé.
+    assert '<p class="categorie-menu" id="menu-donnees">Données</p>' in accueil.text
+    assert "<h1>Données</h1>" in accueil.text and "Programmes</h2>" in accueil.text
     francais = client.get("/francais")
     assert francais.status_code == 200
     assert 'href="/territoire/DEP/23"' in francais.text
