@@ -75,6 +75,7 @@ uv run demo importer budget               # besoins : dépense des ménages par 
 uv run demo importer transports           # besoins : prix des carburants (stations), trajets domicile-travail, voitures, dépense en carburants
 uv run demo importer avenir               # avenir : projections de population (INSEE Omphale 2022 par département, France 2026)
 uv run demo importer securite             # sécurité : délinquance (SSMSI), accidents de la route (ONISR), sentiment d'insécurité (CVS, VRS)
+uv run demo importer vivre                # vivre : revenus détaillés (Filosofi), salaires du privé par sexe, catégorie et âge (BTS)
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)
 uv run demo verifier                      # compare aux chiffres publiés par l'INSEE
 uv run uvicorn demographie.app:app --reload

@@ -49,6 +49,11 @@ from demographie.imports.connecteurs.transports import (
     TRAJETS_TRAVAIL,
     VOITURES_MENAGES,
 )
+from demographie.imports.connecteurs.vivre import (
+    REVENUS_FILOSOFI,
+    SALAIRES_AGES,
+    SALAIRES_CATEGORIES,
+)
 
 # Ordre d'exécution de « demo importer tout » : les estimations d'abord.
 CONNECTEURS = {
@@ -95,4 +100,6 @@ CONNECTEURS = {
     # Appli 5 : quel avenir pour les Français ? Après « estimations » : la population de
     # départ des projections est comparée aux estimations publiées.
     "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE),
+    # Appli 3 : comment vivent les Français ?
+    "vivre": (REVENUS_FILOSOFI, SALAIRES_CATEGORIES, SALAIRES_AGES),
 }

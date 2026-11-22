@@ -75,6 +75,23 @@ par thème (Accès / Coût / Manque, comparé à la France), page thème (carte 
 Six questions guidées, par exemple « Combien d'années de niveau de vie faut-il pour acheter
 60 m² dans mon département ? ».
 
+### Appli 3 — « Comment vivent les Français ? » (`/vivre`, en construction)
+
+Ce que gagnent les Français, ce que leur argent permet d'acheter, l'écart entre les plus
+aisés et les plus modestes, ce qu'ils mettent de côté. Sept thèmes : revenus, pouvoir
+d'achat, inégalités, épargne et dettes, patrimoine, aides au logement, retraites ; toutes
+les tranches d'âge comparées ; salaires par sexe et catégorie socioprofessionnelle. Par
+département : niveau de vie et sa répartition (Filosofi 2023, un seul millésime),
+salaires du secteur privé (BTS), RSA et aides au logement (CAF), surendettement (Banque
+de France, sans l'outre-mer). France seulement : pouvoir d'achat, épargne, patrimoine,
+montant des retraites, évolutions depuis 1996. Le niveau de vie médian, la pauvreté,
+l'indice des prix et les retraités des applis 1 et 2 sont affichés sans être copiés.
+
+Écrans : vue France, fiche département par thème, page thème (carte et classement) ; six
+questions guidées, par exemple « À partir de quel revenu fait-on partie des 10 % les plus
+aisés dans mon département ? ». Dossier de conception validé le 22/11/2026 :
+<https://claude.ai/artifact/NoW5WiUnhSjjceKtjqXTfu>.
+
 ### Appli 5 — « Quel avenir pour les Français ? » (`/avenir`, en construction)
 
 Ce qui attend les Français d'ici 2070-2100, par département, toujours avec une fourchette :

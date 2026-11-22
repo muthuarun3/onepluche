@@ -85,7 +85,27 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 Rubriques ajoutées depuis : `SECURITE` (`/securite`, ordre 6, migration 027, thème obligatoire)
 et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI` ;
 `AVENIR` (`/avenir`, ordre 7, migration 028, thème obligatoire) et ses thèmes `POPULATION`,
-`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI`.
+`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ; `VIVRE` (`/vivre`, ordre 3,
+migration 030, thème obligatoire) et ses thèmes `REVENUS`, `POUVOIR_ACHAT`, `INEGALITES`,
+`EPARGNE`, `PATRIMOINE`, `AIDES_LOGEMENT`, `RETRAITES`.
+
+### `ref.indicateur_affichage` — un indicateur dans plusieurs rubriques (migration 030)
+
+Un indicateur est importé une fois, dans sa rubrique d'origine (`ref.indicateur.rubrique`),
+et peut s'afficher aussi dans d'autres rubriques, sous un de leurs thèmes, sans être copié.
+
+| Colonne | Type | Contraintes |
+| --- | --- | --- |
+| `indicateur_id` | smallint | → `ref.indicateur` |
+| `rubrique` | text | → `ref.rubrique` ; clé `(indicateur_id, rubrique)` |
+| `theme` | text | → `ref.theme` (clé `rubrique, theme`) |
+| `ordre` | smallint | ordre d'affichage dans le thème (défaut 0) |
+
+Lignes actuelles (rubrique `VIVRE`) : `NIVEAU_VIE_MEDIAN` (revenus), `TAUX_PAUVRETE`
+(inégalités), `IPC` (pouvoir d'achat), `PENSIONNES`, `MIN_VIEILLESSE`,
+`TAUX_MIN_VIEILLESSE_60P` (retraites). La vue `api.indicateur_affichage` les expose ; les
+lectures `indicateurs` et `fiche` d'une rubrique les ajoutent à ses propres indicateurs,
+sous le thème de la rubrique demandée et sans angle de lecture.
 
 Ordres réservés (unique) : 3 « Comment vivent », 4 « Que votent », 5 « Où va l'argent public »,
 6 « Sécurité », 7 « Avenir », 8 « Comment travaillent ». Deux rubriques peuvent avoir un
@@ -234,6 +254,7 @@ migration modifiée après application est détectée.
 | `stat.securite_derives` | simple | Tués sur la route par million d'habitants (population au 1er janvier) ; ajoutée à `api.serie` (migration 029) |
 | `api.territoire` | simple | Territoires avec niveau et code du parent |
 | `api.source` | simple | Sources et licences |
+| `api.indicateur_affichage` | simple | Indicateurs affichés dans une autre rubrique que la leur, avec thème et ordre (migration 030) |
 | `api.theme` | simple | Rubriques (libellé, chemin, ordre) et leurs thèmes ; lue par l'API pour valider les filtres (migration 026) |
 | `api.indicateur` | simple | Catalogue + source + date de dernière publication + rubrique, thème, angle, bornes |
 | `api.serie` | simple | **Toutes les séries** « tous âges » : indicateur, niveau, code, année, valeur, provisoire, sexe, période, type de période ; inclut les dérivés (parts d'âge, solde naturel, recensement, pensionnés pour 100 actifs, scolarisation, `stat.besoins_derives`, `stat.securite_derives`) |
