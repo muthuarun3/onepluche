@@ -31,6 +31,8 @@ from demographie.imports.connecteurs.recensement import (
     SCOLARISATION,
     SECTEURS,
 )
+from demographie.imports.connecteurs.ressenti import CVS, VRS_RAPPORTS
+from demographie.imports.connecteurs.routes import ACCIDENTS
 from demographie.imports.connecteurs.rpls import PARC_SOCIAL
 from demographie.imports.connecteurs.soins import (
     ALD_SANS_MEDECIN_TRAITANT,
@@ -89,7 +91,7 @@ CONNECTEURS = {
         DEPENSE_CARBURANTS,
     ),
     # Appli « Les Français sont-ils en sécurité ? »
-    "securite": (DELINQUANCE,),
+    "securite": (DELINQUANCE, ACCIDENTS, CVS, VRS_RAPPORTS),
     # Appli 5 : quel avenir pour les Français ? Après « estimations » : la population de
     # départ des projections est comparée aux estimations publiées.
     "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE),

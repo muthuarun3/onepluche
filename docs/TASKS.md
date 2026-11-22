@@ -117,13 +117,18 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/SGDKicMRrwHwF1qULSCpM2>.
 
-- [~] **S1. Catalogue et délinquance enregistrée** — migration 027 (rubrique `SECURITE`, six
+- [x] **S1. Catalogue et délinquance enregistrée** (PR #35) — migration 027 (rubrique `SECURITE`, six
   familles, 32 indicateurs `FAITS_…` et `TAUX_…`), groupe `demo importer securite` : base
   départementale du SSMSI, 16 atteintes de 2016 à 2025 ; France, France métropolitaine et
   régions = somme des départements, taux rapporté à la somme des habitants ou logements.
   *Critère :* Paris 7 072 cambriolages en 2025, France 975 homicides en 2025 (fichier complet).
-- [ ] **S2. Routes et ressenti** — ONISR (tués et blessés hospitalisés depuis 2016, deux
-  formats de fichier), enquêtes CVS (2007-2019) et VRS (`vrs.csv` recopié des rapports).
+- [~] **S2. Routes et ressenti** — migration 029 : ONISR (fichiers BAAC « caractéristiques »
+  et « usagers » de chaque année, deux formats, collectivités d'outre-mer écartées) : tués et
+  blessés hospitalisés depuis 2016, tués par million d'habitants (vue `stat.securite_derives`) ;
+  sentiment d'insécurité, France métropolitaine : enquête CVS 2007-2019 (cube data.gouv.fr)
+  puis VRS 2022 et 2024 (`imports/fichiers/vrs.csv`, chiffres des fiches Insee). Taux de
+  plainte reportés : publiés seulement dans les rapports PDF du SSMSI.
+  *Critère :* 3 655 tués en 2016 (3 477 en métropole), 2 944 en métropole en 2021.
 - [ ] **S3. Pages `/securite`** — France, département, comparer ; six questions guidées ;
   accueil, barre latérale, PRD, APP_FLOW, DESIGN et vitrine.
 
