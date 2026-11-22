@@ -82,7 +82,9 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 | `ref.theme` | `rubrique` → `ref.rubrique`, `code`, `libelle`, `ordre` ; clé `(rubrique, code)` | `BESOINS` : `BUDGET`, `LOGEMENT`, `ENERGIE`, `EAU`, `ALIMENTATION`, `TRANSPORTS`, `SOINS`, `NUMERIQUE`, `GARDE` |
 | `ref.unite` | `code` (clé, minuscules) | `personnes`, `pourcentage`, `pour_mille`, `ratio`, `annees`, `logements`, `nombre`, `euros`, `euros_m2`, `mwh`, `indice`, `consultations_hab`, `pour_10000`, `millions_euros`, `euros_litre` |
 
-Deux rubriques peuvent avoir un thème de même code (clé composée). Le thème obligatoire et
+Ordres réservés (unique) : 3 « Comment vivent », 4 « Que votent », 5 « Où va l'argent public »,
+6 « Sécurité », 7 « Avenir », 8 « Comment travaillent ». Deux rubriques peuvent avoir un
+thème de même code (clé composée). Le thème obligatoire et
 les angles sont vérifiés par le déclencheur `indicateur_rubrique` (erreur `check_violation`).
 
 ### `ref.indicateur` — le catalogue
