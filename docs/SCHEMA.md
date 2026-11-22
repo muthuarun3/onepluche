@@ -246,6 +246,7 @@ migration modifiée après application est détectée.
 | `api.serie_age` | simple | Valeurs par tranche d'âge (tous sexes, sans modalité) des indicateurs de la rubrique BESOINS : encadré 18-39 ans de la fiche département (migration 023) |
 | `api.structure` | simple | Pyramide : effectifs `POP` par sexe et tranche d'âge |
 | `api.repartition` | simple | Valeur d'une modalité avec le total de la même série (calcul des parts) |
+| `api.ventilation` | simple | Toutes les observations ventilées (sexe, âge ou modalité), avec leur période exacte : ce que `api.serie` ne montre pas (rubrique travail : secteurs, familles et métiers BMO, chômage par âge ; migration 035) |
 | `api.scenario` | simple | Scénarios dans l'ordre d'affichage (migration 028) |
 | `api.projection` | simple | Valeurs projetées : indicateur, niveau, code, scénario, année, période, sexe, âges, statistique |
 | `api.projection_population` | simple | Par territoire, scénario et année : population, part des moins de 20 ans et des 75 ans ou plus, 65 ans ou plus pour 100 personnes de 20 à 64 ans (calculés depuis `PROJ_POP`) |

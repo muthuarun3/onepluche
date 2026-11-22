@@ -114,3 +114,31 @@ def rangs(conn: psycopg.Connection, rubrique: str, code: str) -> dict[str, dict]
     rubrique, son rang parmi les départements (1 = la plus forte) et la valeur France."""
     lignes = conn.execute(charger_sql(_SQL, "rangs"), {"rubrique": rubrique, "code": code})
     return {ligne["indicateur"]: ligne for ligne in lignes.fetchall()}
+
+
+def ventilation(
+    conn: psycopg.Connection,
+    indicateur: str,
+    niveau: str,
+    code: str,
+    dimension: str | None = None,
+    debut: int | None = None,
+) -> list[dict]:
+    """Valeurs ventilées (sexe, âge, modalité) d'un indicateur pour un territoire, toutes
+    périodes depuis `debut`, par période croissante ; `dimension` filtre une dimension."""
+    parametres = {
+        "indicateur": indicateur,
+        "niveau": niveau,
+        "code": code,
+        "dimension": dimension,
+        "debut": debut,
+    }
+    return conn.execute(charger_sql(_SQL, "ventilation"), parametres).fetchall()
+
+
+def classement_modalite(
+    conn: psycopg.Connection, indicateur: str, dimension: str, modalite: str
+) -> list[dict]:
+    """Comme `classement`, pour une modalité d'une dimension (famille de métiers…)."""
+    parametres = {"indicateur": indicateur, "dimension": dimension, "modalite": modalite}
+    return conn.execute(charger_sql(_SQL, "classement_modalite"), parametres).fetchall()
