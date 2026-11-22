@@ -59,6 +59,13 @@ from demographie.imports.connecteurs.transports import (
     TRAJETS_TRAVAIL,
     VOITURES_MENAGES,
 )
+from demographie.imports.connecteurs.travail import (
+    CHOMAGE_ANNUEL,
+    CREATIONS,
+    DEFAILLANCES,
+    EMPLOI_SALARIE,
+    EMPLOI_TOTAL,
+)
 
 # Ordre d'exécution de « demo importer tout » : les estimations d'abord.
 CONNECTEURS = {
@@ -105,6 +112,8 @@ CONNECTEURS = {
     # Appli 5 : quel avenir pour les Français ? Après « estimations » : la population de
     # départ des projections est comparée aux estimations publiées.
     "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE),
+    # Appli « Comment travaillent les Français ? »
+    "travail": (CHOMAGE_ANNUEL, EMPLOI_SALARIE, EMPLOI_TOTAL, CREATIONS, DEFAILLANCES),
     # Appli « Où va l'argent public ? » : comptes des administrations publiques (France).
     "argent": (
         DETTE,

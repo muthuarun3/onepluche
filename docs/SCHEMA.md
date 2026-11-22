@@ -85,8 +85,13 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 Rubriques ajoutées depuis : `SECURITE` (`/securite`, ordre 6, migration 027, thème obligatoire)
 et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI` ;
 `AVENIR` (`/avenir`, ordre 7, migration 028, thème obligatoire) et ses thèmes `POPULATION`,
-`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ; `ARGENT` (`/argent-public`,
-ordre 5, migration 030, thème obligatoire) et ses thèmes `DEPENSES`, `RECETTES`, `DETTE`,
+`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ;
+`TRAVAIL` (`/travail`, ordre 8, migration 030, thème obligatoire) et ses thèmes
+`CHERCHER_CREER`, `EMPLOI`, `CONDITIONS`, `SALAIRES`, `TELETRAVAIL`, `ACCIDENTS`,
+`SYNDICATS_GREVES`. Modalités ajoutées : `secteur` `INTERIM`, `statut_emploi` (`SALARIE`,
+`NON_SALARIE`), `type_entreprise` `MICRO` ;
+`ARGENT` (`/argent-public`,
+ordre 5, migration 033, thème obligatoire) et ses thèmes `DEPENSES`, `RECETTES`, `DETTE`,
 `ETAT`, `LOCAL`, `MENAGE`, `CLIMAT`, avec l'unité `milliards_euros` et les dimensions de
 modalités `fonction_apu` (dix fonctions COFOG), `etage_apu` (`CENTRALE`, `SECU`, `LOCALE`) et
 `nature_recette` (`COTISATIONS`, `PRODUCTION`, `REVENU_PATRIMOINE`, `AUTRES`). Le solde public
