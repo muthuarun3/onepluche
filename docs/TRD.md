@@ -129,6 +129,8 @@ utilisée.
 | `avenir` | INSEE, projections de population par département 2018-2070 (Omphale 2022 : scénarios central, population basse, population haute ; XLSX) et pour la France (2026, Insee Première n° 2108). Contrôles propres : 101 départements, population de 2018 à moins de 1 % des estimations, fourchette basse ≤ centrale ≤ haute ; publication dans `stat.projection` |
 | `securite` | Ministère de l'Intérieur : SSMSI, délinquance enregistrée par département (CSV data.gouv.fr, édition de juillet) ; ONISR, accidents corporels de la route (deux fichiers BAAC par an, rangés dans une archive zip) ; enquêtes de victimation CVS (cube data.gouv.fr) et VRS (`imports/fichiers/vrs.csv`, recopié des publications, rappel en décembre) |
 
+| `argent` | INSEE, comptes nationaux annuels des administrations publiques (base 2020) : sept tableaux XLSX de « Les comptes de la Nation » (3.101 dette, 3.106 solde, 3.201 recettes par nature et intérêts, 3.215 dépenses et recettes, 3.216 prélèvements obligatoires, 3.301 dépenses par fonction, 3.307 par sous-secteur), trouvés depuis la page stable par le lien « Chiffres détaillés » puis le titre de chaque page ; dépenses par fonction lues dans l'édition précédente jusqu'en décembre (`EDITIONS_SECOURS`). INSEE BDM, dette trimestrielle (SDMX). Le jeu Melodi DD_CNA_APU n'est pas utilisé (totaux non consolidés, pas de fonctions) |
+
 `demo importer tout` lance l'ensemble, dans cet ordre (estimations d'abord).
 
 ## 5. API v1

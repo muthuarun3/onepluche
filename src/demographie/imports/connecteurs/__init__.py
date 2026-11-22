@@ -12,6 +12,16 @@ from demographie.imports.connecteurs.besoins import (
     POIDS_RP_LOUEES,
     RESIDENCES_PRINCIPALES,
 )
+from demographie.imports.connecteurs.comptes_publics import (
+    DEPENSES_RECETTES,
+    DETTE,
+    DETTE_TRIMESTRIELLE,
+    ETAGES_APU,
+    FONCTIONS_APU,
+    PRELEVEMENTS,
+    RECETTES_NATURE,
+    SOLDE,
+)
 from demographie.imports.connecteurs.delinquance import DELINQUANCE
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.dvf import VENTES
@@ -95,4 +105,15 @@ CONNECTEURS = {
     # Appli 5 : quel avenir pour les Français ? Après « estimations » : la population de
     # départ des projections est comparée aux estimations publiées.
     "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE),
+    # Appli « Où va l'argent public ? » : comptes des administrations publiques (France).
+    "argent": (
+        DETTE,
+        SOLDE,
+        DEPENSES_RECETTES,
+        RECETTES_NATURE,
+        PRELEVEMENTS,
+        FONCTIONS_APU,
+        ETAGES_APU,
+        DETTE_TRIMESTRIELLE,
+    ),
 }

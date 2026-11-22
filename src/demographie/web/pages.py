@@ -57,6 +57,12 @@ QUESTIONS = (
         "garde d'enfants.",
     },
     {
+        "titre": "Où va l'argent public ?",
+        "lien": "/argent-public",
+        "resume": "Dépenses, recettes, déficit et dette ; bientôt le budget de l'État, mon "
+        "département et les impôts d'un ménage type.",
+    },
+    {
         "titre": "Quel avenir pour les Français ?",
         "lien": "/avenir",
         "resume": "Combien serons-nous et à quel âge d'ici 2070 ; bientôt le climat et les "

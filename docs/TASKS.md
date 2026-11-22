@@ -136,6 +136,27 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/SGDKic
   *Critère :* chaque page s'affiche sans données, avec données, et 404 pour un département ou
   une famille inconnus (`tests/test_securite_pages.py`).
 
+### Appli « Où va l'argent public ? »
+
+Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/MmAWsKGAsnpiErF2KEmoRW>.
+
+- [~] **A. France** — migration 030 (rubrique `ARGENT`, sept thèmes, 16 indicateurs, unité
+  `milliards_euros`), groupe `demo importer argent` (sept tableaux INSEE des comptes publics et
+  dette trimestrielle BDM), page `/argent-public`, accueil, barre latérale, vitrine.
+  *Critère :* dépense 2025 = 1 714,1 Md€, déficit −151,6 Md€, dette 3 460,1 Md€ (INSEE) ;
+  tests `test_argent_france.py`.
+- [ ] **B. État** — situation mensuelle budgétaire et crédits par mission 2023-2025
+  (data.economie.gouv.fr), page `/argent-public/etat`.
+- [ ] **C. Local** — comptes des départements, communes et groupements, dépenses par poste
+  (balances), page `/argent-public/DEP/{code}` et carte.
+- [ ] **D. Ménage type** — `donnees/baremes.toml`, impôt sur le revenu par département
+  (IRCOM), taxe foncière, page `/argent-public/menage`, route `/api/v1/menage-type`.
+- [ ] **E. Climat et clôture** — arrêtés de catastrophe naturelle (GASPAR), questions
+  guidées restantes, vérification des sept critères du dossier.
+- Chaque année : en décembre, quand « Les comptes de la Nation » publie les dépenses par
+  fonction, remplacer `EDITIONS_SECOURS` (`imports/connecteurs/comptes_publics.py`) par le
+  sommaire de l'édition qui s'achève.
+
 ### Appli 5 « Quel avenir pour les Français ? »
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv9wfVht4xEcUs5hnE>.

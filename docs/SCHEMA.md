@@ -85,7 +85,14 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 Rubriques ajoutées depuis : `SECURITE` (`/securite`, ordre 6, migration 027, thème obligatoire)
 et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI` ;
 `AVENIR` (`/avenir`, ordre 7, migration 028, thème obligatoire) et ses thèmes `POPULATION`,
-`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI`.
+`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ; `ARGENT` (`/argent-public`,
+ordre 5, migration 030, thème obligatoire) et ses thèmes `DEPENSES`, `RECETTES`, `DETTE`,
+`ETAT`, `LOCAL`, `MENAGE`, `CLIMAT`, avec l'unité `milliards_euros` et les dimensions de
+modalités `fonction_apu` (dix fonctions COFOG), `etage_apu` (`CENTRALE`, `SECU`, `LOCALE`) et
+`nature_recette` (`COTISATIONS`, `PRODUCTION`, `REVENU_PATRIMOINE`, `AUTRES`). Le solde public
+est négatif : le contrôle des valeurs négatives admet un indicateur dont `borne_min` est
+négative, et celui des pourcentages au-delà de 100 un indicateur dont `borne_max` le permet
+(dette en part du PIB).
 
 Ordres réservés (unique) : 3 « Comment vivent », 4 « Que votent », 5 « Où va l'argent public »,
 6 « Sécurité », 7 « Avenir », 8 « Comment travaillent ». Deux rubriques peuvent avoir un
