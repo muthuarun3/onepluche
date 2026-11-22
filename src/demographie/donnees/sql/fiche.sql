@@ -4,12 +4,16 @@
 WITH derniere AS (
   SELECT DISTINCT ON (s.indicateur)
          s.indicateur, s.annee, s.periode, s.periode_type, s.valeur, s.provisoire,
-         i.theme, i.angle
+         coalesce(a.theme, i.theme) AS theme,
+         CASE WHEN a.rubrique IS NULL THEN i.angle END AS angle
   FROM api.serie s
   JOIN api.indicateur i ON i.code = s.indicateur
+  -- Indicateurs d'une autre rubrique affichés aussi dans celle-ci (migration 031).
+  LEFT JOIN api.indicateur_affichage a
+    ON a.indicateur = i.code AND a.rubrique = %(rubrique)s
   WHERE s.niveau = %(niveau)s AND s.code = %(code)s AND s.sexe = 'T'
-    AND i.rubrique = %(rubrique)s
-    AND (%(theme)s::text IS NULL OR i.theme = %(theme)s::text)
+    AND (i.rubrique = %(rubrique)s OR a.rubrique IS NOT NULL)
+    AND (%(theme)s::text IS NULL OR coalesce(a.theme, i.theme) = %(theme)s::text)
   ORDER BY s.indicateur, s.periode DESC
 )
 SELECT d.indicateur, d.annee, d.periode, d.periode_type, d.valeur, d.provisoire,
