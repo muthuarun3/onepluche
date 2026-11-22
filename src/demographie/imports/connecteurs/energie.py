@@ -262,6 +262,9 @@ POSTES_IPC = {
     "011815822": "GAZ",
     "011815633": "LOYERS",
     "011816281": "SANTE",
+    "011813717": "ALIMENTATION",
+    "011816628": "CARBURANTS",
+    "011816518": "TRANSPORTS",
 }
 _MOIS = re.compile(r"^(\d{4})-(\d{2})$")
 

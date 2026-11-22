@@ -107,6 +107,14 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 ### Appli 2 — données (phases B et C)
 
+- [~] **Courses, carburant et transports** (demande de Muthu, 21/11/2026) — migration 025,
+  groupe `demo importer transports` : prix du gazole et du SP95-E10 par département (stations,
+  ministère de l'Économie), part des actifs allant travailler en voiture ou en transports en
+  commun, ménages sans voiture (recensement), dépense en carburants ; indice des prix de
+  l'alimentation, des carburants et des transports ; courses, transports et carburant par
+  ménage et par mois (France : aucune source publique de « panier moyen » par département).
+  Bloc « Courses et transports » sur `/besoins`, thème Transports sur les fiches et la carte.
+
 ### Appli 2 — interface (phase D)
 
 - [ ] **D5. Six questions guidées de l'appli 2** — formulaire en listes, réponse = phrase à

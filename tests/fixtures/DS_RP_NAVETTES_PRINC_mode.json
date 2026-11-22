@@ -1,0 +1,2805 @@
+{
+"jeu": "DS_RP_NAVETTES_PRINC",
+"observations": [
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4291.12716
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4470.00883
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "3T4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 776.14504
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 35277.28385
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 610.36311
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 45424.92799
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4261.49063
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3072.89471
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 230.2793
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 376.02954
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 35239.96007
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 684.95313
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 43865.60738
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3328.14093
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3205.21415
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 420.88208
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 374.73702
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 35313.7896
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 636.26294
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-23",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 43279.02671
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 59911.53668
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 107910.96149
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "3T4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 84990.0782
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 142703.3842
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 706993.73533
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1102509.6959
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 51412.97493
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 109369.31286
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 51793.21287
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 48200.65923
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 120931.18377
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 697876.56568
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1079583.90934
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 53037.3288
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 120469.43288
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 111076.60844
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 36029.35222
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 96167.91594
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 654116.00229
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-75",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1070896.64057
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3909.94062
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8580.52941
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "3T4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2912.5882
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 104678.2738
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8159.70242
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 128241.03446
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3810.58319
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 6342.89636
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 584.03996
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1722.04166
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 106177.42726
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 7395.08602
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 126032.07445
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4315.70774
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5829.17832
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 820.87282
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1778.07444
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 112794.89967
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 7058.75248
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-971",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 132597.48547
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8342.01685
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 24061.8152
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "3T4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 9386.96566
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 190248.9538
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 12742.19504
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 244781.94654
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8815.68398
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 20257.59505
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3330.64473
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 6862.14075
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 207130.70235
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 15047.59163
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 261444.35848
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 9780.93484
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 19857.40109
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5373.88343
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8031.44142
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 236446.72868
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 17760.32509
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-DEP-974",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 297250.71454
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1147195.33927
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1924338.61397
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "3T4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1039523.75425
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 18660812.14586
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3938396.81324
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26710266.66659
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1141215.29246
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1646765.64037
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 571914.90228
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 496374.97349
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 18922494.57142
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4065844.00189
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26844609.38191
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1154546.95314
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1769914.60629
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1017684.385
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 494147.63884
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 19825983.48233
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4412450.87092
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-F",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 28674727.93653
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1127460.4786
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1877265.57761
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "3T4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1020105.08987
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 18213826.50372
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3904454.65993
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26143112.30973
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1121540.02336
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1608290.31873
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 564770.26104
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 483064.0873
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 18449785.73295
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4030538.3917
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26257988.81509
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1134013.56854
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1731718.11355
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1008080.17296
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 477972.13055
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 19301338.72536
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4375591.385
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-FRANCE-FM",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 28028714.09597
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 206069.77881
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 396069.82986
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "3T4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 248202.5963
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2230106.27814
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2318173.24736
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2012",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5398621.73047
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 181092.40438
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 374435.72308
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 117297.58195
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 160014.72929
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2209671.77436
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2398955.79763
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2017",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5441468.01068
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "1",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 196824.84729
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "2",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 406115.0835
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "3",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 252523.54263
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "4",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 144987.48535
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "5",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2223111.74141
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "6",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2499116.28469
+}
+}
+},
+{
+"attributes": {
+"OBS_STATUS": "A"
+},
+"dimensions": {
+"AGE": "Y_GE15",
+"EMPSTA_ENQ": "1",
+"FREQ": "A",
+"GEO": "2026-REG-11",
+"RP_MEASURE": "POP",
+"TIME_PERIOD": "2023",
+"TRANS": "_T",
+"WORK_AREA": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5722678.98487
+}
+}
+}
+]
+}

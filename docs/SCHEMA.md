@@ -1,7 +1,7 @@
 # Schéma de base de données
 
 **Base :** PostgreSQL 17, base `demographie`. **État au :** 21 novembre 2026 (migrations
-001 à 024). La source de vérité est `sql/migrations/` ; ce document en donne la vue
+001 à 025). La source de vérité est `sql/migrations/` ; ce document en donne la vue
 d'ensemble.
 
 ## 1. Principe
@@ -103,6 +103,7 @@ Indicateurs actuels :
 | BESOINS — logement | `LOGEMENTS`, `RESIDENCES_PRINC`, `RESIDENCES_PRINC_CHAUFFAGE`, `PART_PROPRIETAIRES`, `PART_LOCATAIRES_HLM`, `PART_LOGEMENTS_VACANTS`, `PART_CHAUFFAGE_FIOUL`, `NIVEAU_VIE_MEDIAN`, `TAUX_PAUVRETE`, `LOYER_APPARTEMENT_M2`, `LOYER_MAISON_M2`, `PRIX_VENTE_M2`, `ANNEES_REVENU_60M2`, `LOGEMENTS_SOCIAUX` |
 | BESOINS — énergie | `CONSO_ELEC_RESID`, `POINTS_ELEC_RESID`, `CONSO_MOY_ELEC_LOGEMENT`, `CONSO_GAZ_RESID`, `POINTS_GAZ_RESID`, `CONSO_MOY_GAZ_LOGEMENT`, `DPE_ETABLIS`, `PART_DPE_FG`, `IPC` |
 | BESOINS — budget (France) | `DEPENSE_CONSO_MENAGES`, `PART_DEPENSE_PRE_ENGAGEE` |
+| BESOINS — transports et courses | `PRIX_GAZOLE`, `PRIX_SP95_E10` (mensuels, France métropolitaine `FM`), `ACTIFS_TRAJET`, `PART_TRAJET_VOITURE`, `PART_TRAJET_TRANSPORTS_COMMUN`, `MENAGES_VOITURES`, `PART_MENAGES_SANS_VOITURE`, `DEPENSE_CARBURANTS` ; France seulement : `DEPENSE_MOIS_ALIMENTATION`, `DEPENSE_MOIS_TRANSPORTS`, `DEPENSE_MOIS_CARBURANTS` (dépense annuelle / ménages / 12) |
 | BESOINS — soins | `APL_MG`, `PART_POP_APL_MG_FAIBLE`, `ALD_SANS_MT`, `LIEUX_MG`, `PHARMACIES`, `URGENCES`, `MAISONS_SANTE`, `MG_10000`, `PHARMACIES_10000` |
 
 ### `ref.modalite` — valeurs d'une dimension
@@ -187,7 +188,7 @@ migration modifiée après application est détectée.
 | Vue | Type | Rôle |
 | --- | --- | --- |
 | `stat.structure_age` | matérialisée, index unique (`territoire_id`, `periode`) | Agrégats d'âge de `POP` : population, moins de 20, 60 et plus, 65 et plus, 75 et plus |
-| `stat.besoins_derives` | simple | Indicateurs calculés de l'appli 2 (parts d'une modalité dans le total) ; remplacée à chaque thème |
+| `stat.besoins_derives` | simple | Indicateurs calculés de l'appli 2 (parts d'une modalité dans le total, densités, dépenses par ménage et par mois) ; remplacée à chaque thème |
 | `api.territoire` | simple | Territoires avec niveau et code du parent |
 | `api.source` | simple | Sources et licences |
 | `api.indicateur` | simple | Catalogue + source + date de dernière publication + rubrique, thème, angle, bornes |
@@ -226,6 +227,6 @@ Privilèges par défaut : toute nouvelle table de `ingest`/`stat` est accessible
    import ; l'ancienne reste dans le fichier brut.
 5. **Pas de communes en base** : les sources communales sont agrégées au département dans
    le connecteur.
-6. **Une migration par livraison**, numérotée à la suite (prochaine : 025), jamais modifiée
+6. **Une migration par livraison**, numérotée à la suite (prochaine : 026), jamais modifiée
    après fusion. Toute redéfinition de `api.serie` reprend la vue entière et ajoute les
    colonnes en fin.

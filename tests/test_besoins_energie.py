@@ -75,7 +75,7 @@ def test_ipc():
     octobre = {x.modalite: x.valeur for x in lignes if x.periode == date(2026, 10, 1)}
     assert str(octobre[None]) == "103.46"
     assert str(octobre[("poste_ipc", "GAZ")]) == "125.13"
-    assert len(octobre) == 6
+    assert len(octobre) == 9  # ensemble + 8 postes
     assert {x.periode_type for x in lignes} == {"MOIS"}
 
 
