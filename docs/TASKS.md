@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 034). Une nouvelle rubrique, un thème ou une
+   le catalogue change (prochain numéro : 036). Une nouvelle rubrique, un thème ou une
    unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
@@ -139,7 +139,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5Cj
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
 
-- [~] **T1. Catalogue et séries INSEE** — migration 030 (rubrique `TRAVAIL`, ordre 8, sept
+- [x] **T1. Catalogue et séries INSEE** — migration 030 (rubrique `TRAVAIL`, ordre 8, sept
   thèmes, sources `INSEE_EMPLOI` et `INSEE_SIDE`), groupe `demo importer travail` : cinq jeux
   de la BDM filtrés par clé (`connecteurs/travail.py`) : chômage annuel par sexe et âge,
   emploi salarié trimestriel par secteur dont intérim (depuis 2011), emploi total salariés
@@ -147,11 +147,22 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/GAgaMw
   trimestrielles (depuis 1995). Parts de l'intérim et des indépendants calculées à l'import.
   *Critère :* Gironde 702 900 salariés au T2 2026 dont 16 289 intérimaires ; 809 244 emplois
   fin 2024 dont 105 650 indépendants (fichiers complets publiés sans rejet).
-- [ ] **T2. DARES et enquête BMO** — `dares.py` (demandeurs d'emploi par département,
-  somme demandée à l'API ; trimestriel régional), fichier BMO de France Travail ; contrôle
-  départements contre région (écart > 3 % bloquant).
-- [ ] **T3. Pages `/travail`** — vue d'ensemble, fiche département, carte par thème ; quatre
-  questions guidées ; accueil, barre latérale, PRD, APP_FLOW, DESIGN et vitrine.
+- [x] **T2. DARES et enquête BMO** — migration 034 (sources `DARES` et `FT_BMO`, 217 métiers
+  et 8 familles BMO), `connecteurs/dares.py` : demandeurs d'emploi A et ABC par département,
+  région et France, chaque trimestre depuis 1996, corrigés des variations saisonnières, par
+  sexe et âge, dont inscrits depuis un an ou plus (export CSV de l'API ouverte de la DARES ;
+  les départements font la somme de la France à 0,03 % près, ce qui remplace le contrôle
+  départements contre région prévu) ; `connecteurs/bmo.py` : fichiers xlsx de l'enquête BMO
+  (2025 et après, trouvés sur data.gouv.fr), bassins additionnés par département, par famille
+  et par métier, part des projets difficiles calculée à l'import.
+  *Critère :* Gironde 156 520 demandeurs d'emploi ABC au T3 2026 dont 45,8 % depuis un an
+  ou plus ; 67 045 projets de recrutement en 2026 dont 47,1 % jugés difficiles.
+- [~] **T3. Pages `/travail`** — `web/travail.py` : vue France, fiche département, carte par
+  thème (`chercher-creer`, `emploi`, familles de métiers BMO) ; quatre questions guidées avec
+  leur bloc ; migration 035 (vue `api.ventilation` : sexe, âge et modalités, que `api.serie`
+  ne montre pas) ; accueil, barre latérale, pied de page, vitrine, PRD, APP_FLOW, DESIGN.
+  *Critère :* fiche Gironde avec 156 520 demandeurs d'emploi, 67 045 projets dont 47,1 %
+  difficiles, 702 900 salariés et le rang de chaque part ; Mayotte avec ses manques signalés.
 
 ### Appli « Les Français sont-ils en sécurité ? »
 

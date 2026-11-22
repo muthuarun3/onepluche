@@ -129,7 +129,7 @@ utilisée.
 | `soins` | DREES, accessibilité aux médecins généralistes (APL) ; Assurance maladie, ALD sans médecin traitant ; INSEE Melodi, équipements de santé (BPE) |
 | `avenir` | INSEE, projections de population par département 2018-2070 (Omphale 2022 : scénarios central, population basse, population haute ; XLSX) et pour la France (2026, Insee Première n° 2108). Contrôles propres : 101 départements, population de 2018 à moins de 1 % des estimations, fourchette basse ≤ centrale ≤ haute ; publication dans `stat.projection` |
 | `securite` | Ministère de l'Intérieur : SSMSI, délinquance enregistrée par département (CSV data.gouv.fr, édition de juillet) ; ONISR, accidents corporels de la route (deux fichiers BAAC par an, rangés dans une archive zip) ; enquêtes de victimation CVS (cube data.gouv.fr) et VRS (`imports/fichiers/vrs.csv`, recopié des publications, rappel en décembre) |
-| `travail` | INSEE BDM, cinq jeux filtrés par clé SDMX (sans clé, réponse refusée car trop volumineuse) : chômage annuel par sexe et âge, emploi salarié par secteur et intérim, emploi total, créations et défaillances d'entreprises |
+| `travail` | INSEE BDM, cinq jeux filtrés par clé SDMX (sans clé, réponse refusée car trop volumineuse) : chômage annuel par sexe et âge, emploi salarié par secteur et intérim, emploi total, créations et défaillances d'entreprises ; DARES, demandeurs d'emploi trimestriels par département (export CSV de l'API Opendatasoft) ; France Travail, enquête BMO (xlsx trouvés sur data.gouv.fr, bassins additionnés par département, « * » compté zéro) |
 
 `demo importer tout` lance l'ensemble, dans cet ordre (estimations d'abord).
 
