@@ -126,6 +126,7 @@ utilisée.
 | `budget` | INSEE Melodi, comptes nationaux : dépense des ménages par poste, dépenses pré-engagées |
 | `transports` | Ministère de l'Économie, prix des carburants déclarés par les stations (moyennes par département calculées par l'API Opendatasoft, un relevé par mois) ; INSEE Melodi, trajets domicile-travail et voitures des ménages (recensement), dépense en carburants (comptes nationaux) |
 | `soins` | DREES, accessibilité aux médecins généralistes (APL) ; Assurance maladie, ALD sans médecin traitant ; INSEE Melodi, équipements de santé (BPE) |
+| `securite` | Ministère de l'Intérieur (SSMSI), délinquance enregistrée par département (CSV data.gouv.fr, édition de juillet) |
 
 `demo importer tout` lance l'ensemble, dans cet ordre (estimations d'abord).
 

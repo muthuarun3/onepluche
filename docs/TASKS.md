@@ -113,6 +113,20 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   les filtres contre la base. Préalable aux six nouvelles applis construites en parallèle.
   *Critère :* une rubrique d'essai s'ajoute par simples INSERT (test `test_rubriques.py`).
 
+### Appli « Les Français sont-ils en sécurité ? »
+
+Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/SGDKicMRrwHwF1qULSCpM2>.
+
+- [~] **S1. Catalogue et délinquance enregistrée** — migration 027 (rubrique `SECURITE`, six
+  familles, 32 indicateurs `FAITS_…` et `TAUX_…`), groupe `demo importer securite` : base
+  départementale du SSMSI, 16 atteintes de 2016 à 2025 ; France, France métropolitaine et
+  régions = somme des départements, taux rapporté à la somme des habitants ou logements.
+  *Critère :* Paris 7 072 cambriolages en 2025, France 975 homicides en 2025 (fichier complet).
+- [ ] **S2. Routes et ressenti** — ONISR (tués et blessés hospitalisés depuis 2016, deux
+  formats de fichier), enquêtes CVS (2007-2019) et VRS (`vrs.csv` recopié des rapports).
+- [ ] **S3. Pages `/securite`** — France, département, comparer ; six questions guidées ;
+  accueil, barre latérale, PRD, APP_FLOW, DESIGN et vitrine.
+
 ### Appli 2 — données (phases B et C)
 
 - [~] **Courses, carburant et transports** (demande de Muthu, 21/11/2026) — migration 025,

@@ -12,6 +12,7 @@ from demographie.imports.connecteurs.besoins import (
     POIDS_RP_LOUEES,
     RESIDENCES_PRINCIPALES,
 )
+from demographie.imports.connecteurs.delinquance import DELINQUANCE
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.dvf import VENTES
 from demographie.imports.connecteurs.energie import DIAGNOSTICS, ELECTRICITE, GAZ, PRIX
@@ -85,4 +86,6 @@ CONNECTEURS = {
         VOITURES_MENAGES,
         DEPENSE_CARBURANTS,
     ),
+    # Appli « Les Français sont-ils en sécurité ? »
+    "securite": (DELINQUANCE,),
 }
