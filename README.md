@@ -14,7 +14,7 @@ importée pour l'instant (phase 1).
 
 - Python côté serveur, HTML rendu côté serveur, JavaScript minimal, sans étape de compilation.
 - PostgreSQL comme unique stockage. SQL écrit à la main, toujours paramétré.
-- Cinq dépendances d'exécution : fastapi, uvicorn, psycopg, jinja2, openpyxl.
+- Sept dépendances d'exécution : fastapi, uvicorn, psycopg, jinja2, openpyxl, defusedxml, pyarrow.
 - Chaque chiffre affiché indique sa source, son millésime et son statut.
 
 ## Organisation

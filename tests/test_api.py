@@ -22,7 +22,7 @@ def test_territoires(urls_db):
     reponse = client.get("/api/v1/territoires")
     assert reponse.status_code == 200
     donnees = reponse.json()
-    assert len(donnees) == 121
+    assert len(donnees) == 123  # dont 2 territoires hors département (VOTES)
     assert donnees[0]["code"] == "FR"
 
 
