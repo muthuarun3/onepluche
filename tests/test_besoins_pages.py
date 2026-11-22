@@ -103,3 +103,26 @@ def test_pages(urls_module):
 
     assert client.get("/besoins/DEP/99").status_code == 404
     assert client.get("/besoins/DEP/ABC").status_code == 422
+
+    # Pages par thème : carte et classement, départements sans donnée signalés.
+    assert 'href="/besoins/theme/soins"' in vue
+    assert 'href="/besoins/theme/soins">Comparer les départements' in html
+    carte = client.get("/besoins/theme/soins")
+    assert carte.status_code == 200
+    soins_html = carte.text
+    assert "<h1>Accès aux soins" in soins_html
+    assert '<option value="APL_MG" selected>' in soins_html  # chiffre clé du thème
+    # Paris (4,57) devant la Creuse (2,40) ; chaque ligne mène à la fiche.
+    assert soins_html.index('href="/besoins/DEP/75"') < soins_html.index('href="/besoins/DEP/23"')
+    assert "2,40 consultations" in soins_html
+    assert "Sans donnée pour 2024" in soins_html and 'href="/besoins/DEP/2A"' in soins_html
+    # Carte SVG colorée : Paris dans l'encart, la plus forte valeur à 100 %.
+    assert 'class="carte coloree"' in soins_html
+    assert "Paris (75) : 4,57 consultations" in soins_html
+    assert "var(--serie) 100%" in soins_html and 'class="sans-donnee"' in soins_html
+    assert "echarts" not in soins_html
+    ald = client.get("/besoins/theme/soins", params={"indicateur": "ALD_SANS_MT"}).text
+    assert '<option value="ALD_SANS_MT" selected>' in ald and "4,3\u00a0%" in ald
+    assert client.get("/besoins/theme/inconnu").status_code == 404
+    assert client.get("/besoins/theme/budget").status_code in (200, 404)
+    assert client.get("/besoins/theme/soins", params={"indicateur": "IPC"}).status_code == 404

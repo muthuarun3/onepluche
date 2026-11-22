@@ -83,3 +83,10 @@ def hausse_prix(conn: psycopg.Connection, debut: int) -> list[dict]:
     """Hausse des prix (France), ensemble et postes, de `debut` (ou la première année
     complète) à la dernière année complète, en %."""
     return conn.execute(charger_sql(_SQL, "hausse_prix"), {"debut": debut}).fetchall()
+
+
+def classement(conn: psycopg.Connection, indicateur: str) -> list[dict]:
+    """Valeur de l'indicateur pour chaque département à sa dernière période publiée,
+    de la plus forte à la plus faible (départements sans valeur en dernier), avec la
+    valeur France de la même période. Liste vide si aucun département n'est publié."""
+    return conn.execute(charger_sql(_SQL, "classement"), {"indicateur": indicateur}).fetchall()

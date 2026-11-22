@@ -88,6 +88,11 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
   outre-mer en boutons à côté, liste complète repliée. Sans choix : France entière.
   Contours dans `web/contours.json`, régénérés par `outils/contours_svg.py`.
   *Critère :* toucher un territoire ouvre sa fiche ; aucun défilement horizontal à 390 px.
+- [x] **D4. Carte des départements partagée** — reprend les contours de `web/contours.json`
+  (SVG dessiné par le serveur, sans JavaScript), colorés par indicateur en une seule teinte ;
+  page `/besoins/theme/{theme}` : choix de l'indicateur, valeur France, plus haut et plus
+  bas, carte (outre-mer en pastilles), classement, départements sans donnée listés.
+  *Critère :* clic sur un département (carte ou classement) → sa fiche.
 
 ## En cours
 
@@ -104,10 +109,6 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 
 ### Appli 2 — interface (phase D)
 
-- [ ] **D4. Carte des départements partagée** — reprend les contours de `web/contours.json`
-  (déjà versionnés pour le choix du territoire), colorés par indicateur ; page
-  `/besoins/theme/{theme}` : carte, classement, valeur France.
-  *Critère :* clic sur un département → sa fiche ; départements sans donnée signalés.
 - [ ] **D5. Six questions guidées de l'appli 2** — formulaire en listes, réponse = phrase à
   modèle fixe + graphique + source.
 - [ ] **D6. Clôture du MVP de l'appli 2** — vitrine à jour ; les sept critères du dossier

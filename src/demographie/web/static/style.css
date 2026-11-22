@@ -231,3 +231,28 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
   .carte path { fill: Canvas; stroke: CanvasText; stroke-width: 1; }
   .carte a:hover path, .carte a:focus-visible path { fill: Highlight; }
 }
+
+/* Pages par thème de l'appli 2 : onglets des thèmes, choix de l'indicateur, carte. */
+.onglets { display: flex; flex-wrap: wrap; gap: .25rem .5rem; margin: .5rem 0 1rem; }
+.onglets a { padding: .25rem .6rem; border: 1px solid var(--bordure); border-radius: 999px;
+  text-decoration: none; font-size: .9rem; }
+.onglets a[aria-current="page"] { background: var(--serie); border-color: var(--serie);
+  color: var(--surface); }
+.choix-indicateur { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.choix-indicateur select { max-width: 100%; min-width: 0; font: inherit; padding: .25rem; }
+.choix-indicateur button { font: inherit; padding: .25rem .75rem; }
+/* Carte colorée : la teinte de chaque département vient du gabarit (color-mix). */
+.carte.coloree path { stroke: var(--surface); stroke-width: 1; }
+.carte.coloree path.sans-donnee, .carte.coloree a:hover path.sans-donnee { fill: var(--surface);
+  stroke: var(--bordure); }
+.carte.coloree a:hover path, .carte.coloree a:focus-visible path { stroke: var(--texte);
+  stroke-width: 3; }
+.degrade { display: flex; align-items: center; gap: .5rem; font-size: .85rem;
+  color: var(--texte-2); font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+.degrade-barre { flex: 1 1 6rem; height: .7rem; border-radius: 2px;
+  background: linear-gradient(to right, var(--grille), var(--serie)); }
+.pastille.sans-donnee { background: var(--surface); border: 1px solid var(--bordure); }
+.outre-mer .pastille { margin: 0 .4rem 0 0; vertical-align: -1px; }
+.classement table { width: 100%; }
+.classement th[scope="row"] { text-align: left; font-weight: 400; }
+.lien-theme { font-size: .9rem; font-weight: 400; margin-left: .5rem; }
