@@ -42,6 +42,9 @@ Navigateur ──► https://onepluche.duckdns.org
 ├── /securite                      Les Français sont-ils en sécurité ? vue France   ✅
 │   ├── /securite/DEP/{code}       Fiche département : taux, France, rang           ✅
 │   └── /securite/famille/{famille} Carte et classement d'une famille d'atteintes   ✅
+├── /travail                       Comment travaillent les Français ? vue France     🔶
+│   ├── /travail/DEP/{code}        Fiche département : mêmes blocs, France, rang     🔶
+│   └── /travail/theme/{theme}     Carte et classement (taux et parts)               🔶
 ├── /argent-public                 Où va l'argent public ? vue France               🔶
 │   ├── /argent-public/etat        Budget de l'État                                 ⬜
 │   ├── /argent-public/DEP/{code}  Fiche département : dépenses locales, CatNat     ⬜
@@ -77,6 +80,7 @@ par l'accueil et par la barre latérale. Ajouter une application = ajouter une e
 | Carte « De quoi les Français ont besoin ? » | `/besoins` |
 | Carte « Quel avenir pour les Français ? » | `/avenir` |
 | Carte « Les Français sont-ils en sécurité ? » | `/securite` |
+| Carte « Comment travaillent les Français ? » | `/travail` |
 | Carte « Où va l'argent public ? » | `/argent-public` |
 
 ### Qui sont les Français ? `/francais` (✅ sur `/` aujourd'hui, 🔶 déplacé par la PR #21)
@@ -129,6 +133,14 @@ Défilement horizontal du seul tableau sur téléphone.
 | `/securite` | Une carte par famille (personnes, vols, biens, stupéfiants, routes) : l'atteinte phare en grand avec sa phrase (« 211 596 cambriolages de logement enregistrés en 2025, 15 % de moins qu'en 2016 »), sa courbe depuis 2016 et les autres atteintes dépliables ; « La délinquance augmente-t-elle ? » (atteintes en hausse, stables ou en baisse depuis 2016) ; violences sexuelles ; le ressenti (trois parts, courbe coupée entre les enquêtes CVS et VRS), toujours après les faits ; six questions guidées ; carte des départements | Toucher un département → `/securite/DEP/{code}` ; « Comparer les départements » → `/securite/famille/{famille}` ; questions guidées → ancre de la page ou carte |
 | `/securite/DEP/{code}` | Bandeau pour Paris et les départements très touristiques ; par famille, chaque atteinte : taux du département, taux France, rang parmi les départements (1 = le plus élevé), nombre | Lien vers `/territoire/DEP/{code}` ; vers chaque famille ; département inconnu → 404 |
 | `/securite/famille/{famille}` (`personnes`, `vols`, `biens`, `stupefiants`, `routes`) | Onglets des familles ; taux seulement (pour 1 000 habitants ou logements, tués par million) ; valeur France, plus haut et plus bas ; carte colorée ; classement | `?indicateur=` ; famille inconnue, `ressenti` (France seulement) ou indicateur d'une autre famille → 404 |
+
+### Rubrique `/travail` (🔶, appli travail)
+
+| Page | Contenu | Interactions |
+| --- | --- | --- |
+| `/travail` | Quatre questions guidées (liens vers les blocs) ; « Qui cherche et qui crée » : chômage (phrase « France : 8,3 % de chômeurs au 2e trimestre 2026, contre 7,5 % un an plus tôt », 15-24 ans, courbe depuis 1982), demandeurs d'emploi (A, B, C et A, part depuis un an ou plus, courbe), métiers qui peinent à recruter (5 plus difficiles parmi ceux d'au moins 50 projets, 10 qui recrutent le plus, familles), créations sur 12 mois et défaillances sur 4 trimestres (courbe par année) ; « Qui travaille » : salariés par secteur et évolution sur un an, intérim, indépendants ; carte des départements | Toucher un département → `/travail/DEP/{code}` ; « Comparer les départements » → `/travail/theme/{theme}` ; famille de métiers → carte de cette famille |
+| `/travail/DEP/{code}` | Les mêmes blocs pour le département, avec la valeur France et le rang (1 = la plus élevée) des taux et parts ; courbe du chômage sur 10 ans à côté de la France | Lien vers `/territoire/DEP/{code}` (métiers exercés) ; département inconnu → 404 |
+| `/travail/theme/{theme}` (`chercher-creer`, `emploi`) | Onglets des thèmes ; taux et parts seulement (chômage, longue durée, recrutements difficiles ; intérim, indépendants) ; pour les recrutements difficiles, onglets des 8 familles de métiers ; valeur France, plus haut, plus bas, carte colorée, classement | `?indicateur=`, `?famille=` ; thème, indicateur ou famille inconnus → 404 |
 
 Absences de données affichées comme telles (exemple : Alsace-Moselle et Mayotte pour DVF),
 jamais comme zéro : « — » et « Pas de donnée pour ce département ». Sur la fiche, la valeur

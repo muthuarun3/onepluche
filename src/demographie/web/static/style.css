@@ -270,6 +270,7 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .questions-guidees { margin: 0 0 1.5rem; }
 .questions-guidees ul { margin: .5rem 0 0; padding-left: 1.25rem; }
 .questions-guidees li { margin: .35rem 0; }
+.titre-partie { margin: 1.75rem 0 .75rem; }
 #evolution, #violences-sexuelles, #ressenti { margin: 0 0 1rem; }
 .atteintes .mesure-note strong { color: var(--texte); font-weight: 600; }
 /* Rubrique « Où va l'argent public ? » : la part empruntée, la bascule des euros. */

@@ -12,6 +12,7 @@ from demographie.imports.connecteurs.besoins import (
     POIDS_RP_LOUEES,
     RESIDENCES_PRINCIPALES,
 )
+from demographie.imports.connecteurs.bmo import BMO
 from demographie.imports.connecteurs.comptes_publics import (
     DEPENSES_RECETTES,
     DETTE,
@@ -22,6 +23,7 @@ from demographie.imports.connecteurs.comptes_publics import (
     RECETTES_NATURE,
     SOLDE,
 )
+from demographie.imports.connecteurs.dares import DEMANDEURS
 from demographie.imports.connecteurs.delinquance import DELINQUANCE
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.dvf import VENTES
@@ -113,7 +115,15 @@ CONNECTEURS = {
     # départ des projections est comparée aux estimations publiées.
     "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE),
     # Appli « Comment travaillent les Français ? »
-    "travail": (CHOMAGE_ANNUEL, EMPLOI_SALARIE, EMPLOI_TOTAL, CREATIONS, DEFAILLANCES),
+    "travail": (
+        CHOMAGE_ANNUEL,
+        EMPLOI_SALARIE,
+        EMPLOI_TOTAL,
+        CREATIONS,
+        DEFAILLANCES,
+        DEMANDEURS,
+        BMO,
+    ),
     # Appli « Où va l'argent public ? » : comptes des administrations publiques (France).
     "argent": (
         DETTE,

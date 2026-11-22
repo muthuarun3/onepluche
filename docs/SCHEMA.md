@@ -89,7 +89,9 @@ et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI
 `TRAVAIL` (`/travail`, ordre 8, migration 030, thème obligatoire) et ses thèmes
 `CHERCHER_CREER`, `EMPLOI`, `CONDITIONS`, `SALAIRES`, `TELETRAVAIL`, `ACCIDENTS`,
 `SYNDICATS_GREVES`. Modalités ajoutées : `secteur` `INTERIM`, `statut_emploi` (`SALARIE`,
-`NON_SALARIE`), `type_entreprise` `MICRO` ;
+`NON_SALARIE`), `type_entreprise` `MICRO` (migration 030) ; `anciennete` `UN_AN_OU_PLUS`,
+`famille_metier` (8 familles de l'enquête BMO, codes A, C, I, O, S, T, V, Z) et `metier_bmo`
+(217 métiers, code FAP de l'enquête) (migration 034) ;
 `ARGENT` (`/argent-public`,
 ordre 5, migration 033, thème obligatoire) et ses thèmes `DEPENSES`, `RECETTES`, `DETTE`,
 `ETAT`, `LOCAL`, `MENAGE`, `CLIMAT`, avec l'unité `milliards_euros` et les dimensions de
@@ -252,6 +254,7 @@ migration modifiée après application est détectée.
 | `api.serie_age` | simple | Valeurs par tranche d'âge (tous sexes, sans modalité) des indicateurs de la rubrique BESOINS : encadré 18-39 ans de la fiche département (migration 023) |
 | `api.structure` | simple | Pyramide : effectifs `POP` par sexe et tranche d'âge |
 | `api.repartition` | simple | Valeur d'une modalité avec le total de la même série (calcul des parts) |
+| `api.ventilation` | simple | Toutes les observations ventilées (sexe, âge ou modalité), avec leur période exacte : ce que `api.serie` ne montre pas (rubrique travail : secteurs, familles et métiers BMO, chômage par âge ; migration 035) |
 | `api.scenario` | simple | Scénarios dans l'ordre d'affichage (migration 028) |
 | `api.projection` | simple | Valeurs projetées : indicateur, niveau, code, scénario, année, période, sexe, âges, statistique |
 | `api.projection_population` | simple | Par territoire, scénario et année : population, part des moins de 20 ans et des 75 ans ou plus, 65 ans ou plus pour 100 personnes de 20 à 64 ans (calculés depuis `PROJ_POP`) |
