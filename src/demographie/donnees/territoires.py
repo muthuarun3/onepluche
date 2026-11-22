@@ -7,7 +7,8 @@ import psycopg
 from demographie.db import charger_sql
 
 _SQL = Path(__file__).parent / "sql"
-NIVEAUX = ("FRANCE", "REG", "DEP")
+# HORS_DEP : Français de l'étranger et collectivités d'outre-mer (rubrique VOTES).
+NIVEAUX = ("FRANCE", "REG", "DEP", "HORS_DEP")
 
 
 def lister(conn: psycopg.Connection, niveau: str | None = None) -> list[dict]:

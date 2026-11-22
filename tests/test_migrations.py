@@ -31,7 +31,7 @@ def test_referentiel_geographique(base_test):
         comptes = dict(
             conn.execute("SELECT niveau, count(*) FROM ref.territoire GROUP BY niveau").fetchall()
         )
-        assert comptes == {"FRANCE": 2, "REG": 18, "DEP": 101}
+        assert comptes == {"FRANCE": 2, "REG": 18, "DEP": 101, "HORS_DEP": 2}
         orphelins = conn.execute(
             """
             SELECT count(*) FROM ref.territoire d
@@ -95,7 +95,7 @@ def test_contraintes_observation(base_test):
 
 def test_role_lecture_limite_au_schema_api(base_test):
     with psycopg.connect(base_test["lecture"]) as conn:
-        assert conn.execute("SELECT count(*) FROM api.territoire").fetchone()[0] == 121
+        assert conn.execute("SELECT count(*) FROM api.territoire").fetchone()[0] == 123
         conn.rollback()
         with pytest.raises(psycopg.errors.InsufficientPrivilege):
             conn.execute("SELECT * FROM ref.territoire")

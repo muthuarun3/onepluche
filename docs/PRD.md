@@ -134,6 +134,23 @@ suivront. Dossier : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
 blocs, valeur France et rang), carte par thème (taux et parts seulement ; famille de métiers
 au choix). Quatre questions guidées, chacune avec son bloc.
 
+### Appli « Que pensent et votent les Français ? » (`/votes`, en construction)
+
+Qui vote, pour qui, et qui sont les élus, par département : participation, blancs et nuls,
+résultats officiels des présidentielles 2002 à 2022, des législatives 2022 et 2024, des
+européennes 2019 et 2024 (municipales 2020 et 2026 : participation seulement), et portrait
+des élus (sexe, âge, métiers) d'après le Répertoire national des élus. Les Français de
+l'étranger et les collectivités d'outre-mer sont deux territoires à part. L'opinion
+(baromètres nationaux) viendra dans un second temps.
+
+Règles de neutralité : libellés officiels tels quels (candidats, listes, nuances), aucun
+regroupement en blocs, ni sondages ni projections ; une seule couleur pour tous les choix,
+triés par voix ; phrases factuelles, sans mot de jugement (test automatique) ; aucun nom
+d'élu. Un croisement avec les rubriques 1 et 2 dit toujours « corrélation, pas cause ».
+
+Écrans : carte de choix du territoire, fiche département, page d'un scrutin. Six questions
+guidées. Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5CjJyHwvtypASUQLfCu>.
+
 ### Appli « Où va l'argent public ? » (`/argent-public`)
 
 Ce que dépensent les administrations publiques (État et organismes nationaux, Sécurité
@@ -173,6 +190,7 @@ n'est décidée à ce jour.
 | F14 | Rubrique `/avenir` : projections de population (vue France, fiche département) ; climat et risques ensuite | Population en PR (appli 5, phase A) |
 | F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
 | F16 | Rubrique `/travail` : vue France, fiche département, carte par thème, quatre questions guidées | En PR (appli travail, T3) |
+| F17 | Rubrique `/votes` : participation, résultats et élus par département ; carte, fiche, page d'un scrutin | Fondations en PR (appli votes, V1) |
 | F13 | Vitrine Neocities à jour, même direction artistique que l'appli | PR #22 ouverte |
 
 Le détail et l'ordre de livraison sont dans [TASKS.md](TASKS.md).
