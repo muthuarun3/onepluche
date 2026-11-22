@@ -12,6 +12,8 @@ from demographie.imports.connecteurs.besoins import (
     POIDS_RP_LOUEES,
     RESIDENCES_PRINCIPALES,
 )
+from demographie.imports.connecteurs.bmo import BMO
+from demographie.imports.connecteurs.dares import DEMANDEURS
 from demographie.imports.connecteurs.delinquance import DELINQUANCE
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.dvf import VENTES
@@ -110,5 +112,13 @@ CONNECTEURS = {
     # Appli 3 : comment vivent les Français ?
     "vivre": (REVENUS_FILOSOFI, SALAIRES_CATEGORIES, SALAIRES_AGES),
     # Appli « Comment travaillent les Français ? »
-    "travail": (CHOMAGE_ANNUEL, EMPLOI_SALARIE, EMPLOI_TOTAL, CREATIONS, DEFAILLANCES),
+    "travail": (
+        CHOMAGE_ANNUEL,
+        EMPLOI_SALARIE,
+        EMPLOI_TOTAL,
+        CREATIONS,
+        DEFAILLANCES,
+        DEMANDEURS,
+        BMO,
+    ),
 }

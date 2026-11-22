@@ -120,6 +120,20 @@ augmente-t-elle ? », violences sexuelles, ressenti), fiche département (taux, 
 rang ; bandeau pour Paris et les départements très touristiques), carte par famille. Six
 questions guidées. Taux de plainte reportés (rapports VRS en PDF seulement).
 
+### Appli « Comment travaillent les Français ? » (`/travail`)
+
+Qui cherche et qui crée : taux de chômage (trimestriel depuis 1982, et des 15-24 ans en
+moyenne annuelle), demandeurs d'emploi A, B, C chaque trimestre depuis 1996 (DARES, rupture
+de 2025 signalée), projets de recrutement et part jugée difficile par métier et famille
+(enquête BMO de France Travail), créations (Sirene) et défaillances d'entreprises (Banque de
+France). Qui travaille : emploi salarié par grand secteur et intérim, part des indépendants.
+Les cinq autres thèmes (contrats, salaires, télétravail, accidents, syndicats et grèves)
+suivront. Dossier : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
+
+Écrans : vue France (les blocs pour la France, puis la carte), fiche département (les mêmes
+blocs, valeur France et rang), carte par thème (taux et parts seulement ; famille de métiers
+au choix). Quatre questions guidées, chacune avec son bloc.
+
 ### Autres questions
 
 D'autres applications pourront s'ajouter, chacune avec sa question sur l'accueil. Aucune
@@ -143,6 +157,7 @@ n'est décidée à ce jour.
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
 | F14 | Rubrique `/avenir` : projections de population (vue France, fiche département) ; climat et risques ensuite | Population en PR (appli 5, phase A) |
 | F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
+| F16 | Rubrique `/travail` : vue France, fiche département, carte par thème, quatre questions guidées | En PR (appli travail, T3) |
 | F13 | Vitrine Neocities à jour, même direction artistique que l'appli | PR #22 ouverte |
 
 Le détail et l'ordre de livraison sont dans [TASKS.md](TASKS.md).

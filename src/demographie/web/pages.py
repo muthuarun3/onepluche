@@ -68,6 +68,12 @@ QUESTIONS = (
         "resume": "Violences, vols, dégradations, stupéfiants, routes, et ce que les Français "
         "ressentent.",
     },
+    {
+        "titre": "Comment travaillent les Français ?",
+        "lien": "/travail",
+        "resume": "Chômage, demandeurs d'emploi, métiers qui peinent à recruter, créations "
+        "d'entreprises, secteurs qui embauchent.",
+    },
 )
 gabarits.env.globals["questions_menu"] = QUESTIONS
 

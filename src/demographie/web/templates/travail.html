@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% from "_carte.html" import choix_territoire %}
+{% macro courbe(donnees, libelle, unite="nombre") -%}
+{% if donnees %}<div class="courbe" role="img" aria-label="{{ libelle }}" data-unite="{{ unite }}" data-courbe='{{ donnees|tojson }}'></div>{% endif %}
+{%- endmacro %}
+{% macro source(code) -%}{% set d = definitions.get(code) %}
+{% if d %}<p class="source">Source : <a href="{{ d.source_url }}" rel="noopener">{{ d.source_libelle }}</a>, {{ d.source_licence }}.{% if d.avertissement %} {{ d.avertissement }}{% endif %}</p>{% endif %}
+{%- endmacro %}
+{% macro rang(code, prefixe=" · ") -%}{% set r = parts.get(code) %}
+{% if fiche and r %}{{ prefixe }}France : {{ r.france_valeur|chiffre("pourcentage") }}{% if r.france_code == "FM" %} (métropole){% endif %} · rang <strong>{{ r.rang }}</strong> sur {{ r.classes }}{% endif %}
+{%- endmacro %}
+{% block titre %}{% if fiche %}{{ fiche.libelle }} : travail{% else %}Comment travaillent les Français ?{% endif %} · On épluche{% endblock %}
+{% block contenu %}
+{% set ici = fiche.libelle if fiche else "France" %}
+{% if fiche %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/travail">Comment travaillent les Français ?</a> › {{ fiche.libelle }}
+</nav>
+<h1>{{ fiche.libelle }} <span class="niveau">Département {{ fiche.code }}</span></h1>
+<p class="intro">Le chômage, les demandeurs d'emploi, les métiers qui peinent à recruter, les
+  entreprises créées et en difficulté, puis qui travaille et dans quel secteur, comparés à la
+  France (rang 1 : la valeur la plus élevée des départements).
+  <a href="/territoire/DEP/{{ fiche.code }}">Quels métiers exercent les habitants de ce département ?</a></p>
+{% else %}
+<h1>Comment travaillent les Français&nbsp;?</h1>
+<p class="intro">Qui cherche un emploi, qui embauche et qui crée son entreprise ; puis qui
+  travaille, salarié ou à son compte, et dans quel secteur. Les chiffres viennent de l'INSEE,
+  de la DARES, de France Travail et de la Banque de France ; chacun porte sa source et sa date.</p>
+{% endif %}
+
+{% if not avec_donnees %}
+<p class="bandeau">{% if fiche %}Pas encore de chiffre du travail pour ce département.{% else %}Les chiffres du travail ne sont pas encore importés.{% endif %}</p>
+{% endif %}
+
+<section class="bloc questions-guidees">
+  <h2>Questions guidées</h2>
+  <ul>
+    {% for titre, ancre in questions %}<li><a href="#{{ ancre }}">{{ titre }}</a></li>{% endfor %}
+  </ul>
+  {% if not fiche %}<p class="muet">Les réponses ci-dessous portent sur la France ;
+    <a href="#choix-titre">choisissez un département</a> pour les siennes.</p>{% endif %}
+</section>
+
+<h2 class="titre-partie">Qui cherche et qui crée <a class="lien-theme" href="/travail/theme/chercher-creer">Comparer les départements</a></h2>
+<div class="blocs">
+  <section class="bloc" id="chomage">
+    <h2>Le chômage baisse-t-il ?</h2>
+    {% set c = chomage %}
+    {% if c %}{% set r = c.resume %}
+    <p class="phrase">{{ ici }} : <strong class="grand">{{ r.valeur|chiffre("pourcentage") }}</strong>
+      de chômeurs au {{ r.libelle }}{% if r.provisoire %} (provisoire){% endif %}{% if r.avant is not none %},
+      contre {{ r.avant|chiffre("pourcentage") }} un an plus tôt ({{ r.ecart|signe("point") }}){% endif %}.
+      {% if c.france is not none %}France : {{ c.france|chiffre("pourcentage") }}.{% endif %}</p>
+    {% if fiche and parts.get("TAUX_CHOMAGE") %}<p class="muet">Rang <strong>{{ parts.TAUX_CHOMAGE.rang }}</strong> sur {{ parts.TAUX_CHOMAGE.classes }} départements.</p>{% endif %}
+    {% if c.jeunes %}<p class="detail">Chez les 15-24 ans qui travaillent ou cherchent un
+      emploi : {{ c.jeunes.valeur|chiffre("pourcentage") }} en moyenne en {{ c.jeunes.annee }}{% if c.jeunes.france is not none %}
+      (France : {{ c.jeunes.france|chiffre("pourcentage") }}){% endif %}.</p>{% endif %}
+    {{ courbe(c.courbe, "Taux de chômage, " ~ ici, "pourcentage") }}
+    {{ source("TAUX_CHOMAGE") }}
+    {% else %}<p class="muet">Pas de taux de chômage publié{% if fiche %} pour ce département{% endif %}.</p>{% endif %}
+  </section>
+
+  <section class="bloc" id="demandeurs">
+    <h2>Les demandeurs d'emploi</h2>
+    {% set d = demandeurs %}
+    {% if d %}{% set r = d.resume %}
+    <p class="phrase"><strong class="grand">{{ r.valeur|chiffre("nombre") }}</strong> inscrits à
+      France Travail (catégories A, B, C) au {{ r.libelle }}{% if r.evolution is not none %},
+      {{ r.evolution|signe }} en un an{% endif %}.</p>
+    <div class="chiffres">
+      <div class="chiffre"><div class="chiffre-libelle">Sans aucune activité (A)</div>
+        <div class="chiffre-valeur">{{ d.a|chiffre("nombre") }}</div></div>
+      <div class="chiffre"><div class="chiffre-libelle">Inscrits depuis un an ou plus</div>
+        <div class="chiffre-valeur">{{ d.longue_duree|chiffre("pourcentage") }}</div>
+        <div class="chiffre-note">{{ rang("PART_LONGUE_DUREE", "") }}</div></div>
+    </div>
+    {{ courbe(d.courbe, "Demandeurs d'emploi, " ~ ici) }}
+    {{ source("DEMANDEURS_EMPLOI") }}
+    {% else %}<p class="muet">Pas de chiffre de demandeurs d'emploi{% if fiche %} pour ce département (Mayotte n'est pas publiée){% endif %}.</p>{% endif %}
+  </section>
+
+  <section class="bloc" id="metiers">
+    <h2>Quels métiers peinent à recruter ?</h2>
+    {% set m = metiers %}
+    {% if m %}
+    <p class="phrase"><strong class="grand">{{ m.projets|chiffre("nombre") }}</strong> projets
+      d'embauche déclarés par les employeurs pour {{ m.annee }}, dont
+      {{ m.part|chiffre("pourcentage") }} jugés difficiles.{{ rang("PART_RECRUTEMENTS_DIFFICILES") }}</p>
+    {% if m.tension %}
+    <h3>Les plus difficiles <span class="muet">(au moins {{ projets_min }} projets)</span></h3>
+    <ul class="mesures">
+      {% for t in m.tension %}
+      <li><span class="mesure-libelle">{{ t.libelle }}</span>
+        <span class="mesure-valeur">{{ t.part|chiffre("pourcentage") }}</span>
+        <span class="mesure-note">de projets difficiles sur {{ t.projets|chiffre("nombre") }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <details class="autres">
+      <summary>Les 10 métiers qui recrutent le plus</summary>
+      <div class="tableau-defilant">
+        <table>
+          <thead><tr><th>Métier</th><th>Projets</th><th>Difficiles</th></tr></thead>
+          <tbody>
+            {% for t in m.top %}
+            <tr><th scope="row">{{ t.libelle }}</th><td>{{ t.projets|chiffre("nombre") }}</td>
+              <td>{{ t.part|chiffre("pourcentage") if t.part is not none else "—" }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    {% if m.familles %}
+    <details class="autres">
+      <summary>Par famille de métiers</summary>
+      <ul class="mesures">
+        {% for f in m.familles %}
+        <li><span class="mesure-libelle"><a href="/travail/theme/chercher-creer?indicateur=PART_RECRUTEMENTS_DIFFICILES&amp;famille={{ f.code }}">{{ f.libelle }}</a></span>
+          <span class="mesure-valeur">{{ f.part|chiffre("pourcentage") }}</span>
+          <span class="mesure-note">de projets difficiles</span></li>
+        {% endfor %}
+      </ul>
+    </details>
+    {% endif %}
+    {{ source("PROJETS_RECRUTEMENT") }}
+    {% else %}<p class="muet">L'enquête Besoins en main-d'œuvre n'est pas encore importée.</p>{% endif %}
+  </section>
+
+  <section class="bloc" id="entreprises">
+    <h2>Crée-t-on plus d'entreprises qu'il n'en ferme ?</h2>
+    {% set e = entreprises %}
+    {% if e %}
+    {% if e.creations %}{% set k = e.creations %}
+    <p class="phrase"><strong class="grand">{{ k.total|chiffre("nombre") }}</strong> entreprises
+      créées en 12 mois ({{ k.debut }} à {{ k.fin }}){% if k.evolution is not none %},
+      {{ k.evolution|signe }} sur un an{% endif %}{% if e.micro is not none %}, dont
+      {{ e.micro|chiffre("pourcentage") }} de micro-entrepreneurs{% endif %}.</p>
+    {% endif %}
+    {% if e.defaillances %}{% set k = e.defaillances %}
+    <p class="phrase"><strong class="grand">{{ k.total|chiffre("nombre") }}</strong> défaillances
+      (redressements ou liquidations judiciaires) en 4 trimestres ({{ k.debut }} au {{ k.fin }}){% if k.evolution is not none %},
+      {{ k.evolution|signe }} sur un an{% endif %}.</p>
+    {% else %}<p class="muet">Pas de défaillances publiées{% if fiche %} pour ce département{% endif %}.</p>{% endif %}
+    <p class="detail">Une création n'est pas une embauche (beaucoup de micro-entrepreneurs
+      n'ont jamais de chiffre d'affaires), et une défaillance n'est pas toujours une
+      fermeture : les deux nombres ne se soustraient pas.</p>
+    {{ courbe(e.courbe, "Créations et défaillances d'entreprises par année, " ~ ici) }}
+    {{ source("CREATIONS_ENTREPRISES") }}
+    {% else %}<p class="muet">Pas encore de chiffre d'entreprises.</p>{% endif %}
+  </section>
+</div>
+
+<h2 class="titre-partie">Qui travaille <a class="lien-theme" href="/travail/theme/emploi">Comparer les départements</a></h2>
+<div class="blocs">
+  <section class="bloc" id="secteurs">
+    <h2>Quels secteurs créent des emplois ?</h2>
+    {% set s = secteurs %}
+    {% if s %}{% set r = s.total %}
+    <p class="phrase"><strong class="grand">{{ r.valeur|chiffre("nombre") }}</strong> salariés
+      au {{ r.libelle }}{% if r.provisoire %} (provisoire){% endif %}{% if r.ecart is not none %},
+      {{ r.ecart|signe("nombre") }} en un an ({{ r.evolution|signe }}){% endif %}.</p>
+    <div class="tableau-defilant">
+      <table>
+        <thead><tr><th>Secteur</th><th>Salariés</th><th>En un an</th></tr></thead>
+        <tbody>
+          {% for x in s.secteurs %}
+          <tr><th scope="row">{{ x.libelle }}</th><td>{{ x.valeur|chiffre("nombre") }}</td>
+            <td>{{ x.ecart|signe("nombre") }} ({{ x.evolution|signe }})</td></tr>
+          {% endfor %}
+          {% if s.interim %}{% set x = s.interim %}
+          <tr><th scope="row">dont {{ x.libelle|lower }}</th><td>{{ x.valeur|chiffre("nombre") }}</td>
+            <td>{{ x.ecart|signe("nombre") }} ({{ x.evolution|signe }})</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+    {{ source("EMPLOI_SALARIE") }}
+    {% else %}<p class="muet">Pas d'emploi salarié publié{% if fiche %} pour ce département (Mayotte n'est pas publiée){% endif %}.</p>{% endif %}
+  </section>
+
+  <section class="bloc" id="statuts">
+    <h2>Salariés, intérimaires, indépendants</h2>
+    <ul class="mesures">
+      {% for code, libelle in (("PART_INTERIM", "Part de l'intérim dans l'emploi salarié"), ("PART_INDEPENDANTS", "Part des indépendants dans l'emploi")) %}
+      {% set p = parts.get(code) %}
+      <li title="{{ definitions[code].definition if code in definitions else '' }}">
+        <span class="mesure-libelle">{{ libelle }}</span>
+        <span class="mesure-valeur">{{ p.valeur|chiffre("pourcentage") if p else "—" }}</span>
+        <span class="mesure-note">{% if p %}{{ p.annee }}{{ rang(code) }}{% else %}Pas de donnée{% endif %}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {{ source("PART_INDEPENDANTS") }}
+  </section>
+</div>
+
+{% if not fiche %}
+{% call choix_territoire(choix, "Choisir un département",
+  "Touchez un département pour voir son chômage, ses métiers qui recrutent et ses secteurs.") %}
+<div class="regions">
+  {% for r in regions %}
+  <section class="region">
+    <h3>{{ r.libelle }}</h3>
+    <ul>
+      {% for d in departements.get(r.code, []) %}
+      <li><a href="/travail/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+{% endcall %}
+{% endif %}
+{% endblock %}
+{% block scripts %}
+{% if avec_donnees %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/securite.js"></script>
+{% endif %}
+{% endblock %}
