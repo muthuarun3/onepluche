@@ -85,11 +85,15 @@ trois tables, dans sa propre migration ; elle ne réécrit aucune contrainte.
 Rubriques ajoutées depuis : `SECURITE` (`/securite`, ordre 6, migration 027, thème obligatoire)
 et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI` ;
 `AVENIR` (`/avenir`, ordre 7, migration 028, thème obligatoire) et ses thèmes `POPULATION`,
-`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ; `VIVRE` (`/vivre`, ordre 3,
-migration 030, thème obligatoire) et ses thèmes `REVENUS`, `POUVOIR_ACHAT`, `INEGALITES`,
-`EPARGNE`, `PATRIMOINE`, `AIDES_LOGEMENT`, `RETRAITES`.
+`CLIMAT`, `RISQUES`, `EAU`, `AGRICULTURE`, `SANTE`, `EMPLOI` ;
+`TRAVAIL` (`/travail`, ordre 8, migration 030, thème obligatoire) et ses thèmes
+`CHERCHER_CREER`, `EMPLOI`, `CONDITIONS`, `SALAIRES`, `TELETRAVAIL`, `ACCIDENTS`,
+`SYNDICATS_GREVES` (modalités ajoutées : `secteur` `INTERIM`, `statut_emploi` (`SALARIE`,
+`NON_SALARIE`), `type_entreprise` `MICRO`) ;
+`VIVRE` (`/vivre`, ordre 3, migration 031, thème obligatoire) et ses thèmes `REVENUS`,
+`POUVOIR_ACHAT`, `INEGALITES`, `EPARGNE`, `PATRIMOINE`, `AIDES_LOGEMENT`, `RETRAITES`.
 
-### `ref.indicateur_affichage` — un indicateur dans plusieurs rubriques (migration 030)
+### `ref.indicateur_affichage` — un indicateur dans plusieurs rubriques (migration 031)
 
 Un indicateur est importé une fois, dans sa rubrique d'origine (`ref.indicateur.rubrique`),
 et peut s'afficher aussi dans d'autres rubriques, sous un de leurs thèmes, sans être copié.
@@ -254,7 +258,7 @@ migration modifiée après application est détectée.
 | `stat.securite_derives` | simple | Tués sur la route par million d'habitants (population au 1er janvier) ; ajoutée à `api.serie` (migration 029) |
 | `api.territoire` | simple | Territoires avec niveau et code du parent |
 | `api.source` | simple | Sources et licences |
-| `api.indicateur_affichage` | simple | Indicateurs affichés dans une autre rubrique que la leur, avec thème et ordre (migration 030) |
+| `api.indicateur_affichage` | simple | Indicateurs affichés dans une autre rubrique que la leur, avec thème et ordre (migration 031) |
 | `api.theme` | simple | Rubriques (libellé, chemin, ordre) et leurs thèmes ; lue par l'API pour valider les filtres (migration 026) |
 | `api.indicateur` | simple | Catalogue + source + date de dernière publication + rubrique, thème, angle, bornes |
 | `api.serie` | simple | **Toutes les séries** « tous âges » : indicateur, niveau, code, année, valeur, provisoire, sexe, période, type de période ; inclut les dérivés (parts d'âge, solde naturel, recensement, pensionnés pour 100 actifs, scolarisation, `stat.besoins_derives`, `stat.securite_derives`) |

@@ -8,7 +8,7 @@ WITH derniere AS (
          CASE WHEN a.rubrique IS NULL THEN i.angle END AS angle
   FROM api.serie s
   JOIN api.indicateur i ON i.code = s.indicateur
-  -- Indicateurs d'une autre rubrique affichés aussi dans celle-ci (migration 030).
+  -- Indicateurs d'une autre rubrique affichés aussi dans celle-ci (migration 031).
   LEFT JOIN api.indicateur_affichage a
     ON a.indicateur = i.code AND a.rubrique = %(rubrique)s
   WHERE s.niveau = %(niveau)s AND s.code = %(code)s AND s.sexe = 'T'

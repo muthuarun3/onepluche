@@ -49,6 +49,13 @@ from demographie.imports.connecteurs.transports import (
     TRAJETS_TRAVAIL,
     VOITURES_MENAGES,
 )
+from demographie.imports.connecteurs.travail import (
+    CHOMAGE_ANNUEL,
+    CREATIONS,
+    DEFAILLANCES,
+    EMPLOI_SALARIE,
+    EMPLOI_TOTAL,
+)
 from demographie.imports.connecteurs.vivre import (
     REVENUS_FILOSOFI,
     SALAIRES_AGES,
@@ -102,4 +109,6 @@ CONNECTEURS = {
     "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE),
     # Appli 3 : comment vivent les Français ?
     "vivre": (REVENUS_FILOSOFI, SALAIRES_CATEGORIES, SALAIRES_AGES),
+    # Appli « Comment travaillent les Français ? »
+    "travail": (CHOMAGE_ANNUEL, EMPLOI_SALARIE, EMPLOI_TOTAL, CREATIONS, DEFAILLANCES),
 }
