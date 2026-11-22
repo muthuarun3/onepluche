@@ -1,0 +1,2435 @@
+{
+"jeu": "DS_FILOSOFI_CC",
+"observations": [
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D1_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 12380.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D1_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 12090.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D1_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 9860.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D1_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 13200.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D1_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 13740.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D2_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 15720.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D2_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 17090.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D2_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 12160.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D2_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 17010.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D2_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 17440.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D3_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 18420.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D3_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 22460.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D3_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14200.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D3_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 20300.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D3_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 20470.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D4_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 20980.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D4_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 27920.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D4_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 16390.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D4_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 23190.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D4_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 23080.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D6_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 25450.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D6_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 40080.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D6_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 22340.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D6_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 28860.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D6_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 28150.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D7_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 28030.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D7_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 48040.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D7_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26570.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D7_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 32380.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D7_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 31230.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D8_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 31430.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D8_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 59300.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D8_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 32390.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D8_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 37380.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D8_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 35530.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D9_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 37240.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D9_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 81570.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D9_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 41950.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D9_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 46500.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "D9_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 43160.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "GI_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.253
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "GI_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.451
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "GI_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.33
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "GI_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.297
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "GI_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.266
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IQR_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 12410.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IQR_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 33340.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IQR_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 16000.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IQR_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 15920.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IQR_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14120.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 6.7
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4.3
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.5
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.1
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "MED_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 23210.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "MED_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 33650.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "MED_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 19110.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "MED_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 25920.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "MED_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 25520.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "PR_MD60",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 19.5
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "PR_MD60",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 16.8
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "PR_MD60",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 36.4
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "PR_MD60",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 15.9
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "PR_MD60",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14.6
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q1_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 17120.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q1_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 19740.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q1_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 13180.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q1_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 18710.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q1_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 19020.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q3_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 29530.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q3_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 53090.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q3_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 29180.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q3_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 34630.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "Q3_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "EUR_YR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 33140.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S80S20_SL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.7
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S80S20_SL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 10.5
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S80S20_SL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S80S20_SL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4.6
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S80S20_SL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "NR"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.9
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_DIR_TAX_DI",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": -12.4
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_DIR_TAX_DI",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": -28.8
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_DIR_TAX_DI",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": -13.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_DIR_TAX_DI",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": -16.7
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_DIR_TAX_DI",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": -15.1
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 55.4
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 84.6
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 74.3
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 72.4
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 66.3
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_N_SAL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 7.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_N_SAL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8.1
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_N_SAL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 7.1
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_N_SAL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5.1
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_N_SAL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5.5
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_SAL",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 46.3
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_SAL",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 74.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_SAL",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 62.9
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_SAL",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 65.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_SAL",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 58.5
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_UNE",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1.9
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_UNE",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2.3
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_UNE",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4.3
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_UNE",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2.4
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_EI_DI_UNE",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2.3
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_INC_ASS_DI",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_INC_ASS_DI",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 23.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_INC_ASS_DI",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_INC_ASS_DI",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 12.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_INC_ASS_DI",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 11.8
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_RET_PEN_DI",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 40.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_RET_PEN_DI",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 18.5
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_RET_PEN_DI",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 16.1
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_RET_PEN_DI",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 27.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_RET_PEN_DI",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 32.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 5.8
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2.5
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14.7
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4.9
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 4.7
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_FAM_BEN",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1.5
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_FAM_BEN",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.6
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_FAM_BEN",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.9
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_FAM_BEN",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1.7
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_FAM_BEN",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1.5
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_HOU_BEN",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1.0
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_HOU_BEN",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.7
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_HOU_BEN",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2.7
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_HOU_BEN",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.9
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_HOU_BEN",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.9
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_MIN_SOC",
+"GEO": "2026-DEP-23",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.3
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_MIN_SOC",
+"GEO": "2026-DEP-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_MIN_SOC",
+"GEO": "2026-DEP-974",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 8.1
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_MIN_SOC",
+"GEO": "2026-FRANCE-FM",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2.2
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"OBS_STATUS": "A",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"FILOSOFI_MEASURE": "S_SOC_BEN_DI_MIN_SOC",
+"GEO": "2026-REG-75",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2.3
+}
+}
+}
+]
+}
