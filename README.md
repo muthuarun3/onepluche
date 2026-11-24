@@ -65,7 +65,7 @@ uv run demo importer estimations          # télécharge et importe les estimati
 uv run demo importer etat-civil           # naissances, décès, fécondité, espérance de vie
 uv run demo importer chomage              # taux de chômage localisés, trimestriels
 uv run demo importer recensement          # statut d'activité, catégories socioprofessionnelles, secteurs, scolarisation
-uv run demo importer retraites            # retraités tous régimes, minimum vieillesse (DREES)
+uv run demo importer retraites            # retraités tous régimes et pension moyenne, minimum vieillesse (DREES)
 uv run demo importer etudiants            # étudiants du supérieur par formation et discipline
 uv run demo importer sante                # patients par groupe de pathologies (Assurance maladie)
 uv run demo importer logement             # besoins : logements, revenus, loyers, ventes (DVF), parc social
@@ -75,7 +75,7 @@ uv run demo importer budget               # besoins : dépense des ménages par 
 uv run demo importer transports           # besoins : prix des carburants (stations), trajets domicile-travail, voitures, dépense en carburants
 uv run demo importer avenir               # avenir : projections de population (INSEE Omphale 2022 par département, France 2026) climat (Banque mondiale, CMIP6) et risques naturels (Géorisques, GASPAR)
 uv run demo importer securite             # sécurité : délinquance (SSMSI), accidents de la route (ONISR), sentiment d'insécurité (CVS, VRS)
-uv run demo importer vivre                # vivre : revenus détaillés (Filosofi), salaires du privé par sexe, catégorie et âge (BTS)
+uv run demo importer vivre                # vivre : revenus détaillés (Filosofi), salaires du privé (BTS, série depuis 1996), niveau de vie et inégalités depuis 1996 (ERFS), pouvoir d'achat, revenu disponible et épargne (comptes nationaux), patrimoine (enquête 2024, placements)
 uv run demo importer travail              # travail : chômage par âge, emploi salarié et intérim, emploi total, créations et défaillances d'entreprises (BDM), demandeurs d'emploi (DARES), projets de recrutement (BMO)
 uv run demo importer votes                # votes : participation et voix des 20 tours d'élection retenus (ministère de l'Intérieur, data.gouv.fr)
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)

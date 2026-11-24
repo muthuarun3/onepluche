@@ -82,7 +82,7 @@ def test_mesure_ou_dimension_inattendue_rejetee(tmp_path):
 
 
 def test_groupe_vivre():
-    assert CONNECTEURS["vivre"] == JEUX
+    assert CONNECTEURS["vivre"][:3] == JEUX
 
 
 def test_import_et_api(urls_module):

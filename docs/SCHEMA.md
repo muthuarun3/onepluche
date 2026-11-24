@@ -98,7 +98,11 @@ et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI
 (217 métiers, code FAP de l'enquête) (migration 034) ; `VOTES` (`/votes`, ordre 4, migration 032,
 thème obligatoire) et ses thèmes `PARTICIPATION`, `RESULTATS`, `ELUS`. Enfin
 `VIVRE` (`/vivre`, ordre 3, migration 031, thème obligatoire) et ses thèmes `REVENUS`,
-`POUVOIR_ACHAT`, `INEGALITES`, `EPARGNE`, `PATRIMOINE`, `AIDES_LOGEMENT`, `RETRAITES` ;
+`POUVOIR_ACHAT`, `INEGALITES`, `EPARGNE`, `PATRIMOINE`, `AIDES_LOGEMENT`, `RETRAITES` ; la
+migration 041 y ajoute les sources `INSEE_ERFS` et `INSEE_ENQPAT`, les dimensions de modalités
+`decile_niveau_vie` (`D01` à `D10`) et `placement` (`DEPOTS`, `TITRES_CREANCE`, `ACTIONS`,
+`FONDS`, `ASSURANCE_VIE`) et sept catégories `pcs` de l'enquête Patrimoine (personne de
+référence du ménage, dont quatre de retraités) ;
 `ARGENT` (`/argent-public`,
 ordre 5, migration 033, thème obligatoire) et ses thèmes `DEPENSES`, `RECETTES`, `DETTE`,
 `ETAT`, `LOCAL`, `MENAGE`, `CLIMAT`, avec l'unité `milliards_euros` et les dimensions de

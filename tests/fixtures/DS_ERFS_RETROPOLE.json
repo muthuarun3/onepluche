@@ -1,0 +1,645 @@
+{
+"jeu": "DS_ERFS_RETROPOLE",
+"observations": [
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "GI_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "1996",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.274
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "GI_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2010",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.295
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "GI_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2019",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.281
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "GI_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2020",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.277
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "GI_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2021",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.294
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "GI_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2022",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.294
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "GI_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2023",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.297
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "GI_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2024",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.302
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "1996",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.51
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2010",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.48
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2019",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.44
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2020",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.29
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2021",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.41
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2022",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.38
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2023",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.49
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "NR",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "IR_D9_D1_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2024",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3.48
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "EUR_ANNUEL",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "MED_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "1996",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 21000.0
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "EUR_ANNUEL",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "MED_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2010",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 24770.0
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "EUR_ANNUEL",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "MED_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2019",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 25680.0
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "EUR_ANNUEL",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "MED_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2020",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26160.0
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "EUR_ANNUEL",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "MED_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2021",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26070.0
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "EUR_ANNUEL",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "MED_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2022",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26030.0
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "EUR_ANNUEL",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "MED_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2023",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26280.0
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "EUR_ANNUEL",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "MED_SL",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2024",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 26740.0
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "PT",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "PR_MD60",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "1996",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14.3
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "PT",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "PR_MD60",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2010",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14.0
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "PT",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "PR_MD60",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2019",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14.3
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "PT",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "PR_MD60",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2020",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 13.6
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "PT",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "PR_MD60",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2021",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14.5
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "PT",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "PR_MD60",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2022",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 14.4
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "PT",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "PR_MD60",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2023",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 15.4
+}
+}
+},
+{
+"attributes": {
+"UNIT_MEASURE": "PT",
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"AGE": "_T",
+"EMPSTA_ENQ": "_T",
+"ERFS_MEASURE": "PR_MD60",
+"GEO": "2026-FRANCE-FM",
+"MUN_DENSITY_LEVEL": "_T",
+"TIME_PERIOD": "2024",
+"TPH": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 15.4
+}
+}
+}
+]
+}
