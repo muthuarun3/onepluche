@@ -121,6 +121,41 @@
     }, true);
   }
 
+  // Catastrophes naturelles reconnues par année, empilées par péril.
+  function catnat(graphique, d) {
+    const c = couleurs();
+    const teintes = [c.serie, c.femmes, c.texte3];
+    const provisoires = new Set(d.provisoires);
+    graphique.setOption({
+      animation: false,
+      grid: { left: 8, right: 16, top: 16, bottom: 24, containLabel: true },
+      tooltip: {
+        trigger: "axis", axisPointer: { type: "shadow" }, ...infobulle(c),
+        formatter: (p) => {
+          const annee = d.annees[p[0].dataIndex];
+          let texte = `<b>${annee}</b>${provisoires.has(annee) ? " (incomplet)" : ""}`;
+          let total = 0;
+          for (const x of p) { texte += `<br>${x.seriesName} : ${nombre.format(x.value)}`; total += x.value; }
+          return `${texte}<br>Total : ${nombre.format(total)}`;
+        },
+      },
+      xAxis: {
+        type: "category", data: d.annees,
+        axisLabel: { color: c.texte3 }, axisLine: { lineStyle: { color: c.bordure } },
+      },
+      yAxis: {
+        type: "value", axisLabel: { color: c.texte3, formatter: (x) => nombre.format(x) },
+        splitLine: { lineStyle: { color: c.grille } },
+      },
+      series: d.series.map((s, i) => ({
+        name: s.libelle, type: "bar", stack: "catnat", barCategoryGap: "20%",
+        data: s.valeurs.map((x, j) => ({
+          value: x, itemStyle: { color: teintes[i % teintes.length], opacity: provisoires.has(d.annees[j]) ? 0.45 : 1 },
+        })),
+      })),
+    }, true);
+  }
+
   const graphiques = [];
   function ajouter(id, dessiner) {
     const element = document.getElementById(id);
@@ -139,6 +174,8 @@
     ajouter("pyramide-avenir", (g) => pyramide(g, Number(choix.value)));
     choix.addEventListener("change", toutDessiner);
   }
+
+  if (donnees.catnat) ajouter("catnat", (g) => catnat(g, donnees.catnat));
 
   function toutDessiner() { for (const g of graphiques) g.dessiner(); }
   toutDessiner();

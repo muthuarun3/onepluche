@@ -1,7 +1,8 @@
 """Pages de la rubrique « Quel avenir pour les Français ? » (appli 5) : vue France
 (projections nationales de 2026, climat de la métropole, choix du département, thèmes à
 venir) et fiche département (projections Omphale 2022 : population, âges, fourchette des
-scénarios ; climat selon les scénarios du GIEC)."""
+scénarios ; climat selon les scénarios du GIEC ; catastrophes naturelles reconnues et plans
+de prévention, base GASPAR)."""
 
 from typing import Annotated
 
@@ -31,9 +32,11 @@ GROUPES_FRANCE = {
 }
 # Thèmes de la rubrique qui n'ont pas encore de données : annoncés sur la vue France.
 A_VENIR = (
-    ("Risques naturels", "Inondations, sécheresse des sols, mouvements de terrain : les "
-     "catastrophes naturelles reconnues et les plans de prévention (Géorisques)."),
+    ("L'eau", "Débits des rivières et sécheresses d'été selon le réchauffement (Explore2)."),
+    ("Santé et dépendance", "Personnes âgées en perte d'autonomie d'ici 2070 (DREES)."),
 )  # fmt: skip
+# Risques : périls du graphique (les autres sont regroupés), en plus du tableau complet.
+PERILS_GRAPHIQUE = ("INONDATION", "SECHERESSE")
 # Climat : scénario du GIEC par défaut (intermédiaire, la trajectoire des politiques
 # annoncées), ordre des indicateurs et période mise en avant.
 SCENARIO_CLIMAT = "GIEC_SSP245"
@@ -119,6 +122,77 @@ def _climat(conn, niveau: str, code: str, scenario: str | None, definitions: dic
     }
 
 
+def _risques(conn, niveau: str, code: str, definitions: dict,
+              comparaison: tuple[str, str] | None = None) -> dict | None:  # fmt: skip
+    """Catastrophes naturelles reconnues par année et par péril, part des communes
+    reconnues en sécheresse en 10 ans et couvertes par un plan de prévention."""
+    totaux = series.serie(conn, "CATNAT_ARRETES", niveau, code)
+    if not totaux:
+        return None
+    perils = series.ventilation(conn, "CATNAT_ARRETES", niveau, code, "peril_catnat")
+    annees = [t["annee"] for t in totaux]
+    definitives = [t for t in totaux if not t["provisoire"]]
+    derniere = definitives[-1]["annee"] if definitives else annees[-1]
+    dix_ans = [t for t in totaux if derniere - 10 < t["annee"] <= derniere]
+    par_peril: dict[str, dict] = {}
+    for p in perils:
+        ligne = par_peril.setdefault(
+            p["modalite"],
+            {
+                "code": p["modalite"],
+                "libelle": p["libelle"],
+                "total": 0,
+                "dix_ans": 0,
+                "annees": {},
+            },  # fmt: skip
+        )
+        ligne["total"] += p["valeur"]
+        ligne["annees"][p["annee"]] = p["valeur"]
+        if derniere - 10 < p["annee"] <= derniere:
+            ligne["dix_ans"] += p["valeur"]
+    record = max(totaux, key=lambda t: t["valeur"])
+
+    def dernier(indicateur: str, territoire: tuple[str, str]) -> dict | None:
+        valeurs = [v for v in series.serie(conn, indicateur, *territoire) if not v["provisoire"]]
+        return valeurs[-1] if valeurs else None
+
+    france = comparaison or (niveau, code)
+    groupes = []
+    for c in PERILS_GRAPHIQUE:
+        if c in par_peril:
+            groupes.append({"libelle": par_peril[c]["libelle"], "annees": par_peril[c]["annees"]})
+    autres = {
+        a: sum(p["annees"].get(a, 0) for c, p in par_peril.items() if c not in PERILS_GRAPHIQUE)
+        for a in annees
+    }
+    groupes.append({"libelle": "Autres périls", "annees": autres})
+    return {
+        "debut": annees[0],
+        "derniere": derniere,
+        "total": sum(t["valeur"] for t in totaux),
+        "dix_ans": sum(t["valeur"] for t in dix_ans),
+        "record": record,
+        "perils": sorted(par_peril.values(), key=lambda p: -p["total"]),
+        "secheresse": dernier("CATNAT_SECHERESSE_10ANS", (niveau, code)),
+        "secheresse_france": dernier("CATNAT_SECHERESSE_10ANS", france) if comparaison else None,
+        "pprn": dernier("COMMUNES_PPRN", (niveau, code)),
+        "pprn_france": dernier("COMMUNES_PPRN", france) if comparaison else None,
+        "definition": definitions.get("CATNAT_ARRETES"),
+        "definition_secheresse": definitions.get("CATNAT_SECHERESSE_10ANS"),
+        "graphique": {
+            "annees": annees,
+            "provisoires": [t["annee"] for t in totaux if t["provisoire"]],
+            "series": [
+                {
+                    "libelle": g["libelle"],
+                    "valeurs": [_nombre(g["annees"].get(a, 0)) for a in annees],
+                }
+                for g in groupes
+            ],
+        },
+    }
+
+
 def _nombre(valeur) -> int | float | None:
     """Valeur pour le JSON des graphiques (les Decimal n'y passent pas)."""
     if valeur is None:
@@ -185,16 +259,19 @@ def avenir(request: Request, conn: Connexion, climat: ScenarioClimat = None) -> 
             ],  # fmt: skip
             "definition": definitions.get("PROJ_POP_FRANCE"),
         }
+    risques = _risques(conn, "FRANCE", "FR", definitions)
     donnees = {
         "series": [
             {"scenario": s, "points": [[a, _nombre(n["valeur"])] for a, n in sorted(v.items())]}
             for s, v in totaux.items()
-        ]
+        ],
+        "catnat": risques["graphique"] if risques else None,
     }
     contexte = {
         "france": france,
         "omphale": definitions.get("PROJ_POP"),
         "climat": _climat(conn, "FRANCE", "FM", climat, definitions),
+        "risques": risques,
         "a_venir": A_VENIR,
         "choix": choix_territoire(tous, ("DEP",), "/avenir/DEP/{code}"),
         "regions": sorted((t for t in tous if t["niveau"] == "REG"), key=lambda t: t["libelle"]),
@@ -221,6 +298,7 @@ def departement(
         "projection": None,
         "definition": definitions.get("PROJ_POP"),
         "climat": _climat(conn, "DEP", code, climat, definitions, ("FRANCE", "FM")),
+        "risques": _risques(conn, "DEP", code, definitions, ("FRANCE", "FR")),
     }
     central = lignes.get(CENTRAL)
     if central:
@@ -270,4 +348,6 @@ def departement(
             "depart": depart["annee"],
             "horizon": horizon["annee"],
         }
+    if contexte["risques"]:
+        contexte.setdefault("donnees", {})["catnat"] = contexte["risques"]["graphique"]
     return gabarits.TemplateResponse(request, "avenir_departement.html", contexte)

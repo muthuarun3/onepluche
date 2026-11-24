@@ -36,6 +36,7 @@ from demographie.imports.connecteurs.estimations import (
     EstimationsRegions,
 )
 from demographie.imports.connecteurs.etat import CREDITS_MISSIONS, SITUATION_MENSUELLE
+from demographie.imports.connecteurs.gaspar import GASPAR
 from demographie.imports.connecteurs.loyers import CARTE_DES_LOYERS
 from demographie.imports.connecteurs.melodi import DECES, NAISSANCES
 from demographie.imports.connecteurs.omphale import PROJECTIONS_DEPARTEMENTALES
@@ -121,7 +122,7 @@ CONNECTEURS = {
     "securite": (DELINQUANCE, ACCIDENTS, CVS, VRS),
     # Appli 5 : quel avenir pour les Français ? Après « estimations » : la population de
     # départ des projections est comparée aux estimations publiées.
-    "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE, CLIMAT),
+    "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE, CLIMAT, GASPAR),
     # Appli 3 : comment vivent les Français ?
     "vivre": (REVENUS_FILOSOFI, SALAIRES_CATEGORIES, SALAIRES_AGES),
     # Appli « Comment travaillent les Français ? »

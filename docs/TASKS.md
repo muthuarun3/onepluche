@@ -255,15 +255,24 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv
   `/api/v1/projections`, pages `/avenir` et `/avenir/DEP/{code}`, accueil, barre latérale,
   vitrine. *Critère :* Creuse 2018 = estimation INSEE à moins de 1 % ; France 2070 central
   65,9 millions (2026) ; tests `test_avenir_population.py`.
-- [~] **B. Climat** — migration 038 (scénarios `GIEC_SSP126/245/585`, 7 indicateurs `CLIM_*`,
+- [x] **B. Climat** (PR #49) — migration 038 (scénarios `GIEC_SSP126/245/585`, 7 indicateurs `CLIM_*`,
   vue `api.projection_climat`), connecteur `climat.py` (Banque mondiale, CMIP6 à 0,25°, sans
   compte : DRIAS demandait une extraction à la main, refusée le 22/11/2026), bloc climat sur
   `/avenir` et la fiche département, sélecteur de scénario (SSP2-4.5 par défaut).
   *Critère :* 96 départements et la métropole ; Bouches-du-Rhône +47 jours à 35 °C ou plus en
   2080-2099 (SSP5-8.5) ; tests `test_avenir_climat.py`.
-- [ ] **C. Risques naturels** — GASPAR (arrêtés de catastrophe naturelle, PPRN), pages
-  `/avenir/theme/{theme}`, classements. *Critère :* Guéret, 8 arrêtés.
-- [ ] **D. Questions guidées et clôture** — six questions, sept critères du dossier.
+- [~] **C. Risques naturels** — migration 040 (source `GEORISQUES_GASPAR`, dimension
+  `peril_catnat` à six périls, indicateurs `CATNAT_ARRETES`, `CATNAT_SECHERESSE_10ANS`,
+  `COMMUNES_PPRN`), connecteur `gaspar.py` (archive gaspar.zip de Géorisques, sans compte ;
+  communes ramenées au département ; parts rapportées aux communes du COG 2025,
+  `communes_cog.csv` préparé par `outils/communes_cog.py`), bloc « Les catastrophes
+  naturelles » sur `/avenir` (France) et la fiche département (France à côté).
+  *Critère :* Guéret, 7 reconnaissances dans l'archive du 2/11/2026 (8 sur l'API
+  Géorisques, qui a déjà la sécheresse 2025 publiée en février 2026 : l'archive a quelques
+  mois de retard) ; Creuse 1 096 reconnaissances depuis 1982 ; tests `test_avenir_risques.py`.
+  Les pages `/avenir/theme/{theme}` et leurs classements passent en phase D.
+- [ ] **D. Questions guidées et clôture** — six questions, pages `/avenir/theme/{theme}`
+  (carte et classement), sept critères du dossier.
 
 ### Appli 2 — données (phases B et C)
 

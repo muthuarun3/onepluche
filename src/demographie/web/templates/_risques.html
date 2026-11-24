@@ -1,0 +1,46 @@
+{# Bloc « Risques naturels » des pages /avenir : catastrophes naturelles reconnues par
+   année (graphique et tableau par péril), sécheresse sur dix ans, plans de prévention.
+   `territoire` : titre du bloc ; `comparer` : la France à côté. #}
+{% macro bloc_risques(r, territoire, comparer=false) %}
+<section class="bloc risques" id="risques">
+  <h2>Les catastrophes naturelles : {{ territoire }}</h2>
+  <p class="phrase">Depuis {{ r.debut }}, <strong>{{ r.total|entier }}</strong>
+    reconnaissances de catastrophe naturelle{% if r.perils %}, dont
+    {{ (100 * r.perils[0].total / r.total)|round|int }} % pour
+    {{ r.perils[0].libelle|lower }}{% endif %}. Sur les dix ans de {{ r.derniere - 9 }} à
+    {{ r.derniere }} : <strong>{{ r.dix_ans|entier }}</strong>. L'année la plus touchée :
+    {{ r.record.annee }} ({{ r.record.valeur|entier }}).</p>
+  <div class="chiffres">
+    {% if r.secheresse %}
+    <div class="chiffre" title="{{ r.definition_secheresse.definition if r.definition_secheresse }}">
+      <div class="chiffre-libelle">Communes reconnues en sécheresse, {{ r.secheresse.annee - 9 }}-{{ r.secheresse.annee }}</div>
+      <div class="chiffre-valeur">{{ r.secheresse.valeur|pct }}</div>
+      <div class="chiffre-note">{% if comparer and r.secheresse_france %}France : {{ r.secheresse_france.valeur|pct }}{% else %}des communes{% endif %}</div>
+    </div>
+    {% endif %}
+    {% if r.pprn %}
+    <div class="chiffre" title="Communes où s'applique au moins un plan de prévention des risques naturels approuvé">
+      <div class="chiffre-libelle">Communes couvertes par un plan de prévention</div>
+      <div class="chiffre-valeur">{{ r.pprn.valeur|pct }}</div>
+      <div class="chiffre-note">{% if comparer and r.pprn_france %}France : {{ r.pprn_france.valeur|pct }}{% else %}en {{ r.pprn.annee }}{% endif %}</div>
+    </div>
+    {% endif %}
+  </div>
+  <p class="legende"><span class="pastille serie"></span>Inondations <span class="pastille femmes"></span>Sécheresse <span class="pastille gris"></span>Autres périls · année où l'événement a commencé ; les deux dernières années sont incomplètes</p>
+  <div id="catnat" class="graphique" role="img" aria-label="Catastrophes naturelles reconnues par année : {{ territoire }}"></div>
+  <div class="tableau-defilant">
+    <table>
+      <caption>Reconnaissances par péril</caption>
+      <thead><tr><th>Péril</th><th>Depuis {{ r.debut }}</th><th>{{ r.derniere - 9 }}-{{ r.derniere }}</th></tr></thead>
+      <tbody>
+        {% for p in r.perils %}{% if p.total %}
+        <tr><td>{{ p.libelle }}</td><td>{{ p.total|entier }}</td><td>{{ p.dix_ans|entier }}</td></tr>
+        {% endif %}{% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if r.definition %}
+  <p class="source">Source : <a href="{{ r.definition.source_url }}" rel="noopener">{{ r.definition.source_libelle }}</a>, {{ r.definition.source_licence }}. {{ r.definition.avertissement }}</p>
+  {% endif %}
+</section>
+{% endmacro %}

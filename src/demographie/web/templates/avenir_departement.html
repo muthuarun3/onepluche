@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_climat.html" import bloc_climat %}
+{% from "_risques.html" import bloc_risques %}
 {% macro evolution(v) -%}
   {%- if v is none -%}—{%- else -%}{{ "+" if v > 0 else "" }}{{ v|pct }}{%- endif -%}
 {%- endmacro %}
@@ -10,7 +11,8 @@
 </nav>
 <h1>{{ fiche.libelle }} <span class="niveau">Département {{ fiche.code }}</span></h1>
 <p class="intro">Combien d'habitants, et de quel âge, d'ici 2070 : les projections de
-  l'INSEE, avec la fourchette de ses scénarios. <a href="/territoire/DEP/{{ fiche.code }}">Qui
+  l'INSEE, avec la fourchette de ses scénarios ; le climat selon le GIEC ; les catastrophes
+  naturelles déjà reconnues. <a href="/territoire/DEP/{{ fiche.code }}">Qui
   sont les habitants aujourd'hui ?</a> · <a href="/besoins/DEP/{{ fiche.code }}">De quoi ont-ils besoin ?</a></p>
 
 {% if not projection %}
@@ -82,12 +84,7 @@
 
 {% if climat %}{{ bloc_climat(climat, fiche.libelle, "/avenir/DEP/" ~ fiche.code, comparer=true) }}{% endif %}
 
-<div class="blocs">
-  <section class="bloc">
-    <h2>Risques naturels</h2>
-    <p class="muet">Bientôt : catastrophes naturelles reconnues et plans de prévention dans le département.</p>
-  </section>
-</div>
+{% if risques %}{{ bloc_risques(risques, fiche.libelle, comparer=true) }}{% endif %}
 
 {% if definition %}
 <p class="source">Source : <a href="{{ definition.source_url }}" rel="noopener">{{ definition.source_libelle }}</a>, {{ definition.source_licence }}. {{ definition.avertissement }} {{ definition.comparabilite }}</p>
