@@ -104,7 +104,9 @@ aisés dans mon département ? ». Dossier de conception validé le 22/11/2026 :
 
 Ce qui attend les Français d'ici 2070-2100, par département, toujours avec une fourchette :
 combien d'habitants et de quel âge (INSEE : scénario central, population basse, population
-haute), quel climat (scénarios du GIEC, RCP 2.6, 4.5 et 8.5, par DRIAS-2020 de Météo-France)
+haute), quel climat (scénarios du GIEC SSP1-2.6, SSP2-4.5 et SSP5-8.5, modèles CMIP6 publiés
+en accès libre par la Banque mondiale ; DRIAS-2020, prévu d'abord, demande un compte et une
+extraction à la main)
 et quels risques naturels (Géorisques). Sept thèmes : population, climat, risques naturels,
 eau, agriculture, santé future, emploi futur ; **MVP : population, climat, risques**.
 Les projections ne sont pas des prévisions : chaque page le dit. Les projections nationales
@@ -199,7 +201,7 @@ n'est décidée à ce jour.
 | F11 | Questions guidées (réponse = phrase + graphique + source) | Prévu |
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
 | F18 | Macro-catégories « Données » (applis-questions) et « Programmes » (analyse et comparaison des programmes présidentiels) dans la barre latérale et sur l'accueil | « Données » en PR ; « Programmes » en conception |
-| F14 | Rubrique `/avenir` : projections de population (vue France, fiche département) ; climat et risques ensuite | Population en PR (appli 5, phase A) |
+| F14 | Rubrique `/avenir` : projections de population (vue France, fiche département), climat selon trois scénarios du GIEC ; risques ensuite | Population en service ; climat en PR (appli 5, phase B) |
 | F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
 | F16 | Rubrique `/travail` : vue France, fiche département, carte par thème, quatre questions guidées | En PR (appli travail, T3) |
 | F17 | Rubrique `/votes` : participation, résultats et élus par département ; carte, fiche, page d'un scrutin | Fondations faites (V1) ; résultats en PR (V2) |

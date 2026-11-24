@@ -47,3 +47,9 @@ def valeurs(
         "par_age": par_age,
     }
     return conn.execute(charger_sql(_SQL, "projection"), parametres).fetchall()
+
+
+def climat(conn: psycopg.Connection, niveau: str, code: str) -> list[dict]:
+    """Climat projeté (écart à 1995-2014) : médiane et fourchette par scénario et période."""
+    parametres = {"niveau": niveau, "code": code}
+    return conn.execute(charger_sql(_SQL, "projection_climat"), parametres).fetchall()

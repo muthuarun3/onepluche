@@ -125,6 +125,9 @@ Bordures : 1px `--bordure`. Pas d'ombres dans l'appli.
 - Chaque graphique a `role="img"`, un `aria-label` et un tableau équivalent.
 - Infobulles : fond `--surface`, bordure `--bordure`, texte 13px, nombres au format
   français (`Intl.NumberFormat("fr-FR")`).
+- Climat (`/avenir`) : pas de graphique, un tableau indicateur × période ; écarts signés
+  (« +2,3 °C », « −12 jours », signe moins typographique), médiane en gras, fourchette en
+  dessous en `--texte-2`, France en `.muet`. Scénarios en liens `.bascule.scenarios`.
 - Projections (`/avenir`) : scénario central en trait `--serie` ; fourchette des
   scénarios (bas - haut) en bande `--serie` à 25 % d'opacité, jamais en trois courbes de
   même poids. Légende par pastilles `.pastille.serie` et `.pastille.fourchette`. Pyramide

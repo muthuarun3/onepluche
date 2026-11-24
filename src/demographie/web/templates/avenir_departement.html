@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_climat.html" import bloc_climat %}
 {% macro evolution(v) -%}
   {%- if v is none -%}—{%- else -%}{{ "+" if v > 0 else "" }}{{ v|pct }}{%- endif -%}
 {%- endmacro %}
@@ -79,11 +80,9 @@
 </section>
 {% endif %}
 
+{% if climat %}{{ bloc_climat(climat, fiche.libelle, "/avenir/DEP/" ~ fiche.code, comparer=true) }}{% endif %}
+
 <div class="blocs">
-  <section class="bloc">
-    <h2>Climat</h2>
-    <p class="muet">Bientôt : chaleur, nuits tropicales, gel, pluies et sécheresse d'ici la fin du siècle, selon les scénarios du GIEC.</p>
-  </section>
   <section class="bloc">
     <h2>Risques naturels</h2>
     <p class="muet">Bientôt : catastrophes naturelles reconnues et plans de prévention dans le département.</p>

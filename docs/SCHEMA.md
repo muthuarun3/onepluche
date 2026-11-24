@@ -260,7 +260,10 @@ observation n'a pas, et ne doit jamais se mélanger aux séries observées.
 Unicité `NULLS NOT DISTINCT` sur toutes les dimensions. `ref.scenario` : `code`, `libelle`,
 `famille` (`INSEE`, `GIEC`, `NIVEAU_RECHAUFFEMENT`, `REFERENCE`), `description`,
 `equivalent_giec`, `ordre` ; aujourd'hui `INSEE_CENTRAL`, `INSEE_POP_BASSE`,
-`INSEE_POP_HAUTE`. Lignes en transit dans `ingest.ligne_projection`. Une publication
+`INSEE_POP_HAUTE`, puis (migration 038) `GIEC_SSP126`, `GIEC_SSP245`, `GIEC_SSP585` avec
+leur réchauffement mondial vers 2100 dans `equivalent_giec`. Vue `api.projection_climat` :
+médiane, bas et haut sur une ligne par indicateur, territoire, scénario et période. Unités
+ajoutées : `degres_c`, `jours`, `millimetres`. Lignes en transit dans `ingest.ligne_projection`. Une publication
 remplace toutes les valeurs de l'indicateur pour le scénario du fichier.
 
 ### `ref.scrutin` et `ref.choix_scrutin` — élections (rubrique `VOTES`, migration 032)
