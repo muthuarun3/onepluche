@@ -120,7 +120,7 @@ fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugemen
   candidats, comparaison par sujet), fiches fictives dans `tests/fixtures/programmes/`.
   *Critère :* une fiche cassée est refusée avec le nom du fichier
   (`tests/test_programmes_fiches.py`).
-- [~] **P2. Veille** (PR en cours) — migration 045 `ingest.programme_releve` et vue
+- [x] **P2. Veille** (PR #58, fusionnée avec #57) — migration 045 `ingest.programme_releve` et vue
   `api.programme_releve`, `imports/veille_programmes.py`, `programmes/2027/suivis.toml`
   (vide tant qu'aucun programme n'est suivi), `demo veiller programmes` (minuteur
   `demographie-veille-programmes.timer`, lundi 7 h 15), copies dans
@@ -128,9 +128,12 @@ fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugemen
   facultatif `DEMO_PING_PROGRAMMES`, tableau sur `/sources`. *Critère :* un changement
   d'empreinte alerte (`tests/test_programmes_veille.py`) ; première veille réelle sur le
   serveur.
-- [ ] **P3. Écrans** — `/programmes`, `/programmes/{candidat}`, `/programmes/comparer`,
-  `/api/v1/programmes`, barre latérale, accueil, vitrine, docs. *Critère :* critères 1, 3 et 5
-  de l'étape 8 du dossier.
+- [~] **P3. Écrans** (PR en cours) — `/programmes`, `/programmes/{candidat}`,
+  `/programmes/comparer?sujet=`, `/api/v1/programmes` et `/api/v1/programmes/{candidat}`,
+  migration 047 (vue `api.rubrique`, pour relier chaque chiffre de contexte à son appli),
+  titre « Programmes » dans la barre latérale, deux cartes sur l'accueil, vitrine.
+  *Critère :* critères 1, 3 et 5 de l'étape 8 du dossier (`tests/test_programmes_pages.py`,
+  captures 1280 et 390 px).
 - [ ] **P4. Premier vrai programme** — fiche du premier candidat déclaré qui a publié un texte,
   relue par Muthu. *Critère :* critère 6 ; veille sans erreur deux lundis de suite.
 - [ ] **P5 et suivantes** — une PR par programme ou nouvelle version ; mars 2027 : liste du

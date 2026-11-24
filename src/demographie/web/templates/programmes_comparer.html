@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% from "_programmes.html" import aujourdhui, rappel %}
+{% block titre %}Comparer les programmes : {{ sujet.libelle }} · On épluche{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/programmes">Les programmes des candidats</a> › Comparer
+</nav>
+<h1>Comparer les programmes <span class="niveau">{{ sujet.libelle }}</span></h1>
+
+<nav class="onglets" aria-label="Sujets">
+  {% for s in sujets %}
+  <a href="/programmes/comparer?sujet={{ s.id }}"{% if s.id == sujet.id %} aria-current="page"{% endif %}>{{ s.libelle }}</a>
+  {% endfor %}
+</nav>
+
+{{ aujourdhui(sujet.indicateurs, indicateurs) }}
+
+{% for e in echelles %}
+<figure class="barres echelle">
+  <figcaption>{{ e.echelle.libelle }}{% if e.echelle.valeur_actuelle is not none %} (en vigueur : <a href="{{ e.echelle.source }}" rel="noopener">{{ e.echelle.valeur_actuelle|valeur_echelle(e.echelle.unite) }}</a>){% endif %}</figcaption>
+  <ul>
+    {% for b in e.barres %}
+    <li>
+      <span class="barre-libelle">{{ b.libelle }}</span>
+      <span class="barre-piste"><span class="barre" style="width: {{ '%.1f'|format(b.largeur) }}%"></span></span>
+      <span class="barre-valeur">{{ b.valeur|valeur_echelle(e.echelle.unite) }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</figure>
+{% endfor %}
+
+{% if lignes %}
+<div class="tableau-defilant">
+<table class="comparaison">
+  <thead><tr><th scope="col">Candidat</th><th scope="col">Mesures sur ce sujet</th></tr></thead>
+  <tbody>
+    {% for f, mesures in lignes %}
+    <tr>
+      <th scope="row"><a href="/programmes/{{ f.candidat.id }}">{{ f.candidat.nom_complet }}</a><br><span class="muet">{{ f.candidat.parti }}</span></th>
+      <td>
+        {% if mesures %}
+        <ul>{% for m in mesures %}<li><a href="/programmes/{{ f.candidat.id }}#{{ m.id }}">{{ m.titre }}</a></li>{% endfor %}</ul>
+        {% else %}<span class="muet">Pas de proposition</span>{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}
+<p class="intro">Aucun programme n'est encore analysé.</p>
+{% endif %}
+{{ rappel() }}
+{% endblock %}

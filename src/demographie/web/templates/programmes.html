@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "_programmes.html" import rappel %}
+{% block titre %}Les programmes des candidats · On épluche{% endblock %}
+{% block contenu %}
+<h1>Les programmes des candidats</h1>
+<p class="intro">{{ election.libelle }}, premier tour le {{ election.premier_tour|date_fr }}.
+  {% if en_course %}{{ en_course }} {{ "candidat a" if en_course == 1 else "candidats ont" }}
+  publié un programme analysé ici.{% else %}Aucun programme n'est encore analysé : les fiches
+  arrivent au fil des publications des candidats.{% endif %}</p>
+<p><a class="detail" href="/programmes/comparer">Comparer les programmes sujet par sujet</a></p>
+
+{% if cartes %}
+<ul class="questions candidats">
+  {% for c in cartes %}{% set f = c.fiche %}
+  <li>
+    <a class="question" href="/programmes/{{ f.candidat.id }}">
+      <span class="question-titre">{{ f.candidat.nom_complet }}</span>
+      <span class="question-resume">{{ f.candidat.parti }} · {{ statuts_candidature[f.candidat.statut] }}</span>
+      <span class="question-resume">{{ c.mesures }} mesure{{ "s" if c.mesures > 1 }} sur
+        {{ c.sujets }} sujet{{ "s" if c.sujets > 1 }} (sur {{ nb_sujets }}) · version du
+        {{ f.derniere_version.publie_le|date_fr }}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{{ rappel() }}
+{% endblock %}

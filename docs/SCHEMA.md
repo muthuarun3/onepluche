@@ -259,6 +259,10 @@ Les fiches elles-mêmes sont des fichiers du dépôt, pas des tables.
 Vue `api.programme_releve` : dernier relevé de chaque adresse et date du dernier changement
 (page « Sources »). Rôle import : lecture et ajout seulement, rien n'est effacé.
 
+Vue `api.rubrique` (migration 047) : code, libellé, chemin et ordre de chaque rubrique, pour
+que les pages « Programmes » relient un chiffre de contexte à l'appli de « Données » qui le
+présente.
+
 ### `stat.observation` — table de faits
 
 | Colonne | Type | Contraintes |
