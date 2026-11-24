@@ -14,6 +14,7 @@ from demographie.imports.connecteurs import CONNECTEURS, comptes_publics
 from demographie.imports.modele import Fichier, FichierIllisible, Referentiel
 
 client = TestClient(app)
+COMPTES = (comptes_publics.TableauComptes, comptes_publics.DetteTrimestrielle)
 REFERENTIEL = Referentiel(identifiants={}, region_du_departement={})
 
 
@@ -128,6 +129,8 @@ def test_decouverte_par_le_sommaire(monkeypatch):
 def test_import_et_page(urls_module):
     with db.connexion("import") as conn:
         for connecteur in CONNECTEURS["argent"]:
+            if not isinstance(connecteur, COMPTES):
+                continue  # budget de l'État : tests/test_argent_etat.py
             chemin = FIXTURES / connecteur.nom_fichier
             fichier = Fichier(url=chemin.resolve().as_uri(), nom=chemin.name)
             resultat = pipeline.importer(
@@ -139,7 +142,7 @@ def test_import_et_page(urls_module):
     ).json()
     assert serie["valeurs"][-1]["valeur"] == -151.592
     indicateurs = client.get("/api/v1/indicateurs", params={"rubrique": "ARGENT"}).json()
-    assert len(indicateurs) == 16
+    assert len([i for i in indicateurs if i["theme"] in {"DEPENSES", "RECETTES", "DETTE"}]) == 16
 
     page = client.get("/argent-public")
     assert page.status_code == 200
