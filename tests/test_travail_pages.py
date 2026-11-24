@@ -10,8 +10,10 @@ from fastapi.testclient import TestClient
 from demographie import config, db
 from demographie.app import app
 from demographie.imports import pipeline
+from demographie.imports.connecteurs import vivre
 from demographie.imports.connecteurs.bdm import CHOMAGE
 from demographie.imports.connecteurs.bmo import BMO
+from demographie.imports.connecteurs.contrats import CONTRATS
 from demographie.imports.connecteurs.dares import DEMANDEURS
 from demographie.imports.connecteurs.travail import (
     CHOMAGE_ANNUEL,
@@ -85,6 +87,9 @@ def test_pages(urls_module):
         _importer(jeu, FIXTURES / jeu.nom_fichier)
     _importer(DEMANDEURS, FIXTURES / DEMANDEURS.nom_fichier)
     _importer(BMO, FIXTURES / "bmo-2026.xlsx")
+    _importer(CONTRATS, FIXTURES / CONTRATS.nom_fichier)
+    for jeu in (vivre.SALAIRES_CATEGORIES, vivre.SALAIRES_AGES):
+        _importer(jeu, FIXTURES / jeu.nom_fichier)
 
     vue = _page("/travail")
     assert "pas encore importés" not in vue
@@ -108,6 +113,14 @@ def test_pages(urls_module):
     paris = _page("/travail/DEP/75")
     assert "6,6 %" in paris  # chômage, 2e trimestre 2026 (provisoire)
     assert "2e trimestre 2026 (provisoire)" in paris
+    assert "15,1 %" in gironde and "14,3 %" in gironde  # contrats courts, temps partiel
+    assert "15-24 ans 50,2 %" in gironde
+    assert "3 836 €" in paris  # salaire net moyen 2024
+    assert re.search(r"de moins</strong>", paris)
+    assert "Moins de 25 ans" in paris
+    salaires = _page("/travail/theme/salaires")
+    assert 'value="SALAIRE_NET_MOYEN" selected' in salaires and "3 836 €" in salaires
+    assert 'value="PART_CONTRATS_COURTS" selected' in _page("/travail/theme/comment")
     mayotte = client.get("/travail/DEP/976")
     assert mayotte.status_code == 200 and "Mayotte n'est pas publiée" in mayotte.text
 

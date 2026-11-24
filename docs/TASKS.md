@@ -183,12 +183,23 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/GAgaMw
   et par métier, part des projets difficiles calculée à l'import.
   *Critère :* Gironde 156 520 demandeurs d'emploi ABC au T3 2026 dont 45,8 % depuis un an
   ou plus ; 67 045 projets de recrutement en 2026 dont 47,1 % jugés difficiles.
-- [~] **T3. Pages `/travail`** — `web/travail.py` : vue France, fiche département, carte par
+- [x] **T3. Pages `/travail`** — `web/travail.py` : vue France, fiche département, carte par
   thème (`chercher-creer`, `emploi`, familles de métiers BMO) ; quatre questions guidées avec
   leur bloc ; migration 035 (vue `api.ventilation` : sexe, âge et modalités, que `api.serie`
   ne montre pas) ; accueil, barre latérale, pied de page, vitrine, PRD, APP_FLOW, DESIGN.
   *Critère :* fiche Gironde avec 156 520 demandeurs d'emploi, 67 045 projets dont 47,1 %
   difficiles, 702 900 salariés et le rang de chaque part ; Mayotte avec ses manques signalés.
+- [~] **T4. « Comment » et « Combien ça paie »** — migration 042 : `PART_CONTRATS_COURTS` et
+  `PART_TEMPS_PARTIEL` (recensement 2023, jeu Melodi ACT2B, `connecteurs/contrats.py`, par
+  sexe et grande tranche d'âge, parts calculées à la lecture, Mayotte absente) ; le salaire
+  net moyen de l'appli « vivre » (`SALAIRE_NET_MOYEN`) et le taux de chômage trimestriel
+  affichés dans la rubrique par `ref.indicateur_affichage`, sans réimport. Blocs « Les
+  emplois sont-ils stables ? » et « Combien ça paie ? » (écart femmes-hommes, âges,
+  catégories), cartes `comment` et `salaires`.
+  *Critère :* Gironde 15,1 % de contrats courts (50,2 % chez les 15-24 ans), 14,3 % de temps
+  partiel ; Paris 3 836 € net par mois en 2024.
+- [ ] **T5. Télétravail, grèves (France) ; accidents du travail (région) ; audience
+  syndicale (dépôt manuel).**
 
 ### Appli « Les Français sont-ils en sécurité ? »
 

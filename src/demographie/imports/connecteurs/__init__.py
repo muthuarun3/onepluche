@@ -24,6 +24,7 @@ from demographie.imports.connecteurs.comptes_publics import (
     RECETTES_NATURE,
     SOLDE,
 )
+from demographie.imports.connecteurs.contrats import CONTRATS
 from demographie.imports.connecteurs.dares import DEMANDEURS
 from demographie.imports.connecteurs.delinquance import DELINQUANCE
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
@@ -134,6 +135,7 @@ CONNECTEURS = {
         DEFAILLANCES,
         DEMANDEURS,
         BMO,
+        CONTRATS,
     ),
     # Appli « Où va l'argent public ? » : comptes des administrations publiques (France).
     "argent": (

@@ -194,6 +194,69 @@
   </section>
 </div>
 
+<h2 class="titre-partie">Comment et combien ça paie <a class="lien-theme" href="/travail/theme/comment">Comparer les départements</a></h2>
+<div class="blocs">
+  <section class="bloc" id="conditions">
+    <h2>Les emplois sont-ils stables ?</h2>
+    {% set c = conditions %}
+    {% if c %}
+    <ul class="mesures">
+      {% for code, libelle, fin in (("PART_CONTRATS_COURTS", "Contrats courts", "des salariés en CDD, intérim, apprentissage ou stage"), ("PART_TEMPS_PARTIEL", "Temps partiel", "des personnes en emploi à temps partiel")) %}
+      {% set p = c.get(code) %}
+      {% if p %}
+      <li title="{{ definitions[code].definition if code in definitions else '' }}">
+        <span class="mesure-libelle">{{ libelle }}</span>
+        <span class="mesure-valeur">{{ p.valeur|chiffre("pourcentage") }}</span>
+        <span class="mesure-note">{{ fin }}, recensement {{ p.annee }}{{ rang(code) }}</span>
+        <span class="mesure-note">Femmes {{ p.sexes.F|chiffre("pourcentage") }} · hommes {{ p.sexes.H|chiffre("pourcentage") }}{% for a in p.ages %} · {{ (a.age_min, a.age_max)|tranche_tuple }} {{ a.valeur|chiffre("pourcentage") }}{% endfor %}</span>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    {{ source("PART_CONTRATS_COURTS") }}
+    {% else %}<p class="muet">Pas encore de chiffre des contrats{% if fiche %} pour ce département (Mayotte n'est pas publiée){% endif %}.</p>{% endif %}
+  </section>
+
+  <section class="bloc" id="salaires">
+    <h2>Combien ça paie ?</h2>
+    {% set s = salaires %}
+    {% if s %}
+    <p class="phrase"><strong class="grand">{{ s.valeur|valeur("euros") }}</strong> net par mois
+      en moyenne en {{ s.annee }}, pour un temps plein dans le secteur privé{% if s.evolution is not none %},
+      {{ s.evolution|signe }} en un an{% endif %}.</p>
+    {% if fiche and parts.get("SALAIRE_NET_MOYEN") %}{% set r = parts.SALAIRE_NET_MOYEN %}
+    <p class="muet">France : {{ r.france_valeur|valeur("euros") }} · rang <strong>{{ r.rang }}</strong> sur {{ r.classes }} départements.</p>{% endif %}
+    {% if s.ecart is not none %}
+    <p class="detail">Les femmes gagnent {{ s.sexes.F|valeur("euros") }}, les hommes
+      {{ s.sexes.H|valeur("euros") }} : <strong>{{ s.ecart|round(1)|chiffre("pourcentage") }} de moins</strong>
+      pour les femmes, en équivalent temps plein. Une partie de l'écart vient des métiers et
+      des postes occupés.</p>
+    {% endif %}
+    {% if s.ages %}
+    <ul class="mesures">
+      {% for a in s.ages %}
+      <li><span class="mesure-libelle">{{ (a.age_min, a.age_max)|tranche_tuple|capitalize }}</span>
+        <span class="mesure-valeur">{{ a.valeur|valeur("euros") }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if s.categories %}
+    <details class="autres">
+      <summary>Par catégorie de salariés</summary>
+      <ul class="mesures">
+        {% for k in s.categories %}
+        <li><span class="mesure-libelle">{{ k.libelle }}</span>
+          <span class="mesure-valeur">{{ k.valeur|valeur("euros") }}</span></li>
+        {% endfor %}
+      </ul>
+    </details>
+    {% endif %}
+    {{ source("SALAIRE_NET_MOYEN") }}
+    {% else %}<p class="muet">Les salaires ne sont pas encore importés.</p>{% endif %}
+    <p class="muet"><a href="/travail/theme/salaires">Comparer les salaires des départements</a></p>
+  </section>
+</div>
+
 {% if not fiche %}
 {% call choix_territoire(choix, "Choisir un département",
   "Touchez un département pour voir son chômage, ses métiers qui recrutent et ses secteurs.") %}

@@ -102,7 +102,7 @@ def test_bmo_fichiers_xlsx_seulement(monkeypatch):
     )
     assert [f.nom for f in BMO.fichiers()] == ["bmo-2025.xlsx", "bmo-2026.xlsx"]
     assert BMO.accepte("bmo-2026.xlsx")
-    assert CONNECTEURS["travail"][-2:] == (DEMANDEURS, BMO)
+    assert CONNECTEURS["travail"][5:7] == (DEMANDEURS, BMO)
 
 
 def test_import_et_api(urls_module):
