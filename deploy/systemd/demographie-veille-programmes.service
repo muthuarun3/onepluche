@@ -1,0 +1,30 @@
+[Unit]
+Description=On épluche : relevé hebdomadaire des programmes présidentiels suivis
+After=postgresql.service network-online.target
+Wants=network-online.target
+Requires=postgresql.service
+
+[Service]
+Type=oneshot
+User=demographie
+Group=demographie
+WorkingDirectory=/opt/demographie/app
+EnvironmentFile=/etc/demographie/env
+# Lit programmes/2027/suivis.toml ; les copies vont dans $DEMO_DONNEES_BRUTES/programmes.
+# Code de sortie 1 si une adresse n'a pas pu être relevée.
+ExecStart=/opt/demographie/app/.venv/bin/demo veiller programmes
+
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/var/lib/demographie/brut
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+MemoryMax=256M

@@ -8,7 +8,7 @@ from pathlib import Path
 from demographie import alertes, config, db, migrations
 from demographie.catalogue.references import REFERENCES_INSEE
 from demographie.donnees import series
-from demographie.imports import pipeline
+from demographie.imports import pipeline, veille_programmes
 from demographie.imports.connecteurs import CONNECTEURS
 from demographie.imports.modele import Fichier
 
@@ -138,6 +138,25 @@ def _verifier(_args: argparse.Namespace) -> int:
     return 1 if ecarts else 0
 
 
+def _veiller(args: argparse.Namespace) -> int:
+    """Relève les programmes suivis ; alerte (battement en échec) si un texte a changé ou
+    n'a pas pu être téléchargé, pour qu'une fiche soit mise à jour par PR."""
+    configuration = config.charger()
+    alertes.signaler(configuration.ping_programmes, "debut")
+    dossier = configuration.programmes / args.election
+    with db.connexion("import") as conn:
+        releves = veille_programmes.veiller(
+            conn, dossier, configuration.donnees_brutes / "programmes"
+        )
+    lignes = [r.ligne() for r in releves] or ["Aucun programme suivi pour l'instant."]
+    for ligne in lignes:
+        print(ligne, flush=True)
+    a_voir = [r for r in releves if r.change or r.en_erreur]
+    etat = "echec" if a_voir else "succes"
+    alertes.signaler(configuration.ping_programmes, etat, "\n".join(lignes))
+    return 1 if any(r.en_erreur for r in releves) else 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parseur = argparse.ArgumentParser(prog="demo", description="Administration de Démographie")
     sous = parseur.add_subparsers(dest="commande", required=True)
@@ -162,6 +181,10 @@ def main(argv: list[str] | None = None) -> int:
     sous.add_parser(
         "verifier", help="comparer les chiffres servis aux valeurs publiées par l'INSEE"
     ).set_defaults(action=_verifier)
+    vei = sous.add_parser("veiller", help="relever les programmes présidentiels suivis")
+    vei.add_argument("quoi", choices=["programmes"])
+    vei.add_argument("--election", default="2027", help="dossier programmes/<élection>")
+    vei.set_defaults(action=_veiller)
     args = parseur.parse_args(argv)
     return args.action(args)
 

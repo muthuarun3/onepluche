@@ -103,7 +103,10 @@ SHA-256 (`DEMO_DONNEES_BRUTES`), puis contrôle avant de publier :
 | Population déjà publiée qui varie de plus de 3 % | Attente : `demo valider <n°>` |
 
 `demo imports` affiche le journal ; la page `/sources` et `GET /api/v1/sources` montrent l'état de chaque fichier. Avec `DEMO_PING_IMPORT` (URL Healthchecks.io, gratuit), chaque import signale son début et son résultat : Healthchecks envoie un courriel si un import est rejeté, attend une validation, ou ne tourne plus. Un fichier déjà publié n'est jamais réimporté ; un
-fichier rejeté peut l'être après correction du connecteur. Les révisions de l'INSEE
+fichier rejeté peut l'être après correction du connecteur. `demo veiller programmes` relève chaque lundi
+les programmes présidentiels listés dans `programmes/2027/suivis.toml` (empreinte, copie dans
+`$DEMO_DONNEES_BRUTES/programmes`, alerte par `DEMO_PING_PROGRAMMES` si un texte change) ;
+elle ne modifie jamais une fiche. Les révisions de l'INSEE
 remplacent les valeurs précédentes. `demo verifier` compare les chiffres servis aux
 valeurs du 1er janvier 2026 publiées par l'INSEE (France, Paris, Creuse, Nord, Mayotte) :
 après la révision annuelle de janvier, un écart sur ces valeurs provisoires est normal.

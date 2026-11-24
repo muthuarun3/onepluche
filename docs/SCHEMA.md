@@ -229,6 +229,26 @@ fichier régional). Supprimées en cascade avec leur import ; conservées tant q
 
 Clé primaire (`dimension`, `annee`, `commune`). Jamais publiée.
 
+### `ingest.programme_releve` — veille des programmes présidentiels (migration 045)
+
+Une ligne par adresse suivie et par relevé du lundi (`programmes/<élection>/suivis.toml`).
+Les fiches elles-mêmes sont des fichiers du dépôt, pas des tables.
+
+| Colonne | Type | Contrainte |
+| --- | --- | --- |
+| `releve_id` | integer | identité |
+| `election` | text | `^[0-9]{4}$` |
+| `candidat`, `version` | text | identifiants des fiches |
+| `url` | text | `https://` |
+| `releve_le` | timestamptz | défaut `now()` |
+| `statut_http`, `taille_octets` | smallint, bigint | résultat du téléchargement |
+| `sha256` | char(64) | nul si le téléchargement a échoué |
+| `change` | boolean | empreinte différente du relevé précédent de la même adresse |
+| `message` | text | erreur éventuelle |
+
+Vue `api.programme_releve` : dernier relevé de chaque adresse et date du dernier changement
+(page « Sources »). Rôle import : lecture et ajout seulement, rien n'est effacé.
+
 ### `stat.observation` — table de faits
 
 | Colonne | Type | Contraintes |

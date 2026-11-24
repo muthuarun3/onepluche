@@ -186,5 +186,9 @@ STATUTS = {
 @routeur.get("/sources", response_class=HTMLResponse)
 def page_sources(request: Request, conn: Connexion) -> HTMLResponse:
     lignes = sources.etat_imports(conn)
-    contexte = {"lignes": lignes, "statuts": STATUTS}
+    contexte = {
+        "lignes": lignes,
+        "statuts": STATUTS,
+        "programmes": sources.releves_programmes(conn),
+    }
     return gabarits.TemplateResponse(request, "sources.html", contexte)

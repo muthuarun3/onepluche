@@ -83,3 +83,7 @@ Les commandes `demo` s'exécutent ainsi :
 Créer deux contrôles gratuits sur Healthchecks.io (sauvegarde quotidienne, restauration
 mensuelle) et coller leurs URL dans `/etc/demographie/sauvegarde.conf`. Vous êtes prévenu
 par courriel si une tâche échoue ou ne s'exécute plus.
+
+Veille des programmes présidentiels (`demographie-veille-programmes.timer`, lundi 7 h 15) :
+un troisième contrôle, dont l'URL va dans `DEMO_PING_PROGRAMMES` de `/etc/demographie/env`,
+prévient par courriel quand un programme suivi a changé ou n'a pas pu être relevé.
