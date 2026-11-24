@@ -19,4 +19,30 @@
   </tbody>
 </table>
 </div>
+
+{% if programmes %}
+<h2 class="titre-partie">Programmes présidentiels suivis</h2>
+<p class="intro">Chaque lundi, le texte publié par chaque candidat est relevé et son empreinte
+  comparée à la semaine précédente. Un texte modifié est signalé ; sa fiche est mise à jour
+  après relecture.</p>
+<div class="tableau-defilant">
+<table class="sources">
+  <thead><tr><th>Candidat</th><th>Texte</th><th>Dernier relevé</th><th>État</th></tr></thead>
+  <tbody>
+  {% for p in programmes %}
+    <tr>
+      <td>{{ p.candidat }}</td>
+      <td><a href="{{ p.url }}" rel="noopener">version {{ p.version }}</a></td>
+      <td>{{ p.releve_le.strftime("%d/%m/%Y") }}</td>
+      <td>
+        {% if p.sha256 is none %}<span class="etat etat-rejete">{{ p.message }}</span>
+        {% elif p.change %}<span class="etat etat-en_attente">Texte modifié</span>
+        {% else %}<span class="etat etat-publie">Inchangé{% if p.dernier_changement %} depuis le {{ p.dernier_changement.strftime("%d/%m/%Y") }}{% endif %}</span>{% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endif %}
 {% endblock %}

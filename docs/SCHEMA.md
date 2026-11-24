@@ -97,7 +97,7 @@ et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI
 `famille_metier` (8 familles de l'enquête BMO, codes A, C, I, O, S, T, V, Z) et `metier_bmo`
 (217 métiers, code FAP de l'enquête) (migration 034) ; la rubrique affiche aussi
 `TAUX_CHOMAGE` (appli 1) et `SALAIRE_NET_MOYEN` (appli « vivre ») par
-`ref.indicateur_affichage` (migration 042) ; `VOTES` (`/votes`, ordre 4, migration 032,
+`ref.indicateur_affichage` (migration 042) ; télétravail et accidents du travail, sources `INSEE_EEC` et `CNAM_RISQUES_PRO` (migration 046) ; `VOTES` (`/votes`, ordre 4, migration 032,
 thème obligatoire) et ses thèmes `PARTICIPATION`, `RESULTATS`, `ELUS`. Enfin
 `VIVRE` (`/vivre`, ordre 3, migration 031, thème obligatoire) et ses thèmes `REVENUS`,
 `POUVOIR_ACHAT`, `INEGALITES`, `EPARGNE`, `PATRIMOINE`, `AIDES_LOGEMENT`, `RETRAITES` ; la
@@ -116,7 +116,14 @@ négative, et celui des pourcentages au-delà de 100 un indicateur dont `borne_m
 `IR`, `IS`, `TICPE`, `AUTRES`) et `mission_etat` (33 missions du budget général, code tiré du
 libellé ; « Travail et emploi » garde `TRAVAIL_EMPLOI` après son changement de nom), et la vue
 `api.repartition_mensuelle` (valeur par modalité d'un indicateur mensuel, avec sa `periode` :
-`api.repartition` ne porte que l'année).
+`api.repartition` ne porte que l'année). Migration 044 (collectivités locales) : unité
+`millions_euros`, source `DGFIP_COMPTES_LOCAUX`, dimension `poste_local` (`PERSONNEL`,
+`AIDES_SOCIALES`, `HEBERGEMENT`, `ACHATS`, `AUTRES_FONCTIONNEMENT`, `EQUIPEMENT`,
+`AUTRES_INVESTISSEMENT`) et six indicateurs départementaux du thème `LOCAL` : dépenses et
+dette du département (`DEPENSES_DEPARTEMENT`, `DETTE_DEPARTEMENT`), des communes et des
+intercommunalités. La Collectivité européenne d'Alsace est rangée sous `67` (rien sous `68`
+depuis 2021), la Collectivité de Corse sous `2A` (depuis 2018), Paris n'a plus de budget
+départemental depuis 2019 : la page rapporte ces comptes aux habitants des deux départements.
 
 ### `ref.indicateur_affichage` — un indicateur dans plusieurs rubriques (migration 031)
 
@@ -228,6 +235,26 @@ fichier régional). Supprimées en cascade avec leur import ; conservées tant q
 | `import_id` | integer | → `ingest.import`, cascade |
 
 Clé primaire (`dimension`, `annee`, `commune`). Jamais publiée.
+
+### `ingest.programme_releve` — veille des programmes présidentiels (migration 045)
+
+Une ligne par adresse suivie et par relevé du lundi (`programmes/<élection>/suivis.toml`).
+Les fiches elles-mêmes sont des fichiers du dépôt, pas des tables.
+
+| Colonne | Type | Contrainte |
+| --- | --- | --- |
+| `releve_id` | integer | identité |
+| `election` | text | `^[0-9]{4}$` |
+| `candidat`, `version` | text | identifiants des fiches |
+| `url` | text | `https://` |
+| `releve_le` | timestamptz | défaut `now()` |
+| `statut_http`, `taille_octets` | smallint, bigint | résultat du téléchargement |
+| `sha256` | char(64) | nul si le téléchargement a échoué |
+| `change` | boolean | empreinte différente du relevé précédent de la même adresse |
+| `message` | text | erreur éventuelle |
+
+Vue `api.programme_releve` : dernier relevé de chaque adresse et date du dernier changement
+(page « Sources »). Rôle import : lecture et ajout seulement, rien n'est effacé.
 
 ### `stat.observation` — table de faits
 

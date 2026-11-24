@@ -60,7 +60,8 @@ QUESTIONS = (
         "titre": "Où va l'argent public ?",
         "lien": "/argent-public",
         "resume": "Dépenses, recettes, déficit et dette ; le budget de l'État mois par mois et "
-        "par mission ; bientôt mon département et les impôts d'un ménage type.",
+        "par mission ; ce que dépensent les collectivités de mon département ; bientôt les "
+        "impôts d'un ménage type.",
     },
     {
         "titre": "Quel avenir pour les Français ?",
@@ -186,5 +187,9 @@ STATUTS = {
 @routeur.get("/sources", response_class=HTMLResponse)
 def page_sources(request: Request, conn: Connexion) -> HTMLResponse:
     lignes = sources.etat_imports(conn)
-    contexte = {"lignes": lignes, "statuts": STATUTS}
+    contexte = {
+        "lignes": lignes,
+        "statuts": STATUTS,
+        "programmes": sources.releves_programmes(conn),
+    }
     return gabarits.TemplateResponse(request, "sources.html", contexte)

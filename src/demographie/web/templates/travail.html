@@ -24,8 +24,9 @@
 {% else %}
 <h1>Comment travaillent les Français&nbsp;?</h1>
 <p class="intro">Qui cherche un emploi, qui embauche et qui crée son entreprise ; puis qui
-  travaille, salarié ou à son compte, et dans quel secteur. Les chiffres viennent de l'INSEE,
-  de la DARES, de France Travail et de la Banque de France ; chacun porte sa source et sa date.</p>
+  travaille, salarié ou à son compte, dans quel secteur, avec quel contrat et quel salaire ;
+  enfin le télétravail et les accidents du travail. Les chiffres viennent de l'INSEE,
+  de la DARES, de France Travail, de la Banque de France et de l'Assurance maladie ; chacun porte sa source et sa date.</p>
 {% endif %}
 
 {% if not avec_donnees %}
@@ -254,6 +255,64 @@
     {{ source("SALAIRE_NET_MOYEN") }}
     {% else %}<p class="muet">Les salaires ne sont pas encore importés.</p>{% endif %}
     <p class="muet"><a href="/travail/theme/salaires">Comparer les salaires des départements</a></p>
+  </section>
+</div>
+
+<h2 class="titre-partie">Au travail : télétravail et accidents</h2>
+<div class="blocs">
+  <section class="bloc" id="teletravail">
+    <h2>Qui télétravaille ?</h2>
+    {% set t = teletravail %}
+    {% if t %}
+    <p class="phrase"><strong class="grand">{{ t.valeur|chiffre("pourcentage") }}</strong> des
+      personnes en emploi ont télétravaillé au moins un jour par semaine en {{ t.annee }}{% if fiche %},
+      en France{% endif %}.</p>
+    {% if t.categories %}
+    <ul class="mesures">
+      {% for k in t.categories %}
+      <li><span class="mesure-libelle">{{ k.libelle }}</span>
+        <span class="mesure-valeur">{{ k.valeur|chiffre("pourcentage") }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <p class="muet">L'enquête Emploi ne donne pas de chiffre par département{% if fiche %} : celui-ci est national{% endif %}.</p>
+    {{ source("PART_TELETRAVAIL") }}
+    {% else %}<p class="muet">Le télétravail n'est pas encore importé.</p>{% endif %}
+  </section>
+
+  <section class="bloc" id="accidents">
+    <h2>Le travail est-il dangereux ?</h2>
+    {% set a = accidents %}
+    {% if a %}
+    <p class="phrase"><strong class="grand">{{ a.nombre|chiffre("nombre") }}</strong> accidents
+      du travail avec arrêt en {{ a.annee }}{% if a.region %} dans la région {{ a.region }}{% endif %}{% if a.indice is not none %},
+      soit <strong>{{ a.indice|valeur("decimal") }}</strong> pour 1 000 salariés{% endif %}.</p>
+    {% if a.region and a.france is not none %}
+    <p class="muet">France : {{ a.france|valeur("decimal") }} pour 1 000 salariés{% if a.rang %} · rang <strong>{{ a.rang }}</strong> sur {{ a.regions|length }} régions{% endif %}.
+      Les chiffres ne descendent pas au département.</p>
+    {% elif a.indice_avant is not none and a.annee_avant != a.annee %}
+    <p class="detail">C'était {{ a.indice_avant|valeur("decimal") }} pour 1 000 salariés en {{ a.annee_avant }}.</p>
+    {% endif %}
+    {{ courbe(a.courbe, "Accidents du travail pour 1 000 salariés", "nombre") }}
+    <ul class="mesures">
+      <li><span class="mesure-libelle">Accidents de trajet</span>
+        <span class="mesure-valeur">{{ a.trajet|chiffre("nombre") }}</span></li>
+      <li><span class="mesure-libelle">Maladies professionnelles reconnues</span>
+        <span class="mesure-valeur">{{ a.maladies|chiffre("nombre") }}</span></li>
+    </ul>
+    {% if not fiche and a.regions %}
+    <details class="autres">
+      <summary>Par région, pour 1 000 salariés</summary>
+      <ul class="mesures">
+        {% for r in a.regions %}
+        <li><span class="mesure-libelle">{{ r.libelle }}</span>
+          <span class="mesure-valeur">{{ r.valeur|valeur("decimal") }}</span></li>
+        {% endfor %}
+      </ul>
+    </details>
+    {% endif %}
+    {{ source("INDICE_FREQUENCE_AT") }}
+    {% else %}<p class="muet">Les accidents du travail ne sont pas encore importés.</p>{% endif %}
   </section>
 </div>
 

@@ -1,6 +1,7 @@
 """Pages de la rubrique « Où va l'argent public ? » : vue France (chiffres clés, « pour
 1 000 € de dépense publique », qui dépense, d'où vient l'argent, déficit et dette dans le
-temps) et budget de l'État (solde mois par mois, crédits par mission). Départements, ménage
+temps), budget de l'État (solde mois par mois, crédits par mission) et collectivités
+locales d'un département (département, communes, intercommunalités, par habitant). Ménage
 type et catastrophes naturelles viennent avec les PR suivantes.
 
 Dossier de conception de l'appli, étape 8. Les montants par habitant et en euros constants
@@ -10,10 +11,12 @@ en base."""
 from datetime import date
 from typing import Annotated
 
-from fastapi import APIRouter, Query, Request
+from fastapi import APIRouter, HTTPException, Query, Request, status
+from fastapi import Path as Chemin
 from fastapi.responses import HTMLResponse
 
-from demographie.donnees import series
+from demographie.donnees import series, territoires
+from demographie.web.carte import choix_territoire
 from demographie.web.pages import Connexion, _decimal_fr, gabarits
 
 routeur = APIRouter(prefix="/argent-public", include_in_schema=False)
@@ -28,8 +31,6 @@ QUESTIONS = (
      "#interets"),
 )  # fmt: skip
 A_VENIR = (
-    ("Mon département", "les dépenses du département et des communes par habitant, poste "
-     "par poste, comparées à la moyenne."),
     ("Impôts d'un ménage type", "ce que paie un ménage comme le vôtre, et ce que ses "
      "impôts financent."),
     ("Catastrophes naturelles", "les reconnaissances par année et par péril dans votre "
@@ -79,10 +80,14 @@ def _par_annee(lignes: list[dict]) -> dict[int, dict]:
     return {x["annee"]: x for x in lignes if x["valeur"] is not None}
 
 
-def _population(conn) -> dict[int, float]:
+def _population(conn, niveau: str = "FRANCE", code: str = "FR") -> dict[int, float]:
     """Population moyenne de chaque année : moyenne du 1er janvier et du 1er janvier
     suivant, ou le seul 1er janvier connu pour la dernière année."""
-    debut = {x["annee"]: float(x["valeur"]) for x in series.serie(conn, "POP", "FRANCE", "FR")}
+    debut = {
+        x["annee"]: float(x["valeur"])
+        for x in series.serie(conn, "POP", niveau, code)
+        if x["valeur"] is not None
+    }
     return {a: (p + debut[a + 1]) / 2 if a + 1 in debut else p for a, p in debut.items()}
 
 
@@ -299,6 +304,11 @@ def argent(request: Request, conn: Connexion) -> HTMLResponse:
             "provisoire": interets["provisoire"],
         }
     prelevements = derniere("PRELEVEMENTS_PIB")
+    tous = territoires.lister(conn)
+    departements: dict[str, list[dict]] = {}
+    for t in tous:
+        if t["niveau"] == "DEP":
+            departements.setdefault(t["parent_code"], []).append(t)
 
     contexte = {
         "definitions": definitions,
@@ -315,6 +325,9 @@ def argent(request: Request, conn: Connexion) -> HTMLResponse:
         "questions": QUESTIONS,
         "a_venir": A_VENIR,
         "pages": PAGES,
+        "choix": choix_territoire(tous, ("DEP",), "/argent-public/DEP/{code}"),
+        "regions": sorted((t for t in tous if t["niveau"] == "REG"), key=lambda t: t["libelle"]),
+        "departements": departements,
         "donnees": {"historique": historique},
     }
     return gabarits.TemplateResponse(request, "argent.html", contexte)
@@ -455,3 +468,206 @@ def etat(
         },
     }
     return gabarits.TemplateResponse(request, "argent_etat.html", contexte)
+
+
+# --- Collectivités locales d'un département ---------------------------------------------
+
+ECHELONS = (
+    ("DEPARTEMENT", "Le département"),
+    ("COMMUNES", "Les communes"),
+    ("INTERCO", "Les intercommunalités"),
+)
+# Départements publiés ensemble dans une collectivité unique : le premier code porte les
+# comptes des deux, l'autre n'en a plus.
+UNIQUES = {
+    "67": ("67", "68", "la Collectivité européenne d'Alsace"),
+    "68": ("67", "68", "la Collectivité européenne d'Alsace"),
+    "2A": ("2A", "2B", "la Collectivité de Corse"),
+    "2B": ("2A", "2B", "la Collectivité de Corse"),
+}
+NOTES = {
+    "67": "Depuis 2021, le Bas-Rhin et le Haut-Rhin forment la Collectivité européenne "
+    "d'Alsace : ses comptes sont publiés ensemble et rapportés aux habitants des deux "
+    "départements.",
+    "2A": "Depuis 2018, la Collectivité de Corse remplace les deux départements et la "
+    "région : ses dépenses comprennent celles d'une région et sont rapportées aux "
+    "habitants de toute l'île.",
+    "972": "La collectivité territoriale unique exerce aussi les compétences de la région : "
+    "ses dépenses sont plus élevées que celles d'un département.",
+    "75": "Paris est à la fois une commune et un département : depuis 2019, ses dépenses "
+    "départementales sont comptées avec celles des communes.",
+    "69": "La Métropole de Lyon exerce les compétences du département sur son territoire : "
+    "elle est comptée avec les intercommunalités, et le département du Rhône ne couvre que "
+    "le reste.",
+}
+NOTES |= {"68": NOTES["67"], "2B": NOTES["2A"], "973": NOTES["972"], "976": NOTES["972"]}
+
+
+def _annuelles(conn, indicateur: str, niveau: str, code: str) -> dict[int, float]:
+    return {
+        x["annee"]: float(x["valeur"])
+        for x in series.serie(conn, indicateur, niveau, code)
+        if x["periode_type"] == "ANNEE" and x["valeur"] is not None
+    }
+
+
+def _par_habitant(millions: float | None, habitants: float | None) -> float | None:
+    if millions is None or not habitants:
+        return None
+    return 1e6 * millions / habitants
+
+
+class _Comptes:
+    """Comptes d'un échelon pour un département, par année, rapportés au bon nombre
+    d'habitants : pour une collectivité unique, les comptes publiés sous un seul code et
+    la population des deux départements."""
+
+    def __init__(self, conn, code: str, populations: dict[str, dict[int, float]]):
+        self.conn = conn
+        self.code = code
+        self.populations = populations
+
+    def habitants(self, codes: tuple[str, ...], annee: int) -> float | None:
+        valeurs = [self.populations[c].get(annee) for c in codes]
+        return sum(valeurs) if all(valeurs) else None
+
+    def annees(self, indicateur: str) -> dict[int, dict]:
+        """Année -> {valeur (M€), code des comptes, codes des habitants, collectivité unique}."""
+        resultat = {}
+        propres = _annuelles(self.conn, indicateur, "DEP", self.code)
+        unique = UNIQUES.get(self.code) if indicateur.endswith("_DEPARTEMENT") else None
+        if unique:
+            premier, second, nom = unique
+            communs = _annuelles(self.conn, indicateur, "DEP", premier)
+            seconds = _annuelles(self.conn, indicateur, "DEP", second)
+            for a, v in communs.items():
+                if a not in seconds:
+                    resultat[a] = {"valeur": v, "code": premier, "codes": (premier, second),
+                                   "unique": nom}  # fmt: skip
+        for a, v in propres.items():
+            resultat.setdefault(a, {"valeur": v, "code": self.code, "codes": (self.code,),
+                                    "unique": None})  # fmt: skip
+        for a, x in resultat.items():
+            x["habitants"] = self.habitants(x["codes"], a)
+            x["par_habitant"] = _par_habitant(x["valeur"], x["habitants"])
+        return resultat
+
+
+def _postes(conn, indicateur: str, compte: dict, annee: int, habitants_fr: float | None):
+    """Postes de dépense par habitant, ici et en France, du plus gros au plus petit."""
+    ici = series.repartition(conn, indicateur, "DEP", compte["code"], annee)
+    lignes_fr = series.repartition(conn, indicateur, "FRANCE", "FR", annee)
+    france = {x["modalite"]: x for x in lignes_fr}
+    lignes = []
+    for x in ici:
+        if x["valeur"] is None:
+            continue
+        fr = france.get(x["modalite"])
+        lignes.append({
+            "libelle": x["libelle"],
+            "ici": _par_habitant(float(x["valeur"]), compte["habitants"]),
+            "france": _par_habitant(float(fr["valeur"]), habitants_fr) if fr else None,
+        })  # fmt: skip
+    lignes = [x for x in lignes if x["ici"] is not None]
+    if not lignes:
+        return None
+    lignes.sort(key=lambda x: -x["ici"])
+    plus_grand = max(max(x["ici"], x["france"] or 0) for x in lignes) or 1
+    for x in lignes:
+        x["largeur"] = 100 * max(x["ici"], 0) / plus_grand
+        x["repere"] = None if x["france"] is None else 100 * max(x["france"], 0) / plus_grand
+    return {"annee": annee, "lignes": lignes}
+
+
+@routeur.get("/DEP/{code}", response_class=HTMLResponse)
+def departement(
+    request: Request,
+    conn: Connexion,
+    code: Annotated[str, Chemin(pattern=r"^[0-9][0-9AB][0-9]?$")],
+) -> HTMLResponse:
+    fiche = territoires.trouver(conn, "DEP", code)
+    if fiche is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Département inconnu")
+    definitions = {i["code"]: i for i in series.indicateurs(conn, rubrique=RUBRIQUE)}
+    codes = set(UNIQUES.get(code, (code, code))[:2]) | {code}
+    comptes = _Comptes(conn, code, {c: _population(conn, "DEP", c) for c in codes})
+    population_fr = _population(conn)
+
+    depenses = {e: comptes.annees(f"DEPENSES_{e}") for e, _ in ECHELONS}
+    dettes = {e: comptes.annees(f"DETTE_{e}") for e, _ in ECHELONS}
+    france = {
+        e: (_annuelles(conn, f"DEPENSES_{e}", "FRANCE", "FR"),
+            _annuelles(conn, f"DETTE_{e}", "FRANCE", "FR"))
+        for e, _ in ECHELONS
+    }  # fmt: skip
+    annees = sorted({a for d in depenses.values() for a, x in d.items() if x["par_habitant"]})
+    contexte = {"fiche": fiche, "definitions": definitions, "note": NOTES.get(code),
+                "resume": None, "postes": [], "donnees": {"historique": None}}  # fmt: skip
+    if annees:
+        annee = annees[-1]
+        echelons = []
+        for e, libelle in ECHELONS:
+            d, t = depenses[e].get(annee), dettes[e].get(annee)
+            dep_fr, dette_fr = france[e]
+            echelons.append({
+                "code": e,
+                "libelle": libelle,
+                "unique": d["unique"] if d else None,
+                "depense": d["par_habitant"] if d else None,
+                "dette": t["par_habitant"] if t else None,
+                "depense_fr": _par_habitant(dep_fr.get(annee), population_fr.get(annee)),
+                "dette_fr": _par_habitant(dette_fr.get(annee), population_fr.get(annee)),
+            })  # fmt: skip
+
+        def somme(cle: str) -> float | None:
+            valeurs = [x[cle] for x in echelons if x[cle] is not None]
+            return sum(valeurs) if valeurs else None
+
+        total, total_fr = somme("depense"), somme("depense_fr")
+        contexte["resume"] = {
+            "annee": annee,
+            "echelons": echelons,
+            "total": total,
+            "total_fr": total_fr,
+            "dette": somme("dette"),
+            "dette_fr": somme("dette_fr"),
+            "ecart": 100 * (total / total_fr - 1) if total and total_fr else None,
+        }
+        habitants_fr = population_fr.get(annee)
+        for e, titre in (("DEPARTEMENT", "Le département"), ("COMMUNES", "Les communes")):
+            compte = depenses[e].get(annee)
+            postes = compte and _postes(conn, f"DEPENSES_{e}", compte, annee, habitants_fr)
+            if postes:
+                postes["titre"] = titre
+                postes["unique"] = compte["unique"]
+                postes["definition"] = definitions.get(f"DEPENSES_{e}")
+                contexte["postes"].append(postes)
+        historique = _historique_local(depenses, france, population_fr, _prix(conn))
+        contexte["donnees"]["historique"] = historique
+    return gabarits.TemplateResponse(request, "argent_departement.html", contexte)
+
+
+def _historique_local(depenses, france, population_fr, prix) -> dict | None:
+    """Dépense des trois échelons par habitant, ici et en France, depuis la première année :
+    en euros constants si l'indice des prix couvre toutes les années."""
+    annees = sorted(
+        a for a in depenses["COMMUNES"]
+        if all(depenses[e].get(a, {}).get("par_habitant") for e in ("COMMUNES", "INTERCO"))
+    )  # fmt: skip
+    if len(annees) < 2:
+        return None
+    constants = all(a in prix for a in annees)
+    base = max(prix) if constants else None
+
+    def euros_de(a: int, v: float | None) -> float | None:
+        if v is None:
+            return None
+        return round(v * prix[base] / prix[a] if constants else v)
+
+    ici, fr = [], []
+    for a in annees:
+        total = sum(depenses[e].get(a, {}).get("par_habitant") or 0 for e, _ in ECHELONS)
+        ici.append(euros_de(a, total))
+        total_fr = sum(france[e][0].get(a) or 0 for e, _ in ECHELONS)
+        fr.append(euros_de(a, _par_habitant(total_fr, population_fr.get(a))))
+    return {"annees": annees, "ici": ici, "france": fr, "base_prix": base}

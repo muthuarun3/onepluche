@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% macro source(d) -%}
+{% if d %}<p class="source">Source : <a href="{{ d.source_url }}" rel="noopener">{{ d.source_libelle }}</a>, {{ d.source_licence }}.{% if d.avertissement %} {{ d.avertissement }}{% endif %}</p>{% endif %}
+{%- endmacro %}
+{% macro par_hab(v) -%}{% if v is not none %}{{ v|euros }}{% else %}—{% endif %}{%- endmacro %}
+{% block titre %}L'argent public local · {{ fiche.libelle }} · On épluche{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/argent-public">Où va l'argent public ?</a> › {{ fiche.libelle }}
+</nav>
+<h1>L'argent public local : {{ fiche.libelle }}</h1>
+<p class="intro">Ce que dépensent, par habitant, le département, les communes et les
+  intercommunalités de {{ fiche.libelle }}, comparé à la moyenne française. L'État et la
+  Sécurité sociale, qui dépensent davantage, ne sont pas répartis par département.</p>
+
+{% if note %}<p class="encadre">{{ note }}</p>{% endif %}
+
+{% if not resume %}
+<p class="bandeau">Les comptes des collectivités locales ne sont pas encore importés.</p>
+{% else %}
+<div class="chiffres">
+  <div class="chiffre">
+    <div class="chiffre-libelle">Dépense locale par habitant, {{ resume.annee }}</div>
+    <div class="chiffre-valeur">{{ resume.total|euros }}</div>
+    <div class="chiffre-note">France : {{ par_hab(resume.total_fr) }}{% if resume.ecart is not none %} · {{ "+" if resume.ecart > 0 }}{{ resume.ecart|pct(0)|replace("-", "−") }}{% endif %}</div>
+  </div>
+  {% if resume.dette is not none %}
+  <div class="chiffre">
+    <div class="chiffre-libelle">Dette locale par habitant</div>
+    <div class="chiffre-valeur">{{ resume.dette|euros }}</div>
+    <div class="chiffre-note">fin {{ resume.annee }} · France : {{ par_hab(resume.dette_fr) }}</div>
+  </div>
+  {% endif %}
+</div>
+
+<section class="bloc tableau-local" id="echelons">
+  <h2>Qui dépense quoi, par habitant</h2>
+  <div class="tableau-defilant">
+    <table>
+      <thead><tr><th>En {{ resume.annee }}</th><th>Dépense</th><th>France</th><th>Dette</th><th>France</th></tr></thead>
+      <tbody>
+        {% for e in resume.echelons %}
+        <tr><td>{{ e.libelle }}</td><td>{{ par_hab(e.depense) }}</td><td>{{ par_hab(e.depense_fr) }}</td><td>{{ par_hab(e.dette) }}</td><td>{{ par_hab(e.dette_fr) }}</td></tr>
+        {% endfor %}
+        <tr class="total"><td>Ensemble</td><td>{{ par_hab(resume.total) }}</td><td>{{ par_hab(resume.total_fr) }}</td><td>{{ par_hab(resume.dette) }}</td><td>{{ par_hab(resume.dette_fr) }}</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="detail muet">Dépenses de fonctionnement et d'investissement, hors remboursement
+    des emprunts ; dette au 31 décembre. Les intercommunalités sont comptées dans le
+    département de leur siège.</p>
+  {{ source(definitions.DEPENSES_COMMUNES) }}
+</section>
+
+<div class="blocs">
+  {% for p in postes %}
+  <section class="bloc" id="postes-{{ loop.index }}">
+    <h2>{{ p.titre }}{% if p.unique %} ({{ p.unique }}){% endif %}, poste par poste</h2>
+    <figure class="barres comparees">
+      <figcaption>Par habitant en {{ p.annee }} ; le trait marque la moyenne française</figcaption>
+      <ul>
+        {% for b in p.lignes %}
+        <li title="{{ b.libelle }} : {{ b.ici|euros }} par habitant{% if b.france is not none %}, France {{ b.france|euros }}{% endif %}">
+          <span class="barre-libelle">{{ b.libelle }}</span>
+          <span class="barre-piste"><span class="barre" style="width: {{ '%.1f'|format(b.largeur) }}%"></span>{% if b.repere is not none %}<span class="repere" style="left: {{ '%.1f'|format(b.repere) }}%"></span>{% endif %}</span>
+          <span class="barre-valeur">{{ b.ici|euros }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </figure>
+    {{ source(p.definition) }}
+  </section>
+  {% endfor %}
+</div>
+
+{% if donnees.historique %}
+<section class="graphique-bloc" id="historique">
+  <div class="graphique-titre"><h2>La dépense locale par habitant depuis {{ donnees.historique.annees[0] }}</h2></div>
+  <p class="legende"><span class="pastille serie"></span>{{ fiche.libelle }} <span class="pastille femmes"></span>France{% if donnees.historique.base_prix %} · en euros de {{ donnees.historique.base_prix }}, inflation retirée{% else %} · en euros de l'époque{% endif %}</p>
+  <div id="historique-local" class="graphique" role="img" aria-label="Dépense des collectivités locales par habitant, {{ fiche.libelle }} et France, par année"></div>
+</section>
+{% endif %}
+{% endif %}
+
+<p class="detail"><a href="/territoire/DEP/{{ fiche.code }}">Qui habite {{ fiche.libelle }} ?</a> · <a href="/argent-public">Toute la France</a></p>
+<script type="application/json" id="donnees-local">{{ donnees|tojson }}</script>
+{% endblock %}
+{% block scripts %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/argent_departement.js"></script>
+{% endblock %}

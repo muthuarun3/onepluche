@@ -139,8 +139,9 @@ de 2025 signalée), projets de recrutement et part jugée difficile par métier 
 (enquête BMO de France Travail), créations (Sirene) et défaillances d'entreprises (Banque de
 France). Qui travaille : emploi salarié par grand secteur et intérim, part des indépendants.
 Comment et combien ça paie : contrats courts et temps partiel (recensement), salaire net
-moyen du secteur privé (repris de l'appli « vivre »). Télétravail, accidents, syndicats et
-grèves suivront. Dossier : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
+moyen du secteur privé (repris de l'appli « vivre »). Au travail : télétravail (enquête
+Emploi, France) et accidents du travail (Assurance maladie, par région depuis 2005).
+Syndicats et grèves attendent une source téléchargeable. Dossier : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
 
 Écrans : vue France (les blocs pour la France, puis la carte), fiche département (les mêmes
 blocs, valeur France et rang), carte par thème (taux et parts seulement ; famille de métiers
@@ -175,8 +176,11 @@ constants calculés à l'affichage (population et indice des prix déjà en base
 
 Écrans : vue France (PR A), budget de l'État (PR B : solde cumulé mois par mois de l'année
 en cours et des deux précédentes, impôts de l'État, crédits votés et dépensés par mission
-de 2023 à 2025, « Remboursements et dégrèvements » à part) ; à venir : fiche département (dépenses du
-département et du bloc communal, catastrophes naturelles), impôts d'un ménage type. Six
+de 2023 à 2025, « Remboursements et dégrèvements » à part), fiche département (PR C : dépenses
+et dette par habitant du département, des communes et des intercommunalités comparées à la
+France, postes du département et des communes, dépense locale depuis 2016 en euros
+constants ; collectivités uniques d'Alsace et de Corse rapportées aux habitants des deux
+départements) ; à venir : catastrophes naturelles sur la fiche, impôts d'un ménage type. Six
 questions guidées. Dossier de conception validé le 22/11/2026 :
 <https://claude.ai/artifact/MmAWsKGAsnpiErF2KEmoRW>.
 
@@ -202,7 +206,7 @@ n'est décidée à ce jour.
 | F11 | Questions guidées (réponse = phrase + graphique + source) | Prévu |
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
 | F14 | Rubrique `/avenir` : projections de population (vue France, fiche département), climat selon trois scénarios du GIEC ; catastrophes naturelles reconnues et plans de prévention ; cartes par thème et six questions guidées | En service (appli 5, phases A à D) |
-| F18 | Macro-catégories « Données » (applis-questions) et « Programmes » (analyse et comparaison des programmes présidentiels) dans la barre latérale et sur l'accueil | « Données » en service (PR #46) ; « Programmes » : conception validée, fondations en PR (P1) |
+| F18 | Macro-catégories « Données » (applis-questions) et « Programmes » (analyse et comparaison des programmes présidentiels) dans la barre latérale et sur l'accueil | « Données » en service (PR #46) ; « Programmes » : conception validée, fondations faites (P1), veille en PR (P2) |
 | F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
 | F16 | Rubrique `/travail` : vue France, fiche département, carte par thème, quatre questions guidées | En PR (appli travail, T3) |
 | F17 | Rubrique `/votes` : participation, résultats et élus par département ; carte, fiche, page d'un scrutin | Fondations (V1) et résultats (V2) faits ; élus en PR (V3) |

@@ -27,6 +27,9 @@ RUBRIQUE = "TRAVAIL"
 CHOMAGE = "TAUX_CHOMAGE"
 # Le salaire net moyen est importé par l'appli « Comment vivent les Français ? ».
 SALAIRE = "SALAIRE_NET_MOYEN"
+# Télétravail : enquête Emploi, France seulement. Accidents du travail : par région.
+TELETRAVAIL = "PART_TELETRAVAIL"
+INDICE_AT = "INDICE_FREQUENCE_AT"
 # Grands secteurs de l'emploi salarié, dans l'ordre d'affichage ; l'intérim est à part
 # (compté dans le commerce et les services).
 SECTEURS = (
@@ -81,9 +84,11 @@ def signe(valeur: float | None, unite: str = "evolution") -> str:
 
 
 def valeur(v: Decimal | float | int | None, unite: str) -> str:
-    """Comme le filtre « chiffre », avec l'euro : « 2 505 € »."""
+    """Comme le filtre « chiffre », avec l'euro (« 2 505 € ») et une décimale (« 26,4 »)."""
     if unite == "euros":
         return "—" if v is None else f"{chiffre(v, 'nombre')}\u00a0€"
+    if unite == "decimal":
+        return "—" if v is None else _decimal_fr(float(v), 1)
     return chiffre(v, unite)
 
 
@@ -440,6 +445,67 @@ def _salaires(conn, niveau: str, code: str) -> dict | None:
     }
 
 
+def _teletravail(conn) -> dict | None:
+    """Part des personnes en emploi qui télétravaillent, par catégorie : enquête Emploi,
+    France seulement (les départements montrent le chiffre national)."""
+    lignes = series.serie(conn, TELETRAVAIL, "FRANCE", "FR")
+    if not lignes:
+        return None
+    derniere = lignes[-1]
+    categories = [
+        {"libelle": x["libelle"], "valeur": x["valeur"]}
+        for x in series.ventilation(conn, TELETRAVAIL, "FRANCE", "FR", "pcs", derniere["annee"])
+        if x["annee"] == derniere["annee"]
+    ]
+    categories.sort(key=lambda c: -c["valeur"])
+    return {"valeur": derniere["valeur"], "annee": derniere["annee"], "categories": categories}
+
+
+def _accidents(conn, niveau: str, code: str) -> dict | None:
+    """Accidents du travail de la France ou de la région du département : nombre, indice
+    de fréquence, courbe depuis 2005 et rang de la région."""
+    if niveau == "DEP":
+        territoire = territoires.trouver(conn, "DEP", code)
+        if territoire is None or territoire["parent_niveau"] != "REG":
+            return None
+        niveau, code, libelle = "REG", territoire["parent_code"], territoire["parent_libelle"]
+    else:
+        libelle = None
+    indices = series.serie(conn, INDICE_AT, niveau, code)
+    nombres = series.serie(conn, "ACCIDENTS_TRAVAIL", niveau, code)
+    if not nombres:
+        return None
+    derniere = nombres[-1]
+    france = series.serie(conn, INDICE_AT, "FRANCE", "FR")
+    regions = []
+    for r in territoires.enfants(conn, "FRANCE", "FR"):
+        valeur = _a_la_periode(series.serie(conn, INDICE_AT, "REG", r["code"]),
+                               derniere["periode"])  # fmt: skip
+        if valeur is not None:
+            regions.append({"code": r["code"], "libelle": r["libelle"], "valeur": valeur})
+    regions.sort(key=lambda r: -r["valeur"])
+    rang = next((i for i, r in enumerate(regions, start=1) if r["code"] == code), None)
+    courbe = {"Accidents pour 1 000 salariés": indices}
+    if niveau != "FRANCE":
+        courbe = {libelle: indices, "France": france}
+    return {
+        "region": libelle,
+        "annee": derniere["annee"],
+        "nombre": derniere["valeur"],
+        "indice": _a_la_periode(indices, derniere["periode"]),
+        "indice_avant": indices[0]["valeur"] if indices else None,
+        "annee_avant": indices[0]["annee"] if indices else None,
+        "france": _a_la_periode(france, derniere["periode"]),
+        "trajet": _a_la_periode(series.serie(conn, "ACCIDENTS_TRAJET", niveau, code),
+                                derniere["periode"]),
+        "maladies": _a_la_periode(series.serie(conn, "MALADIES_PROFESSIONNELLES", niveau, code),
+                                  derniere["periode"]),
+        "rang": rang,
+        "regions": regions,
+        "courbe": _courbe(courbe),
+    }  # fmt: skip
+
+
 def _parts(conn, code: str | None) -> dict[str, dict]:
     """Taux et parts comparables, avec le rang du département (fiche) ou la valeur France."""
     resultat = {}
@@ -476,9 +542,12 @@ def _blocs(conn, niveau: str, code: str) -> dict:
         "secteurs": _secteurs(conn, niveau, code),
         "conditions": _conditions(conn, niveau, code),
         "salaires": _salaires(conn, niveau, code),
+        "teletravail": _teletravail(conn),
+        "accidents": _accidents(conn, niveau, code),
         "parts": _parts(conn, code if niveau == "DEP" else None),
     }
-    blocs["avec_donnees"] = any(v for k, v in blocs.items() if k != "parts")
+    # Le télétravail n'est mesuré que pour la France : il ne suffit pas à remplir une fiche.
+    blocs["avec_donnees"] = any(v for k, v in blocs.items() if k not in ("parts", "teletravail"))
     return blocs
 
 

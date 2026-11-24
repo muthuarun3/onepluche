@@ -77,7 +77,7 @@ uv run demo importer transports           # besoins : prix des carburants (stati
 uv run demo importer avenir               # avenir : projections de population (INSEE Omphale 2022 par département, France 2026) climat (Banque mondiale, CMIP6) et risques naturels (Géorisques, GASPAR)
 uv run demo importer securite             # sécurité : délinquance (SSMSI), accidents de la route (ONISR), sentiment d'insécurité (CVS, VRS)
 uv run demo importer vivre                # vivre : revenus détaillés (Filosofi), salaires du privé (BTS, série depuis 1996), niveau de vie et inégalités depuis 1996 (ERFS), pouvoir d'achat, revenu disponible et épargne (comptes nationaux), patrimoine (enquête 2024, placements)
-uv run demo importer travail              # travail : chômage par âge, emploi salarié et intérim, emploi total, créations et défaillances d'entreprises (BDM), demandeurs d'emploi (DARES), projets de recrutement (BMO), contrats courts et temps partiel (recensement)
+uv run demo importer travail              # travail : chômage par âge, emploi salarié et intérim, emploi total, créations et défaillances d'entreprises (BDM), demandeurs d'emploi (DARES), projets de recrutement (BMO), contrats courts et temps partiel (recensement), télétravail (enquête Emploi), accidents du travail (Assurance maladie)
 uv run demo importer votes                # votes : participation et voix des 20 tours d'élection retenus, portrait des élus (ministère de l'Intérieur, data.gouv.fr)
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)
 uv run demo verifier                      # compare aux chiffres publiés par l'INSEE
@@ -103,7 +103,10 @@ SHA-256 (`DEMO_DONNEES_BRUTES`), puis contrôle avant de publier :
 | Population déjà publiée qui varie de plus de 3 % | Attente : `demo valider <n°>` |
 
 `demo imports` affiche le journal ; la page `/sources` et `GET /api/v1/sources` montrent l'état de chaque fichier. Avec `DEMO_PING_IMPORT` (URL Healthchecks.io, gratuit), chaque import signale son début et son résultat : Healthchecks envoie un courriel si un import est rejeté, attend une validation, ou ne tourne plus. Un fichier déjà publié n'est jamais réimporté ; un
-fichier rejeté peut l'être après correction du connecteur. Les révisions de l'INSEE
+fichier rejeté peut l'être après correction du connecteur. `demo veiller programmes` relève chaque lundi
+les programmes présidentiels listés dans `programmes/2027/suivis.toml` (empreinte, copie dans
+`$DEMO_DONNEES_BRUTES/programmes`, alerte par `DEMO_PING_PROGRAMMES` si un texte change) ;
+elle ne modifie jamais une fiche. Les révisions de l'INSEE
 remplacent les valeurs précédentes. `demo verifier` compare les chiffres servis aux
 valeurs du 1er janvier 2026 publiées par l'INSEE (France, Paris, Creuse, Nord, Mayotte) :
 après la révision annuelle de janvier, un écart sur ces valeurs provisoires est normal.
