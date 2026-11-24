@@ -127,7 +127,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5Cj
   `HORS_DEP` (`ZZ`, `COM`), type de période `SCRUTIN`, 20 tours dans `ref.scrutin`,
   `ref.choix_scrutin` et `ref.ajouter_choix`, dimension `mandat`, vues `api.scrutin` et
   `api.choix_scrutin` ; dépendance `pyarrow`. *Critère :* `tests/test_votes_fondations.py`.
-- [~] **V2. Résultats** (PR en cours) — migration 036 ; groupe `demo importer votes`,
+- [x] **V2. Résultats** (PR #45) — migration 036 ; groupe `demo importer votes`,
   connecteur `elections.py` (Parquet data.gouv.fr par bureau de vote, lu par paquets avec
   pyarrow et additionné par département ; même date de mise à jour = rien n'est téléchargé),
   indicateurs `INSCRITS`, `VOTANTS`, `ABSTENTIONS`, `BLANCS`, `NULS`, `BLANCS_ET_NULS`,
@@ -135,10 +135,13 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5Cj
   départements + hors département ; vues `api.participation` et `api.resultat` (à la place
   de `stat.votes_derives`). *Critère :* totaux France égaux aux chiffres officiels
   (vérifié sur le fichier complet pour 2022 et 2024), `tests/test_votes_resultats.py`.
-  Prochaine migration : 037.
-- [ ] **V3. Élus** — connecteur `elus.py` (Répertoire national des élus : maires,
-  conseillers départementaux, députés, sénateurs), `ELUS`, `ELUS_PCS`, `AGE_MEDIAN_ELUS`,
-  `PART_FEMMES_ELUS`. Aucun nom en base.
+- [~] **V3. Élus** (PR en cours) — migration 041 ; connecteur `elus.py` dans le groupe
+  `votes` (Répertoire national des élus, quatre fichiers trouvés par leur titre dans l'API
+  data.gouv.fr : maires, conseillers départementaux, députés, sénateurs). Un indicateur par
+  mandat (`ELUS_MAIRES`, `ELUS_CONSEILLERS_DEP`, `ELUS_DEPUTES`, `ELUS_SENATEURS`) ventilé
+  par sexe, tranche d'âge et groupe socioprofessionnel (dimension `pcs` de la population),
+  `AGE_MEDIAN_ELUS` par mandat ; vue `api.elus` (part de femmes, part des moins de 40 ans).
+  Aucun nom en base. *Critère :* `tests/test_votes_elus.py`.
 - [ ] **V4. Carte et fiche** — `/votes`, `/votes/DEP/{code}`, routes `/api/v1/scrutins`.
 - [ ] **V5. Scrutin et finitions** — `/votes/scrutin/{id}`, croisement avec les rubriques 1
   et 2 (corrélation, pas cause), six questions guidées, accueil, barre latérale, critères de

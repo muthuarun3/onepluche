@@ -29,6 +29,7 @@ from demographie.imports.connecteurs.delinquance import DELINQUANCE
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.dvf import VENTES
 from demographie.imports.connecteurs.elections import PARTICIPATION_ELECTIONS, VOIX_ELECTIONS
+from demographie.imports.connecteurs.elus import ELUS
 from demographie.imports.connecteurs.energie import DIAGNOSTICS, ELECTRICITE, GAZ, PRIX
 from demographie.imports.connecteurs.esr import DISCIPLINES, FORMATIONS
 from demographie.imports.connecteurs.estimations import (
@@ -149,5 +150,5 @@ CONNECTEURS = {
         CREDITS_MISSIONS,
     ),
     # Appli « Que pensent et votent les Français ? »
-    "votes": (PARTICIPATION_ELECTIONS, VOIX_ELECTIONS),
+    "votes": (PARTICIPATION_ELECTIONS, VOIX_ELECTIONS, ELUS),
 }
