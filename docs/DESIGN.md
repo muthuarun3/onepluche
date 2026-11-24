@@ -128,6 +128,9 @@ Bordures : 1px `--bordure`. Pas d'ombres dans l'appli.
 - Climat (`/avenir`) : pas de graphique, un tableau indicateur × période ; écarts signés
   (« +2,3 °C », « −12 jours », signe moins typographique), médiane en gras, fourchette en
   dessous en `--texte-2`, France en `.muet`. Scénarios en liens `.bascule.scenarios`.
+- Pages thème (`/avenir/theme/…`) : mêmes carte colorée et classement que `/besoins/theme`
+  (teinte `--serie` mêlée à `--grille`) ; les choix sont des liens `.bascule.scenarios`, un
+  groupe par ligne (indicateur, scénario, période ou année).
 - Catastrophes naturelles (`/avenir`) : barres empilées par année, inondations `--serie`,
   sécheresse `--femmes`, autres périls `--texte-3` (pastille `.pastille.gris`) ; les deux
   dernières années, incomplètes, à 45 % d'opacité ; tableau par péril en dessous.
