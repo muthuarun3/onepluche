@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 042). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
+   le catalogue change (prochain numéro : 044). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -120,7 +120,7 @@ fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugemen
   candidats, comparaison par sujet), fiches fictives dans `tests/fixtures/programmes/`.
   *Critère :* une fiche cassée est refusée avec le nom du fichier
   (`tests/test_programmes_fiches.py`).
-- [ ] **P2. Veille** — migration (041 ou plus) `ingest.programme_releve`,
+- [ ] **P2. Veille** — migration (044 ou plus) `ingest.programme_releve`,
   `imports/veille_programmes.py`, `programmes/2027/suivis.toml`, `demo veiller programmes`
   dans le minuteur du lundi, dossier des copies sauvegardé, ligne sur `/sources`.
   *Critère :* un changement d'empreinte alerte ; première veille réelle sur le serveur.
@@ -156,7 +156,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5Cj
   départements + hors département ; vues `api.participation` et `api.resultat` (à la place
   de `stat.votes_derives`). *Critère :* totaux France égaux aux chiffres officiels
   (vérifié sur le fichier complet pour 2022 et 2024), `tests/test_votes_resultats.py`.
-- [~] **V3. Élus** (PR en cours) — migration 041 ; connecteur `elus.py` dans le groupe
+- [~] **V3. Élus** (PR #53) — migration 041 ; connecteur `elus.py` dans le groupe
   `votes` (Répertoire national des élus, quatre fichiers trouvés par leur titre dans l'API
   data.gouv.fr : maires, conseillers départementaux, députés, sénateurs). Un indicateur par
   mandat (`ELUS_MAIRES`, `ELUS_CONSEILLERS_DEP`, `ELUS_DEPUTES`, `ELUS_SENATEURS`) ventilé
@@ -177,7 +177,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/NoW5Wi
   14 indicateurs Filosofi, `SALAIRE_NET_MOYEN`), groupe `demo importer vivre` : Filosofi
   détaillé, salaires BTS par sexe × catégorie et sexe × âge. *Critère :* Creuse D9 = 37 240 €,
   Paris 3 836 €, France 2 733 € (2024) ; 97 et 101 départements sur les fichiers complets.
-- [~] **A2. Séries nationales** — migration 041 (13 indicateurs, sources `INSEE_ERFS` et
+- [~] **A2. Séries nationales** — migration 043 (13 indicateurs, sources `INSEE_ERFS` et
   `INSEE_ENQPAT`, modalités `decile_niveau_vie`, `placement` et catégories de l'enquête
   Patrimoine), dix jeux de plus dans `demo importer vivre` : salaire moyen du privé depuis
   1996, ERFS (1996-2024, métropole), comptes des ménages (pouvoir d'achat par unité de
