@@ -1,0 +1,509 @@
+{
+"jeu": "DS_DERA_PRIVE_SERIES_LONGUES",
+"observations": [
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "1996",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2035.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2010",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2308.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2019",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2478.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2020",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2569.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2021",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2525.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2022",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2505.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2490.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "F",
+"TIME_PERIOD": "2024",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2514.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "1996",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2618.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2010",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2859.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2019",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2930.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2020",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 3010.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2021",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2950.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2022",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2906.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2872.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "M",
+"TIME_PERIOD": "2024",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2891.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "1996",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2400.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2010",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2635.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2019",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2743.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2020",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2827.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2021",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2774.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2022",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2738.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2023",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2712.0
+}
+}
+},
+{
+"dimensions": {
+"ACTIVITY": "_T",
+"AGE": "_T",
+"DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"NUMBER_EMPL": "_T",
+"PCS_ESE": "_T",
+"QUANTILE": "_T",
+"SEX": "_T",
+"TIME_PERIOD": "2024",
+"UNIT_MEASURE": "XDC",
+"WKTIME": "_T"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2733.0
+}
+}
+}
+]
+}

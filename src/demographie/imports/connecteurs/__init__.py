@@ -24,11 +24,13 @@ from demographie.imports.connecteurs.comptes_publics import (
     RECETTES_NATURE,
     SOLDE,
 )
+from demographie.imports.connecteurs.contrats import CONTRATS
 from demographie.imports.connecteurs.dares import DEMANDEURS
 from demographie.imports.connecteurs.delinquance import DELINQUANCE
 from demographie.imports.connecteurs.drees import EACR, MINIMUM_VIEILLESSE
 from demographie.imports.connecteurs.dvf import VENTES
 from demographie.imports.connecteurs.elections import PARTICIPATION_ELECTIONS, VOIX_ELECTIONS
+from demographie.imports.connecteurs.elus import ELUS
 from demographie.imports.connecteurs.energie import DIAGNOSTICS, ELECTRICITE, GAZ, PRIX
 from demographie.imports.connecteurs.esr import DISCIPLINES, FORMATIONS
 from demographie.imports.connecteurs.estimations import (
@@ -73,9 +75,19 @@ from demographie.imports.connecteurs.travail import (
     EMPLOI_TOTAL,
 )
 from demographie.imports.connecteurs.vivre import (
+    NIVEAU_VIE_SERIES,
+    PATRIMOINE_AGES,
+    PATRIMOINE_CATEGORIES,
+    PATRIMOINE_DECILES,
+    PATRIMOINE_FINANCIER,
+    POUVOIR_ACHAT,
+    REVENU_DISPONIBLE,
     REVENUS_FILOSOFI,
+    SALAIRE_SERIE,
     SALAIRES_AGES,
     SALAIRES_CATEGORIES,
+    TAUX_EPARGNE,
+    TAUX_EPARGNE_FINANCIERE,
 )
 
 # Ordre d'exécution de « demo importer tout » : les estimations d'abord.
@@ -124,7 +136,22 @@ CONNECTEURS = {
     # départ des projections est comparée aux estimations publiées.
     "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE, CLIMAT, GASPAR),
     # Appli 3 : comment vivent les Français ?
-    "vivre": (REVENUS_FILOSOFI, SALAIRES_CATEGORIES, SALAIRES_AGES),
+    # La pension moyenne vient du classeur des retraités (groupe « retraites »).
+    "vivre": (
+        REVENUS_FILOSOFI,
+        SALAIRES_CATEGORIES,
+        SALAIRES_AGES,
+        SALAIRE_SERIE,
+        NIVEAU_VIE_SERIES,
+        POUVOIR_ACHAT,
+        REVENU_DISPONIBLE,
+        TAUX_EPARGNE,
+        TAUX_EPARGNE_FINANCIERE,
+        PATRIMOINE_FINANCIER,
+        PATRIMOINE_AGES,
+        PATRIMOINE_CATEGORIES,
+        PATRIMOINE_DECILES,
+    ),
     # Appli « Comment travaillent les Français ? »
     "travail": (
         CHOMAGE_ANNUEL,
@@ -134,6 +161,7 @@ CONNECTEURS = {
         DEFAILLANCES,
         DEMANDEURS,
         BMO,
+        CONTRATS,
     ),
     # Appli « Où va l'argent public ? » : comptes des administrations publiques (France).
     "argent": (
@@ -149,5 +177,5 @@ CONNECTEURS = {
         CREDITS_MISSIONS,
     ),
     # Appli « Que pensent et votent les Français ? »
-    "votes": (PARTICIPATION_ELECTIONS, VOIX_ELECTIONS),
+    "votes": (PARTICIPATION_ELECTIONS, VOIX_ELECTIONS, ELUS),
 }

@@ -48,8 +48,8 @@ Les applications sont rangées en deux macro-catégories (demande de Muthu, 22/1
 
 - **Données** : toutes les questions ci-dessous et leurs applications ;
 - **Programmes** : une analyse approfondie du programme de chaque candidat à l'élection
-  présidentielle et une page qui compare les programmes sujet par sujet. Elle a son propre
-  dossier de conception, à valider avant le code ; analyses factuelles, sources citées,
+  présidentielle et une page qui compare les programmes sujet par sujet. Dossier de conception
+  validé le 24/11/2026 : <https://claude.ai/artifact/VWJAXgpAa9xJvhY6YLJZmC> ; analyses factuelles, sources citées,
   même neutralité que l'appli votes.
 
 ### Appli 1 — « Qui sont les Français ? » (`/francais`, en service)
@@ -138,8 +138,9 @@ moyenne annuelle), demandeurs d'emploi A, B, C chaque trimestre depuis 1996 (DAR
 de 2025 signalée), projets de recrutement et part jugée difficile par métier et famille
 (enquête BMO de France Travail), créations (Sirene) et défaillances d'entreprises (Banque de
 France). Qui travaille : emploi salarié par grand secteur et intérim, part des indépendants.
-Les cinq autres thèmes (contrats, salaires, télétravail, accidents, syndicats et grèves)
-suivront. Dossier : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
+Comment et combien ça paie : contrats courts et temps partiel (recensement), salaire net
+moyen du secteur privé (repris de l'appli « vivre »). Télétravail, accidents, syndicats et
+grèves suivront. Dossier : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
 
 Écrans : vue France (les blocs pour la France, puis la carte), fiche département (les mêmes
 blocs, valeur France et rang), carte par thème (taux et parts seulement ; famille de métiers
@@ -200,11 +201,11 @@ n'est décidée à ce jour.
 | F10 | Carte des départements, construite une fois pour les deux applis | Choix du territoire par la carte en service ; carte colorée par indicateur prévue (D4) |
 | F11 | Questions guidées (réponse = phrase + graphique + source) | Prévu |
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
-| F18 | Macro-catégories « Données » (applis-questions) et « Programmes » (analyse et comparaison des programmes présidentiels) dans la barre latérale et sur l'accueil | « Données » en PR ; « Programmes » en conception |
-| F14 | Rubrique `/avenir` : projections de population (vue France, fiche département), climat selon trois scénarios du GIEC ; catastrophes naturelles reconnues et plans de prévention ; cartes par thème et six questions guidées | Population, climat et risques en service ; cartes et questions en PR (appli 5, phase D) |
+| F14 | Rubrique `/avenir` : projections de population (vue France, fiche département), climat selon trois scénarios du GIEC ; catastrophes naturelles reconnues et plans de prévention ; cartes par thème et six questions guidées | En service (appli 5, phases A à D) |
+| F18 | Macro-catégories « Données » (applis-questions) et « Programmes » (analyse et comparaison des programmes présidentiels) dans la barre latérale et sur l'accueil | « Données » en service (PR #46) ; « Programmes » : conception validée, fondations en PR (P1) |
 | F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
 | F16 | Rubrique `/travail` : vue France, fiche département, carte par thème, quatre questions guidées | En PR (appli travail, T3) |
-| F17 | Rubrique `/votes` : participation, résultats et élus par département ; carte, fiche, page d'un scrutin | Fondations faites (V1) ; résultats en PR (V2) |
+| F17 | Rubrique `/votes` : participation, résultats et élus par département ; carte, fiche, page d'un scrutin | Fondations (V1) et résultats (V2) faits ; élus en PR (V3) |
 | F13 | Vitrine Neocities à jour, même direction artistique que l'appli | PR #22 ouverte |
 
 Le détail et l'ordre de livraison sont dans [TASKS.md](TASKS.md).

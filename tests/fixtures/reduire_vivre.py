@@ -1,7 +1,11 @@
-"""Extraits de test des jeux Melodi de l'appli 3 (Filosofi détaillé, salaires BTS).
+"""Extraits de test des jeux Melodi de l'appli 3.
 
-Télécharge le jeu par l'API, comme le connecteur, puis ne garde que quelques territoires :
-Creuse, Paris, La Réunion, Guadeloupe (absente de Filosofi), Nouvelle-Aquitaine, France.
+Télécharge le jeu par l'API, comme le connecteur, puis réduit le fichier :
+
+- Filosofi détaillé, salaires BTS : quelques territoires seulement (Creuse, Paris,
+  La Réunion, Guadeloupe absente de Filosofi, Nouvelle-Aquitaine, France) ;
+- séries nationales : les mesures et ventilations lues par le connecteur, pour 1996, 2010
+  et depuis 2019.
 
     uv run python tests/fixtures/reduire_vivre.py
 """
@@ -27,6 +31,27 @@ def reduire(jeu) -> None:
     )
 
 
+def _lue(jeu, dim: dict) -> bool:
+    if dim.get(jeu.dimension_mesure) not in jeu.mesures:
+        return False
+    if jeu.dimension and dim.get(jeu.dimension) not in jeu.modalites:
+        return False
+    annee = int(dim["TIME_PERIOD"])
+    return annee in (1996, 2010) or annee >= 2019
+
+
+def reduire_national(jeu) -> None:
+    chemin = jeu.telecharger(jeu.fichiers()[0], DOSSIER)
+    contenu = json.loads(chemin.read_text(encoding="utf-8"))
+    chemin.unlink()
+    contenu["observations"] = [o for o in contenu["observations"] if _lue(jeu, o["dimensions"])]
+    (DOSSIER / jeu.nom_fichier).write_text(
+        json.dumps(contenu, sort_keys=True, ensure_ascii=False, indent=0), encoding="utf-8"
+    )
+
+
 if __name__ == "__main__":
     for jeu in (vivre.REVENUS_FILOSOFI, vivre.SALAIRES_CATEGORIES, vivre.SALAIRES_AGES):
         reduire(jeu)
+    for jeu in vivre.SERIES_NATIONALES:
+        reduire_national(jeu)

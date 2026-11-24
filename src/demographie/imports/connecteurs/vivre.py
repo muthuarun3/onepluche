@@ -5,6 +5,11 @@
 - Base Tous salariés (`DS_BTS_SAL_EQTP_SEX_PCS`, `DS_BTS_SAL_EQTP_SEX_AGE`) : salaire net
   mensuel moyen en équivalent temps plein du secteur privé, par sexe et catégorie
   socioprofessionnelle, puis par sexe et tranche d'âge.
+- Séries nationales (phase A2) : salaire moyen du privé depuis 1996
+  (`DS_DERA_PRIVE_SERIES_LONGUES`), niveau de vie et inégalités depuis 1996 (`DS_ERFS_RETROPOLE`,
+  France métropolitaine), comptes des ménages (`DD_CNA_AGREGATS` : pouvoir d'achat par unité
+  de consommation, revenu disponible, taux d'épargne), patrimoine (`DS_ENQPAT_DET`, enquête
+  2024 ; `DD_CNA_PATRIMOINE`, placements financiers).
 
 Même téléchargement que le recensement (API Melodi, niveau par niveau, réponses
 assemblées dans un JSON archivé) ; la lecture sait en plus traduire plusieurs mesures d'un
@@ -22,6 +27,7 @@ from demographie.imports.connecteurs.recensement import JeuRecensement
 from demographie.imports.modele import FichierIllisible, Ligne, Referentiel
 
 _SEXES = {"_T": "T", "F": "F", "M": "H"}
+_FRANCE = {"F": "FR", "FM": "FM"}
 # Dimensions descriptives qui ne changent pas le sens d'une valeur.
 _NEUTRES = {"GEO", "TIME_PERIOD", "FREQ", "UNIT_MEASURE"}
 
@@ -50,6 +56,16 @@ class JeuMesures(JeuRecensement):
     signe_inverse: frozenset[str] = frozenset()
     requete_par_age: bool = False
     periode_type: str = "ANNEE"
+    # Code géographique Melodi du niveau France -> code du territoire (les autres sont
+    # ignorés) : l'enquête Patrimoine publie la France hors Mayotte (« F_X_D976 »).
+    france: dict[str, str] = field(default_factory=lambda: dict(_FRANCE))
+
+    def _territoire(self, geo: str) -> tuple[str, str] | None:
+        morceaux = geo.split("-", 2)
+        if len(morceaux) == 3 and morceaux[1] == "FRANCE":
+            code = self.france.get(morceaux[2])
+            return ("FRANCE", code) if code else None
+        return super()._territoire(geo)
 
     def lire(self, chemin: Path, referentiel: Referentiel) -> Iterator[Ligne]:
         try:
@@ -108,7 +124,11 @@ class JeuMesures(JeuRecensement):
                 age_min=age_min,
                 age_max=age_max,
                 valeur=valeur,
-                statut="DEFINITIF",
+                statut=(
+                    "PROVISOIRE"
+                    if (obs.get("attributes") or {}).get("OBS_STATUS") in self.statuts_provisoires
+                    else "DEFINITIF"
+                ),
                 modalite=(self.dimension_ref, modalite) if modalite else None,
             )
         if not lues:
@@ -181,4 +201,201 @@ SALAIRES_AGES = JeuMesures(
         "Y_GE55": (55, None),
     },
     sans_total_age=True,
+)
+
+# Séries nationales (phase A2). Un appel ou deux par jeu, niveau France seulement.
+_NATIONAL = {
+    "niveaux_geo": ("FRANCE",),
+    "niveaux_publies": frozenset({"FRANCE"}),
+}
+
+# Salaire net moyen du privé en équivalent temps plein, en euros constants de la dernière
+# année publiée, depuis 1996 (France métropolitaine jusqu'en 1999, France ensuite).
+SALAIRE_SERIE = JeuMesures(
+    jeu="DS_DERA_PRIVE_SERIES_LONGUES",
+    source="INSEE_BTS",
+    filtres={
+        "DERA_MEASURE": "SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS",
+        "NUMBER_EMPL": "_T",
+        "QUANTILE": "_T",
+        "WKTIME": "_T",
+        "PCS_ESE": "_T",
+        "ACTIVITY": "_T",
+        "AGE": "_T",
+    },
+    dimension_mesure="DERA_MEASURE",
+    mesures={"SALAIRE_NET_EQTP_MENSUEL_MOYEN_EUROS_CONSTANTS": "SALAIRE_PRIVE_SERIE"},
+    sexes=_TOUS_SEXES,
+    **_NATIONAL,
+)
+
+# Enquête Revenus fiscaux et sociaux rétropolée : France métropolitaine depuis 1996, niveau
+# de vie en euros constants de la dernière année.
+NIVEAU_VIE_SERIES = JeuMesures(
+    jeu="DS_ERFS_RETROPOLE",
+    source="INSEE_ERFS",
+    filtres={"EMPSTA_ENQ": "_T", "TPH": "_T", "MUN_DENSITY_LEVEL": "_T", "AGE": "_T"},
+    dimension_mesure="ERFS_MEASURE",
+    mesures={
+        "MED_SL": "NIVEAU_VIE_MEDIAN_SERIE",
+        "PR_MD60": "TAUX_PAUVRETE_SERIE",
+        "GI_SL": "GINI_SERIE",
+        "IR_D9_D1_SL": "RAPPORT_D9_D1_SERIE",
+    },
+    **_NATIONAL,
+)
+
+# Comptes nationaux annuels, ménages au sens strict (S14). Un fichier par agrégat : leurs
+# dimensions fixes diffèrent (évolution, niveau, taux).
+_MENAGES = {
+    "REF_SECTOR": "S14",
+    "COUNTERPART_AREA": "W0",
+    "PRODUCT": "_T",
+    "INSTR_ASSET": "_Z",
+    "EXPENDITURE": "_Z",
+    "ACTIVITY": "_T",
+    "PRICES": "V",
+}
+
+
+def _comptes(suffixe: str, sto: str, indicateur: str, **filtres: str) -> JeuMesures:
+    return JeuMesures(
+        jeu="DD_CNA_AGREGATS",
+        suffixe=suffixe,
+        source="INSEE_CNA",
+        filtres={**_MENAGES, "STO": sto, **filtres},
+        dimension_mesure="STO",
+        mesures={sto: indicateur},
+        statuts_provisoires=frozenset({"P"}),
+        **_NATIONAL,
+    )
+
+
+POUVOIR_ACHAT = _comptes(
+    "_pouvoir_achat", "_PAM_UC", "POUVOIR_ACHAT_UC",
+    TRANSFORMATION="GY", ACCOUNTING_ENTRY="_Z", UNIT_MEASURE="PT",
+)  # fmt: skip
+REVENU_DISPONIBLE = _comptes(
+    "_revenu_disponible", "B6G", "REVENU_DISPONIBLE",
+    TRANSFORMATION="N", ACCOUNTING_ENTRY="B", UNIT_MEASURE="XDC",
+)  # fmt: skip
+TAUX_EPARGNE = _comptes(
+    "_taux_epargne", "_TEM", "TAUX_EPARGNE",
+    TRANSFORMATION="N", ACCOUNTING_ENTRY="_Z", UNIT_MEASURE="PT",
+)  # fmt: skip
+TAUX_EPARGNE_FINANCIERE = _comptes(
+    "_taux_epargne_financiere", "_TEFM", "TAUX_EPARGNE_FINANCIERE",
+    TRANSFORMATION="N", ACCOUNTING_ENTRY="_Z", UNIT_MEASURE="PT",
+)  # fmt: skip
+
+# Encours des placements financiers des ménages (comptes de patrimoine, fin d'année, en
+# millions d'euros). Les placements non retenus (crédits, produits dérivés…) sont ignorés.
+PATRIMOINE_FINANCIER = JeuMesures(
+    jeu="DD_CNA_PATRIMOINE",
+    source="INSEE_CNA",
+    filtres={
+        "REF_SECTOR": "S14",
+        "STO": "LE",
+        "ACCOUNTING_ENTRY": "D",
+        "MATURITY": "_Z",
+        "PRICES": "U",
+        "TRANSFORMATION": "N",
+        "UNIT_MEASURE": "XDC",
+        "COUNTERPART_AREA": "W0",
+        "COUNTERPART_SECTOR": "S1",
+        "CONSOLIDATION": "N",
+        "VALUATION": "S",
+        "EXPENDITURE": "_Z",
+        "PRODUCT": "_T",
+        "ACTIVITY": "_T",
+    },
+    dimension_mesure="STO",
+    mesures={"LE": "PATRIMOINE_FINANCIER"},
+    dimension="INSTR_ASSET",
+    dimension_ref="placement",
+    modalites={
+        "F": None,
+        "F2": "DEPOTS",
+        "F3": "TITRES_CREANCE",
+        "F51": "ACTIONS",
+        "F52": "FONDS",
+        "F62": "ASSURANCE_VIE",
+    },
+    statuts_provisoires=frozenset({"P"}),
+    **_NATIONAL,
+)
+
+# Enquête Histoire de vie et Patrimoine 2023-2024 : France hors Mayotte, patrimoine des
+# ménages selon l'âge et la catégorie de la personne de référence, et selon le décile de
+# niveau de vie. Trois fichiers : chaque ventilation est demandée à part à l'API.
+_PATRIMOINE = {
+    "jeu": "DS_ENQPAT_DET",
+    "source": "INSEE_ENQPAT",
+    "dimension_mesure": "ENQPAT_MEASURE",
+    "france": {"F_X_D976": "FR"},
+    **_NATIONAL,
+}
+_SANS_VENTILATION = {"COMPARE_TIME": "_Z", "DEG_URB_UNIT": "_T", "TPH": "_T"}
+
+PATRIMOINE_AGES = JeuMesures(
+    suffixe="_ages",
+    filtres={**_SANS_VENTILATION, "PCS": "_T", "QUANTILE": "_T", "QUANTILE_MEASURE": "_T"},
+    mesures={"MT_MOY_PATBRUT": "PATRIMOINE_BRUT_MOYEN", "MT_MED_PATNET": "PATRIMOINE_NET_MEDIAN"},
+    ages={
+        "_T": (None, None),
+        "Y_LT30": (0, 29),
+        "Y30T39": (30, 39),
+        "Y40T49": (40, 49),
+        "Y50T59": (50, 59),
+        "Y60T69": (60, 69),
+        "Y_GE70": (70, None),
+    },
+    **_PATRIMOINE,
+)
+
+# Sans le total (lu avec les âges) ni les regroupements (cadres et professions libérales…).
+PATRIMOINE_CATEGORIES = JeuMesures(
+    suffixe="_categories",
+    filtres={**_SANS_VENTILATION, "AGE": "_T", "QUANTILE": "_T", "QUANTILE_MEASURE": "_T"},
+    mesures={"MT_MOY_PATBRUT": "PATRIMOINE_BRUT_MOYEN"},
+    dimension="PCS",
+    dimension_ref="pcs",
+    modalites={
+        "10": "AGRICULTEURS",
+        "20": "ARTISANS_COMMERCANTS",
+        "31": "PROFESSIONS_LIBERALES",
+        "3_X_31": "CADRES_HORS_LIBERALES",
+        "4": "PROF_INTERMEDIAIRES",
+        "50": "EMPLOYES",
+        "60": "OUVRIERS",
+        "71T72": "RETRAITES_INDEPENDANTS",
+        "73": "RETRAITES_CADRES",
+        "75": "RETRAITES_PROF_INTERMEDIAIRES",
+        "77T78": "RETRAITES_EMPLOYES_OUVRIERS",
+        "91": "INACTIFS_JAMAIS_TRAVAILLE",
+    },
+    **_PATRIMOINE,
+)
+
+PATRIMOINE_DECILES = JeuMesures(
+    suffixe="_deciles",
+    filtres={**_SANS_VENTILATION, "AGE": "_T", "PCS": "_T", "QUANTILE_MEASURE": "NIVVIE"},
+    mesures={"MT_MOY_PATBRUT": "PATRIMOINE_BRUT_MOYEN"},
+    dimension="QUANTILE",
+    dimension_ref="decile_niveau_vie",
+    modalites={f"D{i}TD{i + 1}": f"D{i + 1:02d}" for i in range(10)},
+    **_PATRIMOINE,
+)
+
+SERIES_NATIONALES = (
+    SALAIRE_SERIE,
+    NIVEAU_VIE_SERIES,
+    POUVOIR_ACHAT,
+    REVENU_DISPONIBLE,
+    TAUX_EPARGNE,
+    TAUX_EPARGNE_FINANCIERE,
+    PATRIMOINE_FINANCIER,
+    PATRIMOINE_AGES,
+    PATRIMOINE_CATEGORIES,
+    PATRIMOINE_DECILES,
 )

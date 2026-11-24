@@ -95,10 +95,16 @@ et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI
 `SYNDICATS_GREVES`. Modalités ajoutées : `secteur` `INTERIM`, `statut_emploi` (`SALARIE`,
 `NON_SALARIE`), `type_entreprise` `MICRO` (migration 030) ; `anciennete` `UN_AN_OU_PLUS`,
 `famille_metier` (8 familles de l'enquête BMO, codes A, C, I, O, S, T, V, Z) et `metier_bmo`
-(217 métiers, code FAP de l'enquête) (migration 034) ; `VOTES` (`/votes`, ordre 4, migration 032,
+(217 métiers, code FAP de l'enquête) (migration 034) ; la rubrique affiche aussi
+`TAUX_CHOMAGE` (appli 1) et `SALAIRE_NET_MOYEN` (appli « vivre ») par
+`ref.indicateur_affichage` (migration 042) ; `VOTES` (`/votes`, ordre 4, migration 032,
 thème obligatoire) et ses thèmes `PARTICIPATION`, `RESULTATS`, `ELUS`. Enfin
 `VIVRE` (`/vivre`, ordre 3, migration 031, thème obligatoire) et ses thèmes `REVENUS`,
-`POUVOIR_ACHAT`, `INEGALITES`, `EPARGNE`, `PATRIMOINE`, `AIDES_LOGEMENT`, `RETRAITES` ;
+`POUVOIR_ACHAT`, `INEGALITES`, `EPARGNE`, `PATRIMOINE`, `AIDES_LOGEMENT`, `RETRAITES` ; la
+migration 043 y ajoute les sources `INSEE_ERFS` et `INSEE_ENQPAT`, les dimensions de modalités
+`decile_niveau_vie` (`D01` à `D10`) et `placement` (`DEPOTS`, `TITRES_CREANCE`, `ACTIONS`,
+`FONDS`, `ASSURANCE_VIE`) et sept catégories `pcs` de l'enquête Patrimoine (personne de
+référence du ménage, dont quatre de retraités) ;
 `ARGENT` (`/argent-public`,
 ordre 5, migration 033, thème obligatoire) et ses thèmes `DEPENSES`, `RECETTES`, `DETTE`,
 `ETAT`, `LOCAL`, `MENAGE`, `CLIMAT`, avec l'unité `milliards_euros` et les dimensions de
@@ -306,6 +312,14 @@ et 2007, le fichier source ne contient ni les Français de l'étranger ni les co
 d'outre-mer : pas de valeur `FRANCE/FR`, seulement `FM` et les départements. Le contrôle
 des sommes compte `HORS_DEP` dans la France entière.
 
+Élus (migration 041, source `MI_RNE`, période = premier jour du mois de la mise à jour du
+Répertoire, type `MOIS`) : un indicateur d'effectif par mandat, `ELUS_MAIRES`,
+`ELUS_CONSEILLERS_DEP`, `ELUS_DEPUTES`, `ELUS_SENATEURS`, au total, par sexe, par tranche
+d'âge (18-39, 40-59, 60-74, 75 ans ou plus) et par groupe socioprofessionnel (modalité
+`pcs`) ; `AGE_MEDIAN_ELUS` (ratio, années) par modalité `mandat`. Un indicateur par
+mandat parce qu'une observation n'a qu'une modalité. Paris, la Corse, la Martinique et la
+Guyane n'ont pas de conseillers départementaux. Aucun nom n'est stocké.
+
 ### `admin.migration`
 
 `nom` (clé primaire), `empreinte` (char(64), SHA-256 du fichier), `appliquee_le`. Une
@@ -335,6 +349,7 @@ migration modifiée après application est détectée.
 | `api.choix_scrutin` | simple | Choix de chaque scrutin : code, libellé officiel, panneau, nuance, sexe (migration 032) |
 | `api.participation` | simple | Par scrutin et territoire : inscrits, votants, abstentions, blancs, nuls, blancs et nuls, exprimés, taux d'abstention et de participation, part des blancs (et des blancs et nuls) parmi les votants (migration 036) |
 | `api.resultat` | simple | Voix de chaque choix par territoire, avec la part des exprimés (pourcentage officiel) (migration 036) |
+| `api.elus` | simple | Par mandat, territoire et mois : élus, femmes, moins de 40 ans, âge médian, part de femmes et des moins de 40 ans (migration 041) |
 | `api.etat_import` | simple | Dernier essai et dernière publication par fichier de chaque source |
 
 `stat.rafraichir_vues()` (SECURITY DEFINER, exécutable par `demo_import` seulement)

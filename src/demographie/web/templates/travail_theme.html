@@ -36,17 +36,17 @@
 <div class="chiffres">
   <div class="chiffre">
     <div class="chiffre-libelle">France{% if france and france.code == "FM" %} métropolitaine{% endif %}</div>
-    <div class="chiffre-valeur">{{ (france.valeur if france else None)|chiffre(definition.unite) }}</div>
+    <div class="chiffre-valeur">{{ (france.valeur if france else None)|valeur(definition.unite) }}</div>
     <div class="chiffre-note">{{ annee }}</div>
   </div>
   <div class="chiffre">
     <div class="chiffre-libelle">Le plus élevé · {{ classement[0].libelle }}</div>
-    <div class="chiffre-valeur">{{ classement[0].valeur|chiffre(definition.unite) }}</div>
+    <div class="chiffre-valeur">{{ classement[0].valeur|valeur(definition.unite) }}</div>
     <div class="chiffre-note">{{ annee }}</div>
   </div>
   <div class="chiffre">
     <div class="chiffre-libelle">Le plus bas · {{ classement[-1].libelle }}</div>
-    <div class="chiffre-valeur">{{ classement[-1].valeur|chiffre(definition.unite) }}</div>
+    <div class="chiffre-valeur">{{ classement[-1].valeur|valeur(definition.unite) }}</div>
     <div class="chiffre-note">{{ annee }}</div>
   </div>
 </div>
@@ -94,7 +94,7 @@
         {% for l in classement %}
         <tr><td>{{ loop.index }}</td>
           <th scope="row"><a href="/travail/DEP/{{ l.code }}"><span class="code">{{ l.code }}</span>{{ l.libelle }}</a></th>
-          <td>{{ l.valeur|chiffre(definition.unite) }}</td></tr>
+          <td>{{ l.valeur|valeur(definition.unite) }}</td></tr>
         {% endfor %}
       </tbody>
     </table>

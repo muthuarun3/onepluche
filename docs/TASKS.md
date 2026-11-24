@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 036 ; 033 réservé à argent public). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
+   le catalogue change (prochain numéro : 044). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -102,14 +102,35 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 - [~] **9. Vitrine au style de l'appli** (PR #22) — mêmes couleurs, test qui le vérifie,
   `CLAUDE.md` avec la règle de mise à jour.
 - [~] **Mises à jour Dependabot** (PR #2, #3) — actions GitHub.
-- [~] **Macro-catégorie « Données »** (PR en cours) — titre « Données » dans la barre latérale
+- [x] **Macro-catégorie « Données »** (PR #46) — titre « Données » dans la barre latérale
   au-dessus des questions, accueil « Données » puis « Programmes » annoncé, vitrine.
   *Critère :* `tests/test_import.py::test_pages` ; vérifié à 1280 px et 390 px.
-- [ ] **Macro-catégorie « Programmes »** — dossier de conception en dix étapes (élection,
-  candidats, sources, analyse par candidat, comparaison par sujet, neutralité), puis les
-  tâches qui en sortent.
+- [x] **Macro-catégorie « Programmes » : conception** — dossier en dix étapes validé le
+  24/11/2026 : <https://claude.ai/artifact/VWJAXgpAa9xJvhY6YLJZmC>. Tâches P1 à P5 ci-dessous.
 
 ## À faire
+
+### Programmes (présidentielle 2027)
+
+Une PR à la fois, sur `main` à jour. Fiches en TOML dans `programmes/2027/`, publiées par la
+fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugement.
+
+- [~] **P1. Fondations** (PR en cours) — `programmes/2027/sujets.toml` (12 sujets, échelles
+  communes), `donnees/programmes.py` (modèles Pydantic, contrôles croisés, ordre des
+  candidats, comparaison par sujet), fiches fictives dans `tests/fixtures/programmes/`.
+  *Critère :* une fiche cassée est refusée avec le nom du fichier
+  (`tests/test_programmes_fiches.py`).
+- [ ] **P2. Veille** — migration (044 ou plus) `ingest.programme_releve`,
+  `imports/veille_programmes.py`, `programmes/2027/suivis.toml`, `demo veiller programmes`
+  dans le minuteur du lundi, dossier des copies sauvegardé, ligne sur `/sources`.
+  *Critère :* un changement d'empreinte alerte ; première veille réelle sur le serveur.
+- [ ] **P3. Écrans** — `/programmes`, `/programmes/{candidat}`, `/programmes/comparer`,
+  `/api/v1/programmes`, barre latérale, accueil, vitrine, docs. *Critère :* critères 1, 3 et 5
+  de l'étape 8 du dossier.
+- [ ] **P4. Premier vrai programme** — fiche du premier candidat déclaré qui a publié un texte,
+  relue par Muthu. *Critère :* critère 6 ; veille sans erreur deux lundis de suite.
+- [ ] **P5 et suivantes** — une PR par programme ou nouvelle version ; mars 2027 : liste du
+  Conseil constitutionnel (statuts, ordre officiel) ; avril 2027 : professions de foi.
 
 ### Commun aux applis 3 à 8
 
@@ -127,7 +148,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5Cj
   `HORS_DEP` (`ZZ`, `COM`), type de période `SCRUTIN`, 20 tours dans `ref.scrutin`,
   `ref.choix_scrutin` et `ref.ajouter_choix`, dimension `mandat`, vues `api.scrutin` et
   `api.choix_scrutin` ; dépendance `pyarrow`. *Critère :* `tests/test_votes_fondations.py`.
-- [~] **V2. Résultats** (PR en cours) — migration 036 ; groupe `demo importer votes`,
+- [x] **V2. Résultats** (PR #45) — migration 036 ; groupe `demo importer votes`,
   connecteur `elections.py` (Parquet data.gouv.fr par bureau de vote, lu par paquets avec
   pyarrow et additionné par département ; même date de mise à jour = rien n'est téléchargé),
   indicateurs `INSCRITS`, `VOTANTS`, `ABSTENTIONS`, `BLANCS`, `NULS`, `BLANCS_ET_NULS`,
@@ -135,10 +156,13 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5Cj
   départements + hors département ; vues `api.participation` et `api.resultat` (à la place
   de `stat.votes_derives`). *Critère :* totaux France égaux aux chiffres officiels
   (vérifié sur le fichier complet pour 2022 et 2024), `tests/test_votes_resultats.py`.
-  Prochaine migration : 037.
-- [ ] **V3. Élus** — connecteur `elus.py` (Répertoire national des élus : maires,
-  conseillers départementaux, députés, sénateurs), `ELUS`, `ELUS_PCS`, `AGE_MEDIAN_ELUS`,
-  `PART_FEMMES_ELUS`. Aucun nom en base.
+- [~] **V3. Élus** (PR #53) — migration 041 ; connecteur `elus.py` dans le groupe
+  `votes` (Répertoire national des élus, quatre fichiers trouvés par leur titre dans l'API
+  data.gouv.fr : maires, conseillers départementaux, députés, sénateurs). Un indicateur par
+  mandat (`ELUS_MAIRES`, `ELUS_CONSEILLERS_DEP`, `ELUS_DEPUTES`, `ELUS_SENATEURS`) ventilé
+  par sexe, tranche d'âge et groupe socioprofessionnel (dimension `pcs` de la population),
+  `AGE_MEDIAN_ELUS` par mandat ; vue `api.elus` (part de femmes, part des moins de 40 ans).
+  Aucun nom en base. *Critère :* `tests/test_votes_elus.py`.
 - [ ] **V4. Carte et fiche** — `/votes`, `/votes/DEP/{code}`, routes `/api/v1/scrutins`.
 - [ ] **V5. Scrutin et finitions** — `/votes/scrutin/{id}`, croisement avec les rubriques 1
   et 2 (corrélation, pas cause), six questions guidées, accueil, barre latérale, critères de
@@ -148,14 +172,19 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5Cj
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/NoW5WiUnhSjjceKtjqXTfu>.
 
-- [~] **A1. Catalogue, revenus détaillés et salaires** — migration 031 (rubrique `VIVRE`,
+- [x] **A1. Catalogue, revenus détaillés et salaires** — migration 031 (rubrique `VIVRE`,
   sept thèmes, `ref.indicateur_affichage` et les six indicateurs partagés des applis 1 et 2,
   14 indicateurs Filosofi, `SALAIRE_NET_MOYEN`), groupe `demo importer vivre` : Filosofi
   détaillé, salaires BTS par sexe × catégorie et sexe × âge. *Critère :* Creuse D9 = 37 240 €,
   Paris 3 836 €, France 2 733 € (2024) ; 97 et 101 départements sur les fichiers complets.
-- [ ] **A2. Séries nationales** — ERFS (1996-2024), comptes nationaux (pouvoir d'achat par
-  unité de consommation, taux d'épargne), patrimoine (enquête et comptes), pension moyenne
-  DREES. *Critère :* taux d'épargne 2025 = 17,9 %.
+- [~] **A2. Séries nationales** — migration 043 (13 indicateurs, sources `INSEE_ERFS` et
+  `INSEE_ENQPAT`, modalités `decile_niveau_vie`, `placement` et catégories de l'enquête
+  Patrimoine), dix jeux de plus dans `demo importer vivre` : salaire moyen du privé depuis
+  1996, ERFS (1996-2024, métropole), comptes des ménages (pouvoir d'achat par unité de
+  consommation, revenu disponible, taux d'épargne et d'épargne financière), patrimoine
+  (enquête 2024 par âge, catégorie et décile de niveau de vie ; placements financiers) ;
+  pension moyenne lue avec les retraités (`demo importer retraites`). *Critère :* taux
+  d'épargne 2025 = 17,9 % (provisoire) ; fichiers complets lus sans rejet.
 - [ ] **B. CAF et Banque de France** — `caf.py` (RSA, aides au logement, décembre),
   `surendettement.py` (13 XLSX régionaux), vue `stat.vivre_derives` (quatre calculs propres).
 - [ ] **C. Pages `/vivre`** — vue France, fiche département, page thème, six questions
@@ -183,12 +212,23 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/GAgaMw
   et par métier, part des projets difficiles calculée à l'import.
   *Critère :* Gironde 156 520 demandeurs d'emploi ABC au T3 2026 dont 45,8 % depuis un an
   ou plus ; 67 045 projets de recrutement en 2026 dont 47,1 % jugés difficiles.
-- [~] **T3. Pages `/travail`** — `web/travail.py` : vue France, fiche département, carte par
+- [x] **T3. Pages `/travail`** — `web/travail.py` : vue France, fiche département, carte par
   thème (`chercher-creer`, `emploi`, familles de métiers BMO) ; quatre questions guidées avec
   leur bloc ; migration 035 (vue `api.ventilation` : sexe, âge et modalités, que `api.serie`
   ne montre pas) ; accueil, barre latérale, pied de page, vitrine, PRD, APP_FLOW, DESIGN.
   *Critère :* fiche Gironde avec 156 520 demandeurs d'emploi, 67 045 projets dont 47,1 %
   difficiles, 702 900 salariés et le rang de chaque part ; Mayotte avec ses manques signalés.
+- [~] **T4. « Comment » et « Combien ça paie »** — migration 042 : `PART_CONTRATS_COURTS` et
+  `PART_TEMPS_PARTIEL` (recensement 2023, jeu Melodi ACT2B, `connecteurs/contrats.py`, par
+  sexe et grande tranche d'âge, parts calculées à la lecture, Mayotte absente) ; le salaire
+  net moyen de l'appli « vivre » (`SALAIRE_NET_MOYEN`) et le taux de chômage trimestriel
+  affichés dans la rubrique par `ref.indicateur_affichage`, sans réimport. Blocs « Les
+  emplois sont-ils stables ? » et « Combien ça paie ? » (écart femmes-hommes, âges,
+  catégories), cartes `comment` et `salaires`.
+  *Critère :* Gironde 15,1 % de contrats courts (50,2 % chez les 15-24 ans), 14,3 % de temps
+  partiel ; Paris 3 836 € net par mois en 2024.
+- [ ] **T5. Télétravail, grèves (France) ; accidents du travail (région) ; audience
+  syndicale (dépôt manuel).**
 
 ### Appli « Les Français sont-ils en sécurité ? »
 

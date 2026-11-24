@@ -1,0 +1,363 @@
+Code du département;Libellé du département;Code de la collectivité à statut particulier;Libellé de la collectivité à statut particulier;Code de la commune;Libellé de la commune;Nom de l'élu;Prénom de l'élu;Code sexe;Date de naissance;Code de la catégorie socio-professionnelle;Libellé de la catégorie socio-professionnelle;Date de début du mandat;Date de début de la fonction
+23;Creuse;;;23001;Ahun;X;X;M;1958-09-29;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23002;Ajain;X;X;M;1979-09-25;45;Profession intermédiaire administrative de la fonction publique;2026-03-15;2026-03-22
+23;Creuse;;;23003;Alleyrat;X;X;M;1952-10-12;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23004;Anzême;X;X;M;1974-01-11;31;Profession libérale;2026-03-15;2026-03-20
+23;Creuse;;;23005;Arfeuille-Châtain;X;X;M;1964-03-11;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-15;2026-03-20
+23;Creuse;;;23006;Arrènes;X;X;M;1973-08-18;52;Employé civil et agent de service de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23007;Ars;X;X;F;1967-09-30;46;Profession intermédiaire administrative et commerciale des entreprises;2026-03-15;2026-03-20
+23;Creuse;;;23008;Aubusson;X;X;M;1970-07-10;48;Contremaître, agent de maîtrise;2026-03-15;2026-03-21
+23;Creuse;;;23009;Auge;X;X;M;1961-07-13;71;Ancien agriculteur exploitant;2026-03-15;2026-03-21
+23;Creuse;;;23010;Augères;X;X;F;1990-03-25;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-22
+23;Creuse;;;23011;Aulon;X;X;F;1950-12-25;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23012;Auriat;X;X;M;1960-10-29;71;Ancien agriculteur exploitant;2026-03-15;2026-03-21
+23;Creuse;;;23013;Auzances;X;X;F;1972-02-14;45;Profession intermédiaire administrative de la fonction publique;2026-03-15;2026-03-21
+23;Creuse;;;23014;Azat-Châtenet;X;X;M;1950-06-13;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23015;Azerables;X;X;M;1951-10-10;71;Ancien agriculteur exploitant;2026-03-15;2026-03-20
+23;Creuse;;;23016;Banize;X;X;M;1965-01-07;52;Employé civil et agent de service de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23017;Basville;X;X;M;1949-02-09;75;Ancienne profession intermédiaire;2026-03-15;2026-03-20
+23;Creuse;;;23018;Bazelat;X;X;M;1961-06-21;78;Ancien ouvrier;2026-03-15;2026-03-21
+23;Creuse;;;23019;Beissat;X;X;M;1992-10-23;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-20
+23;Creuse;;;23020;Bellegarde-En-Marche;X;X;F;1969-09-03;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-22
+23;Creuse;;;23021;Bénévent-L'Abbaye;X;X;M;1951-04-02;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23022;Bétête;X;X;F;1981-04-20;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-21
+23;Creuse;;;23024;Blessac;X;X;M;1989-04-25;52;Employé civil et agent de service de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23025;Bonnat;X;X;M;1950-08-15;75;Ancienne profession intermédiaire;2026-03-15;2026-03-20
+23;Creuse;;;23026;Bord-Saint-Georges;X;X;M;1957-08-20;71;Ancien agriculteur exploitant;2026-03-15;2026-03-21
+23;Creuse;;;23027;Bosmoreau-Les-Mines;X;X;M;1962-01-22;71;Ancien agriculteur exploitant;2026-03-15;2026-03-21
+23;Creuse;;;23028;Bosroger;X;X;F;1981-08-16;31;Profession libérale;2026-03-15;2026-03-20
+23;Creuse;;;23029;Le Bourg-D'Hem;X;X;M;1954-09-10;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23030;Bourganeuf;X;X;M;1967-05-06;31;Profession libérale;2026-03-15;2026-03-20
+23;Creuse;;;23031;Boussac;X;X;M;1966-01-01;22;Commerçant et assimilé;2026-03-15;2026-03-20
+23;Creuse;;;23032;Boussac-Bourg;X;X;M;1962-02-26;71;Ancien agriculteur exploitant;2026-03-15;2026-03-20
+23;Creuse;;;23033;La Brionne;X;X;M;1964-12-07;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23034;Brousse;X;X;M;1991-02-23;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23035;Budelière;X;X;M;1964-07-27;71;Ancien agriculteur exploitant;2026-03-15;2026-03-20
+23;Creuse;;;23036;Bussière-Dunoise;X;X;F;1952-12-21;75;Ancienne profession intermédiaire;2026-03-15;2026-03-20
+23;Creuse;;;23037;Bussière-Nouvelle;X;X;F;1982-05-06;45;Profession intermédiaire administrative de la fonction publique;2026-03-15;2026-03-22
+23;Creuse;;;23038;Bussière-Saint-Georges;X;X;M;1952-12-29;71;Ancien agriculteur exploitant;2026-03-15;2026-03-21
+23;Creuse;;;23039;La Celle-Dunoise;X;X;F;1956-01-27;31;Profession libérale;2026-03-15;2026-03-21
+23;Creuse;;;23040;La Celle-Sous-Gouzon;X;X;M;1983-02-17;69;Ouvrier agricole;2026-03-22;2026-03-27
+23;Creuse;;;23041;La Cellette;X;X;M;1950-02-09;74;Ancien cadre;2026-03-15;2026-03-21
+23;Creuse;;;23042;Ceyroux;X;X;M;1981-08-18;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-21
+23;Creuse;;;23043;Chamberaud;X;X;M;1958-07-26;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23044;Chambon-Sainte-Croix;X;X;M;1962-01-26;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23046;Chambonchard;X;X;M;1972-05-12;47;Technicien;2026-03-15;2026-03-22
+23;Creuse;;;23047;Chamborand;X;X;M;1959-09-08;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23048;Champagnat;X;X;F;1976-08-02;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-20
+23;Creuse;;;23049;Champsanglard;X;X;M;1976-06-17;33;Cadre de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23050;La Chapelle-Baloue;X;X;M;1967-02-09;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-21
+23;Creuse;;;23051;La Chapelle-Saint-Martial;X;X;M;1963-12-26;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23052;La Chapelle-Taillefert;X;X;F;1974-06-19;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-20
+23;Creuse;;;23053;Chard;X;X;M;1949-10-05;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23054;Charron;X;X;F;1980-02-27;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23055;Châtelard;X;X;F;1952-01-31;77;Ancien employé;2026-03-15;2026-03-21
+23;Creuse;;;23056;Châtelus-Le-Marcheix;X;X;M;1961-03-26;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23057;Châtelus-Malvaleix;X;X;M;1954-02-15;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23058;Le Chauchet;X;X;M;1959-10-22;71;Ancien agriculteur exploitant;2026-03-15;2026-03-21
+23;Creuse;;;23059;La Chaussade;X;X;M;1948-11-03;77;Ancien employé;2026-03-15;2026-09-23
+23;Creuse;;;23060;Chavanat;X;X;M;1969-06-20;64;Chauffeur;2026-03-15;2026-03-21
+23;Creuse;;;23061;Chénérailles;X;X;F;1962-09-16;33;Cadre de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23062;Chéniers;X;X;M;1994-11-17;21;Artisan;2026-03-15;2026-03-20
+23;Creuse;;;23063;Clairavaux;X;X;M;1988-09-13;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23064;Clugnat;X;X;F;1947-07-13;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23065;Colondannes;X;X;M;1971-10-22;33;Cadre de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23066;Le Compas;X;X;M;1988-09-16;52;Employé civil et agent de service de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23067;La Courtine;X;X;F;1949-03-09;74;Ancien cadre;2026-03-15;2026-03-21
+23;Creuse;;;23068;Cressat;X;X;F;1974-03-01;46;Profession intermédiaire administrative et commerciale des entreprises;2026-03-15;2026-03-21
+23;Creuse;;;23069;Crocq;X;X;M;1960-11-02;74;Ancien cadre;2026-03-15;2026-03-21
+23;Creuse;;;23070;Crozant;X;X;M;1966-01-01;62;Ouvrier qualifié de type industriel;2026-03-15;2026-03-21
+23;Creuse;;;23071;Croze;X;X;M;1963-04-06;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23072;Domeyrot;X;X;M;1957-06-05;75;Ancienne profession intermédiaire;2026-03-15;2026-03-20
+23;Creuse;;;23073;Dontreix;X;X;M;1959-06-28;75;Ancienne profession intermédiaire;2026-03-15;2026-03-20
+23;Creuse;;;23074;Le Donzeil;X;X;M;1968-07-05;47;Technicien;2026-03-15;2026-03-21
+23;Creuse;;;23075;Dun-Le-Palestel;X;X;M;1968-07-22;83;Militaire du contingent;2026-03-15;2026-03-20
+23;Creuse;;;23076;Evaux-Les-Bains;X;X;M;1961-06-06;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23077;Faux-La-Montagne;X;X;M;1958-11-04;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-21
+23;Creuse;;;23078;Faux-Mazuras;X;X;M;1981-03-18;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-21
+23;Creuse;;;23079;Felletin;X;X;M;1980-09-20;46;Profession intermédiaire administrative et commerciale des entreprises;2026-03-15;2026-03-20
+23;Creuse;;;23080;Féniers;X;X;F;1965-10-29;13;Agriculteur sur grande exploitation;2026-03-15;2026-03-21
+23;Creuse;;;23081;Flayat;X;X;M;1957-08-22;74;Ancien cadre;2026-03-15;2026-03-21
+23;Creuse;;;23082;Fleurat;X;X;M;1974-07-01;34;Professeur, profession scientifique;2026-03-15;2026-03-20
+23;Creuse;;;23083;Fontanières;X;X;M;1960-10-30;71;Ancien agriculteur exploitant;2026-03-15;2026-03-20
+23;Creuse;;;23084;La Forêt-Du-Temple;X;X;F;1967-01-25;38;Ingénieur et cadre technique d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23086;Fransèches;X;X;F;1966-10-20;33;Cadre de la fonction publique;2026-03-15;2026-03-21
+23;Creuse;;;23087;Fresselines;X;X;F;1985-12-01;45;Profession intermédiaire administrative de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23088;Gartempe;X;X;M;2001-10-10;45;Profession intermédiaire administrative de la fonction publique;2026-03-15;2026-03-21
+23;Creuse;;;23089;Genouillac;X;X;M;1957-03-04;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23090;Gentioux-Pigerolles;X;X;M;1990-07-28;64;Chauffeur;2026-03-15;2026-03-21
+23;Creuse;;;23091;Gioux;X;X;F;1985-06-04;45;Profession intermédiaire administrative de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23092;Glénic;X;X;F;1957-06-22;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23093;Gouzon;X;X;M;1969-11-23;33;Cadre de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23095;Le Grand-Bourg;X;X;F;1979-08-27;46;Profession intermédiaire administrative et commerciale des entreprises;2026-03-15;2026-03-20
+23;Creuse;;;23096;Guéret;X;X;F;1957-02-13;74;Ancien cadre;2026-03-22;2026-03-28
+23;Creuse;;;23097;Issoudun-Létrieix;X;X;M;1958-10-11;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23098;Jalesches;X;X;F;1954-12-28;74;Ancien cadre;2026-03-15;2026-03-21
+23;Creuse;;;23099;Janaillat;X;X;M;1955-10-11;78;Ancien ouvrier;2026-03-15;2026-03-20
+23;Creuse;;;23100;Jarnages;X;X;M;1971-03-28;33;Cadre de la fonction publique;2026-03-15;2026-03-22
+23;Creuse;;;23101;Jouillat;X;X;M;1968-02-10;33;Cadre de la fonction publique;2026-03-15;2026-03-22
+23;Creuse;;;23102;Ladapeyre;X;X;M;1965-05-13;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-21
+23;Creuse;;;23103;Lafat;X;X;M;1969-09-09;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23104;Lavaufranche;X;X;M;1962-09-04;31;Profession libérale;2026-06-07;2026-06-12
+23;Creuse;;;23105;Lavaveix-Les-Mines;X;X;M;1953-05-06;74;Ancien cadre;2026-03-15;2026-03-21
+23;Creuse;;;23106;Lépaud;X;X;M;1957-09-06;74;Ancien cadre;2026-03-15;2026-03-22
+23;Creuse;;;23107;Lépinas;X;X;M;1954-01-08;74;Ancien cadre;2026-03-15;2026-03-21
+23;Creuse;;;23108;Leyrat;X;X;M;1952-02-17;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23109;Linard-Malval;X;X;M;1948-08-27;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23110;Lioux-Les-Monges;X;X;F;1968-07-30;11;Agriculteur sur petite exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23111;Lizières;X;X;F;1985-04-29;33;Cadre de la fonction publique;2026-03-15;2026-03-21
+23;Creuse;;;23112;Lourdoueix-Saint-Pierre;X;X;M;1953-07-19;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23113;Lupersat;X;X;M;1965-06-29;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23114;Lussat;X;X;M;1955-04-10;74;Ancien cadre;2026-03-15;2026-03-21
+23;Creuse;;;23115;Magnat-L'Etrange;X;X;M;1990-05-29;11;Agriculteur sur petite exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23116;Mainsat;X;X;M;1976-03-16;47;Technicien;2026-03-15;2026-03-20
+23;Creuse;;;23117;Maison-Feyne;X;X;F;1981-02-19;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23118;Maisonnisses;X;X;M;1956-02-16;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23119;Malleret;X;X;M;1956-12-18;71;Ancien agriculteur exploitant;2026-03-15;2026-03-20
+23;Creuse;;;23120;Malleret-Boussac;X;X;F;1968-10-15;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23122;Mansat-La-Courrière;X;X;F;1984-05-23;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-21
+23;Creuse;;;23123;Les Mars;X;X;M;1961-09-03;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23124;Marsac;X;X;M;1949-11-08;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23125;Le Mas-D'Artige;X;X;F;1961-12-01;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-21
+23;Creuse;;;23127;Mautes;X;X;M;1964-05-18;86;Personne diverse sans activité professionnelle de 60 ans et plus (sauf retraité);2026-03-15;2026-03-20
+23;Creuse;;;23128;Mazeirat;X;X;M;1956-07-01;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23129;La Mazière-Aux-Bonshommes;X;X;M;1964-09-28;86;Personne diverse sans activité professionnelle de 60 ans et plus (sauf retraité);2026-03-15;2026-03-21
+23;Creuse;;;23130;Méasnes;X;X;F;1962-06-30;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23131;Mérinchal;X;X;M;1973-08-30;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23132;Montaigut-Le-Blanc;X;X;M;1973-11-01;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-07-10
+23;Creuse;;;23133;Montboucher;X;X;M;1955-07-07;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23134;Le Monteil-Au-Vicomte;X;X;M;1974-02-04;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23136;Mortroux;X;X;M;1978-03-31;31;Profession libérale;2026-03-15;2026-03-22
+23;Creuse;;;23137;Mourioux-Vieilleville;X;X;M;1959-09-10;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23138;Moutier-D'Ahun;X;X;M;1954-07-04;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23139;Moutier-Malcard;X;X;M;1960-03-31;77;Ancien employé;2026-03-15;2026-03-21
+23;Creuse;;;23140;Moutier-Rozeille;X;X;M;1972-08-05;34;Professeur, profession scientifique;2026-03-15;2026-03-21
+23;Creuse;;;23141;Naillat;X;X;F;1977-09-08;34;Professeur, profession scientifique;2026-03-15;2026-03-20
+23;Creuse;;;23142;Néoux;X;X;M;1961-03-03;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23143;Noth;X;X;F;1972-11-12;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-20
+23;Creuse;;;23144;La Nouaille;X;X;F;1957-08-19;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23145;Nouhant;X;X;M;1977-11-20;11;Agriculteur sur petite exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23146;Nouzerines;X;X;M;1973-01-21;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23147;Nouzerolles;X;X;M;1971-07-20;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-21
+23;Creuse;;;23148;Nouziers;X;X;M;1992-01-04;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23149;Parsac;X;X;M;1981-12-14;54;Employé administratif d'entreprise;2026-03-22;2026-03-28
+23;Creuse;;;23150;Peyrabout;X;X;M;1987-04-12;52;Employé civil et agent de service de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23151;Peyrat-La-Nonière;X;X;M;1955-06-13;74;Ancien cadre;2026-03-15;2026-03-22
+23;Creuse;;;23152;Pierrefitte;X;X;M;1978-01-16;62;Ouvrier qualifié de type industriel;2026-03-15;2026-03-20
+23;Creuse;;;23154;Pionnat;X;X;M;1973-08-06;22;Commerçant et assimilé;2026-03-15;2026-03-21
+23;Creuse;;;23155;Pontarion;X;X;M;1974-12-08;37;Cadre administratif et commercial d'entreprise;2026-09-06;2026-09-13
+23;Creuse;;;23156;Pontcharraud;X;X;M;1962-06-06;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23157;La Pouge;X;X;M;1958-05-25;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23158;Poussanges;X;X;M;1957-10-27;11;Agriculteur sur petite exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23159;Puy-Malsignat;X;X;M;1986-01-10;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-22
+23;Creuse;;;23160;Reterre;X;X;F;1960-02-04;75;Ancienne profession intermédiaire;2026-03-15;2026-03-20
+23;Creuse;;;23162;Roches;X;X;M;1956-03-07;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23164;Rougnat;X;X;M;1961-06-07;78;Ancien ouvrier;2026-03-15;2026-03-20
+23;Creuse;;;23165;Royère-De-Vassivière;X;X;M;1984-07-09;12;Agriculteur sur moyenne exploitation;2026-03-22;2026-03-28
+23;Creuse;;;23166;Sagnat;X;X;M;1959-03-16;71;Ancien agriculteur exploitant;2026-03-15;2026-03-20
+23;Creuse;;;23167;Sannat;X;X;M;1978-01-10;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-15;2026-03-20
+23;Creuse;;;23168;Sardent;X;X;M;1973-01-27;48;Contremaître, agent de maîtrise;2026-03-15;2026-03-20
+23;Creuse;;;23169;La Saunière;X;X;F;1960-04-04;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23170;Savennes;X;X;F;1960-12-16;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23171;Sermur;X;X;M;1960-09-05;78;Ancien ouvrier;2026-03-15;2026-03-21
+23;Creuse;;;23172;La Serre-Bussière-Vieille;X;X;M;1963-04-14;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23173;Soubrebost;X;X;F;1959-06-04;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23174;Soumans;X;X;M;1948-03-01;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23175;Sous-Parsat;X;X;M;1941-06-20;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23176;La Souterraine;X;X;M;1989-04-26;33;Cadre de la fonction publique;2026-03-15;2026-03-21
+23;Creuse;;;23177;Saint-Agnant-De-Versillat;X;X;M;1982-03-19;48;Contremaître, agent de maîtrise;2026-03-15;2026-03-20
+23;Creuse;;;23178;Saint-Agnant-Près-Crocq;X;X;M;1948-04-22;33;Cadre de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23179;Saint-Alpinien;X;X;M;1962-02-13;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23180;Saint-Amand;X;X;M;1984-09-10;34;Professeur, profession scientifique;2026-03-15;2026-03-20
+23;Creuse;;;23181;Saint-Amand-Jartoudeix;X;X;F;1978-06-14;54;Employé administratif d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23182;Saint-Avit-De-Tardes;X;X;F;1947-08-28;75;Ancienne profession intermédiaire;2026-03-15;2026-03-20
+23;Creuse;;;23183;Saint-Avit-Le-Pauvre;X;X;M;1964-03-14;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23184;Saint-Bard;X;X;M;1972-07-30;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23185;Saint-Chabrais;X;X;M;1961-08-20;75;Ancienne profession intermédiaire;2026-03-15;2026-03-21
+23;Creuse;;;23186;Saint-Christophe;X;X;M;1953-01-05;11;Agriculteur sur petite exploitation;2026-03-15;2026-03-21
+23;Creuse;;;23187;Saint-Dizier-La-Tour;X;X;M;1960-12-19;38;Ingénieur et cadre technique d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23188;Saint-Dizier-Les-Domaines;X;X;F;1974-07-01;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23189;Saint-Dizier-Masbaraud;X;X;M;1985-11-28;31;Profession libérale;2026-03-15;2026-03-20
+23;Creuse;;;23190;Saint-Domet;X;X;F;1965-07-08;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23191;Saint-Eloi;X;X;F;1967-01-17;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-15;2026-03-20
+23;Creuse;;;23192;Fursac;X;X;F;1963-11-21;47;Technicien;2026-03-15;2026-03-20
+23;Creuse;;;23193;Sainte-Feyre;X;X;M;1970-07-23;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-22
+23;Creuse;;;23194;Sainte-Feyre-La-Montagne;X;X;M;1960-01-21;78;Ancien ouvrier;2026-03-15;2026-03-20
+23;Creuse;;;23195;Saint-Fiel;X;X;M;1949-07-23;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23196;Saint-Frion;X;X;M;1973-11-10;21;Artisan;2026-03-15;2026-03-20
+23;Creuse;;;23197;Saint-Georges-La-Pouge;X;X;F;1980-11-10;34;Professeur, profession scientifique;2026-03-15;2026-03-22
+23;Creuse;;;23198;Saint-Georges-Nigremont;X;X;M;1948-02-29;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23199;Saint-Germain-Beaupré;X;X;F;1953-11-09;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23200;Saint-Goussaud;X;X;M;1983-05-08;38;Ingénieur et cadre technique d'entreprise;2026-03-15;2026-03-21
+23;Creuse;;;23201;Saint-Hilaire-La-Plaine;X;X;M;1950-05-09;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23202;Saint-Hilaire-Le-Château;X;X;M;1972-04-22;54;Employé administratif d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23203;Saint-Julien-La-Genête;X;X;M;1971-08-18;13;Agriculteur sur grande exploitation;2026-03-15;2026-03-21
+23;Creuse;;;23204;Saint-Julien-Le-Châtel;X;X;M;1961-03-06;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23205;Saint-Junien-La-Bregère;X;X;M;1977-05-22;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-21
+23;Creuse;;;23206;Saint-Laurent;X;X;M;1960-02-19;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23207;Saint-Léger-Bridereix;X;X;F;1966-01-25;54;Employé administratif d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23208;Saint-Léger-Le-Guérétois;X;X;M;1957-11-10;77;Ancien employé;2026-03-15;2026-03-21
+23;Creuse;;;23209;Saint-Loup;X;X;M;1973-05-22;11;Agriculteur sur petite exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23210;Saint-Maixant;X;X;F;1964-06-13;33;Cadre de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23211;Saint-Marc-À-Frongier;X;X;M;1970-11-14;34;Professeur, profession scientifique;2026-03-15;2026-03-20
+23;Creuse;;;23212;Saint-Marc-À-Loubaud;X;X;M;1969-08-09;34;Professeur, profession scientifique;2026-03-15;2026-03-20
+23;Creuse;;;23213;Saint-Marien;X;X;M;1963-03-20;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23214;Saint-Martial-Le-Mont;X;X;M;1969-03-31;22;Commerçant et assimilé;2026-03-15;2026-03-20
+23;Creuse;;;23215;Saint-Martial-Le-Vieux;X;X;M;1956-12-14;77;Ancien employé;2026-03-15;2026-03-20
+23;Creuse;;;23216;Saint-Martin-Château;X;X;M;1971-09-10;21;Artisan;2026-03-15;2026-03-20
+23;Creuse;;;23217;Saint-Martin-Sainte-Catherine;X;X;M;1962-08-05;77;Ancien employé;2026-03-15;2026-03-22
+23;Creuse;;;23218;Saint-Maurice-Près-Crocq;X;X;F;1959-07-19;78;Ancien ouvrier;2026-03-15;2026-03-21
+23;Creuse;;;23219;Saint-Maurice-La-Souterraine;X;X;F;1960-06-20;74;Ancien cadre;2026-03-15;2026-03-21
+23;Creuse;;;23220;Saint-Médard-La-Rochette;X;X;M;1975-06-04;38;Ingénieur et cadre technique d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23221;Saint-Merd-La-Breuille;X;X;M;1952-11-05;71;Ancien agriculteur exploitant;2026-03-15;2026-03-20
+23;Creuse;;;23222;Saint-Michel-De-Veisse;X;X;M;1974-04-02;52;Employé civil et agent de service de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23223;Saint-Moreil;X;X;M;1958-04-09;74;Ancien cadre;2026-03-15;2026-03-22
+23;Creuse;;;23224;Saint-Oradoux-De-Chirouze;X;X;M;1944-07-19;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23225;Saint-Oradoux-Près-Crocq;X;X;F;1981-01-05;21;Artisan;2026-03-15;2026-03-20
+23;Creuse;;;23226;Saint-Pardoux-D'Arnet;X;X;M;1946-03-19;74;Ancien cadre;2026-03-15;2026-03-22
+23;Creuse;;;23227;Saint-Pardoux-Morterolles;X;X;M;1949-06-20;77;Ancien employé;2026-03-15;2026-03-21
+23;Creuse;;;23228;Saint-Pardoux-Le-Neuf;X;X;M;1951-04-03;71;Ancien agriculteur exploitant;2026-03-15;2026-03-22
+23;Creuse;;;23229;Saint-Pardoux-Les-Cards;X;X;M;1959-12-26;71;Ancien agriculteur exploitant;2026-03-15;2026-03-20
+23;Creuse;;;23230;Saint-Pierre-Chérignat;X;X;M;1968-08-10;23;Chef d'entreprise de 10 salariés ou plus;2026-03-15;2026-03-22
+23;Creuse;;;23232;Saint-Pierre-Bellevue;X;X;M;1985-03-30;21;Artisan;2026-03-22;2026-03-27
+23;Creuse;;;23233;Saint-Pierre-Le-Bost;X;X;M;1951-10-02;71;Ancien agriculteur exploitant;2026-03-15;2026-03-21
+23;Creuse;;;23234;Saint-Priest;X;X;M;1956-02-01;38;Ingénieur et cadre technique d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23235;Saint-Priest-La-Feuille;X;X;F;1986-11-28;31;Profession libérale;2026-03-15;2026-03-20
+23;Creuse;;;23236;Saint-Priest-La-Plaine;X;X;M;1963-04-06;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23237;Saint-Priest-Palus;X;X;M;1962-05-17;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-21
+23;Creuse;;;23238;Saint-Quentin-La-Chabanne;X;X;M;1953-03-01;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23239;Saint-Sébastien;X;X;F;1963-01-12;33;Cadre de la fonction publique;2026-03-15;2026-03-21
+23;Creuse;;;23240;Saint-Silvain-Bas-Le-Roc;X;X;M;1960-02-04;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23241;Saint-Silvain-Bellegarde;X;X;F;1959-08-01;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23242;Saint-Silvain-Montaigut;X;X;M;1969-09-11;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23243;Saint-Silvain-Sous-Toulx;X;X;F;1961-06-30;77;Ancien employé;2026-03-15;2026-03-21
+23;Creuse;;;23244;Saint-Sulpice-Le-Dunois;X;X;M;1957-10-15;77;Ancien employé;2026-03-15;2026-03-21
+23;Creuse;;;23245;Saint-Sulpice-Le-Guérétois;X;X;M;1965-05-09;31;Profession libérale;2026-03-15;2026-03-20
+23;Creuse;;;23246;Saint-Sulpice-Les-Champs;X;X;M;1979-05-09;21;Artisan;2026-03-15;2026-03-21
+23;Creuse;;;23247;Saint-Vaury;X;X;M;1964-05-21;34;Professeur, profession scientifique;2026-03-15;2026-03-20
+23;Creuse;;;23248;Saint-Victor-En-Marche;X;X;M;1981-03-26;33;Cadre de la fonction publique;2026-03-15;2026-03-21
+23;Creuse;;;23249;Saint-Yrieix-La-Montagne;X;X;M;1963-07-27;71;Ancien agriculteur exploitant;2026-03-15;2026-03-21
+23;Creuse;;;23250;Saint-Yrieix-Les-Bois;X;X;M;1976-09-14;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-20
+23;Creuse;;;23251;Tardes;X;X;M;1973-01-14;13;Agriculteur sur grande exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23252;Tercillat;X;X;F;1975-07-22;55;Employé de commerce;2026-03-15;2026-03-20
+23;Creuse;;;23253;Thauron;X;X;F;1964-01-01;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-03-20
+23;Creuse;;;23254;Toulx-Sainte-Croix;X;X;M;1952-05-27;22;Commerçant et assimilé;2026-03-15;2026-03-21
+23;Creuse;;;23255;Trois-Fonds;X;X;F;1977-05-15;52;Employé civil et agent de service de la fonction publique;2026-03-15;2026-03-20
+23;Creuse;;;23257;Vallière;X;X;F;1966-03-31;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-15;2026-03-20
+23;Creuse;;;23258;Vareilles;X;X;M;1960-08-17;74;Ancien cadre;2026-03-15;2026-03-20
+23;Creuse;;;23259;Verneiges;X;X;F;1974-07-16;12;Agriculteur sur moyenne exploitation;2026-03-15;2026-04-24
+23;Creuse;;;23260;Vidaillat;X;X;F;1955-01-25;75;Ancienne profession intermédiaire;2026-03-15;2026-03-20
+23;Creuse;;;23261;Viersat;X;X;F;1963-02-14;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-20
+23;Creuse;;;23262;Vigeville;X;X;F;1984-01-11;34;Professeur, profession scientifique;2026-06-07;2026-06-12
+23;Creuse;;;23263;Villard;X;X;M;1957-04-21;75;Ancienne profession intermédiaire;2026-03-15;2026-03-21
+23;Creuse;;;23264;La Villedieu;X;X;M;1960-02-01;71;Ancien agriculteur exploitant;2026-03-15;2026-03-20
+23;Creuse;;;23265;La Villeneuve;X;X;M;1954-08-14;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-21
+23;Creuse;;;23266;La Villetelle;X;X;F;1963-03-19;77;Ancien employé;2026-03-15;2026-03-22
+971;Guadeloupe;;;97102;Anse-Bertrand;X;X;M;1963-03-27;38;Ingénieur et cadre technique d'entreprise;2026-03-22;2026-03-29
+971;Guadeloupe;;;97103;Baie-Mahault;X;X;M;1979-08-22;34;Professeur, profession scientifique;2026-03-22;2026-03-29
+971;Guadeloupe;;;97104;Baillif;X;X;F;1960-07-05;74;Ancien cadre;2026-03-15;2026-03-21
+971;Guadeloupe;;;97105;Basse-Terre;X;X;M;1956-11-03;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-23
+971;Guadeloupe;;;97106;Bouillante;X;X;M;1970-04-29;38;Ingénieur et cadre technique d'entreprise;2026-03-15;2026-03-22
+971;Guadeloupe;;;97107;Capesterre-Belle-Eau;X;X;M;1984-11-02;47;Technicien;2026-03-15;2026-03-21
+971;Guadeloupe;;;97108;Capesterre-De-Marie-Galante;X;X;M;1969-11-21;47;Technicien;2026-03-15;2026-06-17
+971;Guadeloupe;;;97109;Gourbeyre;X;X;M;1966-06-30;33;Cadre de la fonction publique;2026-03-22;2026-03-28
+971;Guadeloupe;;;97110;La Désirade;X;X;M;1987-12-02;21;Artisan;2026-03-22;2026-03-28
+971;Guadeloupe;;;97112;Grand-Bourg;X;X;F;1961-05-20;31;Profession libérale;2026-03-22;2026-03-28
+971;Guadeloupe;;;97114;Goyave;X;X;M;1972-06-23;33;Cadre de la fonction publique;2026-03-22;2026-03-30
+971;Guadeloupe;;;97115;Lamentin;X;X;M;1962-06-30;74;Ancien cadre;2026-03-15;2026-03-21
+971;Guadeloupe;;;97117;Le Moule;X;X;F;1946-02-20;77;Ancien employé;2026-03-15;2026-03-21
+971;Guadeloupe;;;97118;Petit-Bourg;X;X;M;1967-05-30;33;Cadre de la fonction publique;2026-03-15;2026-03-24
+971;Guadeloupe;;;97119;Petit-Canal;X;X;M;1973-02-03;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-15;2026-03-21
+971;Guadeloupe;;;97120;Pointe-À-Pitre;X;X;M;1957-08-24;31;Profession libérale;2026-03-15;2026-03-21
+971;Guadeloupe;;;97121;Pointe-Noire;X;X;M;1952-05-01;75;Ancienne profession intermédiaire;2026-03-15;2026-03-21
+971;Guadeloupe;;;97122;Port-Louis;X;X;M;1958-05-07;77;Ancien employé;2026-03-22;2026-03-22
+971;Guadeloupe;;;97124;Saint-Claude;X;X;M;1980-05-11;52;Employé civil et agent de service de la fonction publique;2026-03-22;2026-03-29
+971;Guadeloupe;;;97126;Saint-Louis;X;X;M;1958-04-03;74;Ancien cadre;2026-03-15;2026-03-22
+971;Guadeloupe;;;97128;Sainte-Anne;X;X;M;1954-01-31;86;Personne diverse sans activité professionnelle de 60 ans et plus (sauf retraité);2026-03-22;2026-03-28
+971;Guadeloupe;;;97129;Sainte-Rose;X;X;M;1971-08-31;74;Ancien cadre;2026-03-15;2026-03-21
+971;Guadeloupe;;;97130;Terre-De-Bas;X;X;M;1970-02-16;21;Artisan;2026-03-15;2026-03-21
+971;Guadeloupe;;;97131;Terre-De-Haut;X;X;M;1962-04-05;74;Ancien cadre;2026-03-15;2026-03-20
+971;Guadeloupe;;;97132;Trois-Rivières;X;X;M;1970-11-21;37;Cadre administratif et commercial d'entreprise;2026-03-22;2026-03-28
+971;Guadeloupe;;;97133;Vieux-Fort;X;X;M;1959-06-02;75;Ancienne profession intermédiaire;2026-03-15;2026-03-22
+971;Guadeloupe;;;97134;Vieux-Habitants;X;X;M;1960-07-20;74;Ancien cadre;2026-03-15;2026-03-22
+;;972;Martinique;97201;L'Ajoupa-Bouillon;X;X;M;1966-01-24;37;Cadre administratif et commercial d'entreprise;2026-03-22;2026-03-22
+;;972;Martinique;97202;Les Anses-D'Arlet;X;X;M;1947-02-03;74;Ancien cadre;2026-03-22;2026-03-22
+;;972;Martinique;97203;Basse-Pointe;X;X;F;1954-05-29;74;Ancien cadre;2026-03-15;2026-03-15
+;;972;Martinique;97204;Le Carbet;X;X;M;1962-10-27;33;Cadre de la fonction publique;2026-03-22;2026-03-22
+;;972;Martinique;97205;Case-Pilote;X;X;M;1971-02-16;33;Cadre de la fonction publique;2026-03-15;2026-03-15
+;;972;Martinique;97206;Le Diamant;X;X;M;1971-12-10;42;Professeur des écoles, instituteur et assimilé;2026-03-15;2026-03-15
+;;972;Martinique;97207;Ducos;X;X;F;1985-05-04;33;Cadre de la fonction publique;2026-03-15;2026-03-15
+;;972;Martinique;97208;Fonds-Saint-Denis;X;X;M;1953-10-31;74;Ancien cadre;2026-03-15;2026-03-15
+;;972;Martinique;97209;Fort-De-France;X;X;M;1966-01-10;34;Professeur, profession scientifique;2026-03-22;2026-03-22
+;;972;Martinique;97210;Le François;X;X;M;1993-11-29;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-15
+;;972;Martinique;97211;Grand'Rivière;X;X;M;1969-09-10;21;Artisan;2026-03-15;2026-03-15
+;;972;Martinique;97212;Gros-Morne;X;X;M;1962-03-13;43;Profession intermédiaire de la santé et du travail social;2026-03-22;2026-03-22
+;;972;Martinique;97213;Le Lamentin;X;X;M;1959-05-01;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-15
+;;972;Martinique;97214;Le Lorrain;X;X;M;1969-05-06;33;Cadre de la fonction publique;2026-03-15;2026-03-15
+;;972;Martinique;97215;Macouba;X;X;M;1962-10-25;74;Ancien cadre;2026-03-15;2026-03-15
+;;972;Martinique;97216;Le Marigot;X;X;F;1992-07-16;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-22;2026-03-22
+;;972;Martinique;97217;Le Marin;X;X;M;1958-08-31;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-15
+;;972;Martinique;97218;Le Morne-Rouge;X;X;F;1987-10-20;21;Artisan;2026-03-22;2026-03-22
+;;972;Martinique;97219;Le Prêcheur;X;X;F;1966-06-10;34;Professeur, profession scientifique;2026-03-22;2026-03-22
+;;972;Martinique;97220;Rivière-Pilote;X;X;M;1962-12-30;37;Cadre administratif et commercial d'entreprise;2026-03-15;2026-03-15
+;;972;Martinique;97221;Rivière-Salée;X;X;M;1947-10-26;74;Ancien cadre;2026-03-15;2026-03-15
+;;972;Martinique;97222;Le Robert;X;X;M;1962-08-27;23;Chef d'entreprise de 10 salariés ou plus;2026-03-22;2026-03-22
+;;972;Martinique;97223;Saint-Esprit;X;X;M;1973-07-07;31;Profession libérale;2026-03-15;2026-03-15
+;;972;Martinique;97224;Saint-Joseph;X;X;M;1952-04-21;72;Ancien artisan, commerçant, chef d'entreprise;2026-03-15;2026-03-15
+;;972;Martinique;97226;Sainte-Anne;X;X;M;1957-09-09;23;Chef d'entreprise de 10 salariés ou plus;2026-03-22;2026-03-22
+;;972;Martinique;97227;Sainte-Luce;X;X;M;1961-09-24;74;Ancien cadre;2026-03-15;2026-03-15
+;;972;Martinique;97228;Sainte-Marie;X;X;M;1961-07-22;22;Commerçant et assimilé;2026-03-15;2026-03-15
+;;972;Martinique;97229;Schoelcher;X;X;M;1968-12-24;34;Professeur, profession scientifique;2026-03-22;2026-03-22
+;;972;Martinique;97230;La Trinité;X;X;F;1959-12-12;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-15
+;;972;Martinique;97231;Les Trois-Ilets;X;X;F;1981-11-08;37;Cadre administratif et commercial d'entreprise;2026-03-22;2026-03-22
+;;972;Martinique;97232;Le Vauclin;X;X;M;1984-03-19;43;Profession intermédiaire de la santé et du travail social;2026-03-15;2026-03-15
+;;972;Martinique;97233;Le Morne-Vert;X;X;F;1953-01-24;74;Ancien cadre;2026-03-15;2026-03-15
+;;972;Martinique;97234;Bellefontaine;X;X;M;1966-08-24;33;Cadre de la fonction publique;2026-03-22;2026-03-22
+;;987;Polynésie Française;98711;Anaa;X;X;M;1951-07-29;22;Commerçant et assimilé;2026-03-22;2026-03-27
+;;987;Polynésie Française;98712;Arue;X;X;F;1965-01-07;33;Cadre de la fonction publique;2026-03-15;2026-03-15
+;;987;Polynésie Française;98713;Arutua;X;X;M;1972-06-30;23;Chef d'entreprise de 10 salariés ou plus;2026-03-22;2026-04-07
+;;987;Polynésie Française;98714;Bora-Bora;X;X;M;1949-08-07;74;Ancien cadre;2026-03-15;2026-03-20
+;;987;Polynésie Française;98715;Faa A;X;X;M;1944-11-01;74;Ancien cadre;2026-03-15;2026-03-21
+;;987;Polynésie Française;98716;Fakarava;X;X;M;1959-11-01;77;Ancien employé;2026-03-22;2026-03-28
+;;987;Polynésie Française;98717;Fangatau;X;X;F;1962-06-23;77;Ancien employé;2026-03-22;2026-04-10
+;;987;Polynésie Française;98718;Fatu-Hiva;X;X;M;1951-02-18;86;Personne diverse sans activité professionnelle de 60 ans et plus (sauf retraité);2026-03-22;2026-03-27
+;;987;Polynésie Française;98719;Gambier;X;X;M;1959-05-10;86;Personne diverse sans activité professionnelle de 60 ans et plus (sauf retraité);2026-03-22;2026-03-22
+;;987;Polynésie Française;98720;Hao;X;X;F;1968-03-04;22;Commerçant et assimilé;2026-03-15;2026-03-20
+;;987;Polynésie Française;98721;Hikueru;X;X;M;1993-08-17;54;Employé administratif d'entreprise;2026-03-15;2026-03-24
+;;987;Polynésie Française;98722;Hitiaa O Te Ra;X;X;M;1952-01-04;77;Ancien employé;2026-03-22;2026-03-27
+;;987;Polynésie Française;98723;Hiva-Oa;X;X;F;1964-08-07;77;Ancien employé;2026-03-15;2026-03-21
+;;987;Polynésie Française;98724;Huahine;X;X;M;1960-02-15;23;Chef d'entreprise de 10 salariés ou plus;2026-03-15;2026-03-20
+;;987;Polynésie Française;98725;Mahina;X;X;M;1964-07-29;33;Cadre de la fonction publique;2026-03-15;2026-03-15
+;;987;Polynésie Française;98726;Makemo;X;X;M;1984-03-27;11;Agriculteur sur petite exploitation;2026-03-22;2026-03-29
+;;987;Polynésie Française;98727;Manihi;X;X;M;1982-11-25;23;Chef d'entreprise de 10 salariés ou plus;2026-03-22;2026-03-30
+;;987;Polynésie Française;98728;Maupiti;X;X;F;1971-03-21;68;Ouvrier non qualifié de type artisanal;2026-03-22;2026-03-27
+;;987;Polynésie Française;98729;Moorea-Maiao;X;X;M;1962-07-31;77;Ancien employé;2026-03-22;2026-03-27
+;;987;Polynésie Française;98730;Napuka;X;X;M;1985-02-20;54;Employé administratif d'entreprise;2026-03-22;2026-03-27
+;;987;Polynésie Française;98731;Nuku-Hiva;X;X;M;1960-11-28;77;Ancien employé;2026-03-15;2026-03-21
+;;987;Polynésie Française;98732;Nukutavake;X;X;M;1962-05-27;47;Technicien;2026-03-15;2026-03-27
+;;987;Polynésie Française;98733;Paea;X;X;F;1977-12-01;45;Profession intermédiaire administrative de la fonction publique;2026-03-15;2026-03-20
+;;987;Polynésie Française;98734;Papara;X;X;M;1987-05-16;33;Cadre de la fonction publique;2026-03-22;2026-03-27
+;;987;Polynésie Française;98735;Papeete;X;X;M;1961-05-05;74;Ancien cadre;2026-03-22;2026-03-22
+;;987;Polynésie Française;98736;Pirae;X;X;M;1963-02-03;74;Ancien cadre;2026-03-15;2026-10-19
+;;987;Polynésie Française;98737;Puka Puka;X;X;M;1961-02-08;77;Ancien employé;2026-03-15;2026-03-20
+;;987;Polynésie Française;98738;Punaauia;X;X;M;1962-08-02;74;Ancien cadre;2026-03-15;2026-03-21
+;;987;Polynésie Française;98739;Raivavae;X;X;M;1983-12-06;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-15;2026-03-27
+;;987;Polynésie Française;98740;Rangiroa;X;X;M;1972-03-27;22;Commerçant et assimilé;2026-03-15;2026-03-20
+;;987;Polynésie Française;98741;Rapa;X;X;M;1980-06-01;47;Technicien;2026-03-15;2026-03-21
+;;987;Polynésie Française;98742;Reao;X;X;M;1974-06-02;11;Agriculteur sur petite exploitation;2026-03-15;2026-03-27
+;;987;Polynésie Française;98743;Rimatara;X;X;M;1963-11-08;86;Personne diverse sans activité professionnelle de 60 ans et plus (sauf retraité);2026-03-15;2026-03-21
+;;987;Polynésie Française;98744;Rurutu;X;X;M;1954-07-19;74;Ancien cadre;2026-03-15;2026-03-21
+;;987;Polynésie Française;98745;Tahaa;X;X;M;1973-06-29;12;Agriculteur sur moyenne exploitation;2026-03-22;2026-03-27
+;;987;Polynésie Française;98746;Tahuata;X;X;M;1968-08-14;34;Professeur, profession scientifique;2026-03-15;2026-03-21
+;;987;Polynésie Française;98747;Taiarapu-Est;X;X;M;1967-02-06;23;Chef d'entreprise de 10 salariés ou plus;2026-03-22;2026-03-27
+;;987;Polynésie Française;98748;Taiarapu-Ouest;X;X;M;1962-09-04;74;Ancien cadre;2026-03-22;2026-03-28
+;;987;Polynésie Française;98749;Takaroa;X;X;M;1976-03-09;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-22;2026-03-27
+;;987;Polynésie Française;98750;Taputapuatea;X;X;M;1958-05-22;74;Ancien cadre;2026-03-15;2026-03-20
+;;987;Polynésie Française;98751;Tatakoto;X;X;M;1971-02-08;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-15;2026-03-20
+;;987;Polynésie Française;98752;Teva I Uta;X;X;M;1971-12-05;31;Profession libérale;2026-03-15;2026-03-20
+;;987;Polynésie Française;98753;Tubuai;X;X;M;1967-02-18;47;Technicien;2026-03-22;2026-03-27
+;;987;Polynésie Française;98754;Tumaraa;X;X;M;1948-04-15;31;Profession libérale;2026-03-22;2026-03-27
+;;987;Polynésie Française;98755;Tureia;X;X;F;1988-11-23;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-15;2026-03-20
+;;987;Polynésie Française;98756;Ua-Huka;X;X;M;1962-04-02;77;Ancien employé;2026-03-15;2026-03-20
+;;987;Polynésie Française;98757;Ua-Pou;X;X;M;1960-12-07;74;Ancien cadre;2026-03-15;2026-03-21
+;;987;Polynésie Française;98758;Uturoa;X;X;M;1974-03-16;85;Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité);2026-03-15;2026-03-21
