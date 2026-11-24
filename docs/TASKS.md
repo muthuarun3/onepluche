@@ -218,7 +218,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/GAgaMw
   ne montre pas) ; accueil, barre latérale, pied de page, vitrine, PRD, APP_FLOW, DESIGN.
   *Critère :* fiche Gironde avec 156 520 demandeurs d'emploi, 67 045 projets dont 47,1 %
   difficiles, 702 900 salariés et le rang de chaque part ; Mayotte avec ses manques signalés.
-- [~] **T4. « Comment » et « Combien ça paie »** — migration 042 : `PART_CONTRATS_COURTS` et
+- [x] **T4. « Comment » et « Combien ça paie »** (PR #53) — migration 042 : `PART_CONTRATS_COURTS` et
   `PART_TEMPS_PARTIEL` (recensement 2023, jeu Melodi ACT2B, `connecteurs/contrats.py`, par
   sexe et grande tranche d'âge, parts calculées à la lecture, Mayotte absente) ; le salaire
   net moyen de l'appli « vivre » (`SALAIRE_NET_MOYEN`) et le taux de chômage trimestriel
@@ -227,8 +227,18 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/GAgaMw
   catégories), cartes `comment` et `salaires`.
   *Critère :* Gironde 15,1 % de contrats courts (50,2 % chez les 15-24 ans), 14,3 % de temps
   partiel ; Paris 3 836 € net par mois en 2024.
-- [ ] **T5. Télétravail, grèves (France) ; accidents du travail (région) ; audience
-  syndicale (dépôt manuel).**
+- [~] **T5. Télétravail et accidents du travail** — migration 046 :
+  `connecteurs/risques_travail.py`. `PART_TELETRAVAIL` (enquête Emploi, jeu Melodi
+  `DD_EEC_ANNUEL`, mesure PTREMOTE, France, par grande catégorie ; un seul millésime en ligne) ;
+  `ACCIDENTS_TRAVAIL`, `INDICE_FREQUENCE_AT`, `ACCIDENTS_TRAJET`, `MALADIES_PROFESSIONNELLES`
+  (Assurance maladie, sinistralité par région administrative, depuis 2005 ; régions = France ;
+  Mayotte sans indice). Partie « Au travail » de `/travail` ; la fiche département montre sa
+  région. *Critère :* France 19,7 % de télétravail en 2025 (cadres 51,7 %) ; 548 550
+  accidents du travail en 2024, 26,4 pour 1 000 salariés (33,2 en 2015) ; Nouvelle-Aquitaine
+  32,1, rang 3 sur 17 régions.
+- [ ] **T6. Grèves et audience syndicale** — en attente d'une source téléchargeable : le jeu
+  ouvert DARES `dares_jint_depuis2005` ne contient plus que les années (vérifié le 24/11/2026),
+  l'audience syndicale demande un dépôt manuel.
 
 ### Appli « Les Français sont-ils en sécurité ? »
 

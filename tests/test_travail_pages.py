@@ -15,6 +15,7 @@ from demographie.imports.connecteurs.bdm import CHOMAGE
 from demographie.imports.connecteurs.bmo import BMO
 from demographie.imports.connecteurs.contrats import CONTRATS
 from demographie.imports.connecteurs.dares import DEMANDEURS
+from demographie.imports.connecteurs.risques_travail import ACCIDENTS_TRAVAIL, TELETRAVAIL
 from demographie.imports.connecteurs.travail import (
     CHOMAGE_ANNUEL,
     CREATIONS,
@@ -88,6 +89,8 @@ def test_pages(urls_module):
     _importer(DEMANDEURS, FIXTURES / DEMANDEURS.nom_fichier)
     _importer(BMO, FIXTURES / "bmo-2026.xlsx")
     _importer(CONTRATS, FIXTURES / CONTRATS.nom_fichier)
+    _importer(TELETRAVAIL, FIXTURES / TELETRAVAIL.nom_fichier)
+    _importer(ACCIDENTS_TRAVAIL, FIXTURES / ACCIDENTS_TRAVAIL.nom_fichier)
     for jeu in (vivre.SALAIRES_CATEGORIES, vivre.SALAIRES_AGES):
         _importer(jeu, FIXTURES / jeu.nom_fichier)
 
@@ -118,6 +121,17 @@ def test_pages(urls_module):
     assert "3 836 €" in paris  # salaire net moyen 2024
     assert re.search(r"de moins</strong>", paris)
     assert "Moins de 25 ans" in paris
+    # Télétravail (France) et accidents du travail (région du département).
+    assert "19,7 %" in vue and "51,7 %" in vue  # ensemble, cadres
+    assert "548 550" in vue and "26,4" in vue  # accidents 2024, pour 1 000 salariés
+    assert "C'était 33,2 pour 1 000 salariés en 2015" in vue
+    assert "19,7 %" in gironde and "celui-ci est national" in gironde
+    assert (
+        "53 037</strong> accidents du travail avec arrêt en 2024 dans la région Nouvelle-Aquitaine"
+        in re.sub(r"\s+", " ", gironde)
+    )
+    assert "32,1" in gironde and "data-courbe" in gironde[gironde.index('id="accidents"') :]
+    assert re.search(r"rang <strong>\d+</strong> sur 17 régions", gironde)
     salaires = _page("/travail/theme/salaires")
     assert 'value="SALAIRE_NET_MOYEN" selected' in salaires and "3 836 €" in salaires
     assert 'value="PART_CONTRATS_COURTS" selected' in _page("/travail/theme/comment")

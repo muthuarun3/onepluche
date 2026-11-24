@@ -1,0 +1,995 @@
+{
+  "observations" : [ {
+    "attributes" : {
+      "OBS_STATUS" : "M",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "20",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : { }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "M",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "31",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : { }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "37",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 64.2
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "6Q",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.3
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "46",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 29.9
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "38",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 61.4
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "63",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.2
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "M",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "21",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : { }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "53",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.3
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "42",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 9.2
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "69",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.6
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "M",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "23",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : { }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "52",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 5.8
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "M",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "10",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : { }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "M",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "22",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : { }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "33",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 44.4
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "34",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 17.6
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "67",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.2
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "47",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 14.7
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "40",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 17.0
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "5N",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.3
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "55",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 3.5
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "N",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "68",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : { }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "56",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.3
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "48",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 5.8
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "35",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 37.1
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "64",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.2
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "50",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 8.2
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "43",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 6.0
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "65",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.3
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "54",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 26.7
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "62",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.3
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "30",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 51.7
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "5Q",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 14.7
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "60",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.2
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "_T",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 19.7
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "45",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 35.8
+      }
+    }
+  }, {
+    "attributes" : {
+      "OBS_STATUS" : "A",
+      "UNIT_MEASURE" : "PT"
+    },
+    "dimensions" : {
+      "PCS" : "6N",
+      "IMMI" : "_T",
+      "EEC_MEASURE" : "PTREMOTE",
+      "SEX" : "_T",
+      "EDUC" : "_T",
+      "UNDEREMP" : "_T",
+      "EMPFORM" : "_T",
+      "UNEMPDUR" : "_T",
+      "COMPOHALO" : "_T",
+      "EMPSTA" : "1_BIT",
+      "TIME_PERIOD" : "2025",
+      "WKTIME" : "_T",
+      "ACTIVITY" : "_T",
+      "AGE" : "_T"
+    },
+    "measures" : {
+      "OBS_VALUE_NIVEAU" : {
+        "value" : 0.2
+      }
+    }
+  } ],
+  "identifier" : "DD_EEC_ANNUEL",
+  "paging" : {
+    "first" : "https://api.insee.fr/melodi/data/DD_EEC_ANNUEL?EEC_MEASURE=PTREMOTE&maxResult=1000&page=1"
+  },
+  "publisher" : {
+    "id" : "INSEE",
+    "label" : [ {
+      "content" : "Institut national de la statistique et des etudes economiques (INSEE)",
+      "lang" : "fr"
+    }, {
+      "content" : "National Institute of Statistics and Economic Studies",
+      "lang" : "en"
+    } ]
+  },
+  "title" : {
+    "en" : "Activity, employment and unemployment - annual results 2024",
+    "fr" : "Activité, emploi et chômage - résultats annuels 2025"
+  }
+}
