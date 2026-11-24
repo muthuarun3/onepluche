@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_carte.html" import choix_territoire %}
+{% from "_climat.html" import bloc_climat %}
 {% block titre %}Quel avenir pour les Français ? · On épluche{% endblock %}
 {% block contenu %}
 <h1>Quel avenir pour les Français ?</h1>
@@ -61,6 +62,8 @@
   prévoient plus d'habitants que les projections nationales de 2026. Sur les fiches, la
   France est la somme des départements, pour comparer dans le même scénario.</p>
 {% endif %}
+
+{% if climat %}{{ bloc_climat(climat, "France métropolitaine", "/avenir") }}{% endif %}
 
 <div class="blocs">
   {% for titre, texte in a_venir %}

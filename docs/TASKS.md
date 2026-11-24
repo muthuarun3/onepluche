@@ -238,14 +238,18 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/MmAWsK
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv9wfVht4xEcUs5hnE>.
 
-- [~] **A. Fondations et population** — migration 028 (rubrique `AVENIR`, sept thèmes,
+- [x] **A. Fondations et population** (PR #36) — migration 028 (rubrique `AVENIR`, sept thèmes,
   `ref.scenario`, `stat.projection`, vues `api.projection` et `api.projection_population`),
   groupe `demo importer avenir` (Omphale 2022 : trois scénarios ; France 2026), route
   `/api/v1/projections`, pages `/avenir` et `/avenir/DEP/{code}`, accueil, barre latérale,
   vitrine. *Critère :* Creuse 2018 = estimation INSEE à moins de 1 % ; France 2070 central
   65,9 millions (2026) ; tests `test_avenir_population.py`.
-- [ ] **B. Climat** — DRIAS-2020 (RCP 2.6, 4.5, 8.5 ; huit indicateurs ; fichier extrait par
-  Muthu et déposé dans `DEMO_DONNEES_BRUTES/drias/`), sélecteur GIEC (RCP 4.5 par défaut).
+- [~] **B. Climat** — migration 037 (scénarios `GIEC_SSP126/245/585`, 7 indicateurs `CLIM_*`,
+  vue `api.projection_climat`), connecteur `climat.py` (Banque mondiale, CMIP6 à 0,25°, sans
+  compte : DRIAS demandait une extraction à la main, refusée le 22/11/2026), bloc climat sur
+  `/avenir` et la fiche département, sélecteur de scénario (SSP2-4.5 par défaut).
+  *Critère :* 96 départements et la métropole ; Bouches-du-Rhône +47 jours à 35 °C ou plus en
+  2080-2099 (SSP5-8.5) ; tests `test_avenir_climat.py`.
 - [ ] **C. Risques naturels** — GASPAR (arrêtés de catastrophe naturelle, PPRN), pages
   `/avenir/theme/{theme}`, classements. *Critère :* Guéret, 8 arrêtés.
 - [ ] **D. Questions guidées et clôture** — six questions, sept critères du dossier.

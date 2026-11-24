@@ -61,7 +61,7 @@ def test_tranches():
 
 
 def test_groupe_avenir():
-    assert CONNECTEURS["avenir"] == (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE)
+    assert CONNECTEURS["avenir"][:2] == (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE)
     assert [f.nom for f in PROJECTIONS_DEPARTEMENTALES.fichiers()] == [
         "donnees_det_Central.xlsx",
         "donnees_det_Pop_basse.xlsx",

@@ -1,0 +1,46 @@
+{# Bloc « Climat » des pages /avenir : choix du scénario du GIEC, phrase, tableau des
+   indicateurs par période (médiane et fourchette des modèles). `territoire` : titre du bloc
+   (« France métropolitaine » ou le département) ; `comparer` : la France à côté. #}
+{% macro bloc_climat(c, territoire, adresse, comparer=false) %}
+<section class="bloc climat" id="climat">
+  <h2>Le climat d'ici la fin du siècle : {{ territoire }}</h2>
+  <nav class="bascule scenarios" aria-label="Scénario d'émissions du GIEC">
+    {% for s in c.scenarios %}
+    <a href="{{ adresse }}?climat={{ s.code }}#climat"{% if s.code == c.scenario.code %} aria-current="true"{% endif %}>{{ s.libelle }}</a>
+    {% endfor %}
+  </nav>
+  <p class="consigne">{{ c.scenario.description }} Réchauffement mondial vers 2100 : {{ c.scenario.equivalent_giec }} par rapport au XIXe siècle.</p>
+  {% set f = c.fin %}
+  {% if c.rechauffement or c.chaleur %}
+  <p class="phrase">En {{ f[0] }}-{{ f[1] }}, par rapport à 1995-2014 :
+    {% if c.rechauffement %}une température moyenne supérieure de
+    <strong>{{ c.rechauffement.mediane|ecart("degres_c") }}</strong> (de
+    {{ c.rechauffement.bas|ecart("degres_c") }} à {{ c.rechauffement.haut|ecart("degres_c") }}
+    selon les modèles){% if c.chaleur or c.nuits %}, {% endif %}{% endif %}{% if c.chaleur %}
+    <strong>{{ c.chaleur.mediane|ecart("jours") }}</strong> par an au-dessus de 35 °C{% if c.nuits %}, {% endif %}{% endif %}{% if c.nuits %}
+    {{ c.nuits.mediane|ecart("jours") }} de nuits tropicales{% endif %}.</p>
+  {% endif %}
+  <p class="legende">Écart à la période 1995-2014 : médiane des modèles, et entre parenthèses la fourchette (10 % des modèles en dessous, 10 % au-dessus){% if comparer %} ; en gris, la France métropolitaine{% endif %}</p>
+  <div class="tableau-defilant">
+    <table class="tableau-climat">
+      <thead><tr><th>Indicateur</th>{% for p in c.periodes %}<th>{{ p[0] }}-{{ p[1] }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for i in c.indicateurs %}
+        <tr>
+          <th scope="row" title="{{ i.definition.definition }}">{{ i.definition.libelle }}</th>
+          {% for v in i.valeurs %}
+          <td>{% if v %}<strong>{{ v.mediane|ecart(i.definition.unite) }}</strong>
+            <span class="fourchette">({{ v.bas|ecart(i.definition.unite) }} à {{ v.haut|ecart(i.definition.unite) }})</span>
+            {% if comparer and i.comparaison[loop.index0] %}<span class="muet">France {{ i.comparaison[loop.index0].mediane|ecart(i.definition.unite) }}</span>{% endif %}
+            {% else %}—{% endif %}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if c.source %}
+  <p class="source">Source : <a href="{{ c.source.source_url }}" rel="noopener">{{ c.source.source_libelle }}</a>, {{ c.source.source_licence }}. {{ c.source.avertissement }}</p>
+  {% endif %}
+</section>
+{% endmacro %}

@@ -1,6 +1,7 @@
 """Téléchargements HTTPS vers les sites des producteurs, avec empreinte SHA-256."""
 
 import hashlib
+import http.client
 import json
 import os
 import tempfile
@@ -63,3 +64,28 @@ def lire_json(url: str, taille_max: int = 50 * 1024 * 1024) -> object:
     if len(contenu) > taille_max:
         raise TelechargementRefuse(f"Réponse trop volumineuse : {url}")
     return json.loads(contenu)
+
+
+def lire_plage(url: str, debut: int, fin: int, essais: int = 3) -> bytes:
+    """Octets ``debut`` à ``fin`` (inclus) d'un fichier, par une requête HTTP Range : pour ne
+    lire qu'une partie d'un gros fichier (la France dans une grille mondiale). Une réponse
+    coupée en route est redemandée (``essais`` fois en tout)."""
+    if not url.startswith("https://"):
+        raise TelechargementRefuse(f"Seules les URL https sont acceptées : {url}")
+    if fin - debut + 1 > TAILLE_MAX:
+        raise TelechargementRefuse(f"Plage trop grande : {url}")
+    entetes = {"User-Agent": AGENT, "Range": f"bytes={debut}-{fin}"}
+    for essai in range(essais):
+        requete = urllib.request.Request(url, headers=entetes)  # noqa: S310
+        try:
+            with urllib.request.urlopen(requete, timeout=DELAI) as reponse:  # noqa: S310
+                if reponse.status != 206:
+                    raise TelechargementRefuse(f"Le serveur ne sert pas de plage d'octets : {url}")
+                contenu = reponse.read(fin - debut + 2)
+        except (OSError, http.client.IncompleteRead):
+            if essai == essais - 1:
+                raise
+            continue
+        if len(contenu) == fin - debut + 1:
+            return contenu
+    raise TelechargementRefuse(f"Plage incomplète après {essais} essais : {url}")

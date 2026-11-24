@@ -282,3 +282,11 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .bascule label:has(input:checked) { background: var(--grille); color: var(--texte);
   font-weight: 600; box-shadow: inset 0 -3px 0 var(--serie); }
 .bascule label:has(input:focus-visible) { outline: 2px solid var(--serie); outline-offset: -2px; }
+.scenarios { flex-wrap: wrap; margin: .25rem 0 .5rem; }
+.scenarios a { padding: .3rem .75rem; color: var(--texte-2); text-decoration: none; }
+.scenarios a + a { border-left: 1px solid var(--bordure); }
+.scenarios a[aria-current] { background: var(--grille); color: var(--texte); font-weight: 600;
+  box-shadow: inset 0 -3px 0 var(--serie); }
+.tableau-climat td { white-space: nowrap; vertical-align: top; }
+.tableau-climat .fourchette, .tableau-climat .muet { display: block; font-size: .8rem; }
+.tableau-climat .fourchette { color: var(--texte-2); }

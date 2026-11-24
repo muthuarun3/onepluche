@@ -13,6 +13,7 @@ from demographie.imports.connecteurs.besoins import (
     RESIDENCES_PRINCIPALES,
 )
 from demographie.imports.connecteurs.bmo import BMO
+from demographie.imports.connecteurs.climat import CLIMAT
 from demographie.imports.connecteurs.comptes_publics import (
     DEPENSES_RECETTES,
     DETTE,
@@ -119,7 +120,7 @@ CONNECTEURS = {
     "securite": (DELINQUANCE, ACCIDENTS, CVS, VRS_RAPPORTS),
     # Appli 5 : quel avenir pour les Français ? Après « estimations » : la population de
     # départ des projections est comparée aux estimations publiées.
-    "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE),
+    "avenir": (PROJECTIONS_DEPARTEMENTALES, PROJECTIONS_FRANCE, CLIMAT),
     # Appli 3 : comment vivent les Français ?
     "vivre": (REVENUS_FILOSOFI, SALAIRES_CATEGORIES, SALAIRES_AGES),
     # Appli « Comment travaillent les Français ? »

@@ -154,11 +154,12 @@ jamais comme zéro : « — » et « Pas de donnée pour ce département ». Sur
 France n'est pas montrée à côté des effectifs (nombre de pharmacies, d'urgences…), qui ne
 se comparent pas à un total national ; l'indice des prix, national, n'y figure pas.
 
-### Rubrique `/avenir` (🔶, appli 5 phase A)
+### Rubrique `/avenir` (🔶, appli 5 phases A et B)
 
 | Page | Contenu | Interactions |
 | --- | --- | --- |
 | `/avenir` | Population de la France d'ici 2070 (projections nationales 2026) : phrase (scénario central, maximum, fourchette), courbe du scénario central dans la bande population basse - population haute, tableau par grand groupe d'âge ; carte des départements ; avertissement sur les projections départementales de 2022 ; blocs « Climat » et « Risques naturels » annoncés | Toucher un département → `/avenir/DEP/{code}` |
+| Bloc « Le climat d'ici la fin du siècle » (`/avenir` pour la métropole, fiche département) | Choix du scénario du GIEC (SSP1-2.6, SSP2-4.5 par défaut, SSP5-8.5 ; liens `?climat=`, sans JavaScript) ; phrase pour 2080-2099 ; tableau indicateur × période (2020-2039 à 2080-2099) : médiane, fourchette des modèles, et sur la fiche la France métropolitaine en gris | Scénario inconnu → 422 ; scénario absent des données → le premier disponible |
 | `/avenir/DEP/{code}` | Quatre chiffres en 2050 (population et fourchette, évolution depuis 2018, part des 75 ans ou plus, seniors pour 100 actifs ; France = somme des départements à côté) ; phrase ; courbe et bande des trois scénarios avec tableau 2018, 2030, 2050, 2070 ; pyramide des âges projetée (scénario central) avec le contour de 2018 | Liste de l'année de la pyramide (sans rechargement) ; liens vers `/territoire/DEP/{code}` et `/besoins/DEP/{code}` ; département sans projection importée : message ; inconnu → 404 |
 
 ### Rubrique `/argent-public` (🔶, PR A)

@@ -1,10 +1,11 @@
 """Pages de la rubrique « Quel avenir pour les Français ? » (appli 5) : vue France
-(projections nationales de 2026, choix du département, thèmes à venir) et fiche
-département (projections Omphale 2022 : population, âges, fourchette des scénarios)."""
+(projections nationales de 2026, climat de la métropole, choix du département, thèmes à
+venir) et fiche département (projections Omphale 2022 : population, âges, fourchette des
+scénarios ; climat selon les scénarios du GIEC)."""
 
 from typing import Annotated
 
-from fastapi import APIRouter, HTTPException, Request, status
+from fastapi import APIRouter, HTTPException, Query, Request, status
 from fastapi import Path as Chemin
 from fastapi.responses import HTMLResponse
 
@@ -30,11 +31,92 @@ GROUPES_FRANCE = {
 }
 # Thèmes de la rubrique qui n'ont pas encore de données : annoncés sur la vue France.
 A_VENIR = (
-    ("Climat", "Chaleur, nuits tropicales, gel, pluies et sécheresse selon les scénarios "
-     "du GIEC (Météo-France, DRIAS-2020)."),
     ("Risques naturels", "Inondations, sécheresse des sols, mouvements de terrain : les "
      "catastrophes naturelles reconnues et les plans de prévention (Géorisques)."),
 )  # fmt: skip
+# Climat : scénario du GIEC par défaut (intermédiaire, la trajectoire des politiques
+# annoncées), ordre des indicateurs et période mise en avant.
+SCENARIO_CLIMAT = "GIEC_SSP245"
+INDICATEURS_CLIMAT = (
+    "CLIM_TAS", "CLIM_HD35", "CLIM_TR", "CLIM_FD", "CLIM_PR", "CLIM_R20MM", "CLIM_CDD",
+)  # fmt: skip
+_UNITES_CLIMAT = {"degres_c": ("°C", 1), "jours": ("jours", 0), "millimetres": ("mm", 0)}
+ScenarioClimat = Annotated[str | None, Query(alias="climat", pattern=r"^GIEC_SSP\d{3}$")]
+
+
+def ecart(valeur, unite: str) -> str:
+    """2.345, « degres_c » -> « +2,3 °C » ; -12.4, « jours » -> « −12 jours »."""
+    if valeur is None:
+        return "—"
+    symbole, chiffres = _UNITES_CLIMAT.get(unite, ("", 1))
+    x = round(float(valeur), chiffres)
+    signe = "+" if x > 0 else "\u2212" if x < 0 else ""
+    texte = f"{abs(x):,.{chiffres}f}".replace(",", "\u202f").replace(".", ",")
+    if symbole == "jours" and abs(x) < 2:
+        symbole = "jour"
+    return f"{signe}{texte}\u00a0{symbole}".strip()
+
+
+gabarits.env.filters["ecart"] = ecart
+
+
+def _climat(conn, niveau: str, code: str, scenario: str | None, definitions: dict,
+            comparaison: tuple[str, str] | None = None) -> dict | None:  # fmt: skip
+    """Tableau du climat projeté d'un territoire pour un scénario du GIEC : une ligne par
+    indicateur, une colonne par période (médiane et fourchette), et la France à côté."""
+    lignes = projections.climat(conn, niveau, code)
+    if not lignes:
+        return None
+    scenarios = [s for s in projections.scenarios(conn) if s["famille"] == "GIEC"]
+    connus = {ligne["scenario"] for ligne in lignes}
+    scenarios = [s for s in scenarios if s["code"] in connus]
+    if scenario not in connus:
+        scenario = SCENARIO_CLIMAT if SCENARIO_CLIMAT in connus else scenarios[0]["code"]
+    autres = {}
+    if comparaison:
+        for ligne in projections.climat(conn, *comparaison):
+            if ligne["scenario"] == scenario:
+                autres[(ligne["indicateur"], ligne["debut"])] = ligne
+    periodes = sorted({(ligne["debut"], ligne["fin"]) for ligne in lignes})
+    par_cle = {
+        (ligne["indicateur"], ligne["debut"]): ligne
+        for ligne in lignes
+        if ligne["scenario"] == scenario
+    }
+    indicateurs = []
+    for indicateur in INDICATEURS_CLIMAT:
+        presente = any((indicateur, d) in par_cle for d, _ in periodes)
+        if indicateur not in definitions or not presente:
+            continue
+        indicateurs.append(
+            {
+                "definition": definitions[indicateur],
+                "valeurs": [par_cle.get((indicateur, d)) for d, _ in periodes],
+                "comparaison": [autres.get((indicateur, d)) for d, _ in periodes],
+            }
+        )
+    choisi = next(s for s in scenarios if s["code"] == scenario)
+    fin = periodes[-1]
+    milieu = next((p for p in periodes if p[0] == 2040), periodes[0])
+    cles = {i["definition"]["code"]: i for i in indicateurs}
+
+    def valeur(indicateur: str, periode) -> dict | None:
+        if indicateur not in cles:
+            return None
+        return cles[indicateur]["valeurs"][periodes.index(periode)]
+
+    return {
+        "scenario": choisi,
+        "scenarios": scenarios,
+        "periodes": periodes,
+        "indicateurs": indicateurs,
+        "milieu": milieu,
+        "fin": fin,
+        "rechauffement": valeur("CLIM_TAS", fin),
+        "chaleur": valeur("CLIM_HD35", fin),
+        "nuits": valeur("CLIM_TR", fin),
+        "source": definitions.get("CLIM_TAS"),
+    }
 
 
 def _nombre(valeur) -> int | float | None:
@@ -62,7 +144,7 @@ def _definitions(conn) -> dict[str, dict]:
 
 
 @routeur.get("", response_class=HTMLResponse)
-def avenir(request: Request, conn: Connexion) -> HTMLResponse:
+def avenir(request: Request, conn: Connexion, climat: ScenarioClimat = None) -> HTMLResponse:
     definitions = _definitions(conn)
     tous = territoires.lister(conn)
     departements: dict[str, list[dict]] = {}
@@ -112,6 +194,7 @@ def avenir(request: Request, conn: Connexion) -> HTMLResponse:
     contexte = {
         "france": france,
         "omphale": definitions.get("PROJ_POP"),
+        "climat": _climat(conn, "FRANCE", "FM", climat, definitions),
         "a_venir": A_VENIR,
         "choix": choix_territoire(tous, ("DEP",), "/avenir/DEP/{code}"),
         "regions": sorted((t for t in tous if t["niveau"] == "REG"), key=lambda t: t["libelle"]),
@@ -126,13 +209,19 @@ def departement(
     request: Request,
     conn: Connexion,
     code: Annotated[str, Chemin(pattern=r"^[0-9][0-9AB][0-9]?$")],
+    climat: ScenarioClimat = None,
 ) -> HTMLResponse:
     fiche = territoires.trouver(conn, "DEP", code)
     if fiche is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Département inconnu")
     lignes = _par_scenario(projections.population(conn, "DEP", code))
-    definition = _definitions(conn).get("PROJ_POP")
-    contexte = {"fiche": fiche, "projection": None, "definition": definition}
+    definitions = _definitions(conn)
+    contexte = {
+        "fiche": fiche,
+        "projection": None,
+        "definition": definitions.get("PROJ_POP"),
+        "climat": _climat(conn, "DEP", code, climat, definitions, ("FRANCE", "FM")),
+    }
     central = lignes.get(CENTRAL)
     if central:
         depart = central[min(central)]
