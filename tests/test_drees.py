@@ -43,9 +43,18 @@ def test_retraites_tous_regimes():
     assert _une(lignes, indicateur="PENSIONNES", sexe="T", **fin_2024).valeur == 16903772
     assert _une(lignes, indicateur="PENSIONNES", sexe="F", **fin_2024).valeur == 9312686
     assert _une(lignes, indicateur="PENSIONNES", sexe="H", **fin_2024).valeur == 7591086
+    # Pension moyenne de droit direct, brute, par mois (lue pour la rubrique VIVRE).
+    assert _une(lignes, indicateur="PENSION_MOYENNE", sexe="T", **fin_2024).valeur == Decimal(
+        "1705"
+    )
+    femmes, hommes = (
+        _une(lignes, indicateur="PENSION_MOYENNE", sexe=s, **fin_2024).valeur for s in "FH"
+    )
+    assert femmes < hommes
     assert {x.niveau for x in lignes} == {"FRANCE"}
     assert {x.periode.year for x in lignes} == set(range(2019, 2025))
-    assert len(lignes) == 6 * 2 * 3  # années × champs × sexes, lignes CNAV ignorées
+    # Années × (deux effectifs + pension moyenne) × sexes, lignes CNAV ignorées.
+    assert len(lignes) == 6 * 3 * 3
 
 
 def test_classeur_sans_la_feuille(tmp_path):

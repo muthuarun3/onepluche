@@ -1,0 +1,311 @@
+{
+"jeu": "DD_CNA_AGREGATS",
+"observations": [
+{
+"attributes": {
+"CONF_STATUS": "F",
+"DECIMALS": "3",
+"LAST_UPDATE": null,
+"OBS_STATUS": "A",
+"OBS_STATUS_FR": "D",
+"REF_PERIOD_DETAIL": null,
+"REF_YEAR_PRICE": null,
+"TABLE_IDENTIFIER": null,
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"ACCOUNTING_ENTRY": "_Z",
+"ACTIVITY": "_T",
+"COUNTERPART_AREA": "W0",
+"EXPENDITURE": "_Z",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"INSTR_ASSET": "_Z",
+"PRICES": "V",
+"PRODUCT": "_T",
+"REF_SECTOR": "S14",
+"STO": "_PAM_UC",
+"TIME_PERIOD": "1996",
+"TRANSFORMATION": "GY",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.506
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"DECIMALS": "3",
+"LAST_UPDATE": null,
+"OBS_STATUS": "A",
+"OBS_STATUS_FR": "D",
+"REF_PERIOD_DETAIL": null,
+"REF_YEAR_PRICE": null,
+"TABLE_IDENTIFIER": null,
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"ACCOUNTING_ENTRY": "_Z",
+"ACTIVITY": "_T",
+"COUNTERPART_AREA": "W0",
+"EXPENDITURE": "_Z",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"INSTR_ASSET": "_Z",
+"PRICES": "V",
+"PRODUCT": "_T",
+"REF_SECTOR": "S14",
+"STO": "_PAM_UC",
+"TIME_PERIOD": "2010",
+"TRANSFORMATION": "GY",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.7
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"DECIMALS": "3",
+"LAST_UPDATE": null,
+"OBS_STATUS": "A",
+"OBS_STATUS_FR": "D",
+"REF_PERIOD_DETAIL": null,
+"REF_YEAR_PRICE": null,
+"TABLE_IDENTIFIER": null,
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"ACCOUNTING_ENTRY": "_Z",
+"ACTIVITY": "_T",
+"COUNTERPART_AREA": "W0",
+"EXPENDITURE": "_Z",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"INSTR_ASSET": "_Z",
+"PRICES": "V",
+"PRODUCT": "_T",
+"REF_SECTOR": "S14",
+"STO": "_PAM_UC",
+"TIME_PERIOD": "2019",
+"TRANSFORMATION": "GY",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 1.975
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"DECIMALS": "3",
+"LAST_UPDATE": null,
+"OBS_STATUS": "A",
+"OBS_STATUS_FR": "D",
+"REF_PERIOD_DETAIL": null,
+"REF_YEAR_PRICE": null,
+"TABLE_IDENTIFIER": null,
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"ACCOUNTING_ENTRY": "_Z",
+"ACTIVITY": "_T",
+"COUNTERPART_AREA": "W0",
+"EXPENDITURE": "_Z",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"INSTR_ASSET": "_Z",
+"PRICES": "V",
+"PRODUCT": "_T",
+"REF_SECTOR": "S14",
+"STO": "_PAM_UC",
+"TIME_PERIOD": "2020",
+"TRANSFORMATION": "GY",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": -0.334
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"DECIMALS": "3",
+"LAST_UPDATE": null,
+"OBS_STATUS": "A",
+"OBS_STATUS_FR": "D",
+"REF_PERIOD_DETAIL": null,
+"REF_YEAR_PRICE": null,
+"TABLE_IDENTIFIER": null,
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"ACCOUNTING_ENTRY": "_Z",
+"ACTIVITY": "_T",
+"COUNTERPART_AREA": "W0",
+"EXPENDITURE": "_Z",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"INSTR_ASSET": "_Z",
+"PRICES": "V",
+"PRODUCT": "_T",
+"REF_SECTOR": "S14",
+"STO": "_PAM_UC",
+"TIME_PERIOD": "2021",
+"TRANSFORMATION": "GY",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2.814
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"DECIMALS": "3",
+"LAST_UPDATE": null,
+"OBS_STATUS": "A",
+"OBS_STATUS_FR": "D",
+"REF_PERIOD_DETAIL": null,
+"REF_YEAR_PRICE": null,
+"TABLE_IDENTIFIER": null,
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"ACCOUNTING_ENTRY": "_Z",
+"ACTIVITY": "_T",
+"COUNTERPART_AREA": "W0",
+"EXPENDITURE": "_Z",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"INSTR_ASSET": "_Z",
+"PRICES": "V",
+"PRODUCT": "_T",
+"REF_SECTOR": "S14",
+"STO": "_PAM_UC",
+"TIME_PERIOD": "2022",
+"TRANSFORMATION": "GY",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": -0.281
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"DECIMALS": "3",
+"LAST_UPDATE": null,
+"OBS_STATUS": "A",
+"OBS_STATUS_FR": "D",
+"REF_PERIOD_DETAIL": null,
+"REF_YEAR_PRICE": null,
+"TABLE_IDENTIFIER": null,
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"ACCOUNTING_ENTRY": "_Z",
+"ACTIVITY": "_T",
+"COUNTERPART_AREA": "W0",
+"EXPENDITURE": "_Z",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"INSTR_ASSET": "_Z",
+"PRICES": "V",
+"PRODUCT": "_T",
+"REF_SECTOR": "S14",
+"STO": "_PAM_UC",
+"TIME_PERIOD": "2023",
+"TRANSFORMATION": "GY",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 0.364
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"DECIMALS": "3",
+"LAST_UPDATE": null,
+"OBS_STATUS": "P",
+"OBS_STATUS_FR": "SD",
+"REF_PERIOD_DETAIL": null,
+"REF_YEAR_PRICE": null,
+"TABLE_IDENTIFIER": null,
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"ACCOUNTING_ENTRY": "_Z",
+"ACTIVITY": "_T",
+"COUNTERPART_AREA": "W0",
+"EXPENDITURE": "_Z",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"INSTR_ASSET": "_Z",
+"PRICES": "V",
+"PRODUCT": "_T",
+"REF_SECTOR": "S14",
+"STO": "_PAM_UC",
+"TIME_PERIOD": "2024",
+"TRANSFORMATION": "GY",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": 2.196
+}
+}
+},
+{
+"attributes": {
+"CONF_STATUS": "F",
+"DECIMALS": "3",
+"LAST_UPDATE": null,
+"OBS_STATUS": "P",
+"OBS_STATUS_FR": "PROV",
+"REF_PERIOD_DETAIL": null,
+"REF_YEAR_PRICE": null,
+"TABLE_IDENTIFIER": null,
+"UNIT_MULT": "0"
+},
+"dimensions": {
+"ACCOUNTING_ENTRY": "_Z",
+"ACTIVITY": "_T",
+"COUNTERPART_AREA": "W0",
+"EXPENDITURE": "_Z",
+"FREQ": "A",
+"GEO": "2025-FRANCE-F",
+"INSTR_ASSET": "_Z",
+"PRICES": "V",
+"PRODUCT": "_T",
+"REF_SECTOR": "S14",
+"STO": "_PAM_UC",
+"TIME_PERIOD": "2025",
+"TRANSFORMATION": "GY",
+"UNIT_MEASURE": "PT"
+},
+"measures": {
+"OBS_VALUE_NIVEAU": {
+"value": -0.688
+}
+}
+}
+]
+}

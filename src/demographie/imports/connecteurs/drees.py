@@ -6,7 +6,9 @@ Deux jeux :
   retraités tous régimes résidant en France, au 31 décembre, de 2004 à l'avant-dernière
   année. National seulement : la DREES ne publie les retraités par lieu de résidence que
   tous les 4 ans (échantillon interrégimes), et par région. Le classeur change de nom à
-  chaque édition : on le retrouve dans la liste des pièces jointes du jeu.
+  chaque édition : on le retrouve dans la liste des pièces jointes du jeu. La même feuille
+  donne la pension moyenne de droit direct (colonne « m1 », euros bruts par mois), lue pour
+  l'appli « Comment vivent les Français ? ».
 - Panorama statistique « Cohésion sociale » : allocataires du minimum vieillesse (ASV et
   ASPA) par département, depuis 1996, exporté en CSV.
 """
@@ -35,6 +37,8 @@ _SEXES = {"Ensemble": "T", "Femmes": "F", "Hommes": "H"}
 # Champ de l'EACR -> indicateur : tous les retraités, ou ceux ayant un droit propre.
 _CHAMPS = {"dtot": "PENSIONNES", "ddir": "PENSIONNES_DROIT_DIRECT"}
 _COLONNES_EACR = ("Année", "CC", "Sexe", "Resid", "Champ", "Liq", "StatutSNCF", "PlusRécent")
+# Effectifs ; montant mensuel moyen brut de la pension de droit direct (« m1 »).
+_VALEURS = ("effectifs", "m1")
 
 
 class RetraitesEacr:
@@ -76,14 +80,13 @@ class RetraitesEacr:
             feuille.reset_dimensions()  # dimensions absentes du fichier publié
             rangs = feuille.iter_rows(values_only=True)
             entete = [str(c) if c is not None else "" for c in next(rangs, ())]
-            manquantes = [c for c in (*_COLONNES_EACR, "effectifs") if c not in entete]
+            manquantes = [c for c in (*_COLONNES_EACR, *_VALEURS) if c not in entete]
             if manquantes:
                 raise FichierIllisible(f"Colonnes absentes : {', '.join(manquantes)}")
-            col = {nom: entete.index(nom) for nom in (*_COLONNES_EACR, "effectifs")}
+            col = {nom: entete.index(nom) for nom in (*_COLONNES_EACR, *_VALEURS)}
             lues = 0
             for rang in rangs:
-                ligne = self._ligne(rang, col)
-                if ligne is not None:
+                for ligne in self._lignes(rang, col):
                     lues += 1
                     yield ligne
             if lues == 0:
@@ -92,7 +95,7 @@ class RetraitesEacr:
             classeur.close()
 
     @staticmethod
-    def _ligne(rang: tuple, col: dict[str, int]) -> Ligne | None:
+    def _lignes(rang: tuple, col: dict[str, int]) -> list[Ligne]:
         def v(nom):
             return rang[col[nom]] if col[nom] < len(rang) else None
 
@@ -105,24 +108,30 @@ class RetraitesEacr:
             or v("StatutSNCF") != "Ensemble"
             or v("PlusRécent") is not True
         ):
-            return None
+            return []
+        valeurs = {_CHAMPS[v("Champ")]: v("effectifs")}
+        if v("Champ") == "ddir":
+            valeurs["PENSION_MOYENNE"] = v("m1")
         try:
             annee = int(v("Année"))
-            valeur = Decimal(str(v("effectifs")))
+            valeurs = {k: Decimal(str(x)) for k, x in valeurs.items()}
         except (TypeError, ValueError, InvalidOperation) as erreur:
-            raise FichierIllisible(f"Ligne illisible : {rang[:11]}") from erreur
-        return Ligne(
-            indicateur=_CHAMPS[v("Champ")],
-            niveau="FRANCE",
-            code="FR",
-            periode=date(annee, 1, 1),
-            periode_type="ANNEE",
-            sexe=_SEXES[v("Sexe")],
-            age_min=None,
-            age_max=None,
-            valeur=valeur,
-            statut="DEFINITIF",
-        )
+            raise FichierIllisible(f"Ligne illisible : {rang[:12]}") from erreur
+        return [
+            Ligne(
+                indicateur=indicateur,
+                niveau="FRANCE",
+                code="FR",
+                periode=date(annee, 1, 1),
+                periode_type="ANNEE",
+                sexe=_SEXES[v("Sexe")],
+                age_min=None,
+                age_max=None,
+                valeur=valeur,
+                statut="DEFINITIF",
+            )
+            for indicateur, valeur in valeurs.items()
+        ]
 
 
 class MinimumVieillesse:

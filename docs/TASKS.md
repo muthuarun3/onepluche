@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 036 ; 033 réservé à argent public). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
+   le catalogue change (prochain numéro : 042). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -172,14 +172,19 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/7cb5Cj
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/NoW5WiUnhSjjceKtjqXTfu>.
 
-- [~] **A1. Catalogue, revenus détaillés et salaires** — migration 031 (rubrique `VIVRE`,
+- [x] **A1. Catalogue, revenus détaillés et salaires** — migration 031 (rubrique `VIVRE`,
   sept thèmes, `ref.indicateur_affichage` et les six indicateurs partagés des applis 1 et 2,
   14 indicateurs Filosofi, `SALAIRE_NET_MOYEN`), groupe `demo importer vivre` : Filosofi
   détaillé, salaires BTS par sexe × catégorie et sexe × âge. *Critère :* Creuse D9 = 37 240 €,
   Paris 3 836 €, France 2 733 € (2024) ; 97 et 101 départements sur les fichiers complets.
-- [ ] **A2. Séries nationales** — ERFS (1996-2024), comptes nationaux (pouvoir d'achat par
-  unité de consommation, taux d'épargne), patrimoine (enquête et comptes), pension moyenne
-  DREES. *Critère :* taux d'épargne 2025 = 17,9 %.
+- [~] **A2. Séries nationales** — migration 041 (13 indicateurs, sources `INSEE_ERFS` et
+  `INSEE_ENQPAT`, modalités `decile_niveau_vie`, `placement` et catégories de l'enquête
+  Patrimoine), dix jeux de plus dans `demo importer vivre` : salaire moyen du privé depuis
+  1996, ERFS (1996-2024, métropole), comptes des ménages (pouvoir d'achat par unité de
+  consommation, revenu disponible, taux d'épargne et d'épargne financière), patrimoine
+  (enquête 2024 par âge, catégorie et décile de niveau de vie ; placements financiers) ;
+  pension moyenne lue avec les retraités (`demo importer retraites`). *Critère :* taux
+  d'épargne 2025 = 17,9 % (provisoire) ; fichiers complets lus sans rejet.
 - [ ] **B. CAF et Banque de France** — `caf.py` (RSA, aides au logement, décembre),
   `surendettement.py` (13 XLSX régionaux), vue `stat.vivre_derives` (quatre calculs propres).
 - [ ] **C. Pages `/vivre`** — vue France, fiche département, page thème, six questions
