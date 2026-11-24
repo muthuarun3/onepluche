@@ -42,7 +42,7 @@ def test_parts_par_sexe_et_age():
     assert _une(lignes, "PART_CONTRATS_COURTS", "FR").valeur == Decimal("15.5")
     assert _une(lignes, "PART_TEMPS_PARTIEL", "FM").valeur > 0
     assert {x.niveau for x in lignes} == {"FRANCE", "REG", "DEP"}
-    assert CONNECTEURS["travail"][-1] is CONTRATS
+    assert CONTRATS in CONNECTEURS["travail"]
 
 
 def test_formes_d_emploi_incoherentes(tmp_path):

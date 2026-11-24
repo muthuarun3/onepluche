@@ -97,7 +97,7 @@ et ses familles `PERSONNES`, `VOLS`, `BIENS`, `STUPEFIANTS`, `ROUTES`, `RESSENTI
 `famille_metier` (8 familles de l'enquête BMO, codes A, C, I, O, S, T, V, Z) et `metier_bmo`
 (217 métiers, code FAP de l'enquête) (migration 034) ; la rubrique affiche aussi
 `TAUX_CHOMAGE` (appli 1) et `SALAIRE_NET_MOYEN` (appli « vivre ») par
-`ref.indicateur_affichage` (migration 042) ; `VOTES` (`/votes`, ordre 4, migration 032,
+`ref.indicateur_affichage` (migration 042) ; télétravail et accidents du travail, sources `INSEE_EEC` et `CNAM_RISQUES_PRO` (migration 046) ; `VOTES` (`/votes`, ordre 4, migration 032,
 thème obligatoire) et ses thèmes `PARTICIPATION`, `RESULTATS`, `ELUS`. Enfin
 `VIVRE` (`/vivre`, ordre 3, migration 031, thème obligatoire) et ses thèmes `REVENUS`,
 `POUVOIR_ACHAT`, `INEGALITES`, `EPARGNE`, `PATRIMOINE`, `AIDES_LOGEMENT`, `RETRAITES` ; la

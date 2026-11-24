@@ -50,6 +50,7 @@ from demographie.imports.connecteurs.recensement import (
     SECTEURS,
 )
 from demographie.imports.connecteurs.ressenti import CVS, VRS
+from demographie.imports.connecteurs.risques_travail import ACCIDENTS_TRAVAIL, TELETRAVAIL
 from demographie.imports.connecteurs.routes import ACCIDENTS
 from demographie.imports.connecteurs.rpls import PARC_SOCIAL
 from demographie.imports.connecteurs.soins import (
@@ -162,6 +163,8 @@ CONNECTEURS = {
         DEMANDEURS,
         BMO,
         CONTRATS,
+        TELETRAVAIL,
+        ACCIDENTS_TRAVAIL,
     ),
     # Appli « Où va l'argent public ? » : comptes des administrations publiques (France).
     "argent": (
