@@ -102,14 +102,35 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 - [~] **9. Vitrine au style de l'appli** (PR #22) — mêmes couleurs, test qui le vérifie,
   `CLAUDE.md` avec la règle de mise à jour.
 - [~] **Mises à jour Dependabot** (PR #2, #3) — actions GitHub.
-- [~] **Macro-catégorie « Données »** (PR en cours) — titre « Données » dans la barre latérale
+- [x] **Macro-catégorie « Données »** (PR #46) — titre « Données » dans la barre latérale
   au-dessus des questions, accueil « Données » puis « Programmes » annoncé, vitrine.
   *Critère :* `tests/test_import.py::test_pages` ; vérifié à 1280 px et 390 px.
-- [ ] **Macro-catégorie « Programmes »** — dossier de conception en dix étapes (élection,
-  candidats, sources, analyse par candidat, comparaison par sujet, neutralité), puis les
-  tâches qui en sortent.
+- [x] **Macro-catégorie « Programmes » : conception** — dossier en dix étapes validé le
+  24/11/2026 : <https://claude.ai/artifact/VWJAXgpAa9xJvhY6YLJZmC>. Tâches P1 à P5 ci-dessous.
 
 ## À faire
+
+### Programmes (présidentielle 2027)
+
+Une PR à la fois, sur `main` à jour. Fiches en TOML dans `programmes/2027/`, publiées par la
+fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugement.
+
+- [~] **P1. Fondations** (PR en cours) — `programmes/2027/sujets.toml` (12 sujets, échelles
+  communes), `donnees/programmes.py` (modèles Pydantic, contrôles croisés, ordre des
+  candidats, comparaison par sujet), fiches fictives dans `tests/fixtures/programmes/`.
+  *Critère :* une fiche cassée est refusée avec le nom du fichier
+  (`tests/test_programmes_fiches.py`).
+- [ ] **P2. Veille** — migration (041 ou plus) `ingest.programme_releve`,
+  `imports/veille_programmes.py`, `programmes/2027/suivis.toml`, `demo veiller programmes`
+  dans le minuteur du lundi, dossier des copies sauvegardé, ligne sur `/sources`.
+  *Critère :* un changement d'empreinte alerte ; première veille réelle sur le serveur.
+- [ ] **P3. Écrans** — `/programmes`, `/programmes/{candidat}`, `/programmes/comparer`,
+  `/api/v1/programmes`, barre latérale, accueil, vitrine, docs. *Critère :* critères 1, 3 et 5
+  de l'étape 8 du dossier.
+- [ ] **P4. Premier vrai programme** — fiche du premier candidat déclaré qui a publié un texte,
+  relue par Muthu. *Critère :* critère 6 ; veille sans erreur deux lundis de suite.
+- [ ] **P5 et suivantes** — une PR par programme ou nouvelle version ; mars 2027 : liste du
+  Conseil constitutionnel (statuts, ordre officiel) ; avril 2027 : professions de foi.
 
 ### Commun aux applis 3 à 8
 

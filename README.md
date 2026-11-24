@@ -34,6 +34,7 @@ src/demographie/
   app.py                 assemblage FastAPI
   cli.py                 commandes demo ...
 deploy/                  installation Debian, systemd, Caddy, sauvegarde, test de restauration
+programmes/2027/         fiches des programmes présidentiels (TOML relus par PR) et grille des sujets
 tests/                   tests (dont les règles entre modules)
 ```
 

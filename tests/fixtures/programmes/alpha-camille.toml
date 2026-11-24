@@ -1,0 +1,60 @@
+# Candidate fictive pour les tests : aucun vrai programme.
+[candidat]
+id = "alpha-camille"
+prenom = "Camille"
+nom = "Alpha"
+parti = "Parti fictif A"
+statut = "declare"
+declare_le = 2026-10-01
+
+[[versions]]
+id = "v1"
+titre = "Programme fictif, première version"
+url = "https://exemple.invalid/alpha/programme-v1.pdf"
+publie_le = 2026-10-15
+releve_le = 2026-10-19
+sha256 = "0000000000000000000000000000000000000000000000000000000000000001"
+
+[[versions]]
+id = "v2"
+titre = "Programme fictif, deuxième version"
+url = "https://exemple.invalid/alpha/programme-v2.pdf"
+publie_le = 2026-11-15
+releve_le = 2026-11-16
+sha256 = "0000000000000000000000000000000000000000000000000000000000000002"
+
+[[mesures]]
+id = "retraites-age-legal"
+sujet = "retraites"
+titre = "Âge légal de départ fixé à 63 ans"
+citation = "Nous fixerons l'âge légal de départ à 63 ans."
+version = "v1"
+page = 4
+echelle = { code = "AGE_LEGAL_RETRAITE", valeur = 63 }
+indicateurs = ["PART_60_PLUS"]
+cout_annonce = { montant = 5_000_000_000, unite = "EUR_PAR_AN", version = "v1", page = 20 }
+
+[[mesures.chiffrages]]
+organisme = "Organisme fictif"
+montant = 7_000_000_000
+unite = "EUR_PAR_AN"
+url = "https://exemple.invalid/chiffrage"
+publie_le = 2026-11-01
+
+[[mesures]]
+id = "logement-construction"
+sujet = "logement"
+titre = "Construction de 400 000 logements par an"
+citation = "Nous construirons 400 000 logements chaque année."
+version = "v1"
+page = 7
+echelle = { code = "LOGEMENTS_CONSTRUITS_AN", valeur = 400000 }
+retiree_dans = "v2"
+
+[[mesures]]
+id = "sante-centres"
+sujet = "sante"
+titre = "Un centre de santé par canton"
+citation = "Chaque canton aura son centre de santé."
+version = "v2"
+ancre = "#sante"

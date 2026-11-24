@@ -1,0 +1,97 @@
+# Grille commune de la macro-catégorie « Programmes » (présidentielle 2027).
+# Dossier de conception : https://claude.ai/artifact/VWJAXgpAa9xJvhY6YLJZmC (étapes 1 et 5).
+# Chaque mesure d'une fiche candidat est rangée dans un seul de ces sujets. Les indicateurs de
+# contexte sont des codes de « Données » (ref.indicateur), affichés par défaut à côté des
+# mesures du sujet.
+
+[election]
+id = "2027"
+libelle = "Élection présidentielle 2027"
+premier_tour = 2027-04-18
+
+[[sujets]]
+id = "emploi-travail"
+libelle = "Emploi et travail"
+indicateurs = ["TAUX_CHOMAGE", "TAUX_ACTIVITE_15_64"]
+
+[[sujets]]
+id = "retraites"
+libelle = "Retraites"
+indicateurs = ["PART_60_PLUS", "TAUX_MIN_VIEILLESSE_60P"]
+
+[[sujets]]
+id = "pouvoir-achat-impots"
+libelle = "Pouvoir d'achat et impôts"
+indicateurs = ["NIVEAU_VIE_MEDIAN", "TAUX_PAUVRETE"]
+
+[[sujets]]
+id = "depenses-dette"
+libelle = "Dépenses publiques et dette"
+indicateurs = []
+
+[[sujets]]
+id = "sante"
+libelle = "Santé"
+indicateurs = ["ESPERANCE_VIE"]
+
+[[sujets]]
+id = "education"
+libelle = "Éducation"
+indicateurs = ["TAUX_SCOLARISATION_18_24"]
+
+[[sujets]]
+id = "logement"
+libelle = "Logement"
+indicateurs = ["LOYER_APPARTEMENT_M2", "PART_LOGEMENTS_VACANTS"]
+
+[[sujets]]
+id = "securite-justice"
+libelle = "Sécurité et justice"
+indicateurs = ["TAUX_CAMBRIOLAGES", "TAUX_VIOLENCES_HORS_FAMILLE"]
+
+[[sujets]]
+id = "immigration"
+libelle = "Immigration"
+indicateurs = []
+
+[[sujets]]
+id = "climat-energie"
+libelle = "Climat et énergie"
+indicateurs = ["PART_CHAUFFAGE_FIOUL"]
+
+[[sujets]]
+id = "europe-international"
+libelle = "Europe et international"
+indicateurs = []
+
+[[sujets]]
+id = "institutions"
+libelle = "Institutions et démocratie"
+indicateurs = []
+
+# Échelles communes : une même grandeur, pour placer les candidats sur un même axe dans la
+# comparaison. La valeur en vigueur est ajoutée avec sa source officielle (lien et date).
+
+[[echelles]]
+code = "AGE_LEGAL_RETRAITE"
+sujet = "retraites"
+libelle = "Âge légal de départ à la retraite"
+unite = "ans"
+
+[[echelles]]
+code = "SMIC_MENSUEL_NET"
+sujet = "pouvoir-achat-impots"
+libelle = "SMIC mensuel net, temps plein"
+unite = "euros"
+
+[[echelles]]
+code = "LOGEMENTS_CONSTRUITS_AN"
+sujet = "logement"
+libelle = "Logements construits par an"
+unite = "logements"
+
+[[echelles]]
+code = "TVA_TAUX_NORMAL"
+sujet = "pouvoir-achat-impots"
+libelle = "Taux normal de TVA"
+unite = "%"
