@@ -76,7 +76,7 @@ uv run demo importer transports           # besoins : prix des carburants (stati
 uv run demo importer avenir               # avenir : projections de population (INSEE Omphale 2022 par département, France 2026) climat (Banque mondiale, CMIP6) et risques naturels (Géorisques, GASPAR)
 uv run demo importer securite             # sécurité : délinquance (SSMSI), accidents de la route (ONISR), sentiment d'insécurité (CVS, VRS)
 uv run demo importer vivre                # vivre : revenus détaillés (Filosofi), salaires du privé par sexe, catégorie et âge (BTS)
-uv run demo importer travail              # travail : chômage par âge, emploi salarié et intérim, emploi total, créations et défaillances d'entreprises (BDM), demandeurs d'emploi (DARES), projets de recrutement (BMO)
+uv run demo importer travail              # travail : chômage par âge, emploi salarié et intérim, emploi total, créations et défaillances d'entreprises (BDM), demandeurs d'emploi (DARES), projets de recrutement (BMO), contrats courts et temps partiel (recensement)
 uv run demo importer votes                # votes : participation et voix des 20 tours d'élection retenus, portrait des élus (ministère de l'Intérieur, data.gouv.fr)
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)
 uv run demo verifier                      # compare aux chiffres publiés par l'INSEE

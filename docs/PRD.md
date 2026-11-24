@@ -138,8 +138,9 @@ moyenne annuelle), demandeurs d'emploi A, B, C chaque trimestre depuis 1996 (DAR
 de 2025 signalée), projets de recrutement et part jugée difficile par métier et famille
 (enquête BMO de France Travail), créations (Sirene) et défaillances d'entreprises (Banque de
 France). Qui travaille : emploi salarié par grand secteur et intérim, part des indépendants.
-Les cinq autres thèmes (contrats, salaires, télétravail, accidents, syndicats et grèves)
-suivront. Dossier : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
+Comment et combien ça paie : contrats courts et temps partiel (recensement), salaire net
+moyen du secteur privé (repris de l'appli « vivre »). Télétravail, accidents, syndicats et
+grèves suivront. Dossier : <https://claude.ai/artifact/GAgaMwPNpLsuJaqc3XFurA>.
 
 Écrans : vue France (les blocs pour la France, puis la carte), fiche département (les mêmes
 blocs, valeur France et rang), carte par thème (taux et parts seulement ; famille de métiers
