@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% from "_programmes.html" import aujourdhui, rappel %}
+{% set c = fiche.candidat %}
+{% block titre %}{{ c.nom_complet }} : le programme · On épluche{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/programmes">Les programmes des candidats</a> › {{ c.nom_complet }}
+</nav>
+<h1>{{ c.nom_complet }}</h1>
+{% set v = fiche.derniere_version %}
+<p class="intro">{{ c.parti }} · {{ statuts_candidature[c.statut] }} · déclaration de candidature le {{ c.declare_le|date_fr }}.
+  Texte analysé : <a href="{{ v.url }}" rel="noopener">{{ v.titre }}</a>, publié le
+  {{ v.publie_le|date_fr }}.</p>
+{% if versions|length > 1 %}
+<details class="versions">
+  <summary>Versions précédentes ({{ versions|length - 1 }})</summary>
+  <ul>
+    {% for ver in versions[1:] %}
+    <li><a href="{{ ver.url }}" rel="noopener">{{ ver.titre }}</a>, publié le {{ ver.publie_le|date_fr }}</li>
+    {% endfor %}
+  </ul>
+</details>
+{% endif %}
+
+<nav class="sommaire" aria-label="Sujets">
+  <ul>
+    {% for g in groupes %}
+    <li><a href="#{{ g.sujet.id }}">{{ g.sujet.libelle }}</a> :
+      {% if g.en_vigueur %}{{ g.en_vigueur }} mesure{{ "s" if g.en_vigueur > 1 }}{% else %}<span class="muet">pas de proposition</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+</nav>
+
+{% for g in groupes if g.blocs %}
+<h2 class="titre-partie" id="{{ g.sujet.id }}">{{ g.sujet.libelle }}</h2>
+{% for b in g.blocs %}{% set m = b.mesure %}{% set ver = fiche.version(m.version) %}
+<section class="bloc mesure{% if m.retiree_dans %} retiree{% endif %}" id="{{ m.id }}">
+  <h3>{% if m.retiree_dans %}<del>{{ m.titre }}</del>{% else %}{{ m.titre }}{% endif %}</h3>
+  {% if m.retiree_dans %}<p class="note-retrait">Retirée dans la version du {{ fiche.version(m.retiree_dans).publie_le|date_fr }}.</p>{% endif %}
+  <blockquote class="citation">« {{ m.citation }} »</blockquote>
+  <p class="source">{{ ver.titre }}, <a href="{{ ver.url }}{{ m.ancre or '' }}" rel="noopener">{% if m.page %}page {{ m.page }}{% else %}voir le passage{% endif %}</a>.</p>
+  {{ aujourdhui(b.indicateurs, indicateurs) }}
+  <div class="cout">
+    <p class="etiquette">Coût</p>
+    {% if m.cout_annonce or m.chiffrages %}
+    <ul>
+      {% if m.cout_annonce %}<li>Annoncé par le candidat : <strong>{{ m.cout_annonce.montant|montant(m.cout_annonce.unite) }}</strong>{% if m.cout_annonce.page %} (page {{ m.cout_annonce.page }}){% endif %}</li>{% endif %}
+      {% for ch in m.chiffrages %}
+      <li>{{ ch.organisme }} : <strong>{{ ch.montant|montant(ch.unite) }}</strong> (<a href="{{ ch.url }}" rel="noopener">{{ ch.publie_le|date_fr }}</a>)</li>
+      {% endfor %}
+    </ul>
+    {% else %}<p class="muet">Aucun coût annoncé ni chiffrage indépendant.</p>{% endif %}
+  </div>
+</section>
+{% endfor %}
+{% endfor %}
+{{ rappel() }}
+{% endblock %}

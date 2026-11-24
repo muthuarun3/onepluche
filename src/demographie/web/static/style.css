@@ -302,3 +302,31 @@ tr.total td { font-weight: 600; border-top: 1px solid var(--bordure); }
   .barres.comparees li { grid-template-columns: minmax(0, 8.5rem) 1fr 4rem; }
 }
 .tableau-local td + td, .tableau-local th + th { white-space: nowrap; text-align: right; }
+/* Programmes : fiches des candidats et comparaison (une seule couleur, --serie). */
+.mesure h3 { font-size: 1.05rem; margin: 0 0 .5rem; }
+.mesure .citation { margin: .5rem 0; padding: .25rem 0 .25rem .9rem;
+  border-left: 3px solid var(--bordure); color: var(--texte); font-style: italic; }
+.mesure.retiree { border-style: dashed; }
+.mesure.retiree .citation { color: var(--texte-2); }
+.note-retrait { color: var(--texte-2); font-size: .9rem; margin: 0 0 .5rem; }
+.etiquette { margin: .75rem 0 .25rem; font-size: .75rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--texte-2); }
+.aujourdhui ul, .cout ul { margin: 0; padding-left: 1.1rem; }
+.aujourdhui li, .cout li { margin: .2rem 0; }
+.aujourdhui .source { font-size: .85rem; }
+.sommaire ul { columns: 2 16rem; padding-left: 1.1rem; margin: .5rem 0 1rem; }
+.sommaire li { margin: .15rem 0; break-inside: avoid; }
+.versions { margin: 0 0 1rem; }
+.rappel { margin-top: 2rem; }
+.comparaison { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.comparaison th, .comparaison td { text-align: left; vertical-align: top; padding: .6rem .5rem;
+  border-bottom: 1px solid var(--bordure); }
+.comparaison th[scope="row"] { width: 14rem; font-weight: 600; }
+.comparaison td ul { margin: 0; padding-left: 1.1rem; }
+.echelle li { grid-template-columns: minmax(0, 11rem) 1fr 5.5rem; }
+@media (max-width: 40rem) {
+  .comparaison thead { display: none; }
+  .comparaison, .comparaison tbody, .comparaison tr, .comparaison th, .comparaison td {
+    display: block; width: auto; }
+  .comparaison th[scope="row"] { border-bottom: 0; padding-bottom: 0; }
+}

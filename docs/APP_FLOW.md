@@ -49,6 +49,9 @@ Navigateur ──► https://onepluche.duckdns.org
 │   ├── /argent-public/etat        Budget de l'État : solde mensuel, missions       🔶
 │   ├── /argent-public/DEP/{code}  Fiche département : dépenses locales, CatNat     🔶
 │   └── /argent-public/menage      Impôts d'un ménage type                          ⬜
+├── /programmes                    Les programmes des candidats (présidentielle)    🔶
+│   ├── /programmes/{candidat}     Fiche : mesures citées, contexte, coût           🔶
+│   └── /programmes/comparer       Comparaison par sujet (?sujet=retraites…)        🔶
 ├── /sources                       État des imports, licences                       ✅
 └── /api/docs                      Documentation de l'API (Swagger)                 ✅
 ```
@@ -62,7 +65,7 @@ Chaque page hérite de `base.html` :
 
 | Zone | Contenu | Comportement |
 | --- | --- | --- |
-| Barre latérale (ordinateur, 15rem à gauche, fixe au défilement) | « On épluche » (lien vers `/`), Accueil, la macro-catégorie « Données » (titre, puis une entrée par question), puis Sources et API. La macro-catégorie « Programmes » s'y ajoutera | L'entrée de la page courante est mise en évidence (`aria-current="page"`), y compris pour les sous-pages (`/besoins/...`) |
+| Barre latérale (ordinateur, 15rem à gauche, fixe au défilement) | « On épluche » (lien vers `/`), Accueil, la macro-catégorie « Données » (titre, puis une entrée par question), la macro-catégorie « Programmes » (« Les candidats », « Comparer les programmes »), puis Sources et API | L'entrée de la page courante est mise en évidence (`aria-current="page"`), y compris pour les sous-pages (`/besoins/...`) |
 | Barre du haut (téléphone, moins de 48rem) | Les mêmes liens, en ligne, qui passent à la ligne | Aucun menu repliable, aucun JavaScript |
 | Pied de page | Producteurs des données, Licence Ouverte 2.0, ECharts | — |
 
@@ -72,7 +75,7 @@ données = ajouter une entrée.
 
 Deux macro-catégories : **Données** (les applications-questions, chiffres officiels) et
 **Programmes** (analyse du programme de chaque candidat à la présidentielle et comparaison
-par sujet ; en conception, annoncée sur l'accueil sans lien).
+par sujet ; fiches TOML de `programmes/2027/`, publiées par PR relue par Muthu).
 
 ## 4. Pages et interactions
 
@@ -88,7 +91,8 @@ par sujet ; en conception, annoncée sur l'accueil sans lien).
 | Carte « Les Français sont-ils en sécurité ? » | `/securite` |
 | Carte « Comment travaillent les Français ? » | `/travail` |
 | Carte « Où va l'argent public ? » | `/argent-public` |
-| Partie « Programmes » : phrase « En préparation » | — (pas encore de page) |
+| Titre « Programmes », carte « Les candidats » | `/programmes` |
+| Carte « Comparer les programmes » | `/programmes/comparer` |
 
 ### Qui sont les Français ? `/francais` (✅ sur `/` aujourd'hui, 🔶 déplacé par la PR #21)
 
@@ -172,6 +176,14 @@ se comparent pas à un total national ; l'indice des prix, national, n'y figure 
 | `/argent-public` | Quatre chiffres (dépense publique de la dernière année en Md€ et en % du PIB, par habitant, déficit, dette du dernier trimestre) ; lien vers le budget de l'État ; trois questions guidées ; « Pour 1 000 € de dépense publique » (barres par fonction) ; « Qui dépense ? » ; « D'où vient l'argent ? » (avec la part empruntée) ; intérêts de la dette comparés à la défense et à l'enseignement ; déficit et dette en % du PIB depuis 1978 ; dette en milliards ; carte « Mon département » (liste repliée par région) ; blocs à venir (ménage type, catastrophes naturelles) | Bascule « Euros de N / Euros de l'époque » sur la courbe de la dette (sans rechargement) ; questions → ancres de la page ; sans données : bandeau |
 | `/argent-public/etat` | Solde de l'État cumulé depuis janvier, mois par mois, année en cours et deux précédentes (phrase : comparaison à la même date l'an passé) ; impôts de l'État par impôt (dernière année complète) ; voté et dépensé, plus gros dépassement et plus grosse sous-consommation ; barres votées et dépensées des missions (hors « Remboursements et dégrèvements », mentionnée à part), tableau replié | Onglets d'année des missions (`?annee=2023`, année inconnue : dernière année ; hors 2000-2100 : 422) ; sans données : bandeau |
 | `/argent-public/DEP/{code}` | Dépense locale et dette locale par habitant de la dernière année, comparées à la France ; tableau département, communes, intercommunalités, ensemble ; postes du département et des communes par habitant (barres, trait de la moyenne française) ; dépense locale par habitant depuis 2016, ici et en France, en euros constants ; encadré pour les collectivités uniques (67/68, 2A/2B, 972, 973, 976), Paris et la Métropole de Lyon ; lien vers la fiche « Qui habite » | Code inconnu : 404 ; sans données : bandeau |
+
+### Programmes `/programmes` (🔶, P3)
+
+| Élément | Au clic |
+| --- | --- |
+| Une carte par candidat (nom, parti, statut, nombre de mesures et de sujets, date de la version), ordre alphabétique puis officiel | `/programmes/{candidat}` |
+| Fiche : sommaire des 12 sujets (« pas de proposition » déduit), une carte par mesure (titre, citation, lien vers la page du texte, « Aujourd'hui », « Coût ») ; mesure retirée barrée avec sa date ; versions précédentes repliées | Lien de page → texte source ; lien d'indicateur → appli de « Données » |
+| Comparer : onglets des 12 sujets, barres d'une seule couleur sur une échelle commune, tableau candidat × mesures (liste sur téléphone) | Titre d'une mesure → sa carte dans la fiche |
 
 ### Questions guidées (⬜)
 
