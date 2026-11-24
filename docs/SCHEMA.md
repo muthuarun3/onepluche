@@ -106,7 +106,11 @@ modalités `fonction_apu` (dix fonctions COFOG), `etage_apu` (`CENTRALE`, `SECU`
 `nature_recette` (`COTISATIONS`, `PRODUCTION`, `REVENU_PATRIMOINE`, `AUTRES`). Le solde public
 est négatif : le contrôle des valeurs négatives admet un indicateur dont `borne_min` est
 négative, et celui des pourcentages au-delà de 100 un indicateur dont `borne_max` le permet
-(dette en part du PIB).
+(dette en part du PIB). Migration 037 (budget de l'État) : dimensions `impot_etat` (`TVA`,
+`IR`, `IS`, `TICPE`, `AUTRES`) et `mission_etat` (33 missions du budget général, code tiré du
+libellé ; « Travail et emploi » garde `TRAVAIL_EMPLOI` après son changement de nom), et la vue
+`api.repartition_mensuelle` (valeur par modalité d'un indicateur mensuel, avec sa `periode` :
+`api.repartition` ne porte que l'année).
 
 ### `ref.indicateur_affichage` — un indicateur dans plusieurs rubriques (migration 031)
 

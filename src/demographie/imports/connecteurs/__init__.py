@@ -35,6 +35,7 @@ from demographie.imports.connecteurs.estimations import (
     EstimationsDepartements,
     EstimationsRegions,
 )
+from demographie.imports.connecteurs.etat import CREDITS_MISSIONS, SITUATION_MENSUELLE
 from demographie.imports.connecteurs.loyers import CARTE_DES_LOYERS
 from demographie.imports.connecteurs.melodi import DECES, NAISSANCES
 from demographie.imports.connecteurs.omphale import PROJECTIONS_DEPARTEMENTALES
@@ -143,6 +144,8 @@ CONNECTEURS = {
         FONCTIONS_APU,
         ETAGES_APU,
         DETTE_TRIMESTRIELLE,
+        SITUATION_MENSUELLE,
+        CREDITS_MISSIONS,
     ),
     # Appli « Que pensent et votent les Français ? »
     "votes": (PARTICIPATION_ELECTIONS, VOIX_ELECTIONS),

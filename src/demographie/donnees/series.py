@@ -1,5 +1,6 @@
 """Lecture des indicateurs, des séries annuelles et de la structure par âge."""
 
+from datetime import date
 from pathlib import Path
 
 import psycopg
@@ -142,3 +143,11 @@ def classement_modalite(
     """Comme `classement`, pour une modalité d'une dimension (famille de métiers…)."""
     parametres = {"indicateur": indicateur, "dimension": dimension, "modalite": modalite}
     return conn.execute(charger_sql(_SQL, "classement_modalite"), parametres).fetchall()
+
+
+def repartition_mensuelle(
+    conn: psycopg.Connection, indicateur: str, niveau: str, code: str, periode: date
+) -> list[dict]:
+    """Valeur par modalité d'un indicateur mensuel au premier jour du mois `periode`."""
+    parametres = {"indicateur": indicateur, "niveau": niveau, "code": code, "periode": periode}
+    return conn.execute(charger_sql(_SQL, "repartition_mensuelle"), parametres).fetchall()

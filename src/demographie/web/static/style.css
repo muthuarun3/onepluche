@@ -290,3 +290,4 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .tableau-climat td { white-space: nowrap; vertical-align: top; }
 .tableau-climat .fourchette, .tableau-climat .muet { display: block; font-size: .8rem; }
 .tableau-climat .fourchette { color: var(--texte-2); }
+.graphique.missions { height: 56rem; }

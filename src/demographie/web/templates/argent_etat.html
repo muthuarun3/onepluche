@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% macro source(d) -%}
+{% if d %}<p class="source">Source : <a href="{{ d.source_url }}" rel="noopener">{{ d.source_libelle }}</a>, {{ d.source_licence }}.{% if d.avertissement %} {{ d.avertissement }}{% endif %}</p>{% endif %}
+{%- endmacro %}
+{% block titre %}Le budget de l'État · On épluche{% endblock %}
+{% block contenu %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/argent-public">Où va l'argent public ?</a> › Le budget de l'État
+</nav>
+<h1>Le budget de l'État</h1>
+<p class="intro">L'État n'est qu'une partie de l'argent public, à côté de la Sécurité sociale
+  et des collectivités locales. Son solde mois par mois et ce que chaque mission a dépensé,
+  comparé à ce que le Parlement avait voté.</p>
+
+{% if not solde and not missions %}
+<p class="bandeau">Le budget de l'État n'est pas encore importé.</p>
+{% endif %}
+
+{% if solde %}
+<section class="graphique-bloc" id="solde">
+  <div class="graphique-titre"><h2>Le solde de l'État, mois par mois</h2></div>
+  <p class="phrase">Fin {{ solde.mois_libelle }} {{ solde.annee }}, l'État affichait un
+    {% if solde.valeur < 0 %}déficit{% else %}excédent{% endif %} de
+    <strong class="grand">{{ solde.valeur|abs|milliards }}</strong> depuis le 1er janvier{% if solde.comparaison %},
+    contre {{ solde.comparaison.valeur|abs|milliards }} à la même date en {{ solde.comparaison.annee }}{% endif %}.
+    {% for f in solde.fins %}{% if loop.first %}Sur l'année entière : {% endif %}{{ f.valeur|abs|milliards }} en {{ f.annee }}{{ ", " if not loop.last else "." }}{% endfor %}</p>
+  <p class="legende">Cumul depuis le 1er janvier, en milliards d'euros ; sous zéro, un déficit. Le
+    cumul repart de zéro chaque année.</p>
+  <div id="solde-etat" class="graphique" role="img" aria-label="Solde budgétaire de l'État cumulé, mois par mois, pour les trois dernières années"></div>
+  {{ source(definitions.SOLDE_ETAT) }}
+</section>
+{% endif %}
+
+<div class="blocs">
+  {% if impots %}
+  <section class="bloc" id="impots">
+    <h2>Les impôts de l'État</h2>
+    <p class="phrase">En {{ impots.annee }}, l'État a gardé
+      <strong>{{ impots.total|milliards }}</strong> d'impôts, nets des remboursements.</p>
+    <figure class="barres">
+      <figcaption>Part de chaque impôt dans les recettes fiscales de l'État</figcaption>
+      <ul>
+        {% for b in impots.barres %}
+        <li title="{{ b.libelle }} : {{ b.valeur|milliards }}">
+          <span class="barre-libelle">{{ b.libelle }}</span>
+          <span class="barre-piste"><span class="barre" style="width: {{ '%.1f'|format(b.largeur) }}%"></span></span>
+          <span class="barre-valeur">{{ b.part|pct(0) }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </figure>
+    {{ source(definitions.RECETTES_FISCALES_ETAT) }}
+  </section>
+  {% endif %}
+
+  {% if missions %}
+  <section class="bloc" id="ecarts">
+    <h2>Voté et dépensé en {{ missions.annee }}</h2>
+    <p class="phrase">Le Parlement avait voté <strong>{{ missions.vote|milliards }}</strong> pour les
+      missions de l'État ; elles en ont dépensé {{ missions.consomme|milliards }}.
+      {% if missions.plus_depasse.ecart and missions.plus_depasse.ecart > 0 %}Le plus gros
+      dépassement : {{ missions.plus_depasse.libelle }}
+      (+{{ missions.plus_depasse.ecart|milliards }}).{% endif %}
+      {% if missions.plus_sous.ecart and missions.plus_sous.ecart < 0 %}La plus grosse sous-consommation :
+      {{ missions.plus_sous.libelle }} ({{ missions.plus_sous.ecart|milliards|replace("-", "−") }}).{% endif %}</p>
+    {% if missions.degrevements %}
+    <p class="detail muet">Hors « Remboursements et dégrèvements »
+      ({{ missions.degrevements.consomme|milliards }} dépensés) : des impôts trop perçus
+      rendus aux contribuables, pas une politique publique.</p>
+    {% endif %}
+    {{ source(definitions.CREDITS_CONSOMMES) }}
+  </section>
+  {% endif %}
+</div>
+
+{% if missions %}
+<section class="graphique-bloc" id="missions">
+  <div class="graphique-titre">
+    <h2>Les missions de l'État en {{ missions.annee }}</h2>
+    {% if annees_missions|length > 1 %}
+    <nav class="onglets" aria-label="Année">
+      {% for a in annees_missions %}<a href="/argent-public/etat?annee={{ a }}#missions"{% if a == missions.annee %} aria-current="page"{% endif %}>{{ a }}</a>{% endfor %}
+    </nav>
+    {% endif %}
+  </div>
+  <p class="legende"><span class="pastille fourchette"></span>Voté en loi de finances initiale <span class="pastille serie"></span>Dépensé</p>
+  <div id="missions-etat" class="graphique missions" role="img" aria-label="Crédits votés et dépensés par mission"></div>
+  <details class="autres">
+    <summary>Le tableau des {{ missions.lignes|length }} missions</summary>
+    <div class="tableau-defilant">
+      <table>
+        <thead><tr><th>Mission</th><th>Voté</th><th>Dépensé</th><th>Écart</th></tr></thead>
+        <tbody>
+          {% for m in missions.lignes %}
+          <tr><td>{{ m.libelle }}</td><td>{{ m.vote|milliards }}</td><td>{{ m.consomme|milliards if m.consomme is not none else "—" }}</td><td>{% if m.ecart is not none %}{{ "+" if m.ecart > 0 }}{{ m.ecart|milliards|replace("-", "−") }}{% else %}—{% endif %}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  {{ source(definitions.CREDITS_VOTES) }}
+</section>
+{% endif %}
+<script type="application/json" id="donnees-etat">{{ donnees|tojson }}</script>
+{% endblock %}
+{% block scripts %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/argent_etat.js"></script>
+{% endblock %}
