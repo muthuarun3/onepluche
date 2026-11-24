@@ -1,0 +1,11 @@
+# Adresses relues chaque lundi par `demo veiller programmes` (dossier de conception, étape 6).
+# Une entrée par version publiée du programme d'un candidat qui remplit la règle : déclaré ET
+# auteur d'un texte de propositions pour 2027. Ajout par une petite PR (candidat, version,
+# adresse du texte). La veille ne modifie jamais une fiche : elle signale un changement.
+#
+# [[suivis]]
+# candidat = "nom-prenom"
+# version = "v1"
+# url = "https://..."
+
+suivis = []

@@ -69,6 +69,9 @@ DEMO_DONNEES_BRUTES=$DONNEES_DIR/brut
 # Facultatif : URL de « battement » Healthchecks.io pour les imports hebdomadaires.
 # Healthchecks envoie un courriel si un import échoue, attend une validation ou ne tourne plus.
 DEMO_PING_IMPORT=
+# Facultatif : battement de la veille des programmes présidentiels (courriel si un
+# programme suivi a changé ou n'a pas pu être relevé).
+DEMO_PING_PROGRAMMES=
 EOF
   chown root:demographie "$CONF_DIR/env"
   chmod 640 "$CONF_DIR/env"
@@ -117,6 +120,7 @@ systemctl enable demographie-web.service
 systemctl restart demographie-web.service
 systemctl enable --now demographie-sauvegarde.timer demographie-restauration.timer
 systemctl enable --now demographie-import.timer
+systemctl enable --now demographie-veille-programmes.timer
 systemctl reload caddy
 
 echo "== Premier import des estimations INSEE (environ une minute)"

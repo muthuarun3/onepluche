@@ -206,7 +206,7 @@ n'est décidée à ce jour.
 | F11 | Questions guidées (réponse = phrase + graphique + source) | Prévu |
 | F12 | Comparer 2 à 4 territoires, export CSV sous chaque graphique | Prévu (appli 1, interface MVP) |
 | F14 | Rubrique `/avenir` : projections de population (vue France, fiche département), climat selon trois scénarios du GIEC ; catastrophes naturelles reconnues et plans de prévention ; cartes par thème et six questions guidées | En service (appli 5, phases A à D) |
-| F18 | Macro-catégories « Données » (applis-questions) et « Programmes » (analyse et comparaison des programmes présidentiels) dans la barre latérale et sur l'accueil | « Données » en service (PR #46) ; « Programmes » : conception validée, fondations en PR (P1) |
+| F18 | Macro-catégories « Données » (applis-questions) et « Programmes » (analyse et comparaison des programmes présidentiels) dans la barre latérale et sur l'accueil | « Données » en service (PR #46) ; « Programmes » : conception validée, fondations faites (P1), veille en PR (P2) |
 | F15 | Rubrique `/securite` : vue France, fiche département, carte par famille, six questions guidées | En service (appli 4, S3) |
 | F16 | Rubrique `/travail` : vue France, fiche département, carte par thème, quatre questions guidées | En PR (appli travail, T3) |
 | F17 | Rubrique `/votes` : participation, résultats et élus par département ; carte, fiche, page d'un scrutin | Fondations (V1) et résultats (V2) faits ; élus en PR (V3) |

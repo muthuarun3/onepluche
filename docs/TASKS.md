@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 044). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
+   le catalogue change (prochain numéro : 046 ; 044 réservé à argent public). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -115,15 +115,19 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 Une PR à la fois, sur `main` à jour. Fiches en TOML dans `programmes/2027/`, publiées par la
 fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugement.
 
-- [~] **P1. Fondations** (PR en cours) — `programmes/2027/sujets.toml` (12 sujets, échelles
+- [x] **P1. Fondations** (PR #54, fusionnée avec #53) — `programmes/2027/sujets.toml` (12 sujets, échelles
   communes), `donnees/programmes.py` (modèles Pydantic, contrôles croisés, ordre des
   candidats, comparaison par sujet), fiches fictives dans `tests/fixtures/programmes/`.
   *Critère :* une fiche cassée est refusée avec le nom du fichier
   (`tests/test_programmes_fiches.py`).
-- [ ] **P2. Veille** — migration (044 ou plus) `ingest.programme_releve`,
-  `imports/veille_programmes.py`, `programmes/2027/suivis.toml`, `demo veiller programmes`
-  dans le minuteur du lundi, dossier des copies sauvegardé, ligne sur `/sources`.
-  *Critère :* un changement d'empreinte alerte ; première veille réelle sur le serveur.
+- [~] **P2. Veille** (PR en cours) — migration 045 `ingest.programme_releve` et vue
+  `api.programme_releve`, `imports/veille_programmes.py`, `programmes/2027/suivis.toml`
+  (vide tant qu'aucun programme n'est suivi), `demo veiller programmes` (minuteur
+  `demographie-veille-programmes.timer`, lundi 7 h 15), copies dans
+  `$DEMO_DONNEES_BRUTES/programmes` (donc sauvegardées avec les fichiers bruts), battement
+  facultatif `DEMO_PING_PROGRAMMES`, tableau sur `/sources`. *Critère :* un changement
+  d'empreinte alerte (`tests/test_programmes_veille.py`) ; première veille réelle sur le
+  serveur.
 - [ ] **P3. Écrans** — `/programmes`, `/programmes/{candidat}`, `/programmes/comparer`,
   `/api/v1/programmes`, barre latérale, accueil, vitrine, docs. *Critère :* critères 1, 3 et 5
   de l'étape 8 du dossier.
