@@ -104,7 +104,10 @@ thème obligatoire) et ses thèmes `PARTICIPATION`, `RESULTATS`, `ELUS`. Enfin
 migration 043 y ajoute les sources `INSEE_ERFS` et `INSEE_ENQPAT`, les dimensions de modalités
 `decile_niveau_vie` (`D01` à `D10`) et `placement` (`DEPOTS`, `TITRES_CREANCE`, `ACTIONS`,
 `FONDS`, `ASSURANCE_VIE`) et sept catégories `pcs` de l'enquête Patrimoine (personne de
-référence du ménage, dont quatre de retraités) ;
+référence du ménage, dont quatre de retraités) ; la migration 047, les sources `CNAF` et
+`BDF_SUREN`, l'unité `pour_100000` et les dimensions `logement_aide` (`LOCATION`,
+`ACCESSION`, `FOYER`) et `type_dette` (`HORS_IMMOBILIER`, `IMMOBILIER`, `CONSOMMATION`,
+`CHARGES_COURANTES`) ;
 `ARGENT` (`/argent-public`,
 ordre 5, migration 033, thème obligatoire) et ses thèmes `DEPENSES`, `RECETTES`, `DETTE`,
 `ETAT`, `LOCAL`, `MENAGE`, `CLIMAT`, avec l'unité `milliards_euros` et les dimensions de
@@ -359,12 +362,13 @@ migration modifiée après application est détectée.
 | `stat.structure_age` | matérialisée, index unique (`territoire_id`, `periode`) | Agrégats d'âge de `POP` : population, moins de 20, 60 et plus, 65 et plus, 75 et plus |
 | `stat.besoins_derives` | simple | Indicateurs calculés de l'appli 2 (parts d'une modalité dans le total, densités, dépenses par ménage et par mois) ; remplacée à chaque thème |
 | `stat.securite_derives` | simple | Tués sur la route par million d'habitants (population au 1er janvier) ; ajoutée à `api.serie` (migration 029) |
+| `stat.vivre_derives` | simple | Foyers au RSA de décembre pour 1 000 habitants (population du 1er janvier suivant), dossiers de surendettement pour 100 000 habitants, aide au logement moyenne par foyer, écart de salaire femmes-hommes ; ajoutée à `api.serie` (migration 047, dernière définition de la vue) |
 | `api.territoire` | simple | Territoires avec niveau et code du parent |
 | `api.source` | simple | Sources et licences |
 | `api.indicateur_affichage` | simple | Indicateurs affichés dans une autre rubrique que la leur, avec thème et ordre (migration 031) |
 | `api.theme` | simple | Rubriques (libellé, chemin, ordre) et leurs thèmes ; lue par l'API pour valider les filtres (migration 026) |
 | `api.indicateur` | simple | Catalogue + source + date de dernière publication + rubrique, thème, angle, bornes |
-| `api.serie` | simple | **Toutes les séries** « tous âges » : indicateur, niveau, code, année, valeur, provisoire, sexe, période, type de période ; inclut les dérivés (parts d'âge, solde naturel, recensement, pensionnés pour 100 actifs, scolarisation, `stat.besoins_derives`, `stat.securite_derives`) |
+| `api.serie` | simple | **Toutes les séries** « tous âges » : indicateur, niveau, code, année, valeur, provisoire, sexe, période, type de période ; inclut les dérivés (parts d'âge, solde naturel, recensement, pensionnés pour 100 actifs, scolarisation, `stat.besoins_derives`, `stat.securite_derives`, `stat.vivre_derives`) |
 | `api.serie_age` | simple | Valeurs par tranche d'âge (tous sexes, sans modalité) des indicateurs de la rubrique BESOINS : encadré 18-39 ans de la fiche département (migration 023) |
 | `api.structure` | simple | Pyramide : effectifs `POP` par sexe et tranche d'âge |
 | `api.repartition` | simple | Valeur d'une modalité avec le total de la même série (calcul des parts) |
