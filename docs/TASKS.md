@@ -261,7 +261,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv
   `/avenir` et la fiche département, sélecteur de scénario (SSP2-4.5 par défaut).
   *Critère :* 96 départements et la métropole ; Bouches-du-Rhône +47 jours à 35 °C ou plus en
   2080-2099 (SSP5-8.5) ; tests `test_avenir_climat.py`.
-- [~] **C. Risques naturels** — migration 040 (source `GEORISQUES_GASPAR`, dimension
+- [x] **C. Risques naturels** (PR #51) — migration 040 (source `GEORISQUES_GASPAR`, dimension
   `peril_catnat` à six périls, indicateurs `CATNAT_ARRETES`, `CATNAT_SECHERESSE_10ANS`,
   `COMMUNES_PPRN`), connecteur `gaspar.py` (archive gaspar.zip de Géorisques, sans compte ;
   communes ramenées au département ; parts rapportées aux communes du COG 2025,
@@ -271,8 +271,21 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv
   Géorisques, qui a déjà la sécheresse 2025 publiée en février 2026 : l'archive a quelques
   mois de retard) ; Creuse 1 096 reconnaissances depuis 1982 ; tests `test_avenir_risques.py`.
   Les pages `/avenir/theme/{theme}` et leurs classements passent en phase D.
-- [ ] **D. Questions guidées et clôture** — six questions, pages `/avenir/theme/{theme}`
-  (carte et classement), sept critères du dossier.
+- [~] **D. Questions guidées et clôture** — sans migration. Pages `/avenir/theme/population`
+  (évolution depuis 2018, part des 75 ans ou plus, seniors pour 100 actifs ; 2030, 2050,
+  2070 ; scénario central), `/avenir/theme/climat` (7 indicateurs × 3 scénarios × 4
+  périodes, médiane) et `/avenir/theme/risques` (sécheresse sur dix ans, plans de
+  prévention, reconnaissances sur dix ans) : carte colorée, France, plus haut et plus bas,
+  classement ; choix par liens, sans JavaScript. Six questions guidées sur `/avenir`, chacune
+  vers la carte qui y répond ; liens vers les cartes depuis la fiche. Critères du dossier,
+  vérifiés le 24/11/2026 sur les vrais fichiers : 101 fiches en 0,22 s au plus ; population
+  2018 à moins de 1 % des estimations (contrôle d'import) ; France 2070 = 65,9 millions
+  (Insee Première n° 2108) ; climat : DRIAS remplacé par la Banque mondiale, métropole
+  comparée à ses valeurs pour la France (SSP5-8.5, 2080-2099 : +4,40 °C contre +4,43 °C,
+  17,8 jours à 35 °C contre 18,3, 44,9 nuits tropicales contre 45,4) ; Guéret : 7
+  reconnaissances dans l'archive GASPAR, 8 sur l'API (retard de l'archive) ; source,
+  scénario et horizon affichés ; pages lisibles à 390 px sans défilement horizontal. Tests
+  `test_avenir_themes.py`.
 
 ### Appli 2 — données (phases B et C)
 

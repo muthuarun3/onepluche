@@ -43,6 +43,17 @@
 <p class="vide">Les projections nationales ne sont pas encore importées.</p>
 {% endif %}
 
+<section class="bloc questions-guidees">
+  <h2>Questions guidées</h2>
+  <ul>
+    {% for titre, lien in questions %}<li><a href="{{ lien }}">{{ titre }}</a></li>{% endfor %}
+  </ul>
+  <p class="muet">Comparer les départements sur une carte :
+    <a href="/avenir/theme/population">population</a>,
+    <a href="/avenir/theme/climat">climat</a>,
+    <a href="/avenir/theme/risques">risques naturels</a>.</p>
+</section>
+
 {% call choix_territoire(choix, "Choisir un département",
   "Touchez un département pour voir sa population projetée jusqu'en 2070, ses âges et la fourchette des scénarios.") %}
 <div class="regions">

@@ -53,3 +53,22 @@ def climat(conn: psycopg.Connection, niveau: str, code: str) -> list[dict]:
     """Climat projeté (écart à 1995-2014) : médiane et fourchette par scénario et période."""
     parametres = {"niveau": niveau, "code": code}
     return conn.execute(charger_sql(_SQL, "projection_climat"), parametres).fetchall()
+
+
+def classement_population(
+    conn: psycopg.Connection, scenario: str, annee: int, depart: int
+) -> list[dict]:
+    """Population projetée de chaque département (et de la France, « FR ») pour un
+    scénario et une année : population, évolution depuis `depart`, part des 75 ans ou plus,
+    seniors pour 100 actifs. Départements sans projection : valeurs NULL."""
+    parametres = {"scenario": scenario, "annee": annee, "depart": depart}
+    return conn.execute(charger_sql(_SQL, "classement_population"), parametres).fetchall()
+
+
+def classement_climat(
+    conn: psycopg.Connection, indicateur: str, scenario: str, debut: int
+) -> list[dict]:
+    """Climat projeté de chaque département (et de la métropole, « FM ») pour un
+    indicateur, un scénario et une période : médiane (`valeur`), bas et haut."""
+    parametres = {"indicateur": indicateur, "scenario": scenario, "debut": debut}
+    return conn.execute(charger_sql(_SQL, "classement_climat"), parametres).fetchall()
