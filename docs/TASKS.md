@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 048). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
+   le catalogue change (prochain numéro : 049). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -130,7 +130,7 @@ fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugemen
   serveur.
 - [~] **P3. Écrans** (PR en cours) — `/programmes`, `/programmes/{candidat}`,
   `/programmes/comparer?sujet=`, `/api/v1/programmes` et `/api/v1/programmes/{candidat}`,
-  migration 047 (vue `api.rubrique`, pour relier chaque chiffre de contexte à son appli),
+  migration 048 (vue `api.rubrique`, pour relier chaque chiffre de contexte à son appli),
   titre « Programmes » dans la barre latérale, deux cartes sur l'accueil, vitrine.
   *Critère :* critères 1, 3 et 5 de l'étape 8 du dossier (`tests/test_programmes_pages.py`,
   captures 1280 et 390 px).
