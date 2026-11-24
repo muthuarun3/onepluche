@@ -126,7 +126,8 @@ rappelle qu'un fait enregistré n'est pas un fait commis.
 Écrans : vue France (une carte par famille avec sa phrase et sa courbe, « la délinquance
 augmente-t-elle ? », violences sexuelles, ressenti), fiche département (taux, valeur France,
 rang ; bandeau pour Paris et les départements très touristiques), carte par famille. Six
-questions guidées. Taux de plainte reportés (rapports VRS en PDF seulement).
+questions guidées. Tout est importé sans saisie à la main ; les taux de plainte, publiés
+seulement dans les rapports du SSMSI, ne sont pas repris.
 
 ### Appli « Comment travaillent les Français ? » (`/travail`)
 

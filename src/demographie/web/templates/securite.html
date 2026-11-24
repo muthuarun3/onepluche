@@ -88,8 +88,8 @@
   <p class="phrase"><strong class="grand">{{ r.valeur|chiffre("nombre") }}</strong> victimes de
     violences sexuelles enregistrées en {{ r.annee }}{% if r.phrase %}, {{ r.phrase }}{% endif %}.
     Les victimes portent davantage plainte depuis 2017 : une part de la hausse vient de
-    faits anciens ou qui n'auraient pas été déclarés avant. Le taux de plainte des victimes,
-    mesuré par l'enquête de victimation, sera affiché ici dès qu'il sera recopié des rapports.</p>
+    faits anciens ou qui n'auraient pas été déclarés avant. Seule une petite part des
+    victimes porte plainte : ce chiffre ne mesure pas toutes les violences subies.</p>
   {{ courbe(r.courbe, "Violences sexuelles enregistrées, France, de " ~ r.debut ~ " à " ~ r.annee) }}
   {{ source(violences.definition) }}
 </section>

@@ -73,7 +73,8 @@ def test_pages(urls_module):
     for annee in (2016, 2025):
         _importer(accidents, FIXTURES / f"accidents-{annee}.zip")
     _importer(ressenti.CVS, FIXTURES / ressenti.CVS.nom_fichier)
-    _importer(ressenti.VRS_RAPPORTS, ressenti.VRS)
+    for fiche in ("8242369", "8612552"):
+        _importer(ressenti.VRS, FIXTURES / f"insee-victimation-{fiche}.xlsx")
 
     vue = client.get("/securite").text
     # Une carte par famille, les faits avant le ressenti.
