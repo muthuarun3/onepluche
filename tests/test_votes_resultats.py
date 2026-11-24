@@ -197,7 +197,7 @@ def test_ressources_data_gouv(monkeypatch):
     (fichier,) = el.PARTICIPATION_ELECTIONS.fichiers()
     assert (fichier.nom, fichier.millesime) == ("general_results.parquet", MILLESIME)
     assert el.PARTICIPATION_ELECTIONS.accepte("general_results.parquet")
-    assert CONNECTEURS["votes"] == (el.PARTICIPATION_ELECTIONS, el.VOIX_ELECTIONS)
+    assert CONNECTEURS["votes"][:2] == (el.PARTICIPATION_ELECTIONS, el.VOIX_ELECTIONS)
 
 
 # --- Import complet et vues de l'API ----------------------------------------------------

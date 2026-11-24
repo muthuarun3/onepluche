@@ -1,0 +1,25 @@
+# Candidat fictif pour les tests : aucun vrai programme.
+[candidat]
+id = "bravo-dominique"
+prenom = "Dominique"
+nom = "Bravo"
+parti = "Parti fictif B"
+statut = "declare"
+declare_le = 2026-09-01
+
+[[versions]]
+id = "v1"
+titre = "Propositions fictives"
+url = "https://exemple.invalid/bravo/propositions"
+publie_le = 2026-09-20
+releve_le = 2026-09-21
+sha256 = "00000000000000000000000000000000000000000000000000000000000000b1"
+
+[[mesures]]
+id = "retraites-age-legal"
+sujet = "retraites"
+titre = "Âge légal de départ fixé à 65 ans"
+citation = "L'âge légal sera porté à 65 ans."
+version = "v1"
+page = 2
+echelle = { code = "AGE_LEGAL_RETRAITE", valeur = 65 }

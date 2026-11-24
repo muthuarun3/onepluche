@@ -25,6 +25,8 @@ routeur = APIRouter(prefix="/travail", include_in_schema=False)
 RUBRIQUE = "TRAVAIL"
 # Le taux de chômage trimestriel appartient à la rubrique de l'appli 1 : on le relit.
 CHOMAGE = "TAUX_CHOMAGE"
+# Le salaire net moyen est importé par l'appli « Comment vivent les Français ? ».
+SALAIRE = "SALAIRE_NET_MOYEN"
 # Grands secteurs de l'emploi salarié, dans l'ordre d'affichage ; l'intérim est à part
 # (compté dans le commerce et les services).
 SECTEURS = (
@@ -48,6 +50,8 @@ THEMES_CARTE = {
         (CHOMAGE, "PART_LONGUE_DUREE", "PART_RECRUTEMENTS_DIFFICILES"),
     ),
     "emploi": ("EMPLOI", ("PART_INTERIM", "PART_INDEPENDANTS")),
+    "comment": ("CONDITIONS", ("PART_CONTRATS_COURTS", "PART_TEMPS_PARTIEL")),
+    "salaires": ("SALAIRES", (SALAIRE,)),
 }
 QUESTIONS = (
     ("Le chômage baisse-t-il dans mon département ?", "chomage"),
@@ -76,7 +80,24 @@ def signe(valeur: float | None, unite: str = "evolution") -> str:
     return ("+" if v > 0 else "−" if v < 0 else "") + texte
 
 
-gabarits.env.filters.update(signe=signe)
+def valeur(v: Decimal | float | int | None, unite: str) -> str:
+    """Comme le filtre « chiffre », avec l'euro : « 2 505 € »."""
+    if unite == "euros":
+        return "—" if v is None else f"{chiffre(v, 'nombre')}\u00a0€"
+    return chiffre(v, unite)
+
+
+def tranche(age_min: int | None, age_max: int | None) -> str:
+    """(0, 24) -> « moins de 25 ans » ; (25, 39) -> « 25-39 ans » ; (55, None) -> « 55 ans
+    ou plus »."""
+    if age_min in (None, 0) and age_max is not None:
+        return f"moins de {age_max + 1} ans"
+    if age_max is None:
+        return f"{age_min} ans ou plus"
+    return f"{age_min}-{age_max} ans"
+
+
+gabarits.env.filters.update(signe=signe, valeur=valeur, tranche_tuple=lambda ages: tranche(*ages))
 
 
 def libelle_periode(periode: date, periode_type: str) -> str:
@@ -356,11 +377,75 @@ def _metiers(conn, niveau: str, code: str) -> dict | None:
     }
 
 
+def _par_age(conn, indicateur: str, niveau: str, code: str, annee: int) -> list[dict]:
+    """Valeurs par tranche d'âge (tous sexes, sans modalité) d'une année."""
+    return [
+        {"age_min": x["age_min"], "age_max": x["age_max"], "valeur": x["valeur"]}
+        for x in series.ventilation(conn, indicateur, niveau, code, debut=annee)
+        if x["annee"] == annee and x["sexe"] == "T" and x["modalite"] is None
+        and (x["age_min"] is not None or x["age_max"] is not None)
+    ]  # fmt: skip
+
+
+def _par_sexe(conn, indicateur: str, niveau: str, code: str, periode: date) -> dict:
+    return {
+        sexe: _a_la_periode(series.serie(conn, indicateur, niveau, code, sexe=sexe), periode)
+        for sexe in ("F", "H")
+    }
+
+
+def _conditions(conn, niveau: str, code: str) -> dict | None:
+    """Contrats courts et temps partiel (recensement), par sexe et âge."""
+    resultat = {}
+    for indicateur in ("PART_CONTRATS_COURTS", "PART_TEMPS_PARTIEL"):
+        lignes = series.serie(conn, indicateur, niveau, code)
+        if not lignes:
+            continue
+        derniere = lignes[-1]
+        resultat[indicateur] = {
+            "valeur": derniere["valeur"],
+            "annee": derniere["annee"],
+            "sexes": _par_sexe(conn, indicateur, niveau, code, derniere["periode"]),
+            "ages": _par_age(conn, indicateur, niveau, code, derniere["annee"]),
+        }
+    return resultat or None
+
+
+def _salaires(conn, niveau: str, code: str) -> dict | None:
+    """Salaire net moyen (secteur privé, équivalent temps plein), par sexe, âge et
+    catégorie socioprofessionnelle, et l'écart entre femmes et hommes."""
+    lignes = series.serie(conn, SALAIRE, niveau, code)
+    if not lignes:
+        return None
+    derniere = lignes[-1]
+    avant = lignes[-2] if len(lignes) > 1 else None
+    sexes = _par_sexe(conn, SALAIRE, niveau, code, derniere["periode"])
+    ecart = None
+    if sexes["H"] and sexes["F"] is not None:
+        ecart = 100 * (float(sexes["H"]) - float(sexes["F"])) / float(sexes["H"])
+    categories = [
+        {"libelle": x["libelle"], "valeur": x["valeur"]}
+        for x in series.ventilation(conn, SALAIRE, niveau, code, "pcs", derniere["annee"])
+        if x["annee"] == derniere["annee"] and x["sexe"] == "T" and x["age_min"] is None
+    ]
+    return {
+        "valeur": derniere["valeur"],
+        "annee": derniere["annee"],
+        "avant": avant,
+        "evolution": evolution(avant["valeur"], derniere["valeur"]) if avant else None,
+        "sexes": sexes,
+        "ecart": ecart,
+        "ages": _par_age(conn, SALAIRE, niveau, code, derniere["annee"]),
+        "categories": categories,
+    }
+
+
 def _parts(conn, code: str | None) -> dict[str, dict]:
     """Taux et parts comparables, avec le rang du département (fiche) ou la valeur France."""
     resultat = {}
     for indicateur in (CHOMAGE, "PART_LONGUE_DUREE", "PART_RECRUTEMENTS_DIFFICILES",
-                       "PART_INTERIM", "PART_INDEPENDANTS"):  # fmt: skip
+                       "PART_INTERIM", "PART_INDEPENDANTS", "PART_CONTRATS_COURTS",
+                       "PART_TEMPS_PARTIEL", SALAIRE):  # fmt: skip
         if code is not None:
             rang = _rang(conn, indicateur, code)
             if rang:
@@ -377,7 +462,8 @@ def _parts(conn, code: str | None) -> dict[str, dict]:
 
 def _definitions(conn) -> dict[str, dict]:
     definitions = {i["code"]: i for i in series.indicateurs(conn, rubrique=RUBRIQUE)}
-    definitions.update({i["code"]: i for i in series.indicateurs(conn, code=CHOMAGE)})
+    for code in (CHOMAGE, SALAIRE):  # affichés dans la rubrique, mais d'une autre appli
+        definitions.update({i["code"]: i for i in series.indicateurs(conn, code=code)})
     return definitions
 
 
@@ -388,6 +474,8 @@ def _blocs(conn, niveau: str, code: str) -> dict:
         "metiers": _metiers(conn, niveau, code),
         "entreprises": _entreprises(conn, niveau, code),
         "secteurs": _secteurs(conn, niveau, code),
+        "conditions": _conditions(conn, niveau, code),
+        "salaires": _salaires(conn, niveau, code),
         "parts": _parts(conn, code if niveau == "DEP" else None),
     }
     blocs["avec_donnees"] = any(v for k, v in blocs.items() if k != "parts")
@@ -492,7 +580,7 @@ def theme(
         "classement": avec,
         "sans_donnee": sans,
         "carte": _carte_coloree(
-            lignes, definition["unite"], "/travail/DEP/{code}", format_valeur=chiffre
+            lignes, definition["unite"], "/travail/DEP/{code}", format_valeur=valeur
         ),
     }
     return gabarits.TemplateResponse(request, "travail_theme.html", contexte)

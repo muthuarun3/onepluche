@@ -1,13 +1,16 @@
-"""Fabrique les extraits de test des demandeurs d'emploi (DARES) et de l'enquête BMO.
+"""Fabrique les extraits de test des demandeurs d'emploi (DARES), de l'enquête BMO et des
+contrats et temps partiel (recensement, Melodi).
 
 Extraits réels (Licence Ouverte 2.0) : Gironde, Paris, Guadeloupe et Mayotte, leurs
 régions et la France ; demandeurs d'emploi depuis 2024 seulement.
 
     uv run python tests/fixtures/reduire_dares_bmo.py dares <csv complet> <csv réduit>
     uv run python tests/fixtures/reduire_dares_bmo.py bmo <xlsx complet> <xlsx réduit>
+    uv run python tests/fixtures/reduire_dares_bmo.py contrats <json complet> <json réduit>
 """
 
 import csv
+import json
 import sys
 
 from openpyxl import Workbook, load_workbook
@@ -51,5 +54,17 @@ def bmo(source: str, cible: str) -> None:
     sortie.save(cible)
 
 
+def contrats(source: str, cible: str) -> None:
+    with open(source, encoding="utf-8") as entree:
+        contenu = json.load(entree)
+    garder = {f"DEP-{d}" for d in DEPARTEMENTS} | {f"REG-{r}" for r in REGIONS}
+    garder |= {"FRANCE-F", "FRANCE-FM"}
+    contenu["observations"] = [
+        o for o in contenu["observations"] if o["dimensions"]["GEO"].split("-", 1)[1] in garder
+    ]
+    with open(cible, "w", encoding="utf-8") as sortie:
+        json.dump(contenu, sortie, sort_keys=True)
+
+
 if __name__ == "__main__":
-    {"dares": dares, "bmo": bmo}[sys.argv[1]](sys.argv[2], sys.argv[3])
+    {"dares": dares, "bmo": bmo, "contrats": contrats}[sys.argv[1]](sys.argv[2], sys.argv[3])
