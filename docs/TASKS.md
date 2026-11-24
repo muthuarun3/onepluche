@@ -206,7 +206,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/SGDKic
   puis VRS 2022 et 2024 (`imports/fichiers/vrs.csv`, chiffres des fiches Insee). Taux de
   plainte reportés : publiés seulement dans les rapports PDF du SSMSI.
   *Critère :* 3 655 tués en 2016 (3 477 en métropole), 2 944 en métropole en 2021.
-- [x] **S4. VRS sans saisie à la main** (demande de Muthu, 22/11/2026) — migration 037 :
+- [x] **S4. VRS sans saisie à la main** (demande de Muthu, 22/11/2026) — migration 038 :
   `vrs.csv` supprimé ; les parts VRS sont lues dans le tableur de la fiche Insee
   « Insécurité, victimation » (France, portrait social, chaque novembre), trouvée par le
   moteur de recherche de l'Insee. Taux de plainte abandonnés : aucune source téléchargeable.
@@ -249,7 +249,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv
   `/api/v1/projections`, pages `/avenir` et `/avenir/DEP/{code}`, accueil, barre latérale,
   vitrine. *Critère :* Creuse 2018 = estimation INSEE à moins de 1 % ; France 2070 central
   65,9 millions (2026) ; tests `test_avenir_population.py`.
-- [~] **B. Climat** — migration 037 (scénarios `GIEC_SSP126/245/585`, 7 indicateurs `CLIM_*`,
+- [~] **B. Climat** — migration 038 (scénarios `GIEC_SSP126/245/585`, 7 indicateurs `CLIM_*`,
   vue `api.projection_climat`), connecteur `climat.py` (Banque mondiale, CMIP6 à 0,25°, sans
   compte : DRIAS demandait une extraction à la main, refusée le 22/11/2026), bloc climat sur
   `/avenir` et la fiche département, sélecteur de scénario (SSP2-4.5 par défaut).
