@@ -5,6 +5,7 @@ import dataclasses
 import zipfile
 from decimal import Decimal
 
+import openpyxl
 import pytest
 from conftest import FIXTURES
 from fastapi.testclient import TestClient
@@ -74,20 +75,66 @@ def test_sentiment_d_insecurite_cvs():
     assert len(lignes) == 3 * 13  # ventilations (taille d'agglomération) ignorées
 
 
-def test_vrs_recopie_avec_sa_source():
+VRS_2024 = FIXTURES / "insee-victimation-8612552.xlsx"
+VRS_2022 = FIXTURES / "insee-victimation-8242369.xlsx"
+
+
+def test_vrs_lu_dans_les_fiches_insee():
     valeurs = {
         (x.indicateur, x.periode.year): x.valeur
-        for x in ressenti.VRS_RAPPORTS.lire(ressenti.VRS, REFERENTIEL)
+        for chemin in (VRS_2022, VRS_2024)
+        for x in ressenti.VRS.lire(chemin, REFERENTIEL)
     }
-    assert valeurs[("PART_INSECURITE_QUARTIER", 2024)] == 22
-    assert valeurs[("PART_RENONCE_SORTIR", 2022)] == 18
+    # Colonne « 18 ans ou plus » (2024) ou « Ensemble » (2022), pas femmes ni hommes.
+    assert valeurs == {
+        ("PART_INSECURITE_QUARTIER", 2022): 18,
+        ("PART_INSECURITE_DOMICILE", 2022): 12,
+        ("PART_RENONCE_SORTIR", 2022): 18,
+        ("PART_INSECURITE_QUARTIER", 2024): 22,
+        ("PART_INSECURITE_DOMICILE", 2024): 15,
+        ("PART_RENONCE_SORTIR", 2024): 21,
+    }
 
 
-def test_vrs_sans_source(tmp_path):
-    chemin = tmp_path / "vrs.csv"
-    chemin.write_text("indicateur;annee;valeur;champ;source\nPART_INSECURITE_DOMICILE;2025;14;x;\n")
-    with pytest.raises(FichierIllisible, match="Source manquante"):
-        list(ressenti.VRS_RAPPORTS.lire(chemin, REFERENTIEL))
+def test_vrs_figure_absente(tmp_path):
+    chemin = tmp_path / "insee-victimation-1.xlsx"
+    classeur = openpyxl.Workbook()
+    classeur.active.append(["Figure 1 – Autre chose"])
+    classeur.save(chemin)
+    with pytest.raises(FichierIllisible, match="figure du sentiment"):
+        list(ressenti.VRS.lire(chemin, REFERENTIEL))
+
+
+def test_vrs_fiches_trouvees_par_la_recherche_insee(monkeypatch):
+    documents = [
+        {"id": 8612552, "titre": "Insécurité, victimation", "dateDiffusion": "2025-11-18T16:00"},
+        {"id": 8242369, "titre": "Insécurité, victimation", "dateDiffusion": "2024-11-21T16:00"},
+        # Édition reprenant encore l'enquête CVS : écartée.
+        {"id": 7666869, "titre": "Insécurité, victimation", "dateDiffusion": "2023-11-23T16:00"},
+        {"id": 8242405, "titre": "Discriminations", "dateDiffusion": "2024-11-21T16:00"},
+    ]
+    demandes = []
+
+    def lire_json(url, donnees=None):
+        demandes.append(donnees)
+        return {"documents": documents}
+
+    def lire_page(url):
+        ident = url.rsplit("/", 1)[1]
+        return f'<a href="/fr/statistiques/fichier/{ident}/FPORSOC-F24.xlsx">Télécharger</a>'
+
+    monkeypatch.setattr(ressenti.telechargement, "lire_json", lire_json)
+    monkeypatch.setattr(ressenti.telechargement, "lire_page", lire_page)
+    fichiers = ressenti.VRS.fichiers()
+    assert [f.nom for f in fichiers] == [
+        "insee-victimation-8612552.xlsx",
+        "insee-victimation-8242369.xlsx",
+    ]
+    assert (
+        fichiers[0].url == "https://www.insee.fr/fr/statistiques/fichier/8612552/FPORSOC-F24.xlsx"
+    )
+    assert demandes[0]["q"] == "Insécurité, victimation"
+    assert all(ressenti.VRS.accepte(f.nom) for f in fichiers)
 
 
 def _importer(connecteur, chemin):
@@ -109,7 +156,8 @@ def test_import_et_taux_par_million(urls_module):
         assert resultat.statut == "PUBLIE", resultat.message
     for connecteur, chemin in (
         (ressenti.CVS, FIXTURES / ressenti.CVS.nom_fichier),
-        (ressenti.VRS_RAPPORTS, ressenti.VRS),
+        (ressenti.VRS, VRS_2022),
+        (ressenti.VRS, VRS_2024),
     ):
         resultat = _importer(connecteur, chemin)
         assert resultat.statut == "PUBLIE", resultat.message

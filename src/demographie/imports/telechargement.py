@@ -16,10 +16,16 @@ class TelechargementRefuse(RuntimeError):
     """URL non autorisée ou fichier trop volumineux."""
 
 
-def _ouvrir(url: str):
+def _ouvrir(url: str, donnees: dict | None = None):
     if not url.startswith("https://"):
         raise TelechargementRefuse(f"Seules les URL https sont acceptées : {url}")
-    requete = urllib.request.Request(url, headers={"User-Agent": AGENT})  # noqa: S310
+    entetes = {"User-Agent": AGENT}
+    corps = None
+    if donnees is not None:
+        # Requête POST en JSON (moteur de recherche de l'Insee, par exemple).
+        corps = json.dumps(donnees).encode("utf-8")
+        entetes["Content-Type"] = "application/json"
+    requete = urllib.request.Request(url, data=corps, headers=entetes)  # noqa: S310
     return urllib.request.urlopen(requete, timeout=DELAI)  # noqa: S310
 
 
@@ -56,9 +62,10 @@ def telecharger(url: str, dossier: Path) -> Path:
     return chemin
 
 
-def lire_json(url: str, taille_max: int = 50 * 1024 * 1024) -> object:
-    """Réponse JSON d'une API (Melodi…), limitée en taille."""
-    with _ouvrir(url) as reponse:
+def lire_json(url: str, taille_max: int = 50 * 1024 * 1024, donnees: dict | None = None) -> object:
+    """Réponse JSON d'une API (Melodi…), limitée en taille ; ``donnees`` : corps d'une
+    requête POST en JSON."""
+    with _ouvrir(url, donnees) as reponse:
         contenu = reponse.read(taille_max + 1)
     if len(contenu) > taille_max:
         raise TelechargementRefuse(f"Réponse trop volumineuse : {url}")

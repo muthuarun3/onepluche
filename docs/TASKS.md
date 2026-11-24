@@ -206,7 +206,12 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/SGDKic
   puis VRS 2022 et 2024 (`imports/fichiers/vrs.csv`, chiffres des fiches Insee). Taux de
   plainte reportés : publiés seulement dans les rapports PDF du SSMSI.
   *Critère :* 3 655 tués en 2016 (3 477 en métropole), 2 944 en métropole en 2021.
-- [~] **S3. Pages `/securite`** — France (une carte par famille, phrase et courbe ECharts,
+- [x] **S4. VRS sans saisie à la main** (demande de Muthu, 22/11/2026) — migration 037 :
+  `vrs.csv` supprimé ; les parts VRS sont lues dans le tableur de la fiche Insee
+  « Insécurité, victimation » (France, portrait social, chaque novembre), trouvée par le
+  moteur de recherche de l'Insee. Taux de plainte abandonnés : aucune source téléchargeable.
+  *Critère :* 2022 = 18, 12, 18 % ; 2024 = 22, 15, 21 % (fiches 8242369 et 8612552).
+- [x] **S3. Pages `/securite`** — France (une carte par famille, phrase et courbe ECharts,
   évolution depuis 2016, violences sexuelles, ressenti coupé entre CVS et VRS), fiche
   département (taux, France, rang ; bandeau Paris et départements touristiques), carte par
   famille ; six questions guidées ; accueil, barre latérale, PRD, APP_FLOW, DESIGN et vitrine.
