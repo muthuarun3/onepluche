@@ -151,3 +151,11 @@ def repartition_mensuelle(
     """Valeur par modalité d'un indicateur mensuel au premier jour du mois `periode`."""
     parametres = {"indicateur": indicateur, "niveau": niveau, "code": code, "periode": periode}
     return conn.execute(charger_sql(_SQL, "repartition_mensuelle"), parametres).fetchall()
+
+
+def cumul_departements(
+    conn: psycopg.Connection, indicateur: str, debut: int, fin: int
+) -> list[dict]:
+    """Somme d'un indicateur de `debut` à `fin` pour chaque département et la France (FR)."""
+    parametres = {"indicateur": indicateur, "debut": debut, "fin": fin}
+    return conn.execute(charger_sql(_SQL, "cumul_departements"), parametres).fetchall()
