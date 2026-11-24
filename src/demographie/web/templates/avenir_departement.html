@@ -86,6 +86,11 @@
 
 {% if risques %}{{ bloc_risques(risques, fiche.libelle, comparer=true) }}{% endif %}
 
+<p class="muet">Comparer avec les autres départements sur une carte :
+  <a href="/avenir/theme/population">population</a>,
+  <a href="/avenir/theme/climat">climat</a>,
+  <a href="/avenir/theme/risques">risques naturels</a>.</p>
+
 {% if definition %}
 <p class="source">Source : <a href="{{ definition.source_url }}" rel="noopener">{{ definition.source_libelle }}</a>, {{ definition.source_licence }}. {{ definition.avertissement }} {{ definition.comparabilite }}</p>
 {% endif %}

@@ -11,8 +11,9 @@ from fastapi import Path as Chemin
 from fastapi.responses import HTMLResponse
 
 from demographie.donnees import projections, series, territoires
+from demographie.web.besoins import _carte_coloree
 from demographie.web.carte import choix_territoire
-from demographie.web.pages import Connexion, gabarits
+from demographie.web.pages import Connexion, _decimal_fr, gabarits
 
 routeur = APIRouter(prefix="/avenir", include_in_schema=False)
 
@@ -34,6 +35,21 @@ GROUPES_FRANCE = {
 A_VENIR = (
     ("L'eau", "Débits des rivières et sécheresses d'été selon le réchauffement (Explore2)."),
     ("Santé et dépendance", "Personnes âgées en perte d'autonomie d'ici 2070 (DREES)."),
+)  # fmt: skip
+# Questions guidées (dossier de conception, étape 8) : chacune ouvre la carte qui y répond.
+QUESTIONS = (
+    ("Combien d'habitants aura mon département en 2050 ?",
+     "/avenir/theme/population?indicateur=EVOLUTION&annee=2050"),
+    ("Mon département sera-t-il plus âgé que la France en 2050 ?",
+     "/avenir/theme/population?indicateur=PART_75&annee=2050"),
+    ("Combien de seniors pour 100 actifs en 2070 ?",
+     "/avenir/theme/population?indicateur=SENIORS&annee=2070"),
+    ("Combien de jours à 35 °C ou plus en fin de siècle, selon le scénario du GIEC ?",
+     "/avenir/theme/climat?indicateur=CLIM_HD35&periode=2080"),
+    ("Combien de nuits tropicales en plus d'ici 2050 ?",
+     "/avenir/theme/climat?indicateur=CLIM_TR&periode=2040"),
+    ("Combien de communes reconnues en sécheresse en 10 ans ?",
+     "/avenir/theme/risques?indicateur=CATNAT_SECHERESSE_10ANS"),
 )  # fmt: skip
 # Risques : périls du graphique (les autres sont regroupés), en plus du tableau complet.
 PERILS_GRAPHIQUE = ("INONDATION", "SECHERESSE")
@@ -272,6 +288,7 @@ def avenir(request: Request, conn: Connexion, climat: ScenarioClimat = None) -> 
         "omphale": definitions.get("PROJ_POP"),
         "climat": _climat(conn, "FRANCE", "FM", climat, definitions),
         "risques": risques,
+        "questions": QUESTIONS,
         "a_venir": A_VENIR,
         "choix": choix_territoire(tous, ("DEP",), "/avenir/DEP/{code}"),
         "regions": sorted((t for t in tous if t["niveau"] == "REG"), key=lambda t: t["libelle"]),
@@ -351,3 +368,172 @@ def departement(
     if contexte["risques"]:
         contexte.setdefault("donnees", {})["catnat"] = contexte["risques"]["graphique"]
     return gabarits.TemplateResponse(request, "avenir_departement.html", contexte)
+
+
+# Pages thème : une carte et un classement des départements pour un indicateur choisi par
+# liens (sans JavaScript). Population : scénario central de l'INSEE.
+THEMES = {"population": "Population", "climat": "Climat", "risques": "Risques naturels"}
+ANNEES_THEME = (2030, 2050, 2070)
+INDICATEURS_POPULATION = {
+    "EVOLUTION": ("Évolution de la population depuis 2018", "evolution", "pourcentage_signe"),
+    "PART_75": ("Part des 75 ans ou plus", "part_75_plus", "pourcentage"),
+    "SENIORS": ("Seniors (65 ans ou plus) pour 100 actifs (20-64 ans)",
+                "seniors_pour_100_actifs", "nombre"),
+}  # fmt: skip
+INDICATEURS_RISQUES = {
+    "CATNAT_SECHERESSE_10ANS": "pourcentage",
+    "COMMUNES_PPRN": "pourcentage",
+    "CATNAT_10ANS": "nombre",
+}
+_DEP = r"^[A-Z0-9_]+$"
+
+
+def _format(valeur, unite: str) -> str:
+    """Valeur d'une page thème : « +12,3 % », « 14,2 % », « 52 », « +2,3 °C »."""
+    if valeur is None:
+        return "—"
+    if unite == "pourcentage_signe":
+        v = float(valeur)
+        return f"{'+' if v > 0 else '−' if v < 0 else ''}{_decimal_fr(abs(v), 1)} %"
+    if unite == "pourcentage":
+        return f"{_decimal_fr(float(valeur), 1)} %"
+    if unite == "nombre":
+        return _decimal_fr(float(valeur), 0)
+    return ecart(valeur, unite)
+
+
+gabarits.env.filters["valeur_theme"] = _format
+
+
+def _lien(theme: str, **parametres) -> str:
+    requete = "&".join(f"{k}={v}" for k, v in parametres.items() if v is not None)
+    return f"/avenir/theme/{theme}" + (f"?{requete}" if requete else "")
+
+
+@routeur.get("/theme/{theme}", response_class=HTMLResponse)
+def theme(
+    request: Request,
+    conn: Connexion,
+    theme: Annotated[str, Chemin(pattern=r"^[a-z]+$")],
+    indicateur: Annotated[str | None, Query(pattern=_DEP)] = None,
+    annee: Annotated[int | None, Query(ge=2000, le=2100)] = None,
+    climat: ScenarioClimat = None,
+    periode: Annotated[int | None, Query(ge=2000, le=2100)] = None,
+) -> HTMLResponse:
+    if theme not in THEMES:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Thème inconnu")
+    definitions = _definitions(conn)
+    choix: list[dict] = []  # groupes de liens : {"titre", "liens": [{libelle, url, actif}]}
+    if theme == "population":
+        indicateur = indicateur or "EVOLUTION"
+        annee = annee or HORIZON
+        if indicateur not in INDICATEURS_POPULATION or annee not in ANNEES_THEME:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "Indicateur ou année inconnus")
+        libelle, colonne, unite = INDICATEURS_POPULATION[indicateur]
+        lignes = [
+            {**ligne, "valeur": ligne[colonne]}
+            for ligne in projections.classement_population(conn, CENTRAL, annee, 2018)
+        ]
+        titre = f"{libelle}, {annee}"
+        definition = definitions.get("PROJ_POP")
+        note = "Scénario central des projections de l'INSEE (Omphale 2022)."
+        choix = [
+            {"titre": "Indicateur", "liens": [
+                {"libelle": v[0], "url": _lien(theme, indicateur=k, annee=annee),
+                 "actif": k == indicateur} for k, v in INDICATEURS_POPULATION.items()]},
+            {"titre": "Année", "liens": [
+                {"libelle": str(a), "url": _lien(theme, indicateur=indicateur, annee=a),
+                 "actif": a == annee} for a in ANNEES_THEME]},
+        ]  # fmt: skip
+    elif theme == "climat":
+        indicateur = indicateur or "CLIM_HD35"
+        scenarios = [s for s in projections.scenarios(conn) if s["famille"] == "GIEC"]
+        codes = [s["code"] for s in scenarios]
+        scenario = climat or (SCENARIO_CLIMAT if SCENARIO_CLIMAT in codes else None)
+        periode = periode or 2080
+        disponibles = [i for i in INDICATEURS_CLIMAT if i in definitions]
+        if indicateur not in disponibles or scenario not in codes:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "Indicateur ou scénario inconnus")
+        definition = definitions[indicateur]
+        unite = definition["unite"]
+        lignes = projections.classement_climat(conn, indicateur, scenario, periode)
+        if not any(ligne["valeur"] is not None for ligne in lignes):
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "Période inconnue")
+        choisi = next(s for s in scenarios if s["code"] == scenario)
+        titre = f"{definition['libelle']}, {periode}-{periode + 19}"
+        note = (f"Écart à 1995-2014, médiane des modèles. {choisi['libelle']} : "
+                f"{choisi['equivalent_giec']} de réchauffement mondial vers 2100.")  # fmt: skip
+        choix = [
+            {"titre": "Indicateur", "liens": [
+                {"libelle": definitions[i]["libelle"],
+                 "url": _lien(theme, indicateur=i, climat=scenario, periode=periode),
+                 "actif": i == indicateur} for i in disponibles]},
+            {"titre": "Scénario", "liens": [
+                {"libelle": s["libelle"],
+                 "url": _lien(theme, indicateur=indicateur, climat=s["code"], periode=periode),
+                 "actif": s["code"] == scenario} for s in scenarios]},
+            {"titre": "Période", "liens": [
+                {"libelle": f"{d}-{d + 19}",
+                 "url": _lien(theme, indicateur=indicateur, climat=scenario, periode=d),
+                 "actif": d == periode} for d in (2020, 2040, 2060, 2080)]},
+        ]  # fmt: skip
+    else:
+        indicateur = indicateur or "CATNAT_SECHERESSE_10ANS"
+        if indicateur not in INDICATEURS_RISQUES:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "Indicateur inconnu")
+        unite = INDICATEURS_RISQUES[indicateur]
+        totaux = [t for t in series.serie(conn, "CATNAT_ARRETES", "FRANCE", "FR")
+                  if not t["provisoire"]]  # fmt: skip
+        derniere = totaux[-1]["annee"] if totaux else None
+        if indicateur == "CATNAT_10ANS":
+            definition = definitions.get("CATNAT_ARRETES")
+            lignes = (series.cumul_departements(conn, "CATNAT_ARRETES", derniere - 9, derniere)
+                      if derniere else [])  # fmt: skip
+            titre = (
+                f"Catastrophes naturelles reconnues, {derniere - 9}-{derniere}" if derniere else ""
+            )
+            note = (
+                "Reconnaissances par commune et par péril, sur les dix dernières années complètes."
+            )
+        else:
+            definition = definitions.get(indicateur)
+            brutes = series.classement(conn, indicateur)
+            lignes = [{**b, "niveau": "DEP"} for b in brutes]
+            if brutes and brutes[0]["france_code"]:
+                lignes.append(
+                    {
+                        "niveau": "FRANCE",
+                        "code": brutes[0]["france_code"],
+                        "libelle": "France",
+                        "valeur": brutes[0]["france_valeur"],
+                    }
+                )
+            annee_valeurs = next((b["annee"] for b in brutes if b["valeur"] is not None), None)
+            titre = f"{definition['libelle']}, {annee_valeurs}" if definition else ""
+            note = definition["definition"] if definition else ""
+        choix = [{"titre": "Indicateur", "liens": [
+            {"libelle": (definitions["CATNAT_ARRETES"]["libelle"] + " en 10 ans"
+                         if k == "CATNAT_10ANS" and "CATNAT_ARRETES" in definitions
+                         else definitions.get(k, {}).get("libelle", k)),
+             "url": _lien(theme, indicateur=k), "actif": k == indicateur}
+            for k in INDICATEURS_RISQUES]}]  # fmt: skip
+    departements = [ligne for ligne in lignes if ligne["niveau"] == "DEP"]
+    france = next((ligne for ligne in lignes if ligne["niveau"] == "FRANCE"), None)
+    avec = sorted((d for d in departements if d["valeur"] is not None),
+                  key=lambda d: -float(d["valeur"]))  # fmt: skip
+    sans = [d for d in departements if d["valeur"] is None]
+    carte = _carte_coloree(departements, unite, lien="/avenir/DEP/{code}", format_valeur=_format)
+    contexte = {
+        "theme": theme,
+        "themes": THEMES,
+        "titre": titre,
+        "note": note,
+        "choix": choix,
+        "unite": unite,
+        "definition": definition,
+        "france": france if france and france["valeur"] is not None else None,
+        "classement": avec,
+        "sans_donnee": sans,
+        "carte": carte,
+    }
+    return gabarits.TemplateResponse(request, "avenir_theme.html", contexte)
