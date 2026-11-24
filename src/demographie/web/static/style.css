@@ -282,3 +282,4 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 .bascule label:has(input:checked) { background: var(--grille); color: var(--texte);
   font-weight: 600; box-shadow: inset 0 -3px 0 var(--serie); }
 .bascule label:has(input:focus-visible) { outline: 2px solid var(--serie); outline-offset: -2px; }
+.graphique.missions { height: 56rem; }

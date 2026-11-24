@@ -1,13 +1,16 @@
 """Pages de la rubrique « Où va l'argent public ? » : vue France (chiffres clés, « pour
 1 000 € de dépense publique », qui dépense, d'où vient l'argent, déficit et dette dans le
-temps). Budget de l'État, départements, ménage type et catastrophes naturelles viennent
-avec les PR suivantes.
+temps) et budget de l'État (solde mois par mois, crédits par mission). Départements, ménage
+type et catastrophes naturelles viennent avec les PR suivantes.
 
 Dossier de conception de l'appli, étape 8. Les montants par habitant et en euros constants
 sont calculés ici, à l'affichage, à partir de la population et de l'indice des prix déjà
 en base."""
 
-from fastapi import APIRouter, Request
+from datetime import date
+from typing import Annotated
+
+from fastapi import APIRouter, Query, Request
 from fastapi.responses import HTMLResponse
 
 from demographie.donnees import series
@@ -25,7 +28,6 @@ QUESTIONS = (
      "#interets"),
 )  # fmt: skip
 A_VENIR = (
-    ("Budget de l'État", "le solde mois par mois et les crédits de chaque mission."),
     ("Mon département", "les dépenses du département et des communes par habitant, poste "
      "par poste, comparées à la moyenne."),
     ("Impôts d'un ménage type", "ce que paie un ménage comme le vôtre, et ce que ses "
@@ -33,6 +35,15 @@ A_VENIR = (
     ("Catastrophes naturelles", "les reconnaissances par année et par péril dans votre "
      "département."),
 )  # fmt: skip
+# Pages de la rubrique déjà construites : liens en tête de la vue France.
+PAGES = (("Le budget de l'État", "/argent-public/etat"),)
+MOIS = ("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
+        "septembre", "octobre", "novembre", "décembre")  # fmt: skip
+MOIS_COURTS = ("janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.",
+               "oct.", "nov.", "déc.")  # fmt: skip
+# Mission qui rend des impôts trop perçus : montrée à part, hors du classement.
+DEGREVEMENTS = "REMBOURSEMENTS_ET_DEGREVEMENTS"
+
 # Libellés courts des recettes, dans l'ordre d'affichage.
 RECETTES = {
     "COTISATIONS": ("Cotisations sociales", "de cotisations sociales"),
@@ -303,6 +314,144 @@ def argent(request: Request, conn: Connexion) -> HTMLResponse:
         "prelevements": prelevements,
         "questions": QUESTIONS,
         "a_venir": A_VENIR,
+        "pages": PAGES,
         "donnees": {"historique": historique},
     }
     return gabarits.TemplateResponse(request, "argent.html", contexte)
+
+
+# --- Budget de l'État -------------------------------------------------------------------
+
+
+def _mensuel(conn, indicateur: str) -> dict[int, dict[int, float]]:
+    """Valeurs mensuelles cumulées : année -> mois -> milliards d'euros."""
+    resultat: dict[int, dict[int, float]] = {}
+    for x in series.serie(conn, indicateur, "FRANCE", "FR"):
+        if x["periode_type"] == "MOIS" and x["valeur"] is not None:
+            resultat.setdefault(x["annee"], {})[x["periode"].month] = float(x["valeur"])
+    return resultat
+
+
+def _solde_mensuel(conn) -> dict | None:
+    """Solde cumulé de l'année en cours et des deux précédentes, mois par mois, et la
+    comparaison à la même date l'an passé."""
+    soldes = _mensuel(conn, "SOLDE_ETAT")
+    if not soldes:
+        return None
+    annees = sorted(soldes)[-3:]
+    courante = annees[-1]
+    mois = max(soldes[courante])
+    comparaison = None
+    if courante - 1 in soldes and mois in soldes[courante - 1]:
+        comparaison = {"annee": courante - 1, "valeur": soldes[courante - 1][mois]}
+    return {
+        "annee": courante,
+        "mois": mois,
+        "mois_libelle": MOIS[mois - 1],
+        "valeur": soldes[courante][mois],
+        "comparaison": comparaison,
+        "fins": [
+            {"annee": a, "valeur": soldes[a][12]}
+            for a in annees
+            if a != courante and 12 in soldes[a]
+        ],
+        "courbe": {
+            "mois": list(MOIS_COURTS),
+            "series": [
+                {"nom": str(a), "valeurs": [soldes[a].get(m) for m in range(1, 13)]} for a in annees
+            ],
+        },
+    }
+
+
+def _missions(conn, annee: int | None) -> dict | None:
+    """Crédits votés et consommés par mission pour une année, du plus gros au plus petit
+    consommé, la mission « Remboursements et dégrèvements » à part."""
+    votes = series.repartition(conn, "CREDITS_VOTES", "FRANCE", "FR", annee)
+    if not votes:
+        return None
+    consommes = {
+        x["modalite"]: x
+        for x in series.repartition(conn, "CREDITS_CONSOMMES", "FRANCE", "FR", votes[0]["annee"])
+    }
+    lignes = []
+    for x in votes:
+        c = consommes.get(x["modalite"])
+        lignes.append({
+            "code": x["modalite"],
+            "libelle": x["libelle"],
+            "vote": float(x["valeur"]),
+            "consomme": float(c["valeur"]) if c else None,
+        })  # fmt: skip
+    degrevements = next((x for x in lignes if x["code"] == DEGREVEMENTS), None)
+    lignes = sorted(
+        (x for x in lignes if x["code"] != DEGREVEMENTS),
+        key=lambda x: -(x["consomme"] if x["consomme"] is not None else x["vote"]),
+    )
+    vote = sum(x["vote"] for x in lignes)
+    consomme = sum(x["consomme"] or 0 for x in lignes)
+    for x in lignes:
+        x["ecart"] = None if x["consomme"] is None else x["consomme"] - x["vote"]
+    return {
+        "annee": votes[0]["annee"],
+        "lignes": lignes,
+        "vote": vote,
+        "consomme": consomme,
+        "degrevements": degrevements,
+        "plus_depasse": max(lignes, key=lambda x: x["ecart"] or 0),
+        "plus_sous": min(lignes, key=lambda x: x["ecart"] or 0),
+    }
+
+
+@routeur.get("/etat", response_class=HTMLResponse)
+def etat(
+    request: Request,
+    conn: Connexion,
+    annee: Annotated[int | None, Query(ge=2000, le=2100)] = None,
+) -> HTMLResponse:
+    definitions = {i["code"]: i for i in series.indicateurs(conn, rubrique=RUBRIQUE)}
+    solde = _solde_mensuel(conn)
+    annees_missions = sorted(
+        {x["annee"] for x in series.serie(conn, "CREDITS_VOTES", "FRANCE", "FR")}
+    )
+    if annee is not None and annee not in annees_missions:
+        annee = None
+    missions = _missions(conn, annee)
+
+    impots = None
+    recettes = _mensuel(conn, "RECETTES_FISCALES_ETAT")
+    completes = sorted(a for a, m in recettes.items() if 12 in m)
+    if completes:
+        derniere = completes[-1]
+        lignes = series.repartition_mensuelle(
+            conn, "RECETTES_FISCALES_ETAT", "FRANCE", "FR", date(derniere, 12, 1)
+        )
+        total = recettes[derniere][12]
+        if lignes and total:
+            barres = [
+                {"libelle": x["libelle"], "valeur": float(x["valeur"]),
+                 "part": 100 * float(x["valeur"]) / total}
+                for x in sorted(lignes, key=lambda x: -float(x["valeur"]))
+            ]  # fmt: skip
+            plus_grande = max(b["part"] for b in barres) or 1
+            for b in barres:
+                b["largeur"] = 100 * b["part"] / plus_grande
+            impots = {"annee": derniere, "total": total, "barres": barres}
+
+    contexte = {
+        "definitions": definitions,
+        "solde": solde,
+        "missions": missions,
+        "annees_missions": annees_missions,
+        "impots": impots,
+        "donnees": {
+            "solde": solde["courbe"] if solde else None,
+            "missions": [
+                {"libelle": x["libelle"], "vote": x["vote"], "consomme": x["consomme"]}
+                for x in missions["lignes"]
+            ]
+            if missions
+            else None,
+        },
+    }
+    return gabarits.TemplateResponse(request, "argent_etat.html", contexte)

@@ -169,7 +169,9 @@ PIB ; dette en euros constants ou de l'époque) et la dette du dernier trimestre
 nationaux de l'INSEE, consolidés entre administrations. Montants par habitant et en euros
 constants calculés à l'affichage (population et indice des prix déjà en base).
 
-Écrans : vue France (PR A) ; à venir : budget de l'État, fiche département (dépenses du
+Écrans : vue France (PR A), budget de l'État (PR B : solde cumulé mois par mois de l'année
+en cours et des deux précédentes, impôts de l'État, crédits votés et dépensés par mission
+de 2023 à 2025, « Remboursements et dégrèvements » à part) ; à venir : fiche département (dépenses du
 département et du bloc communal, catastrophes naturelles), impôts d'un ménage type. Six
 questions guidées. Dossier de conception validé le 22/11/2026 :
 <https://claude.ai/artifact/MmAWsKGAsnpiErF2KEmoRW>.

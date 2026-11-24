@@ -56,6 +56,12 @@
 </div>
 {% endif %}
 
+{% if pages %}
+<nav class="onglets" aria-label="Pages de la rubrique">
+  {% for titre, lien in pages %}<a href="{{ lien }}">{{ titre }}</a>{% endfor %}
+</nav>
+{% endif %}
+
 <nav class="questions-guidees" aria-label="Questions guidées">
   <h2>Questions guidées</h2>
   <ul>

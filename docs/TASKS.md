@@ -217,19 +217,25 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/SGDKic
 
 Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/MmAWsKGAsnpiErF2KEmoRW>.
 
-- [~] **A. France** — migration 033 (rubrique `ARGENT`, sept thèmes, 16 indicateurs, unité
+- [x] **A. France** (PR #42) — migration 033 (rubrique `ARGENT`, sept thèmes, 16 indicateurs, unité
   `milliards_euros`), groupe `demo importer argent` (sept tableaux INSEE des comptes publics et
   dette trimestrielle BDM), page `/argent-public`, accueil, barre latérale, vitrine.
   *Critère :* dépense 2025 = 1 714,1 Md€, déficit −151,6 Md€, dette 3 460,1 Md€ (INSEE) ;
   tests `test_argent_france.py`.
-- [ ] **B. État** — situation mensuelle budgétaire et crédits par mission 2023-2025
-  (data.economie.gouv.fr), page `/argent-public/etat`.
+- [~] **B. État** — migration 037 (sources, dimensions `impot_etat` et `mission_etat`, six
+  indicateurs, vue `api.repartition_mensuelle`), connecteurs `imports/connecteurs/etat.py`
+  (situation mensuelle budgétaire, crédits par mission des PLRG depuis 2023), page
+  `/argent-public/etat`. *Critère :* déficit de l'État fin 2025 = 124,2 Md€, fin septembre
+  2026 = 159,2 Md€ ; crédits votés 2025 = 582,4 Md€ ; tests `test_argent_etat.py`.
 - [ ] **C. Local** — comptes des départements, communes et groupements, dépenses par poste
   (balances), page `/argent-public/DEP/{code}` et carte.
 - [ ] **D. Ménage type** — `donnees/baremes.toml`, impôt sur le revenu par département
   (IRCOM), taxe foncière, page `/argent-public/menage`, route `/api/v1/menage-type`.
 - [ ] **E. Climat et clôture** — arrêtés de catastrophe naturelle (GASPAR), questions
   guidées restantes, vérification des sept critères du dossier.
+- Chaque année : en avril, le PLRG de l'année écoulée paraît ; si une mission est créée ou
+  renommée, l'import est rejeté (« Modalité inconnue ») : ajouter la mission dans une
+  migration (`mission_etat`) ou son ancien libellé dans `RENOMMEES` (`etat.py`).
 - Chaque année : en décembre, quand « Les comptes de la Nation » publie les dépenses par
   fonction, remplacer `EDITIONS_SECOURS` (`imports/connecteurs/comptes_publics.py`) par le
   sommaire de l'édition qui s'achève.
