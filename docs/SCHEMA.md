@@ -181,7 +181,9 @@ Indicateurs actuels :
 
 Dimensions actuelles : `statut_activite`, `pcs`, `secteur`, `scolarisation`, `formation`,
 `discipline`, `pathologie`, `categorie_logement`, `statut_occupation`, `combustible`,
-`taille_appartement`, `type_logement`, `etiquette_dpe`, `poste_ipc`, `poste_conso`.
+`taille_appartement`, `type_logement`, `etiquette_dpe`, `poste_ipc`, `poste_conso`,
+puis `peril_catnat` (migration 040 : `INONDATION`, `SECHERESSE`, `MOUVEMENT_TERRAIN`,
+`VAGUES`, `TEMPETE`, `AUTRES`, périls des arrêtés de catastrophe naturelle regroupés).
 Les codes reprennent ceux des sources quand c'est possible (traçabilité).
 
 ### `ingest.import` — journal, une ligne par fichier
@@ -265,6 +267,11 @@ leur réchauffement mondial vers 2100 dans `equivalent_giec`. Vue `api.projectio
 médiane, bas et haut sur une ligne par indicateur, territoire, scénario et période. Unités
 ajoutées : `degres_c`, `jours`, `millimetres`. Lignes en transit dans `ingest.ligne_projection`. Une publication
 remplace toutes les valeurs de l'indicateur pour le scénario du fichier.
+
+Les risques naturels (migration 040, thème `RISQUES`) sont des faits observés, rangés dans
+`stat.observation` : `CATNAT_ARRETES` (reconnaissances par année d'événement, total et par
+péril, les deux dernières années `PROVISOIRE`), `CATNAT_SECHERESSE_10ANS` et
+`COMMUNES_PPRN` (parts de communes, en %).
 
 ### `ref.scrutin` et `ref.choix_scrutin` — élections (rubrique `VOTES`, migration 032)
 

@@ -263,6 +263,7 @@ table.sources td:nth-child(2) { word-break: break-all; font-size: .85rem; color:
 /* Quel avenir pour les Français ? : scénario central et fourchette des scénarios. */
 .pastille.serie { background: var(--serie); margin-left: 0; }
 .pastille.fourchette { background: var(--serie); opacity: .25; }
+.pastille.gris { background: var(--texte-3); }
 
 /* Rubrique sécurité : petite courbe par famille, atteintes dépliables, questions guidées. */
 .courbe { width: 100%; height: 11rem; margin: .25rem 0 .5rem; }

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% from "_carte.html" import choix_territoire %}
 {% from "_climat.html" import bloc_climat %}
+{% from "_risques.html" import bloc_risques %}
 {% block titre %}Quel avenir pour les Français ? · On épluche{% endblock %}
 {% block contenu %}
 <h1>Quel avenir pour les Français ?</h1>
@@ -64,6 +65,8 @@
 {% endif %}
 
 {% if climat %}{{ bloc_climat(climat, "France métropolitaine", "/avenir") }}{% endif %}
+
+{% if risques %}{{ bloc_risques(risques, "France") }}{% endif %}
 
 <div class="blocs">
   {% for titre, texte in a_venir %}
