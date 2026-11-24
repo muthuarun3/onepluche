@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_carte.html" import choix_territoire %}
 {% macro source(d) -%}
 {% if d %}<p class="source">Source : <a href="{{ d.source_url }}" rel="noopener">{{ d.source_libelle }}</a>, {{ d.source_licence }}.{% if d.avertissement %} {{ d.avertissement }}{% endif %}</p>{% endif %}
 {%- endmacro %}
@@ -149,6 +150,22 @@
   {{ source(definitions.DETTE_APU) }}
 </section>
 {% endif %}
+
+{% call choix_territoire(choix, "Mon département",
+  "Touchez un département pour voir ce que dépensent, par habitant, le département, les communes et les intercommunalités, comparé à la moyenne française.") %}
+<div class="regions">
+  {% for r in regions %}
+  <section class="region">
+    <h3>{{ r.libelle }}</h3>
+    <ul>
+      {% for d in departements.get(r.code, []) %}
+      <li><a href="/argent-public/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+{% endcall %}
 
 <div class="blocs">
   {% for titre, texte in a_venir %}

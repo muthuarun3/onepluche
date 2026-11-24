@@ -227,13 +227,19 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/MmAWsK
   dette trimestrielle BDM), page `/argent-public`, accueil, barre latérale, vitrine.
   *Critère :* dépense 2025 = 1 714,1 Md€, déficit −151,6 Md€, dette 3 460,1 Md€ (INSEE) ;
   tests `test_argent_france.py`.
-- [~] **B. État** — migration 037 (sources, dimensions `impot_etat` et `mission_etat`, six
+- [x] **B. État** (PR #48) — migration 037 (sources, dimensions `impot_etat` et `mission_etat`, six
   indicateurs, vue `api.repartition_mensuelle`), connecteurs `imports/connecteurs/etat.py`
   (situation mensuelle budgétaire, crédits par mission des PLRG depuis 2023), page
   `/argent-public/etat`. *Critère :* déficit de l'État fin 2025 = 124,2 Md€, fin septembre
   2026 = 159,2 Md€ ; crédits votés 2025 = 582,4 Md€ ; tests `test_argent_etat.py`.
-- [ ] **C. Local** — comptes des départements, communes et groupements, dépenses par poste
-  (balances), page `/argent-public/DEP/{code}` et carte.
+- [~] **C. Local** — migration 044 (source DGFiP, dimension `poste_local`, six indicateurs
+  en millions d'euros), connecteurs `imports/connecteurs/collectivites.py` (comptes
+  individuels des départements, communes et groupements à fiscalité propre depuis 2016,
+  additionnés par département par l'API Opendatasoft, `group_by`), page
+  `/argent-public/DEP/{code}` et carte sur `/argent-public`. Postes tirés des comptes
+  individuels plutôt que des balances par fonction (5 millions de lignes par an).
+  *Critère :* dépenses des départements 2025 = 93 293 M€, des communes 2024 = 124 034 M€ ;
+  tests `test_argent_collectivites.py`.
 - [ ] **D. Ménage type** — `donnees/baremes.toml`, impôt sur le revenu par département
   (IRCOM), taxe foncière, page `/argent-public/menage`, route `/api/v1/menage-type`.
 - [ ] **E. Climat et clôture** — arrêtés de catastrophe naturelle (GASPAR), questions

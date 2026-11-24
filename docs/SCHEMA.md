@@ -110,7 +110,14 @@ négative, et celui des pourcentages au-delà de 100 un indicateur dont `borne_m
 `IR`, `IS`, `TICPE`, `AUTRES`) et `mission_etat` (33 missions du budget général, code tiré du
 libellé ; « Travail et emploi » garde `TRAVAIL_EMPLOI` après son changement de nom), et la vue
 `api.repartition_mensuelle` (valeur par modalité d'un indicateur mensuel, avec sa `periode` :
-`api.repartition` ne porte que l'année).
+`api.repartition` ne porte que l'année). Migration 044 (collectivités locales) : unité
+`millions_euros`, source `DGFIP_COMPTES_LOCAUX`, dimension `poste_local` (`PERSONNEL`,
+`AIDES_SOCIALES`, `HEBERGEMENT`, `ACHATS`, `AUTRES_FONCTIONNEMENT`, `EQUIPEMENT`,
+`AUTRES_INVESTISSEMENT`) et six indicateurs départementaux du thème `LOCAL` : dépenses et
+dette du département (`DEPENSES_DEPARTEMENT`, `DETTE_DEPARTEMENT`), des communes et des
+intercommunalités. La Collectivité européenne d'Alsace est rangée sous `67` (rien sous `68`
+depuis 2021), la Collectivité de Corse sous `2A` (depuis 2018), Paris n'a plus de budget
+départemental depuis 2019 : la page rapporte ces comptes aux habitants des deux départements.
 
 ### `ref.indicateur_affichage` — un indicateur dans plusieurs rubriques (migration 031)
 

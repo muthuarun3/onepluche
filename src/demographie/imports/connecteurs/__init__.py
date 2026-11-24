@@ -14,6 +14,11 @@ from demographie.imports.connecteurs.besoins import (
 )
 from demographie.imports.connecteurs.bmo import BMO
 from demographie.imports.connecteurs.climat import CLIMAT
+from demographie.imports.connecteurs.collectivites import (
+    COMPTES_COMMUNES,
+    COMPTES_DEPARTEMENTS,
+    COMPTES_GROUPEMENTS,
+)
 from demographie.imports.connecteurs.comptes_publics import (
     DEPENSES_RECETTES,
     DETTE,
@@ -147,6 +152,9 @@ CONNECTEURS = {
         DETTE_TRIMESTRIELLE,
         SITUATION_MENSUELLE,
         CREDITS_MISSIONS,
+        COMPTES_DEPARTEMENTS,
+        COMPTES_COMMUNES,
+        COMPTES_GROUPEMENTS,
     ),
     # Appli « Que pensent et votent les Français ? »
     "votes": (PARTICIPATION_ELECTIONS, VOIX_ELECTIONS),

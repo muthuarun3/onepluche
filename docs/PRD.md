@@ -174,8 +174,11 @@ constants calculés à l'affichage (population et indice des prix déjà en base
 
 Écrans : vue France (PR A), budget de l'État (PR B : solde cumulé mois par mois de l'année
 en cours et des deux précédentes, impôts de l'État, crédits votés et dépensés par mission
-de 2023 à 2025, « Remboursements et dégrèvements » à part) ; à venir : fiche département (dépenses du
-département et du bloc communal, catastrophes naturelles), impôts d'un ménage type. Six
+de 2023 à 2025, « Remboursements et dégrèvements » à part), fiche département (PR C : dépenses
+et dette par habitant du département, des communes et des intercommunalités comparées à la
+France, postes du département et des communes, dépense locale depuis 2016 en euros
+constants ; collectivités uniques d'Alsace et de Corse rapportées aux habitants des deux
+départements) ; à venir : catastrophes naturelles sur la fiche, impôts d'un ménage type. Six
 questions guidées. Dossier de conception validé le 22/11/2026 :
 <https://claude.ai/artifact/MmAWsKGAsnpiErF2KEmoRW>.
 

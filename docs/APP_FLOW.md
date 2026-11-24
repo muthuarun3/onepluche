@@ -47,7 +47,7 @@ Navigateur ──► https://onepluche.duckdns.org
 │   └── /travail/theme/{theme}     Carte et classement (taux et parts)               🔶
 ├── /argent-public                 Où va l'argent public ? vue France               🔶
 │   ├── /argent-public/etat        Budget de l'État : solde mensuel, missions       🔶
-│   ├── /argent-public/DEP/{code}  Fiche département : dépenses locales, CatNat     ⬜
+│   ├── /argent-public/DEP/{code}  Fiche département : dépenses locales, CatNat     🔶
 │   └── /argent-public/menage      Impôts d'un ménage type                          ⬜
 ├── /sources                       État des imports, licences                       ✅
 └── /api/docs                      Documentation de l'API (Swagger)                 ✅
@@ -165,12 +165,13 @@ se comparent pas à un total national ; l'indice des prix, national, n'y figure 
 | `/avenir/theme/{population,climat,risques}` | Carte colorée des départements (outre-mer en pastilles), France (ou métropole), plus haut et plus bas, classement, départements sans donnée, source | Liens de choix : indicateur ; année (population : 2030, 2050, 2070) ; scénario et période (climat, SSP2-4.5 et 2080-2099 par défaut) ; toucher un département → sa fiche ; thème, indicateur ou année inconnus → 404 ; scénario mal formé → 422 |
 | `/avenir/DEP/{code}` | Quatre chiffres en 2050 (population et fourchette, évolution depuis 2018, part des 75 ans ou plus, seniors pour 100 actifs ; France = somme des départements à côté) ; phrase ; courbe et bande des trois scénarios avec tableau 2018, 2030, 2050, 2070 ; pyramide des âges projetée (scénario central) avec le contour de 2018 | Liste de l'année de la pyramide (sans rechargement) ; liens vers `/territoire/DEP/{code}` et `/besoins/DEP/{code}` ; département sans projection importée : message ; inconnu → 404 |
 
-### Rubrique `/argent-public` (🔶, PR A et B)
+### Rubrique `/argent-public` (🔶, PR A, B et C)
 
 | Page | Contenu | Interactions |
 | --- | --- | --- |
-| `/argent-public` | Quatre chiffres (dépense publique de la dernière année en Md€ et en % du PIB, par habitant, déficit, dette du dernier trimestre) ; lien vers le budget de l'État ; trois questions guidées ; « Pour 1 000 € de dépense publique » (barres par fonction) ; « Qui dépense ? » ; « D'où vient l'argent ? » (avec la part empruntée) ; intérêts de la dette comparés à la défense et à l'enseignement ; déficit et dette en % du PIB depuis 1978 ; dette en milliards ; blocs à venir (État, département, ménage type, catastrophes naturelles) | Bascule « Euros de N / Euros de l'époque » sur la courbe de la dette (sans rechargement) ; questions → ancres de la page ; sans données : bandeau |
+| `/argent-public` | Quatre chiffres (dépense publique de la dernière année en Md€ et en % du PIB, par habitant, déficit, dette du dernier trimestre) ; lien vers le budget de l'État ; trois questions guidées ; « Pour 1 000 € de dépense publique » (barres par fonction) ; « Qui dépense ? » ; « D'où vient l'argent ? » (avec la part empruntée) ; intérêts de la dette comparés à la défense et à l'enseignement ; déficit et dette en % du PIB depuis 1978 ; dette en milliards ; carte « Mon département » (liste repliée par région) ; blocs à venir (ménage type, catastrophes naturelles) | Bascule « Euros de N / Euros de l'époque » sur la courbe de la dette (sans rechargement) ; questions → ancres de la page ; sans données : bandeau |
 | `/argent-public/etat` | Solde de l'État cumulé depuis janvier, mois par mois, année en cours et deux précédentes (phrase : comparaison à la même date l'an passé) ; impôts de l'État par impôt (dernière année complète) ; voté et dépensé, plus gros dépassement et plus grosse sous-consommation ; barres votées et dépensées des missions (hors « Remboursements et dégrèvements », mentionnée à part), tableau replié | Onglets d'année des missions (`?annee=2023`, année inconnue : dernière année ; hors 2000-2100 : 422) ; sans données : bandeau |
+| `/argent-public/DEP/{code}` | Dépense locale et dette locale par habitant de la dernière année, comparées à la France ; tableau département, communes, intercommunalités, ensemble ; postes du département et des communes par habitant (barres, trait de la moyenne française) ; dépense locale par habitant depuis 2016, ici et en France, en euros constants ; encadré pour les collectivités uniques (67/68, 2A/2B, 972, 973, 976), Paris et la Métropole de Lyon ; lien vers la fiche « Qui habite » | Code inconnu : 404 ; sans données : bandeau |
 
 ### Questions guidées (⬜)
 
