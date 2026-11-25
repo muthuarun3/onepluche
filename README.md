@@ -142,8 +142,8 @@ serveur de production. Sans cette variable, les tests qui demandent une base son
 
 ## Production
 
-Voir [deploy/README.md](deploy/README.md) : installation sur un VPS Debian 13, HTTPS et accès
-protégé par Caddy, sauvegarde quotidienne chiffrée hors site, test de restauration mensuel.
+Voir [deploy/README.md](deploy/README.md) : installation sur un VPS Debian 13, HTTPS (Caddy), accès
+par lien secret (`DEMO_CLE_ACCES`, voir `src/demographie/acces.py`), sauvegarde quotidienne chiffrée hors site, test de restauration mensuel.
 
 ## Données et licence
 

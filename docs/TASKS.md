@@ -406,6 +406,11 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/FTnrnv
   *Critère :* sauvegarde et restauration mensuelle réussies depuis le stockage externe.
 - [ ] **E2. Vérifier Healthchecks.io sur le serveur** (`DEMO_PING_IMPORT` renseigné, alerte
   reçue lors d'un import rejeté de test).
+- [x] **E3. Accès par lien secret** — remplace les identifiants Caddy : le lien
+  `/?cle=…` (`DEMO_CLE_ACCES`) pose un cookie de 400 jours ; sans lui, page « Accès sur
+  invitation » (API : 401 JSON). Publics : `/sante`, `/robots.txt`, `/static/`. Changer la
+  clé révoque tous les accès.
+  *Critère :* `tests/test_acces.py` ; lien testé sur téléphone, `basicauth` retiré de Caddy.
 
 ### Après les MVP (une livraison par thème, dans cet ordre sauf avis contraire)
 

@@ -11,7 +11,7 @@ chez un autre fournisseur. Budget visé : moins de 10 € par mois.
 | Pare-feu | Seuls SSH, 80 et 443 sont ouverts ; PostgreSQL n'écoute que sur la machine locale |
 | Application | Utilisateur `demographie` sans shell, code dans `/opt/demographie/app`, dépendances verrouillées |
 | Base | Rôles `demo_*` avec mots de passe aléatoires dans `/etc/demographie/env` (lisible par l'application seulement), migrations |
-| Accès | HTTPS automatique, identifiant et mot de passe par personne (Caddy) |
+| Accès | HTTPS automatique (Caddy) ; lien secret `/?cle=…` généré dans `DEMO_CLE_ACCES` |
 | Sauvegarde | Chaque nuit à 3 h 30 : base chiffrée (AES-256) + fichiers bruts, 30 jours de rétention |
 | Restauration | Le 1er de chaque mois : la dernière sauvegarde est restaurée dans une base temporaire et vérifiée |
 
@@ -35,7 +35,7 @@ git clone https://github.com/muthuarun3/onepluche.git /tmp/onepluche
 /tmp/onepluche/deploy/installer.sh demo.exemple.fr https://github.com/muthuarun3/onepluche.git sauvegardes:demographie
 ```
 
-Le script demande le premier identifiant autorisé et son mot de passe.
+Le script génère la clé d'accès et affiche à la fin le lien à partager au cercle.
 
 **Important :** il affiche l'emplacement de la phrase de chiffrement des sauvegardes.
 Copiez-la dans votre gestionnaire de mots de passe : sans elle, une sauvegarde est
@@ -53,7 +53,8 @@ journalctl -u demographie-restauration -n 20    # doit finir par « Restauration
 
 | Besoin | Commande |
 | --- | --- |
-| Ajouter un utilisateur | `echo "nom $(caddy hash-password)" >> /etc/caddy/demographie-utilisateurs && systemctl reload caddy` |
+| Retrouver le lien à partager | `echo "https://<domaine>/?cle=$(sed -n 's/^DEMO_CLE_ACCES=//p' /etc/demographie/env)"` |
+| Révoquer tous les accès | `sed -i "s/^DEMO_CLE_ACCES=.*/DEMO_CLE_ACCES=$(openssl rand -hex 16)/" /etc/demographie/env && systemctl restart demographie-web`, puis partager le nouveau lien |
 | Importer maintenant | `systemctl start demographie-import` (sinon chaque lundi à 6 h 15) ; journal : `demo imports` |
 | Mettre à jour l'application | `cd /opt/demographie/app && sudo -u demographie git pull && sudo -u demographie uv sync --frozen --no-dev`, puis `demo migrer` et `systemctl restart demographie-web` |
 | Journaux | `journalctl -u demographie-web`, `journalctl -u demographie-sauvegarde` |

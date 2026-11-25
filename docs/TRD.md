@@ -67,6 +67,7 @@ Sources officielles ──► imports (rôle demo_import) ──► PostgreSQL :
 | `api/` | Routes JSON `/api/v1` | donnees, catalogue | contenir du SQL |
 | `web/` | Pages HTML, gabarits, statiques | donnees, catalogue | contenir du SQL, appeler l'API par HTTP |
 | `app.py` | Assemblage FastAPI, en-têtes de sécurité, `/sante` | tout | — |
+| `acces.py` | Accès par lien secret (clé, cookie, page « Accès sur invitation ») | rien du paquet | toucher la base |
 | `cli.py` | Commandes `demo …` | tout | — |
 
 Ces règles sont vérifiées par `tests/test_architecture.py` : une violation fait échouer la CI.
@@ -160,8 +161,18 @@ Paramètres validés par FastAPI (motifs `^[0-9A-Z]{2,3}$`, `^[A-Z][A-Z0-9_]+$`,
 
 ## 6. Sécurité
 
-- **Accès** : Caddy `basicauth`, HTTPS obligatoire (HSTS), un identifiant par personne dans
-  `/etc/caddy/demographie-utilisateurs`. L'application elle-même n'a pas de comptes.
+- **Accès** : lien secret partagé au cercle, géré par `acces.py` (intergiciel FastAPI).
+  `/?cle=<DEMO_CLE_ACCES>` pose un cookie `onepluche_acces` (400 jours, `HttpOnly`,
+  `Secure`, `SameSite=Lax`) qui contient une empreinte HMAC-SHA256 de la clé, jamais la
+  clé ; comparaisons en temps constant ; la clé est retirée de l'adresse par une
+  redirection 303. Sans cookie : page HTML 403, ou 401 JSON sous `/api/`. Publics :
+  `/sante`, `/robots.txt` (`Disallow: /`), `/static/`. Changer la clé révoque tous les
+  accès. Sans variable (local, tests) le site est ouvert. HTTPS obligatoire (HSTS, Caddy).
+  Pas de comptes : un lien partagé peut circuler, c'est le compromis choisi pour un petit
+  cercle (révocation = nouvelle clé pour tout le monde).
+- **API** : fermée comme les pages. Elle ne sert que l'appli elle-même (même origine, le
+  cookie suit), la vitrine ne l'appelle pas, et l'ouvrir rendrait publiques les mêmes
+  données que le lien protège.
 - **Base** : n'écoute que sur la machine locale ; trois rôles séparés (voir
   [SCHEMA.md](SCHEMA.md)) ; le rôle de l'application ne lit que le schéma `api`, en lecture
   seule, avec un délai maximal de 5 secondes.
@@ -182,6 +193,7 @@ Paramètres validés par FastAPI (motifs `^[0-9A-Z]{2,3}$`, `^[A-Z][A-Z0-9_]+$`,
 | `DEMO_DB_LECTURE_URL` | Application web et API |
 | `DEMO_DONNEES_BRUTES` | Dossier des fichiers bruts (par empreinte) |
 | `DEMO_PING_IMPORT` | URL Healthchecks.io, facultative |
+| `DEMO_CLE_ACCES` | Clé du lien secret (`openssl rand -hex 16`) ; absente = site ouvert (local) |
 
 ## 8. Déploiement et exploitation
 

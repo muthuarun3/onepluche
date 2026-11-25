@@ -101,14 +101,15 @@ EOF
 install -m 750 "$APP_DIR/deploy/sauvegarde.sh" /usr/local/sbin/demographie-sauvegarde
 install -m 750 "$APP_DIR/deploy/test-restauration.sh" /usr/local/sbin/demographie-test-restauration
 
-echo "== Caddy : HTTPS automatique et accès protégé"
-if [[ ! -f /etc/caddy/demographie-utilisateurs ]]; then
-  read -r -p "Premier utilisateur autorisé (identifiant) : " utilisateur
-  empreinte="$(caddy hash-password)"
-  echo "$utilisateur $empreinte" > /etc/caddy/demographie-utilisateurs
-  chmod 640 /etc/caddy/demographie-utilisateurs
-  chown root:caddy /etc/caddy/demographie-utilisateurs
+echo "== Accès par lien secret"
+# Ajoutée aussi aux installations existantes. Changer la valeur révoque tous les accès.
+if ! grep -q '^DEMO_CLE_ACCES=.' "$CONF_DIR/env"; then
+  sed -i '/^DEMO_CLE_ACCES=/d' "$CONF_DIR/env"
+  echo "DEMO_CLE_ACCES=$(openssl rand -hex 16)" >> "$CONF_DIR/env"
 fi
+CLE_ACCES="$(sed -n 's/^DEMO_CLE_ACCES=//p' "$CONF_DIR/env")"
+
+echo "== Caddy : HTTPS automatique"
 sed "s/__DOMAINE__/$DOMAINE/" "$APP_DIR/deploy/Caddyfile" > /etc/caddy/Caddyfile
 caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
 
@@ -129,3 +130,6 @@ systemctl start demographie-import.service || echo "Import en échec : journalct
 echo "== Terminé. Vérifiez : https://$DOMAINE/sante"
 echo "   Puis lancez une première sauvegarde et un test de restauration :"
 echo "   systemctl start demographie-sauvegarde && systemctl start demographie-restauration"
+
+echo
+echo "Lien à partager au cercle : https://$DOMAINE/?cle=$CLE_ACCES"

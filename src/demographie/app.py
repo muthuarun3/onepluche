@@ -1,4 +1,4 @@
-"""Assemblage de l'application : API, pages web, route de santé.
+"""Assemblage de l'application : API, pages web, route de santé, accès par lien secret.
 
 Lancement : uvicorn demographie.app:app
 """
@@ -7,7 +7,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from demographie import __version__
+from demographie import __version__, acces
 from demographie.api import v1
 from demographie.web import argent, avenir, besoins, pages, programmes, securite, travail, vivre
 
@@ -43,6 +43,10 @@ _CSP = (
     "img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; "
     "base-uri 'none'; form-action 'self'"
 )
+
+
+# Déclaré avant les en-têtes de sécurité : ceux-ci enveloppent aussi la page « site fermé ».
+app.middleware("http")(acces.controler)
 
 
 @app.middleware("http")
