@@ -330,3 +330,7 @@ tr.total td { font-weight: 600; border-top: 1px solid var(--bordure); }
     display: block; width: auto; }
   .comparaison th[scope="row"] { border-bottom: 0; padding-bottom: 0; }
 }
+/* Appli « Comment vivent les Français ? » : le département choisi dans un classement et la
+   mention des calculs faits par On épluche. */
+tr.choisi th, tr.choisi td { background: var(--grille); font-weight: 600; }
+.calcul { font-style: italic; }

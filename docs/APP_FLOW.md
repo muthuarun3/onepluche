@@ -45,6 +45,9 @@ Navigateur ──► https://onepluche.duckdns.org
 ├── /travail                       Comment travaillent les Français ? vue France     🔶
 │   ├── /travail/DEP/{code}        Fiche département : mêmes blocs, France, rang     🔶
 │   └── /travail/theme/{theme}     Carte et classement (taux et parts)               🔶
+├── /vivre                         Comment vivent les Français ? vue France         ✅
+│   ├── /vivre/DEP/{code}          Fiche département : mêmes blocs, France, rang    ✅
+│   └── /vivre/theme/{theme}       Carte, classement, rang de mon département       ✅
 ├── /argent-public                 Où va l'argent public ? vue France               🔶
 │   ├── /argent-public/etat        Budget de l'État : solde mensuel, missions       🔶
 │   ├── /argent-public/DEP/{code}  Fiche département : dépenses locales, CatNat     🔶
@@ -89,6 +92,7 @@ par sujet ; fiches TOML de `programmes/2027/`, publiées par PR relue par Muthu)
 | Carte « De quoi les Français ont besoin ? » | `/besoins` |
 | Carte « Quel avenir pour les Français ? » | `/avenir` |
 | Carte « Les Français sont-ils en sécurité ? » | `/securite` |
+| Carte « Comment vivent les Français ? » | `/vivre` |
 | Carte « Comment travaillent les Français ? » | `/travail` |
 | Carte « Où va l'argent public ? » | `/argent-public` |
 | Titre « Programmes », carte « Les candidats » | `/programmes` |
@@ -144,6 +148,14 @@ Défilement horizontal du seul tableau sur téléphone.
 | `/securite` | Une carte par famille (personnes, vols, biens, stupéfiants, routes) : l'atteinte phare en grand avec sa phrase (« 211 596 cambriolages de logement enregistrés en 2025, 15 % de moins qu'en 2016 »), sa courbe depuis 2016 et les autres atteintes dépliables ; « La délinquance augmente-t-elle ? » (atteintes en hausse, stables ou en baisse depuis 2016) ; violences sexuelles ; le ressenti (trois parts, courbe coupée entre les enquêtes CVS et VRS), toujours après les faits ; six questions guidées ; carte des départements | Toucher un département → `/securite/DEP/{code}` ; « Comparer les départements » → `/securite/famille/{famille}` ; questions guidées → ancre de la page ou carte |
 | `/securite/DEP/{code}` | Bandeau pour Paris et les départements très touristiques ; par famille, chaque atteinte : taux du département, taux France, rang parmi les départements (1 = le plus élevé), nombre | Lien vers `/territoire/DEP/{code}` ; vers chaque famille ; département inconnu → 404 |
 | `/securite/famille/{famille}` (`personnes`, `vols`, `biens`, `stupefiants`, `routes`) | Onglets des familles ; taux seulement (pour 1 000 habitants ou logements, tués par million) ; valeur France, plus haut et plus bas ; carte colorée ; classement | `?indicateur=` ; famille inconnue, `ressenti` (France seulement) ou indicateur d'une autre famille → 404 |
+
+### Rubrique `/vivre` (✅, appli 3)
+
+| Page | Contenu | Interactions |
+| --- | --- | --- |
+| `/vivre` | Quatre chiffres en tête (niveau de vie médian, pouvoir d'achat sur un an, taux d'épargne, rapport D9/D1) ; six questions guidées (liens vers les blocs) ; Revenus : niveau de vie médian (par tranche d'âge), salaire net moyen du privé et sa courbe en euros constants depuis 1996, écart femmes-hommes par catégorie, parts du revenu disponible (barres) ; Pouvoir d'achat : évolution cumulée depuis l'année choisie, courbe annuelle ; Inégalités : seuils des 10 % les plus modestes et les plus aisés, D9/D1, pauvreté, Gini, courbes depuis 1996 (métropole) ; RSA et aides au logement (décembre, pour 1 000 habitants, aide moyenne, type de logement) ; Épargne et surendettement ; Patrimoine (âge, niveau de vie, placements) ; Retraites ; carte des départements | `?depuis=` (année, 1995 au plus tôt ; seules les années suivies sans trou se cumulent) ; `?categorie=` (catégorie socioprofessionnelle) ; toucher un département → `/vivre/DEP/{code}` ; « Comparer les départements » → `/vivre/theme/{theme}` |
+| `/vivre/DEP/{code}` | Les mêmes blocs pour le département, avec la valeur France (métropole pour Filosofi et le surendettement) et le rang (1 = la plus élevée) ; quatre chiffres en tête : niveau de vie, salaire, pauvreté, foyers au RSA ; pouvoir d'achat, épargne, patrimoine et pension moyenne signalés comme nationaux | Mêmes paramètres ; département inconnu → 404 ; sans chiffre local, un bandeau le dit |
+| `/vivre/theme/{theme}` (`revenus`, `inegalites`, `aides-logement`, `surendettement`, `retraites`) | Onglets des thèmes ; niveaux, parts et taux seulement ; valeur France, plus haut, plus bas, carte colorée, classement ; « Mon département » : sa valeur et son rang, surligné dans le classement ; formule des calculs On épluche | `?indicateur=`, `?dep=` ; thème, indicateur ou département inconnus → 404 |
 
 ### Rubrique `/travail` (🔶, appli travail)
 
