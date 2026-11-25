@@ -1,7 +1,7 @@
 # PRD — Document d'exigences produit
 
 **Produit :** On épluche (dépôt `onepluche`, paquet Python `demographie`)
-**En ligne :** <https://onepluche.duckdns.org> (accès protégé) · vitrine publique :
+**En ligne :** <https://onepluche.duckdns.org> (accès sur lien d'invitation) · vitrine publique :
 <https://onepluche.neocities.org>
 **Responsable :** Muthu · **État au :** 21 novembre 2026
 
@@ -20,7 +20,7 @@ une série de grandes questions, une application par question, en citant toujour
 
 | Qui | Usage | Conséquence |
 | --- | --- | --- |
-| Muthu et un petit cercle de proches | Consulter, comprendre, comparer des départements, souvent sur téléphone | Accès protégé par identifiant (pas d'inscription), interface pensée d'abord pour le téléphone |
+| Muthu et un petit cercle de proches | Consulter, comprendre, comparer des départements, souvent sur téléphone | Accès par un lien d'invitation, sans compte ni inscription, interface pensée d'abord pour le téléphone |
 | Les visiteurs de la vitrine Neocities | Découvrir le projet | Page statique publique, sans données en direct |
 | Les futures applications de l'écosystème | Lire les mêmes chiffres | API JSON versionnée `/api/v1`, documentée en OpenAPI |
 
@@ -236,7 +236,7 @@ Le détail et l'ordre de livraison sont dans [TASKS.md](TASKS.md).
 | Élément | Pourquoi |
 | --- | --- |
 | Questions en langage naturel, LLM | Budget et dépendance externe refusés le 19/11/2026 |
-| Comptes utilisateurs, inscription, favoris | Petit cercle : l'accès par identifiant du proxy suffit |
+| Comptes utilisateurs, inscription, favoris | Petit cercle : le lien d'invitation suffit |
 | Détail par commune | Volume × 300 et fusions de communes ; maille département retenue |
 | Comparaisons européennes (Eurostat) | Hors du besoin principal |
 | Application mobile, mode hors ligne | Le site adaptatif suffit |

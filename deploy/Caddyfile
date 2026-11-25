@@ -3,12 +3,8 @@
 __DOMAINE__ {
 	encode zstd gzip
 
-	# Accès réservé au petit cercle d'utilisateurs : un identifiant par personne.
-	# Ajouter quelqu'un : echo "nom $(caddy hash-password)" >> /etc/caddy/demographie-utilisateurs
-	# « basicauth » : seule orthographe connue de Caddy 2.6 (Debian 13).
-	basicauth {
-		import /etc/caddy/demographie-utilisateurs
-	}
+	# Accès réservé au petit cercle : lien secret géré par l'application
+	# (DEMO_CLE_ACCES dans /etc/demographie/env, voir src/demographie/acces.py).
 
 	header {
 		Strict-Transport-Security "max-age=31536000; includeSubDomains"

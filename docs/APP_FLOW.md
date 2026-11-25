@@ -8,17 +8,23 @@
 Navigateur ──► https://onepluche.duckdns.org
                  │
                  ▼
-     Caddy demande identifiant et mot de passe (fenêtre du navigateur)
-                 │  refus : nouvelle demande, aucune page servie
-                 ▼ accepté
-              Accueil  /
+     Cookie d'accès valide ?  ── non ──► lien /?cle=… correct ?
+                 │ oui                          │ oui : cookie posé (400 jours),
+                 │                              │ redirection vers la même adresse sans la clé
+                 │                              │ non : page « Accès sur invitation » (403)
+                 ▼                              ▼
+              Page demandée  ◄──────────────────┘
 ```
 
-- Il n'y a **ni page de connexion, ni inscription, ni déconnexion, ni paramètres** dans
-  l'application : l'authentification est faite par Caddy avant toute page. Le navigateur
-  garde l'identifiant pour la session.
-- Toutes les pages et l'API sont derrière cette protection. `/sante` aussi (supervision
-  depuis le serveur lui-même).
+- Il n'y a **ni compte, ni page de connexion, ni inscription, ni déconnexion** : on entre
+  une fois par le lien d'invitation (`https://onepluche.duckdns.org/?cle=…`), et le
+  navigateur s'en souvient 400 jours (cookie `onepluche_acces`, `HttpOnly`, `Secure`).
+  Le lien marche sur n'importe quelle page (`/besoins?cle=…`).
+- Toutes les pages, l'API et `/api/docs` sont fermées sans cookie ; l'API répond alors
+  401 en JSON. Restent publics : `/sante` (supervision), `/robots.txt` (interdit tout aux
+  robots) et `/static/` (feuille de style et scripts, aucune donnée).
+- Révoquer : changer `DEMO_CLE_ACCES` dans `/etc/demographie/env` et redémarrer ; tous les
+  cookies distribués deviennent invalides, il faut repartager le nouveau lien.
 - La vitrine <https://onepluche.neocities.org> est publique et statique ; elle renvoie vers
   l'appli.
 
@@ -212,12 +218,13 @@ prix qui ont le plus augmenté depuis 2015 (France).
 
 | Situation | Résultat |
 | --- | --- |
-| Pas d'identifiant ou mauvais mot de passe | 401 de Caddy, aucune page servie |
+| Ni cookie d'accès ni clé, ou mauvaise clé | Page « Accès sur invitation » (403) ; API : 401 en JSON |
+| Bonne clé dans l'adresse (`?cle=…`) | Cookie posé, 303 vers la même adresse sans la clé |
 | Adresse inconnue | 404 de FastAPI |
 | Paramètre hors motif | 422 avec le détail de l'erreur |
 | Requête de lecture de plus de 5 s | Erreur 500 (délai de la base) ; ne doit pas arriver, une fiche se charge en moins d'une seconde |
 | Données absentes | Bloc masqué (résumé) ou message explicite (fiche) |
 
-Aucune redirection applicative n'existe aujourd'hui : pas de session, pas de tableau de bord
+Hors l'entrée par lien secret, aucune redirection applicative n'existe : pas de session, pas de tableau de bord
 personnel. Si `/` change de rôle (PR #21), l'ancien contenu passe à `/francais` sans
 redirection automatique.
