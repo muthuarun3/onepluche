@@ -1,0 +1,260 @@
+# Fiche relue par Muthu avant publication (dossier de conception, étape 6).
+# Texte : « Tenir la promesse de la France », lettre de Bernard Cazeneuve datée du
+# 15 juillet 2026 (86 pages), publiée sur la-convention.fr. Les mesures reprennent la partie
+# « Les propositions de Bernard Cazeneuve » (pages 77 à 85) ; chaque citation est un extrait
+# exact du texte, page indiquée.
+#
+# Candidature : « volonté pleine et entière » d'être candidat (France Inter, 19 mai 2026),
+# puis candidature présentée avec cette lettre et un entretien au Parisien le 16 juillet 2026
+# (Public Sénat, 17 juillet 2026). Le texte est daté du 15 juillet : c'est la date retenue.
+#
+# Propositions de la lettre non rangées faute de sujet dans la grille commune : n° 3 (les
+# femmes), n° 7 (l'outre-mer), n° 20 (agriculture), n° 29 (intelligence artificielle).
+
+[candidat]
+id = "cazeneuve-bernard"
+prenom = "Bernard"
+nom = "Cazeneuve"
+parti = "La Convention"
+statut = "declare"
+declare_le = 2026-07-15
+
+[[versions]]
+id = "v1"
+titre = "Tenir la promesse de la France, lettre aux Françaises et aux Français"
+url = "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf"
+publie_le = 2026-07-15
+releve_le = 2026-11-25
+sha256 = "00f95d1a6ddf294a6c4a3955906b4fabdfb6581d0e9b2aa7c0385a89bb0f8529"
+
+[[mesures]]
+id = "education-petite-enfance"
+sujet = "education"
+titre = "Cadre national unifié pour la petite enfance, inspection régulière des établissements"
+citation = "cadre national unifié, nul ne peut être au contact d’enfants sans compétences vérifiées, formation assurée et suivi organisé ; personnels en nombre suffisant, rémunérations revalorisées ; inspection régulière de tout établissement accueillant des enfants, selon des critères publics tenant grand compte de la parole des familles"
+version = "v1"
+page = 78
+
+[[mesures]]
+id = "justice-plaintes-violences-enfants"
+sujet = "securite-justice"
+titre = "Réponse à chaque plainte pour violences faites à un enfant, rappel de magistrats retraités volontaires"
+citation = "mobilisation sans précédent : aucune plainte pour violences faites à un enfant ne restera sans réponse ; rappel des magistrats retraités volontaires, autant qu’il le faudra, pour reprendre les dossiers en souffrance ; restauration des capacités d’investigation : temps long, spécialisation, recoupement patient des signaux faibles."
+version = "v1"
+page = 78
+
+[[mesures]]
+id = "sante-metiers-du-soin-sante-mentale"
+sujet = "sante"
+titre = "Reconnaissance des soignants ; santé mentale déclarée grande cause nationale"
+citation = "restauration du sens des métiers du soin et reconnaissance de la Nation aux soignants, dans tous les territoires ; la santé mentale, épreuve silencieuse de la jeunesse, érigée en grande cause nationale, avec formation des personnels de santé et de l’éducation."
+version = "v1"
+page = 78
+
+[[mesures]]
+id = "sante-grand-age"
+sujet = "sante"
+titre = "Prise en charge du grand âge, de la dépendance et du soutien aux aidants familiaux"
+citation = "prise en charge du grand âge, de la dépendance et du soutien aux aidants familiaux : un chantier considérable, dont la soutenabilité financière sera garantie aux familles les plus modestes."
+version = "v1"
+page = 79
+
+[[mesures]]
+id = "securite-police-proximite-trafics"
+sujet = "securite-justice"
+titre = "Police de proximité et unités spécialisées contre le trafic de drogues"
+citation = "police de proximité dotée d’effectifs dédiés et formés ; investissement dans la prévention (école, structures de prévention, seconde chance) ; contre les trafics et la criminalité organisée, et d’abord le trafic de drogues : unités spécialisées, peines réellement exécutées, coopération européenne renforcée, Parquet européen aux compétences élargies, gel des avoirs, traque des financements."
+version = "v1"
+page = 79
+
+[[mesures]]
+id = "logement-plan-construction"
+sujet = "logement"
+titre = "Plan de constructions et de rénovations de logements, aide à l’accession à la propriété"
+citation = "pour faire baisser les prix, grand plan de constructions et de rénovations, à la fois social et écologique, soutenu par des mécanismes innovants d’accession à la propriété."
+version = "v1"
+page = 79
+
+[[mesures]]
+id = "pouvoir-achat-aides-fondamentales"
+sujet = "pouvoir-achat-impots"
+titre = "Aides fondamentales simplifiées, unifiées et automatisées"
+citation = "simplifier, unifier, automatiser les aides fondamentales."
+version = "v1"
+page = 79
+
+[[mesures]]
+id = "retraites-duree-cotisation"
+sujet = "retraites"
+titre = "Allongement de la durée de cotisation plutôt que recul de l’âge légal ; pénibilité rétablie"
+citation = "durée de cotisation plutôt que recul de l’âge légal, en reprenant sur des bases nouvelles et négociées la trajectoire d’allongement de 2014 ; pénibilité rétablie (postures contraignantes, port de charges, vibrations, risques chimiques), ouvrant droit au départ anticipé ; cohérence rendue au dispositif des carrières longues"
+version = "v1"
+page = 79
+
+[[mesures]]
+id = "retraites-emploi-seniors"
+sujet = "retraites"
+titre = "Emploi des seniors : aménagement des postes, retraites progressives, liberté de travailler plus longtemps"
+citation = "emploi des seniors : aménagement des postes, retraites progressives, sanctions contre les discriminations à l’embauche, accompagnement des transitions, et liberté de travailler plus longtemps pour qui le souhaite."
+version = "v1"
+page = 80
+
+[[mesures]]
+id = "depenses-regle-or-sociale"
+sujet = "depenses-dette"
+titre = "Règle d’or sociale : exonérations de cotisations compensées, équilibre sur cinq ans"
+citation = "rétablissement plein et entier de la loi Veil (toute exonération compensée à l’euro près, indexée sur les salaires, part salariale comme patronale, heures supplémentaires comme primes, à titre rétroactif depuis 2019) ; équilibre apprécié sur un cycle de cinq ans, avec retour sous dix ans au plus en cas de crise majeure"
+version = "v1"
+page = 80
+
+[[mesures]]
+id = "institutions-septennat-proportionnelle"
+sujet = "institutions"
+titre = "Retour au septennat, dose de proportionnelle aux législatives, encadrement du 49.3"
+citation = "rétablissement du septennat ; Premier ministre engageant systématiquement sa responsabilité devant le Parlement lorsque les circonstances l’exigent, d’abord à son entrée en fonction ; discipline sur le 49.3, les ordonnances et les procédures accélérées ; dose de proportionnelle aux législatives"
+version = "v1"
+page = 80
+
+[[mesures]]
+id = "justice-moyens-independance"
+sujet = "securite-justice"
+titre = "Moyens et indépendance de la justice ; sortie du tout-comparution immédiate"
+citation = "moyens, indépendance reconnue, magistrats protégés contre les intimidations ; missions clarifiées : au pénal, protéger l’ordre collectif ; au civil, servir les droits de chacun et justice rapprochée des citoyens ; sortie du tout-comparution immédiate et de la prison par défaut."
+version = "v1"
+page = 81
+
+[[mesures]]
+id = "institutions-concentration-medias"
+sujet = "institutions"
+titre = "Limites légales à la concentration capitalistique des médias"
+citation = "limites fixées par la loi à la concentration capitalistique."
+version = "v1"
+page = 81
+
+[[mesures]]
+id = "institutions-haute-fonction-publique"
+sujet = "institutions"
+titre = "Passerelles régulées entre haute fonction publique, privé, collectivités et recherche"
+citation = "restaurer la vocation de service ; moderniser par des passerelles régulées avec le secteur privé, les collectivités, le monde associatif et la recherche."
+version = "v1"
+page = 81
+
+[[mesures]]
+id = "institutions-decentralisation"
+sujet = "institutions"
+titre = "Décentralisation : clarifier la répartition des compétences"
+citation = "refonder la territorialité de la République, clarifier qui fait quoi, faire confiance aux territoires et aux citoyens et associations qui font la vie locale."
+version = "v1"
+page = 81
+
+[[mesures]]
+id = "institutions-simplification-normes"
+sujet = "institutions"
+titre = "Deux normes supprimées pour une norme créée"
+citation = "revue systématique des normes, avec obligation de compensation : deux normes supprimées pour une norme créée."
+version = "v1"
+page = 81
+
+[[mesures]]
+id = "impots-fiscalite-capital"
+sujet = "pouvoir-achat-impots"
+titre = "Fiscalité des très grandes fortunes et des revenus du capital ; baisse des impôts de production"
+citation = "fiscalité atteignant réellement les très grandes fortunes, les plus hauts revenus du capital et les rentes ; rééquilibrage de la taxation entre travail et capital ; simplification de l’impôt : moins de dérogations, moins de niches ; baisse des impôts de production financée par une réduction des aides fiscales, au bénéfice de toute la chaîne productive (ETI, PME, TPE)"
+version = "v1"
+page = 81
+
+[[mesures]]
+id = "emploi-reindustrialisation"
+sujet = "emploi-travail"
+titre = "Plan de réindustrialisation sur dix ans"
+citation = "plan de réindustrialisation sur dix ans : filières stratégiques sécurisées par l’État, règles stables, incitations fiscales ciblées sur la recherche et les investissements productifs"
+version = "v1"
+page = 82
+
+[[mesures]]
+id = "energie-nucleaire-electrification"
+sujet = "climat-energie"
+titre = "Renouvellement du parc nucléaire, électrification des usages, sortie des énergies fossiles"
+citation = "énergie : filière électronucléaire assumée, renouvellement du parc planifié, rationalisation des renouvelables, électrification des usages, émancipation des énergies fossiles"
+version = "v1"
+page = 82
+
+[[mesures]]
+id = "climat-plan-ecole-climat-solidarite"
+sujet = "climat-energie"
+titre = "Plan École-Climat-Solidarité : rénovation des établissements scolaires sur dix ans"
+citation = "Plan École-Climat-Solidarité : un engagement sur dix ans pour des établissements scolaires rénovés, écologiques et modernes, aux cours désimperméabilisées et plantées en îlots de fraîcheur ouverts au quartier"
+version = "v1"
+page = 82
+
+[[mesures]]
+id = "climat-datar"
+sujet = "climat-energie"
+titre = "Une DATAR du climat rattachée au Premier ministre"
+citation = "une DATAR du climat rattachée au Premier ministre, chargée de cartographier les vulnérabilités de chaque région et d’ordonner dans la durée l’effort public, coordonné avec l’investissement privé."
+version = "v1"
+page = 83
+
+[[mesures]]
+id = "education-enseignants-savoirs"
+sujet = "education"
+titre = "Formation et rémunération des enseignants ; philosophie dès la Seconde"
+citation = "des enseignants mieux formés, mieux payés, mieux considérés ; les savoirs du siècle, éthique des données, esprit critique dès le collège, philosophie dès la Seconde ; retour aux Humanités et effort égal pour les sciences et les mathématiques"
+version = "v1"
+page = 83
+
+[[mesures]]
+id = "education-aides-etudiants-jeunes"
+sujet = "education"
+titre = "2 000 € de plus par étudiant boursier, avance jeunesse de 3 000 € pour les 18-24 ans"
+citation = "simplification et rationalisation du labyrinthe des aides ; au moins 2 000 € d’aide supplémentaire pour chaque étudiant boursier au cours de ses deux premières années ; avance jeunesse de 3 000 € pour les 18-24 ans sans diplôme ni emploi, sous conditions de ressources, que les collectivités territoriales pourront compléter."
+version = "v1"
+page = 83
+
+[[mesures]]
+id = "emploi-transitions-professionnelles"
+sujet = "emploi-travail"
+titre = "Protection des transitions professionnelles, apprentissage, CDI pour les jeunes"
+citation = "protection des transitions professionnelles, à la manière scandinave, et formation tout au long de la vie ; apprentissage généralisé dès le premier cycle universitaire ; encadrement du recours abusif aux stages ; CDI redevenu la norme pour les jeunes"
+version = "v1"
+page = 83
+
+[[mesures]]
+id = "international-defense"
+sujet = "europe-international"
+titre = "Réarmement, industrie de défense consolidée, coopérations européennes"
+citation = "réarmement à proportion de la menace, moyens rendus aux forces ; industrie de défense consolidée, coopérations européennes planifiées, préférence aux productions nationales et continentales ; dans l’OTAN sans rien y abdiquer, pour l’Europe de la défense sans prétendre s’y substituer"
+version = "v1"
+page = 84
+
+[[mesures]]
+id = "international-multilateralisme"
+sujet = "europe-international"
+titre = "Réforme du Conseil de sécurité des Nations unies"
+citation = "défense de l’ordre international fondé sur le droit ; réforme du Conseil de sécurité des Nations unies ; nouveau partenariat, débarrassé du paternalisme, avec les pays du Sud global."
+version = "v1"
+page = 84
+
+[[mesures]]
+id = "europe-majorite-qualifiee"
+sujet = "europe-international"
+titre = "Europe : politique industrielle commune, fin de la règle de l’unanimité"
+citation = "réforme budgétaire et politique industrielle commune ; doctrine de la concurrence moins dogmatique et approche commerciale moins naïve ; défense crédible ; politique migratoire pensée à l’échelle du continent ; fin de la règle de l’unanimité au profit des décisions à la majorité."
+version = "v1"
+page = 84
+
+[[mesures]]
+id = "immigration-trois-principes"
+sujet = "immigration"
+titre = "Droit d’asile, intégration, lutte contre l’immigration irrégulière"
+citation = "humanité : le droit d’asile, engagement de civilisation ; intégration : apprendre le français, respecter les lois communes et l’égalité entre les femmes et les hommes ; fermeté : lutte sans faiblesse contre l’immigration irrégulière et démantèlement des filières criminelles."
+version = "v1"
+page = 84
+
+[[mesures]]
+id = "pouvoir-achat-logique-ensemble"
+sujet = "pouvoir-achat-impots"
+titre = "Pouvoir d’achat : travail, loyer, énergie, services publics, fiscalité"
+citation = "refus de la formule magique ; reconstruction par une logique d’ensemble : un travail qui paie, un loyer qui laisse vivre, une facture d’énergie maîtrisée, des services publics qui allègent les dépenses contraintes, une fiscalité qui cesse de peser au mauvais endroit, et une vaste relance ancrée dans le plan École-Climat-Solidarité."
+version = "v1"
+page = 85

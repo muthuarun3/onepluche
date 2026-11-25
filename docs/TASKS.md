@@ -128,14 +128,16 @@ fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugemen
   facultatif `DEMO_PING_PROGRAMMES`, tableau sur `/sources`. *Critère :* un changement
   d'empreinte alerte (`tests/test_programmes_veille.py`) ; première veille réelle sur le
   serveur.
-- [~] **P3. Écrans** (PR en cours) — `/programmes`, `/programmes/{candidat}`,
-  `/programmes/comparer?sujet=`, `/api/v1/programmes` et `/api/v1/programmes/{candidat}`,
-  migration 048 (vue `api.rubrique`, pour relier chaque chiffre de contexte à son appli),
-  titre « Programmes » dans la barre latérale, deux cartes sur l'accueil, vitrine.
-  *Critère :* critères 1, 3 et 5 de l'étape 8 du dossier (`tests/test_programmes_pages.py`,
-  captures 1280 et 390 px).
-- [ ] **P4. Premier vrai programme** — fiche du premier candidat déclaré qui a publié un texte,
-  relue par Muthu. *Critère :* critère 6 ; veille sans erreur deux lundis de suite.
+- [x] **P3. Écrans** (PR #59, intégrée et fusionnée via #60) — `/programmes`,
+  `/programmes/{candidat}`, `/programmes/comparer?sujet=`, `/api/v1/programmes` et
+  `/api/v1/programmes/{candidat}`, migration 048 (vue `api.rubrique`, pour relier chaque chiffre
+  de contexte à son appli), titre « Programmes » dans la barre latérale, deux cartes sur
+  l'accueil, vitrine. *Critère :* critères 1, 3 et 5 de l'étape 8 du dossier
+  (`tests/test_programmes_pages.py`, captures 1280 et 390 px).
+- [~] **P4. Premier vrai programme** — fiche du premier candidat déclaré qui a publié un texte,
+  relue par Muthu. *Critère :* critère 6 ; veille sans erreur deux lundis de suite. Choix de
+  Muthu (25/11/2026) : lettre de Bernard Cazeneuve du 15 juillet 2026
+  (`programmes/2027/cazeneuve-bernard.toml`, 29 mesures citées, ajoutée à `suivis.toml`).
 - [ ] **P5 et suivantes** — une PR par programme ou nouvelle version ; mars 2027 : liste du
   Conseil constitutionnel (statuts, ordre officiel) ; avril 2027 : professions de foi.
 
