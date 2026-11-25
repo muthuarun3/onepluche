@@ -57,6 +57,12 @@ QUESTIONS = (
         "garde d'enfants.",
     },
     {
+        "titre": "Comment vivent les Français ?",
+        "lien": "/vivre",
+        "resume": "Revenus et salaires, pouvoir d'achat, inégalités, RSA et aides au logement, "
+        "épargne et surendettement, patrimoine, retraites.",
+    },
+    {
         "titre": "Où va l'argent public ?",
         "lien": "/argent-public",
         "resume": "Dépenses, recettes, déficit et dette ; le budget de l'État mois par mois et "

@@ -83,7 +83,7 @@ par thème (Accès / Coût / Manque, comparé à la France), page thème (carte 
 Six questions guidées, par exemple « Combien d'années de niveau de vie faut-il pour acheter
 60 m² dans mon département ? ».
 
-### Appli 3 — « Comment vivent les Français ? » (`/vivre`, en construction)
+### Appli 3 — « Comment vivent les Français ? » (`/vivre`, en ligne)
 
 Ce que gagnent les Français, ce que leur argent permet d'acheter, l'écart entre les plus
 aisés et les plus modestes, ce qu'ils mettent de côté. Sept thèmes : revenus, pouvoir

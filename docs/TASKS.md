@@ -192,18 +192,21 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/NoW5Wi
   (enquête 2024 par âge, catégorie et décile de niveau de vie ; placements financiers) ;
   pension moyenne lue avec les retraités (`demo importer retraites`). *Critère :* taux
   d'épargne 2025 = 17,9 % (provisoire) ; fichiers complets lus sans rejet.
-- [~] **B. CAF et Banque de France** — migration 047 (sources `CNAF` et `BDF_SUREN`, unité
+- [x] **B. CAF et Banque de France** — migration 047 (sources `CNAF` et `BDF_SUREN`, unité
   `pour_100000`, modalités `logement_aide` et `type_dette`, neuf indicateurs), `caf.py` (RSA
   et aides au logement de décembre depuis 2016, dans `demo importer vivre`),
   `surendettement.py` (13 XLSX régionaux de l'enquête typologique, groupe à part
   `demo importer surendettement`), vue `stat.vivre_derives` ajoutée à `api.serie` (foyers au
   RSA pour 1 000 habitants, dossiers pour 100 000 habitants, aide au logement moyenne, écart
   de salaire femmes-hommes). *Critère :* fichiers complets CAF publiés sans rejet (101
-  départements) ; Creuse 319 dossiers, endettement médian 16 556 € (2025). Reste : import
-  Banque de France à vérifier depuis le serveur (le site refuse l'agent d'import depuis le
-  cloud).
-- [ ] **C. Pages `/vivre`** — vue France, fiche département, page thème, six questions
-  guidées ; accueil, barre latérale, APP_FLOW, DESIGN, vitrine ; sept critères du dossier.
+  départements) ; Creuse 319 dossiers, endettement médian 16 556 € (2025). Import Banque de France
+  vérifié depuis le serveur le 25/11 (le site refuse l'agent d'import depuis le cloud).
+- [x] **C. Pages `/vivre`** — `web/vivre.py`, gabarits `vivre.html` (vue France et fiche
+  département, mêmes blocs) et `vivre_theme.html` (carte, classement, rang de mon
+  département) ; quatre chiffres en tête, six questions guidées (année de départ du pouvoir
+  d'achat et catégorie socioprofessionnelle choisies dans des listes) ; accueil, barre
+  latérale, vitrine, APP_FLOW, DESIGN. *Critère :* Creuse 23 210 € (niveau de vie médian),
+  37 240 € et 12 380 € (D9, D1) ; pages sans défilement horizontal à 1 280 et 390 px.
 
 ### Appli « Comment travaillent les Français ? »
 

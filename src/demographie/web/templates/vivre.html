@@ -1,0 +1,451 @@
+{% extends "base.html" %}
+{% from "_carte.html" import choix_territoire %}
+{% macro courbe(donnees, libelle, unite="nombre") -%}
+{% if donnees %}<div class="courbe" role="img" aria-label="{{ libelle }}" data-unite="{{ unite }}" data-courbe='{{ donnees|tojson }}'></div>{% endif %}
+{%- endmacro %}
+{% macro source(code) -%}{% set d = definitions.get(code) %}
+{% if d %}<p class="source">Source : <a href="{{ d.source_url }}" rel="noopener">{{ d.source_libelle }}</a>, {{ d.source_licence }}.{% if d.formule and d.formule.startswith("calcul On épluche") %} <span class="calcul">C{{ d.formule[1:] }}.</span>{% endif %}{% if d.avertissement %} {{ d.avertissement }}{% endif %}</p>{% endif %}
+{%- endmacro %}
+{% macro rang(code) -%}{% set r = rangs.get(code) %}
+{% if fiche and r %} · rang <strong>{{ r.rang }}</strong> sur {{ r.classes }}{% endif %}
+{%- endmacro %}
+{% macro rang_phrase(code) -%}{% set r = rangs.get(code) %}
+{% if fiche and r %} Rang <strong>{{ r.rang }}</strong> sur {{ r.classes }} départements.{% endif %}
+{%- endmacro %}
+{% macro france(ligne, unite) -%}
+{% if fiche and ligne and ligne.france %}France{% if ligne.france.code == "FM" %} métropolitaine{% endif %} : {{ ligne.france.valeur|vivre_valeur(unite) }}{% endif %}
+{%- endmacro %}
+{% macro barres(liste, titre, unite, avec_france=false) %}
+<figure class="barres">
+  {% if titre %}<figcaption>{{ titre }}</figcaption>{% endif %}
+  <ul>
+    {% for b in liste %}
+    <li title="{{ b.libelle }} : {{ b.valeur|vivre_valeur(unite) }}{% if avec_france and b.france is not none %} (France : {{ b.france|vivre_valeur(unite) }}){% endif %}">
+      <span class="barre-libelle">{{ b.libelle }}</span>
+      <span class="barre-piste"><span class="barre" style="width: {{ '%.1f'|format(b.largeur) }}%"></span></span>
+      <span class="barre-valeur">{{ b.valeur|vivre_valeur(unite) }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</figure>
+{% endmacro %}
+{% block titre %}{% if fiche %}{{ fiche.libelle }} : comment on y vit{% else %}Comment vivent les Français ?{% endif %} · On épluche{% endblock %}
+{% block contenu %}
+{% set ici = fiche.libelle if fiche else "France" %}
+{% set ici_fm = fiche.libelle if fiche else "France métropolitaine" %}
+{% if fiche %}
+<nav class="fil" aria-label="Fil d'Ariane">
+  <a href="/vivre">Comment vivent les Français ?</a> › {{ fiche.libelle }}
+</nav>
+<h1>{{ fiche.libelle }} <span class="niveau">Département {{ fiche.code }}</span></h1>
+<p class="intro">Ce que gagnent les habitants, l'écart entre les plus aisés et les plus
+  modestes, d'où vient leur revenu, qui touche le RSA ou une aide au logement, comparés à la
+  France (rang 1 : la valeur la plus élevée des départements). Le pouvoir d'achat, l'épargne
+  et le patrimoine ne sont mesurés que pour la France.</p>
+{% else %}
+<h1>Comment vivent les Français&nbsp;?</h1>
+<p class="intro">Ce que gagnent les Français, ce que leur argent permet d'acheter, l'écart
+  entre les plus aisés et les plus modestes, ce qu'ils mettent de côté et ce qu'ils
+  possèdent. Les chiffres viennent de l'INSEE, de la DREES, des CAF et de la Banque de
+  France ; chacun porte sa source et son année.</p>
+{% endif %}
+
+{% if not avec_donnees %}
+<p class="bandeau">{% if fiche %}Pas encore de chiffre sur les revenus pour ce département.{% else %}Les chiffres des revenus ne sont pas encore importés.{% endif %}</p>
+{% endif %}
+
+{% if chiffres_tete %}
+<div class="chiffres">
+  {% for c in chiffres_tete %}
+  <div class="chiffre">
+    <div class="chiffre-libelle">{{ c.libelle }}</div>
+    <div class="chiffre-valeur">{{ c.valeur|vivre_valeur(c.unite) }}</div>
+    <div class="chiffre-note">{{ c.note }}{% if c.rang %} · rang {{ c.rang.rang }} sur {{ c.rang.classes }}{% endif %}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<section class="bloc questions-guidees">
+  <h2>Questions guidées</h2>
+  <ul>
+    {% for titre, ancre in questions %}<li><a href="#{{ ancre }}">{{ titre }}</a></li>{% endfor %}
+  </ul>
+  {% if not fiche %}<p class="muet">Les réponses ci-dessous portent sur la France ;
+    <a href="#choix-titre">choisissez un département</a> pour les siennes.</p>{% endif %}
+</section>
+
+<h2 class="titre-partie">Revenus <a class="lien-theme" href="/vivre/theme/revenus">Comparer les départements</a></h2>
+<div class="blocs">
+  <section class="bloc" id="revenus">
+    <h2>Combien gagne-t-on {% if fiche %}ici {% endif %}par rapport à la France ?</h2>
+    {% set r = revenus %}
+    {% if r %}
+    {% if r.niveau_vie %}{% set n = r.niveau_vie %}
+    <p class="phrase">{{ ici_fm }} : la moitié des habitants a un niveau de vie inférieur à
+      <strong class="grand">{{ n.valeur|vivre_valeur("euros") }}</strong> par an en {{ n.annee }}{% if fiche and n.france %},
+      contre {{ n.france.valeur|vivre_valeur("euros") }} en France{% if n.france.code == "FM" %} métropolitaine{% endif %}
+      ({{ (n.valeur - n.france.valeur)|ecart_signe("euros") }}){% endif %}.{{ rang_phrase("NIVEAU_VIE_MEDIAN") }}</p>
+    <p class="muet">Le niveau de vie est le revenu disponible du ménage (après impôts et
+      prestations) divisé par le nombre d'unités de consommation : 1 pour le premier adulte,
+      0,5 pour chaque autre personne de 14 ans ou plus, 0,3 pour chaque enfant.</p>
+    {% endif %}
+    {% if r.salaire %}{% set s = r.salaire %}
+    <p class="detail">Salaire net moyen d'un emploi à temps plein dans le secteur privé :
+      <strong>{{ s.valeur|vivre_valeur("euros") }}</strong> par mois en {{ s.annee }}{% if fiche and s.france %}
+      (France : {{ s.france.valeur|vivre_valeur("euros") }}){% endif %}.{{ rang_phrase("SALAIRE_NET_MOYEN") }}</p>
+    {% endif %}
+    {% if r.ages %}
+    <h3>Niveau de vie médian selon l'âge de la personne de référence du ménage</h3>
+    <ul class="mesures">
+      {% for a in r.ages %}
+      <li><span class="mesure-libelle">{{ (a.age_min, a.age_max)|tranche_tuple|capitalize }}</span>
+        <span class="mesure-valeur">{{ a.valeur|vivre_valeur("euros") }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if r.courbe_salaire %}
+    <h3>Salaire moyen du privé depuis {{ r.salaire_1996.annee }}, en euros de {{ r.salaire_serie.annee }}</h3>
+    <p class="detail">{{ r.salaire_serie.valeur|vivre_valeur("euros") }} par mois en
+      {{ r.salaire_serie.annee }}, contre {{ r.salaire_1996.valeur|vivre_valeur("euros") }} en
+      {{ r.salaire_1996.annee }} à prix de {{ r.salaire_serie.annee }}.</p>
+    {{ courbe(r.courbe_salaire, "Salaire net moyen du privé en euros constants") }}
+    {{ source("SALAIRE_PRIVE_SERIE") }}
+    {% endif %}
+    {{ source("NIVEAU_VIE_MEDIAN") }}
+    {{ source("SALAIRE_NET_MOYEN") }}
+    {% else %}<p class="muet">Pas de niveau de vie ni de salaire publié{% if fiche %} pour ce département{% endif %}.</p>{% endif %}
+  </section>
+
+  <section class="bloc" id="salaires">
+    <h2>Quel est l'écart de salaire entre femmes et hommes ?</h2>
+    {% set s = salaires %}
+    {% if s and s.choisie %}{% set c = s.choisie %}
+    <form class="choix-indicateur" method="get" action="{{ adresse }}#salaires">
+      <label for="categorie">Catégorie</label>
+      <select id="categorie" name="categorie">
+        {% for k in s.categories %}<option value="{{ k.code }}"{% if k.code == c.code %} selected{% endif %}>{{ k.libelle }}</option>{% endfor %}
+      </select>
+      <input type="hidden" name="depuis" value="{{ pouvoir_achat.depuis if pouvoir_achat else 2000 }}">
+      <button type="submit">Afficher</button>
+    </form>
+    <p class="phrase">{{ ici }} : en {{ s.annee }}, dans la catégorie « {{ c.libelle }} », les
+      femmes gagnent en moyenne <strong>{{ c.F|vivre_valeur("euros") }}</strong> net par mois à
+      temps plein, les hommes {{ c.H|vivre_valeur("euros") }} :
+      <strong class="grand">{{ c.ecart|vivre_valeur("pourcentage") }}</strong> de moins pour les femmes.</p>
+    {% if s.ecart is not none %}
+    <p class="detail">Toutes catégories confondues : {{ s.ensemble.F|vivre_valeur("euros") }} pour les
+      femmes, {{ s.ensemble.H|vivre_valeur("euros") }} pour les hommes, soit
+      {{ s.ecart|vivre_valeur("pourcentage") }} d'écart{% if s.france %} (France :
+      {{ s.france.valeur|vivre_valeur("pourcentage") }}){% endif %}.{{ rang_phrase("ECART_SALAIRE_FEMMES_HOMMES") }}</p>
+    {% endif %}
+    <details class="autres">
+      <summary>Toutes les catégories</summary>
+      <div class="tableau-defilant">
+        <table>
+          <thead><tr><th>Catégorie</th><th>Femmes</th><th>Hommes</th><th>Écart</th></tr></thead>
+          <tbody>
+            {% for k in s.categories %}
+            <tr><th scope="row">{{ k.libelle }}</th><td>{{ k.F|vivre_valeur("euros") }}</td>
+              <td>{{ k.H|vivre_valeur("euros") }}</td><td>{{ k.ecart|vivre_valeur("pourcentage") }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <p class="muet">L'écart moyen mêle les différences de métier, de poste et d'âge : il ne
+      mesure pas l'écart à poste égal.</p>
+    {{ source("ECART_SALAIRE_FEMMES_HOMMES") }}
+    {% else %}<p class="muet">Pas de salaire par sexe et catégorie publié{% if fiche %} pour ce département{% endif %}.</p>{% endif %}
+  </section>
+
+  <section class="bloc" id="parts-revenu">
+    <h2>D'où vient le revenu des habitants ?</h2>
+    {% set p = parts_revenu %}
+    {% if p %}
+    <p class="phrase">{{ ici_fm }} : en {{ p.annee }},
+      {% if p.pensions %}<strong class="grand">{{ p.pensions.valeur|vivre_valeur("pourcentage") }}</strong>
+      du revenu disponible vient des pensions et retraites{% endif %}{% if p.salaires %},
+      {{ p.salaires.valeur|vivre_valeur("pourcentage") }} des salaires{% endif %}{% if p.prestations %}
+      et {{ p.prestations.valeur|vivre_valeur("pourcentage") }} des prestations sociales{% endif %}.
+      {% if p.impots %}Les impôts directs en retirent {{ p.impots.valeur|vivre_valeur("pourcentage") }}.{% endif %}</p>
+    {{ barres(p.elements, "Part du revenu disponible, en %", "pourcentage", true) }}
+    {% if fiche %}
+    <div class="tableau-defilant">
+      <table>
+        <thead><tr><th>Ressource</th><th>{{ fiche.libelle }}</th><th>France</th></tr></thead>
+        <tbody>
+          {% for e in p.elements %}
+          <tr><th scope="row">{{ e.libelle }}</th><td>{{ e.valeur|vivre_valeur("pourcentage") }}</td>
+            <td>{{ e.france|vivre_valeur("pourcentage") }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+    <p class="muet">Les revenus d'activité comprennent les salaires et les revenus des
+      indépendants ; les prestations sociales, les allocations familiales, les minima
+      sociaux et les aides au logement. Les parts dépassent 100 % ensemble, car les impôts
+      viennent en moins.</p>
+    {{ source("PART_PENSIONS") }}
+    {% else %}<p class="muet">La composition du revenu n'est pas publiée{% if fiche %} pour ce département{% endif %}.</p>{% endif %}
+  </section>
+</div>
+
+<h2 class="titre-partie">Pouvoir d'achat</h2>
+<div class="blocs">
+  <section class="bloc" id="pouvoir-achat">
+    <h2>Le pouvoir d'achat a-t-il augmenté ?</h2>
+    {% set p = pouvoir_achat %}
+    {% if p %}
+    <form class="choix-indicateur" method="get" action="{{ adresse }}#pouvoir-achat">
+      <label for="depuis">Depuis</label>
+      <select id="depuis" name="depuis">
+        {% for a in p.choix|reverse %}<option value="{{ a }}"{% if a == p.depuis %} selected{% endif %}>{{ a }}</option>{% endfor %}
+      </select>
+      {% if salaires and salaires.choisie %}<input type="hidden" name="categorie" value="{{ salaires.choisie.code }}">{% endif %}
+      <button type="submit">Afficher</button>
+    </form>
+    <p class="phrase">Entre {{ p.depuis }} et {{ p.jusqu_a }}, le pouvoir d'achat par unité de
+      consommation a {% if p.cumul >= 0 %}augmenté{% else %}baissé{% endif %} de
+      <strong class="grand">{{ p.cumul|abs|vivre_valeur("pourcentage") }}</strong>, soit
+      {{ p.par_an|vivre_valeur("evolution") }} par an en moyenne.{% if fiche %} C'est un chiffre national.{% endif %}</p>
+    <p class="detail">Sur la dernière année ({{ p.derniere.annee }}{% if p.derniere.provisoire %}, provisoire{% endif %}) :
+      {{ p.derniere.valeur|vivre_valeur("evolution") }}.{% if p.provisoires %} Années provisoires :
+      {{ p.provisoires|join(", ") }}.{% endif %}</p>
+    {{ courbe(p.courbe, "Évolution annuelle du pouvoir d'achat par unité de consommation, en %", "pourcentage") }}
+    <p class="muet">Le pouvoir d'achat suit le revenu disponible de l'ensemble des ménages,
+      corrigé de la hausse des prix et du nombre de ménages ; il ne dit rien d'un ménage en
+      particulier. {% if p.revenu %}Revenu disponible brut des ménages en {{ p.revenu.annee }} :
+      {{ p.revenu.valeur|vivre_valeur("millions_euros") }}.{% endif %}</p>
+    <p class="muet"><a href="/besoins#prix">La hausse des prix depuis 2015, poste par poste</a></p>
+    {{ source("POUVOIR_ACHAT_UC") }}
+    {% else %}<p class="muet">Les comptes des ménages ne sont pas encore importés.</p>{% endif %}
+  </section>
+</div>
+
+<h2 class="titre-partie">Inégalités <a class="lien-theme" href="/vivre/theme/inegalites">Comparer les départements</a></h2>
+<div class="blocs">
+  <section class="bloc" id="inegalites">
+    <h2>À partir de quel revenu fait-on partie des 10 % les plus aisés ?</h2>
+    {% set i = inegalites %}
+    {% if i %}
+    {% if i.NIVEAU_VIE_D9 and i.NIVEAU_VIE_D1 %}
+    <p class="phrase">{{ ici_fm }} : en {{ i.NIVEAU_VIE_D9.annee }}, les
+      10 % les plus aisés ont un niveau de vie supérieur à
+      <strong class="grand">{{ i.NIVEAU_VIE_D9.valeur|vivre_valeur("euros") }}</strong> par an. Les
+      10 % les plus modestes ont moins de <strong>{{ i.NIVEAU_VIE_D1.valeur|vivre_valeur("euros") }}</strong>.</p>
+    {% if fiche %}<p class="detail">{{ france(i.NIVEAU_VIE_D9, "euros") }} pour les plus aisés,
+      {{ i.NIVEAU_VIE_D1.france.valeur|vivre_valeur("euros") if i.NIVEAU_VIE_D1.france else "—" }} pour les plus modestes.</p>{% endif %}
+    {% endif %}
+    <ul class="mesures">
+      {% for code, libelle, unite in (("RAPPORT_D9_D1", "Rapport D9/D1 (plus aisés / plus modestes)", "ratio"),
+                                      ("TAUX_PAUVRETE", "Taux de pauvreté (moins de 60 % du niveau de vie médian)", "pourcentage"),
+                                      ("INDICE_GINI", "Indice de Gini (0 : égalité parfaite, 1 : un seul a tout)", "ratio")) %}
+      {% set l = i[code] %}{% if l %}
+      <li><span class="mesure-libelle">{{ libelle }}</span>
+        <span class="mesure-valeur">{{ l.valeur|vivre_valeur(unite) }}</span>
+        <span class="mesure-note">{{ l.annee }}{% if fiche and l.france %} · {{ france(l, unite) }}{% endif %}{{ rang(code) }}</span></li>
+      {% endif %}{% endfor %}
+    </ul>
+    {% if i.courbes %}
+    <h3>Depuis 1996, en France métropolitaine</h3>
+    {{ courbe(i.courbes.rapport, "Rapport D9/D1 depuis 1996") }}
+    {{ courbe(i.courbes.pauvrete, "Taux de pauvreté depuis 1996, en %", "pourcentage") }}
+    <details class="autres">
+      <summary>Niveau de vie médian et indice de Gini depuis 1996</summary>
+      {{ courbe(i.courbes.mediane, "Niveau de vie médian depuis 1996, en euros de la dernière année") }}
+      {{ courbe(i.courbes.gini, "Indice de Gini depuis 1996") }}
+    </details>
+    {{ source("RAPPORT_D9_D1_SERIE") }}
+    {% endif %}
+    {{ source("NIVEAU_VIE_D9") }}
+    {% else %}<p class="muet">Les déciles de niveau de vie ne sont pas publiés{% if fiche %} pour ce département{% endif %}.</p>{% endif %}
+  </section>
+</div>
+
+<h2 class="titre-partie">Aides au logement et RSA <a class="lien-theme" href="/vivre/theme/aides-logement">Comparer les départements</a></h2>
+<div class="blocs">
+  <section class="bloc" id="aides">
+    <h2>Combien de foyers touchent le RSA ou une aide au logement ?</h2>
+    {% set a = aides %}
+    {% if a %}
+    {% if a.rsa %}
+    <p class="phrase">{{ ici }} : en décembre {{ a.rsa.annee }},
+      <strong class="grand">{{ a.rsa.valeur|vivre_valeur("nombre") }}</strong> foyers touchaient le
+      RSA{% if a.rsa_1000 %}, soit <strong>{{ a.rsa_1000.valeur|vivre_valeur("ratio") }}</strong> foyers
+      pour 1 000 habitants{% if a.rsa_1000.annee != a.rsa.annee %} en décembre {{ a.rsa_1000.annee }}{% endif %}{% if a.rsa_1000_france %}
+      (France : {{ a.rsa_1000_france.valeur|vivre_valeur("ratio") }}){% endif %}{% endif %}.{{ rang_phrase("FOYERS_RSA_POUR_1000") }}</p>
+    {% endif %}
+    {% if a.logement %}
+    <p class="detail"><strong>{{ a.logement.valeur|vivre_valeur("nombre") }}</strong> foyers recevaient
+      une aide au logement en décembre {{ a.logement.annee }}{% if a.al_1000 %}, soit
+      <strong>{{ a.al_1000|vivre_valeur("ratio") }}</strong> pour 1 000 habitants{% if a.al_1000_france %}
+      (France : {{ a.al_1000_france|vivre_valeur("ratio") }}){% endif %}{% endif %}{% if a.moyenne %}, pour
+      {{ a.moyenne.valeur|vivre_valeur("euros") }} par mois en moyenne{% if a.moyenne_france %}
+      (France : {{ a.moyenne_france.valeur|vivre_valeur("euros") }}){% endif %}{% endif %}.</p>
+    {% endif %}
+    {% if a.types %}{{ barres(a.types, "Foyers aidés selon le logement", "nombre") }}{% endif %}
+    {{ courbe(a.courbe, "Foyers au RSA et aidés pour leur logement, en décembre") }}
+    {% set m = a.parts.PART_MINIMA_SOCIAUX %}{% set l = a.parts.PART_AIDES_LOGEMENT %}
+    {% if m or l %}<p class="detail">Part du revenu disponible des habitants{% if m %} : minima
+      sociaux {{ m.valeur|vivre_valeur("pourcentage") }}{% endif %}{% if l %}, aides au logement
+      {{ l.valeur|vivre_valeur("pourcentage") }}{% endif %} ({{ (m or l).annee }}).</p>{% endif %}
+    <p class="muet">Un foyer compte une ou plusieurs personnes. Allocataires des CAF
+      seulement : ceux de la MSA (agriculture) n'y sont pas. {% if a.al_1000 %}<span class="calcul">Foyers aidés pour
+      1 000 habitants : {{ a.formule_al }}.</span>{% endif %}</p>
+    {{ source("FOYERS_RSA_POUR_1000") }}
+    {{ source("AIDE_LOGEMENT_MOYENNE") }}
+    {% else %}<p class="muet">Les allocataires des CAF ne sont pas encore importés.</p>{% endif %}
+  </section>
+</div>
+
+<h2 class="titre-partie">Épargne et dettes <a class="lien-theme" href="/vivre/theme/surendettement">Comparer les départements</a></h2>
+<div class="blocs">
+  <section class="bloc" id="epargne">
+    <h2>Combien les ménages mettent-ils de côté ?</h2>
+    {% set e = epargne %}
+    {% if e and e.taux %}
+    <p class="phrase">En {{ e.taux.annee }}{% if e.taux.provisoire %} (provisoire){% endif %}, les
+      ménages ont épargné <strong class="grand">{{ e.taux.valeur|vivre_valeur("pourcentage") }}</strong>
+      de leur revenu disponible{% if e.taux_2000 %}, contre {{ e.taux_2000.valeur|vivre_valeur("pourcentage") }}
+      en {{ e.taux_2000.annee }}{% endif %}.{% if fiche %} C'est un chiffre national.{% endif %}</p>
+    {% if e.financiere %}<p class="detail">Épargne financière (placements, remboursements
+      d'emprunts déduits) : {{ e.financiere.valeur|vivre_valeur("pourcentage") }}.</p>{% endif %}
+    {{ courbe(e.courbe, "Taux d'épargne des ménages depuis 1996, en %", "pourcentage") }}
+    {{ source("TAUX_EPARGNE") }}
+    {% else %}<p class="muet">Les comptes des ménages ne sont pas encore importés.</p>{% endif %}
+  </section>
+
+  <section class="bloc" id="surendettement">
+    <h2>Combien de ménages sont surendettés ?</h2>
+    {% if e and e.dossiers %}{% set d = e.dossiers %}
+    <p class="phrase">{{ ici_fm }} : la Banque de France a traité
+      <strong class="grand">{{ d.valeur|vivre_valeur("nombre") }}</strong> dossiers de surendettement
+      en {{ d.annee }}{% if e.pour_100000 %}, soit {{ e.pour_100000.valeur|vivre_valeur("pour_100000") }}
+      habitants{% if fiche and e.pour_100000.france %} (France métropolitaine :
+      {{ e.pour_100000.france.valeur|vivre_valeur("pour_100000") }}){% endif %}{% endif %}.{{ rang_phrase("SURENDETTEMENT_POUR_100000") }}</p>
+    {% if e.endettement %}
+    <p class="detail">La moitié des ménages surendettés doit plus de
+      <strong>{{ e.endettement.valeur|vivre_valeur("euros") }}</strong>.{{ rang_phrase("ENDETTEMENT_MEDIAN") }}</p>
+    {% if e.familles %}
+    <ul class="mesures">
+      {% for f in e.familles %}
+      <li><span class="mesure-libelle">{{ f.libelle }}</span>
+        <span class="mesure-valeur">{{ f.valeur|vivre_valeur("euros") }}</span>
+        <span class="mesure-note">endettement médian des ménages qui en ont</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endif %}
+    <p class="muet">Un dossier traité n'est pas un dossier déposé : le chiffre suit aussi le
+      rythme des commissions. L'outre-mer, suivi par l'IEDOM, n'est pas compté.</p>
+    {{ source("DOSSIERS_SURENDETTEMENT") }}
+    {{ source("SURENDETTEMENT_POUR_100000") }}
+    {% else %}<p class="muet">Pas de chiffre de surendettement{% if fiche %} pour ce département{% endif %}.</p>{% endif %}
+  </section>
+</div>
+
+<h2 class="titre-partie">Patrimoine</h2>
+<div class="blocs">
+  <section class="bloc" id="patrimoine">
+    <h2>Que possèdent les ménages ?</h2>
+    {% set p = patrimoine %}
+    {% if p %}
+    {% if p.brut %}
+    <p class="phrase">En {{ p.brut.annee }}, un ménage possède en moyenne
+      <strong class="grand">{{ p.brut.valeur|vivre_valeur("euros") }}</strong> de patrimoine brut
+      (logement, placements, biens professionnels){% if p.net %}, mais la moitié des ménages
+      possède moins de {{ p.net.valeur|vivre_valeur("euros") }} une fois les emprunts déduits{% endif %}.{% if fiche %} C'est un chiffre national.{% endif %}</p>
+    {% if p.ages %}
+    <figure class="barres">
+      <figcaption>Patrimoine brut moyen selon l'âge de la personne de référence</figcaption>
+      <ul>
+        {% for b in p.ages %}
+        <li><span class="barre-libelle">{{ (b.age_min, b.age_max)|tranche_tuple|capitalize }}</span>
+          <span class="barre-piste"><span class="barre" style="width: {{ '%.1f'|format(b.largeur) }}%"></span></span>
+          <span class="barre-valeur">{{ (b.valeur / 1000)|round|int }}&nbsp;k€</span></li>
+        {% endfor %}
+      </ul>
+    </figure>
+    {% endif %}
+    {% if p.deciles %}
+    <details class="autres">
+      <summary>Selon le niveau de vie du ménage</summary>
+      <ul class="mesures">
+        {% for b in p.deciles %}
+        <li><span class="mesure-libelle">{{ b.libelle }}</span>
+          <span class="mesure-valeur">{{ b.valeur|vivre_valeur("euros") }}</span></li>
+        {% endfor %}
+      </ul>
+    </details>
+    {% endif %}
+    {{ source("PATRIMOINE_BRUT_MOYEN") }}
+    {% endif %}
+    {% if p.financier %}
+    <h3>Placements financiers des ménages, fin {{ p.financier.annee }} : {{ p.financier.valeur|vivre_valeur("millions_euros") }}</h3>
+    {% if p.placements %}
+    <ul class="mesures">
+      {% for b in p.placements %}
+      <li><span class="mesure-libelle">{{ b.libelle }}</span>
+        <span class="mesure-valeur">{{ b.valeur|vivre_valeur("millions_euros") }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {{ source("PATRIMOINE_FINANCIER") }}
+    {% endif %}
+    {% else %}<p class="muet">Le patrimoine n'est pas encore importé.</p>{% endif %}
+  </section>
+</div>
+
+<h2 class="titre-partie">Retraites <a class="lien-theme" href="/vivre/theme/retraites">Comparer les départements</a></h2>
+<div class="blocs">
+  <section class="bloc" id="retraites">
+    <h2>Combien touchent les retraités ?</h2>
+    {% set r = retraites %}
+    {% if r %}
+    {% if r.pension %}
+    <p class="phrase">En {{ r.pension.annee }}, un retraité touche en moyenne
+      <strong class="grand">{{ r.pension.valeur|vivre_valeur("euros") }}</strong> brut par mois, tous
+      régimes confondus{% if r.sexes.F and r.sexes.H %} : {{ r.sexes.F|vivre_valeur("euros") }} pour
+      les femmes, {{ r.sexes.H|vivre_valeur("euros") }} pour les hommes{% endif %}.{% if fiche %}
+      La pension moyenne n'est pas publiée par département.{% endif %}</p>
+    {% endif %}
+    <ul class="mesures">
+      {% if r.part %}<li><span class="mesure-libelle">Part des pensions dans le revenu des habitants</span>
+        <span class="mesure-valeur">{{ r.part.valeur|vivre_valeur("pourcentage") }}</span>
+        <span class="mesure-note">{{ r.part.annee }}{% if fiche and r.part.france %} · {{ france(r.part, "pourcentage") }}{% endif %}{{ rang("PART_PENSIONS") }}</span></li>{% endif %}
+      {% if r.minimum %}<li><span class="mesure-libelle">60 ans ou plus au minimum vieillesse</span>
+        <span class="mesure-valeur">{{ r.minimum.valeur|vivre_valeur("pourcentage") }}</span>
+        <span class="mesure-note">{{ r.minimum.annee }}{% if fiche and r.minimum.france %} · {{ france(r.minimum, "pourcentage") }}{% endif %}{{ rang("TAUX_MIN_VIEILLESSE_60P") }}</span></li>{% endif %}
+      {% if r.pensionnes and not fiche %}<li><span class="mesure-libelle">Retraités de droit direct</span>
+        <span class="mesure-valeur">{{ r.pensionnes.valeur|vivre_valeur("nombre") }}</span>
+        <span class="mesure-note">{{ r.pensionnes.annee }}</span></li>{% endif %}
+    </ul>
+    {{ source("PENSION_MOYENNE") }}
+    {% else %}<p class="muet">Les retraites ne sont pas encore importées.</p>{% endif %}
+  </section>
+</div>
+
+{% if not fiche %}
+{% call choix_territoire(choix, "Choisir un département",
+  "Touchez un département pour voir ses revenus, ses inégalités et ses aides.") %}
+<div class="regions">
+  {% for r in regions %}
+  <section class="region">
+    <h3>{{ r.libelle }}</h3>
+    <ul>
+      {% for d in departements.get(r.code, []) %}
+      <li><a href="/vivre/DEP/{{ d.code }}"><span class="code">{{ d.code }}</span><span class="nom">{{ d.libelle }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+{% endcall %}
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script src="/static/echarts.min.js"></script>
+<script src="/static/securite.js"></script>
+{% endblock %}
