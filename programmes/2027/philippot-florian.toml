@@ -1,0 +1,408 @@
+# Fiche relue par Muthu avant publication (dossier de conception, étape 6).
+# Texte : « Grandes orientations pour un projet patriote + le Frexit en 10 questions », édition
+# 2026-2027, livret du mouvement Les Patriotes présidé par Florian Philippot (règle de Muthu du
+# 25/11/2026 : le programme publié par le parti d'un candidat déclaré compte). Le livret n'est
+# pas daté : date retenue = dernière modification du PDF (24 septembre 2026), mis en ligne en
+# septembre 2026 d'après son adresse. Pages = numéros imprimés (le PDF met deux pages par feuille).
+#
+# Candidature déclarée le 9 mai 2026 (« Je suis candidat à l'élection présidentielle », Sud Radio,
+# 9 mai 2026).
+#
+# Propositions du livret non rangées faute de sujet dans la grille commune : agriculture (p. 5),
+# renationalisation des autoroutes et monopoles publics du rail (p. 6), Aide sociale à l'enfance
+# (p. 7), handicap (p. 9), protection animale et biodiversité (p. 10), souveraineté numérique et
+# intelligence artificielle (p. 11), outre-mer (p. 20), culture et patrimoine (p. 21), argent
+# liquide, identité numérique et pass sanitaire (p. 22). Les dix questions sur le Frexit
+# (p. 23 à 31) expliquent la sortie de l'UE sans mesure nouvelle.
+
+[candidat]
+id = "philippot-florian"
+prenom = "Florian"
+nom = "Philippot"
+parti = "Les Patriotes"
+statut = "declare"
+declare_le = 2026-05-09
+
+[[versions]]
+id = "v1"
+titre = "Grandes orientations pour un projet patriote, édition 2026-2027"
+url = "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+publie_le = 2026-09-24
+releve_le = 2026-11-25
+sha256 = "90d0748445644a433b594864cf553a03245739e07cb65672f01c1c0b49be6f83"
+
+[[mesures]]
+id = "europe-sortie-instances"
+sujet = "europe-international"
+titre = "Sortie de l’UE, de l’euro, de Schengen, de la CEDH, de l’OTAN et de l’OMS"
+citation = "La France doit retrouver sa souveraineté nationale en quittant toutes les instances supranationales : UE, Euro, Schengen, CEDH, OTAN, OMS."
+version = "v1"
+page = 2
+
+[[mesures]]
+id = "institutions-ineligibilite-corruption"
+sujet = "institutions"
+titre = "Inéligibilité à vie des élus condamnés définitivement pour corruption"
+citation = "Lutter activement contre la corruption. Mise en place de l’inéligibilité à vie et interdiction de toute charge publique pour les élus et responsables publics condamnés définitivement pour corruption."
+version = "v1"
+page = 2
+
+[[mesures]]
+id = "institutions-ric"
+sujet = "institutions"
+titre = "Référendum d’initiative citoyenne inscrit dans la Constitution ; révision constitutionnelle par référendum seulement"
+citation = "Créer le référendum d’initiative citoyenne (RIC) sur tout sujet et l’inscrire dans la Constitution. Ne permettre la révision de la Constitution que par référendum et donc supprimer la procédure de révision par le « Congrès »."
+version = "v1"
+page = 2
+
+[[mesures]]
+id = "energie-marche-europeen-electricite"
+sujet = "climat-energie"
+titre = "Sortie du marché européen de l’électricité"
+citation = "Quitter le marché européen de l’électricité. Les règles du marché européen de l’électricité ont été pensées pour nuire à la France afin que celle-ci ne profite pas de l’avantage compétitif que lui procure le nucléaire. C’est ce qui fait que le prix de l’électricité est indexé sur les prix du gaz et non sur le coût réel de production."
+version = "v1"
+page = 3
+
+[[mesures]]
+id = "energie-monopole-edf"
+sujet = "climat-energie"
+titre = "Retour au monopole public national d’EDF"
+citation = "Rétablir le monopole public national d’EDF."
+version = "v1"
+page = 3
+
+[[mesures]]
+id = "energie-eoliennes"
+sujet = "climat-energie"
+titre = "Moratoire sur les éoliennes et démantèlement des installations existantes"
+citation = "Il faut donc un moratoire total et définitif sur cette méthode de production d’électricité qui nous est là encore imposée par l’Union européenne. Il faut engager un plan de démantèlement des éoliennes installées et de recyclage des matériaux qui en sont issus."
+version = "v1"
+page = 3
+
+[[mesures]]
+id = "energie-barrages"
+sujet = "climat-energie"
+titre = "Barrages hydroélectriques maintenus hors de la concurrence"
+citation = "Empêcher la privatisation de fait de nos barrages électriques."
+version = "v1"
+page = 3
+
+[[mesures]]
+id = "climat-voiture-thermique"
+sujet = "climat-energie"
+titre = "Vente de voitures thermiques neuves autorisée après 2035"
+citation = "Préserver la voiture thermique au-delà de 2035."
+version = "v1"
+page = 3
+
+[[mesures]]
+id = "energie-nucleaire-hydroelectricite"
+sujet = "climat-energie"
+titre = "Plan d’investissement dans le nucléaire de nouvelle génération et l’hydroélectricité"
+citation = "Il faut non seulement préserver cet avantage stratégique, mais aussi le renforcer par un plan d’investissement massif dans le nucléaire de nouvelle génération et les infrastructures hydroélectriques."
+version = "v1"
+page = 10
+
+[[mesures]]
+id = "emploi-reindustrialisation"
+sujet = "emploi-travail"
+titre = "Réindustrialisation et filières industrielles stratégiques"
+citation = "Réindustrialiser l’économie française. Face à nos concurrents directs, la France doit recomposer son tissu industriel, car c’est lui qui génère le plus d’emplois induits dans les autres secteurs et qui crée la valeur ajoutée."
+version = "v1"
+page = 4
+
+[[mesures]]
+id = "europe-sortie-euro"
+sujet = "europe-international"
+titre = "Sortie de l’euro et nouvelle monnaie nationale"
+citation = "Reprendre la maîtrise de notre monnaie. La sortie de l’euro et l’instauration d’une nouvelle monnaie nationale est une condition absolue de notre bonne santé économique."
+version = "v1"
+page = 4
+
+[[mesures]]
+id = "emploi-protectionnisme"
+sujet = "emploi-travail"
+titre = "Planification économique et protectionnisme"
+citation = "Développer une planification économique souveraine et cohérente, en instaurant un protectionnisme intelligent qui protège nos industries tout en favorisant l’innovation."
+version = "v1"
+page = 4
+
+[[mesures]]
+id = "impots-createurs-tpe-pme"
+sujet = "pouvoir-achat-impots"
+titre = "Avantages sociaux et fiscaux pour les artisans, TPE et PME"
+citation = "Soutenir les créateurs en France : artisans, TPE/PME, par une politique sociale et fiscale très avantageuse, par des outils d’incitation au maintien et au retour en France, par une simplification drastique et réelle des procédures administratives."
+version = "v1"
+page = 4
+
+[[mesures]]
+id = "retraites-age-depart"
+sujet = "retraites"
+titre = "Baisse de l’âge de départ à la retraite"
+citation = "Baisser l’âge de départ à la retraite. Délivrée de la menace bruxelloise, la France pourra souverainement déterminer les conditions d’accession à la retraite et baisser l’âge de départ si les Français le désirent."
+version = "v1"
+page = 6
+
+[[mesures]]
+id = "sante-protection-sociale"
+sujet = "sante"
+titre = "Retour sur les réformes de l’assurance chômage, des lits d’hôpital et du remboursement des médicaments"
+citation = "Les réformes récentes, exigées par la Commission européenne, visant à raboter les indemnités chômage, à fermer des lits à l’hôpital ou à arrêter le remboursement des médicaments pourront être supprimées."
+version = "v1"
+page = 6
+
+[[mesures]]
+id = "justice-pedocriminalite"
+sujet = "securite-justice"
+titre = "Lutte contre la pédocriminalité en grande cause nationale, peines alourdies"
+citation = "Faire de la lutte contre la pédocriminalité une grande cause nationale. Les peines applicables aux pédocriminels doivent être alourdies et la castration chimique devenir automatique en cas de récidive."
+version = "v1"
+page = 7
+
+[[mesures]]
+id = "justice-antecedents-contact-mineurs"
+sujet = "securite-justice"
+titre = "Contrôle des antécédents judiciaires de tout adulte travaillant au contact de mineurs"
+citation = "Contrôler systématiquement les antécédents des adultes travaillant auprès des enfants. Toute personne appelée à exercer professionnellement ou bénévolement au contact régulier de mineurs (enseignants, personnels périscolaires, animateurs, éducateurs, personnels de structures d’accueil ou de santé) doit faire l’objet d’un contrôle préalable et périodique de ses antécédents judiciaires."
+version = "v1"
+page = 7
+
+[[mesures]]
+id = "sante-soins-proximite"
+sujet = "sante"
+titre = "Centres de santé locaux pour les soins courants et les urgences non vitales"
+citation = "Investir massivement dans les soins de proximité pour désengorger l’hôpital. Il est urgent de renforcer le maillage territorial en créant des centres de santé locaux dotés d’équipements modernes, capables de gérer les soins courants et les urgences non vitales."
+version = "v1"
+page = 8
+
+[[mesures]]
+id = "sante-suppression-ars"
+sujet = "sante"
+titre = "Suppression des agences régionales de santé"
+citation = "Il faut supprimer les ARS (Agences régionales de santé)."
+version = "v1"
+page = 8
+
+[[mesures]]
+id = "sante-conseil-ordre"
+sujet = "sante"
+titre = "Suppression du Conseil de l’Ordre"
+citation = "Il faut supprimer le Conseil de l’Ordre, aujourd’hui discrédité."
+version = "v1"
+page = 8
+
+[[mesures]]
+id = "sante-liberte-vaccinale"
+sujet = "sante"
+titre = "Liberté vaccinale pour les citoyens et les soignants"
+citation = "Assurer une liberté vaccinale pour tous les citoyens et les soignants. Aucune pression, discrimination ou menace ne doit peser sur ceux qui refusent un traitement médical, y compris un vaccin. Aucun soignant ne doit perdre son emploi pour avoir exercé ce droit élémentaire."
+version = "v1"
+page = 8
+
+[[mesures]]
+id = "sante-sortie-oms"
+sujet = "sante"
+titre = "Sortie de l’OMS et du Traité mondial sur les pandémies"
+citation = "Sortir de l’OMS et dénoncer le Traité mondial sur les pandémies."
+version = "v1"
+page = 8
+
+[[mesures]]
+id = "education-francais-primaire"
+sujet = "education"
+titre = "La moitié du temps scolaire en primaire consacrée au français"
+citation = "La moitié du temps scolaire en primaire doit être consacrée à la maîtrise du français."
+version = "v1"
+page = 12
+
+[[mesures]]
+id = "education-college-unique"
+sujet = "education"
+titre = "Fin du collège unique, parcours différenciés dès 14 ans"
+citation = "Il faut rompre avec le dogme du collège unique, qui nivelle par le bas, pour proposer dès 14 ans des parcours différenciés, y compris vers l’apprentissage."
+version = "v1"
+page = 12
+
+[[mesures]]
+id = "education-ecole-maison"
+sujet = "education"
+titre = "Retour sur les restrictions de l’instruction en famille"
+citation = "Revenir sur les restrictions instaurées par Emmanuel Macron contre la possibilité de « faire l’école à la maison »."
+version = "v1"
+page = 12
+
+[[mesures]]
+id = "depenses-contribution-ue"
+sujet = "depenses-dette"
+titre = "Fin de la contribution nette au budget de l’UE"
+citation = "Économiser 20 milliards d’euros par an par le Frexit."
+version = "v1"
+page = 13
+
+[[mesures]]
+id = "depenses-train-de-vie-etat"
+sujet = "depenses-dette"
+titre = "Réduction des dépenses des ministères non régaliens et suppression de structures"
+citation = "la solution devra d’abord venir d’une réduction du train de vie de l’Etat, ciblant les ministères « non régaliens » et les régimes spéciaux des élus de la République, d’une suppression des dépenses inutiles dans l’administration ou des aides mal employées ou mal ciblées, d’une suppression de structures inutiles (ex Arcom…)."
+version = "v1"
+page = 14
+
+[[mesures]]
+id = "depenses-dette-en-francs"
+sujet = "depenses-dette"
+titre = "Conversion en francs de la dette contractée en euros"
+citation = "En vertu de la Lex Monetae, la France pourra convertir en Francs la dette contractée en Euros, et honorer le service de la dette dans sa nouvelle monnaie."
+version = "v1"
+page = 15
+
+[[mesures]]
+id = "impots-principes-fiscaux"
+sujet = "pouvoir-achat-impots"
+titre = "Principes fiscaux : classes moyennes, indépendants et petites entreprises, grands groupes, petits héritages"
+citation = "Les grands principes fiscaux d’un projet patriote sont : le rétablissement de la justice fiscale pour soulager les classes moyennes, l’allègement des taxes et impôts pour les indépendants et les petites entreprises, la lutte contre l’optimisation fiscale des grands groupes, une moindre taxation des petits héritages"
+version = "v1"
+page = 16
+
+[[mesures]]
+id = "international-ukraine"
+sujet = "europe-international"
+titre = "Arrêt du soutien à la guerre en Ukraine"
+citation = "Cesser d’entretenir la guerre en Ukraine."
+version = "v1"
+page = 17
+
+[[mesures]]
+id = "international-otan"
+sujet = "europe-international"
+titre = "Sortie de l’OTAN"
+citation = "Quitter l’OTAN. Quitter l’OTAN est l’une des conditions de notre indépendance sur la scène internationale."
+version = "v1"
+page = 17
+
+[[mesures]]
+id = "international-armee-europeenne"
+sujet = "europe-international"
+titre = "Refus d’une armée européenne"
+citation = "Rejeter la création d’une armée européenne."
+version = "v1"
+page = 17
+
+[[mesures]]
+id = "international-dissuasion"
+sujet = "europe-international"
+titre = "Dissuasion nucléaire maintenue sous contrôle national"
+citation = "Conserver notre dissuasion nucléaire."
+version = "v1"
+page = 17
+
+[[mesures]]
+id = "immigration-flux-limites"
+sujet = "immigration"
+titre = "Flux migratoires très limités et reconduites à la frontière"
+citation = "L’objectif est de mettre un terme à la politique d’immigration massive en revenant à des flux extrêmement limités et en reconduisant aux frontières ceux qui n’ont rien à faire en France."
+version = "v1"
+page = 18
+
+[[mesures]]
+id = "immigration-schengen"
+sujet = "immigration"
+titre = "Sortie de l’espace Schengen et frontières nationales"
+citation = "Retrouver des frontières nationales en quittant l’espace Schengen et l’UE."
+version = "v1"
+page = 18
+
+[[mesures]]
+id = "immigration-frontex"
+sujet = "immigration"
+titre = "Dissolution de Frontex"
+citation = "Dissoudre Frontex."
+version = "v1"
+page = 18
+
+[[mesures]]
+id = "immigration-pacte-migratoire"
+sujet = "immigration"
+titre = "Sortie du Pacte européen sur la migration"
+citation = "Échapper au Pacte migratoire imposé par l’UE, qui nous oblige à répartir les migrants entre les pays sous peine de 20 000 euros d’amende par migrant refusé."
+version = "v1"
+page = 18
+
+[[mesures]]
+id = "immigration-cedh"
+sujet = "immigration"
+titre = "Sortie de la Cour européenne des droits de l’homme"
+citation = "Quitter la CEDH (Cour européenne des droits de l’homme)."
+version = "v1"
+page = 18
+
+[[mesures]]
+id = "immigration-oqtf"
+sujet = "immigration"
+titre = "Exécution des obligations de quitter le territoire"
+citation = "Renvoyer les clandestins chez eux et appliquer les OQTF (Obligation de Quitter le Territoire)."
+version = "v1"
+page = 18
+
+[[mesures]]
+id = "immigration-travail-detaches"
+sujet = "immigration"
+titre = "Fin de l’immigration de travail et de la directive sur les travailleurs détachés"
+citation = "Mettre fin à l’immigration de travail et à la directive européenne des travailleurs détachés."
+version = "v1"
+page = 18
+
+[[mesures]]
+id = "immigration-nationalite-conditions"
+sujet = "immigration"
+titre = "Nationalité conditionnée à la maîtrise du français et à la connaissance de l’histoire"
+citation = "L’obtention de la nationalité ou des droits civiques doit être conditionnée à la maîtrise du français, à la connaissance de notre histoire et à l’adhésion à nos valeurs fondamentales."
+version = "v1"
+page = 21
+
+[[mesures]]
+id = "securite-police-proximite"
+sujet = "securite-justice"
+titre = "Police de proximité implantée dans les quartiers"
+citation = "Recréer une police de proximité visible et permanente. La suppression des unités de terrain a cassé le lien entre population et forces de l’ordre. Il faut des unités implantées physiquement dans les quartiers sensibles, présentes au quotidien, logées dans des commissariats de proximité."
+version = "v1"
+page = 19
+
+[[mesures]]
+id = "justice-excuse-minorite"
+sujet = "securite-justice"
+titre = "Excuse de minorité appliquée seulement sur décision motivée du juge"
+citation = "Il faut également en finir avec l’excuse automatique de minorité. La responsabilité doit primer et l’excuse de minorité ne doit s’appliquer qu’à la condition que le juge la motive spécialement."
+version = "v1"
+page = 19
+
+[[mesures]]
+id = "justice-prestations-parents"
+sujet = "securite-justice"
+titre = "Prestations sociales des parents de mineurs récidivistes sous conditions"
+citation = "Il est donc nécessaire de mettre les parents de mineurs récidivistes face à leurs responsabilités, en conditionnant les prestations sociales."
+version = "v1"
+page = 19
+
+[[mesures]]
+id = "justice-places-prison"
+sujet = "securite-justice"
+titre = "Construction de places de prison et expulsion des détenus étrangers"
+citation = "Construire les dizaines de milliers de places de prison qui manquent et expulser les prisonniers étrangers (ils représentent 25% du total des prisonniers)."
+version = "v1"
+page = 19
+
+[[mesures]]
+id = "justice-peines-planchers"
+sujet = "securite-justice"
+titre = "Retour des peines planchers, fin des réductions automatiques de peine"
+citation = "Réformer la procédure pénale et les réductions automatiques de peine. Les réductions automatiques de peine ont contribué à effondrer la crédibilité de la sanction pénale et, pour les victimes, la confiance en la Justice. Il convient donc de réinstaurer les peines planchers et de généraliser les sanctions dès la première infraction."
+version = "v1"
+page = 19
+
+[[mesures]]
+id = "institutions-liberte-expression"
+sujet = "institutions"
+titre = "Suppression des lois restreignant la liberté d’expression"
+citation = "Les lois restreignant la liberté d’expression doivent être supprimées."
+version = "v1"
+page = 22
