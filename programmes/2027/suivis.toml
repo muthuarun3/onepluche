@@ -8,4 +8,7 @@
 # version = "v1"
 # url = "https://..."
 
-suivis = []
+[[suivis]]
+candidat = "cazeneuve-bernard"
+version = "v1"
+url = "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf"
