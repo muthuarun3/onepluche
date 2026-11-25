@@ -13,6 +13,7 @@ from demographie.imports.connecteurs.besoins import (
     RESIDENCES_PRINCIPALES,
 )
 from demographie.imports.connecteurs.bmo import BMO
+from demographie.imports.connecteurs.caf import AIDES_LOGEMENT, RSA
 from demographie.imports.connecteurs.climat import CLIMAT
 from demographie.imports.connecteurs.collectivites import (
     COMPTES_COMMUNES,
@@ -66,6 +67,7 @@ from demographie.imports.connecteurs.soins import (
     PHARMACIES,
     URGENCES,
 )
+from demographie.imports.connecteurs.surendettement import SURENDETTEMENT
 from demographie.imports.connecteurs.transports import (
     DEPENSE_CARBURANTS,
     PRIX_GAZOLE,
@@ -157,7 +159,12 @@ CONNECTEURS = {
         PATRIMOINE_AGES,
         PATRIMOINE_CATEGORIES,
         PATRIMOINE_DECILES,
+        RSA,
+        AIDES_LOGEMENT,
     ),
+    # Surendettement (Banque de France) : groupe à part, car le site de la Banque peut
+    # refuser l'agent d'import ; son échec ne doit pas bloquer le reste de « vivre ».
+    "surendettement": (SURENDETTEMENT,),
     # Appli « Comment travaillent les Français ? »
     "travail": (
         CHOMAGE_ANNUEL,

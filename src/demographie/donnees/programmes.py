@@ -11,10 +11,17 @@ import tomllib
 import unicodedata
 from dataclasses import dataclass
 from datetime import date
+from functools import lru_cache
 from pathlib import Path
 from typing import Annotated, Literal
 
+import psycopg
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
+
+from demographie import config
+from demographie.db import charger_sql
+
+_SQL = Path(__file__).parent / "sql"
 
 # Fichiers du dossier d'une élection qui ne sont pas des fiches de candidat.
 FICHIERS_COMMUNS = {"sujets.toml", "suivis.toml"}
@@ -344,3 +351,18 @@ def charger(dossier: Path) -> Programmes:
     if len(officiels) != len(set(officiels)):
         raise FicheInvalide("ordre officiel en double")
     return Programmes(grille=grille, fiches=tuple(fiches))
+
+
+@lru_cache(maxsize=4)
+def election(code: str = "2027") -> Programmes:
+    """Fiches d'une élection, lues une fois par processus (un redémarrage les relit)."""
+    return charger(config.charger().programmes / code)
+
+
+def contexte_france(conn: psycopg.Connection, codes: list[str]) -> dict[str, dict]:
+    """Pour chaque code d'indicateur : définition, source, appli de « Données » et dernière
+    valeur France (``valeur`` à None si l'indicateur n'a pas de valeur nationale)."""
+    if not codes:
+        return {}
+    lignes = conn.execute(charger_sql(_SQL, "programmes_contexte"), {"codes": codes}).fetchall()
+    return {ligne["code"]: ligne for ligne in lignes}

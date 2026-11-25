@@ -1,0 +1,23 @@
+{# Morceaux communs aux pages « Programmes ». #}
+{% macro aujourdhui(codes, indicateurs) %}
+{% set connus = codes|select("in", indicateurs)|list %}
+{% if connus %}
+<div class="aujourdhui">
+  <p class="etiquette">Aujourd'hui</p>
+  <ul>
+    {% for code in connus %}{% set i = indicateurs[code] %}
+    <li><span title="{{ i.definition }}">{{ i.libelle }}</span> :
+      {% if i.texte %}<strong>{{ i.texte }}</strong> en {{ i.annee }}{% if i.provisoire %} (provisoire){% endif %}
+      {% else %}pas de valeur pour la France entière{% endif %}
+      <span class="source">· <a href="{{ i.source_url }}" rel="noopener">{{ i.source_libelle }}</a>{% if i.rubrique_chemin %} · <a href="{{ i.rubrique_chemin }}">{{ i.rubrique_libelle }}</a>{% endif %}</span></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro rappel() %}
+<p class="source rappel">Les mesures sont citées telles que publiées par les candidats ; On épluche
+  ne les note ni ne les classe. Les candidats sont présentés par ordre alphabétique, puis dans
+  l'ordre officiel du Conseil constitutionnel une fois la liste publiée.</p>
+{% endmacro %}

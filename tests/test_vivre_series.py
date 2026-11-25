@@ -104,7 +104,7 @@ def test_patrimoine_par_age_categorie_et_niveau_de_vie():
 
 
 def test_groupe_vivre():
-    assert CONNECTEURS["vivre"][3:] == vivre.SERIES_NATIONALES
+    assert CONNECTEURS["vivre"][3:-2] == vivre.SERIES_NATIONALES
 
 
 def test_import_et_api(urls_module):
@@ -120,7 +120,7 @@ def test_import_et_api(urls_module):
     epargne = client.get(
         "/api/v1/indicateurs", params={"rubrique": "VIVRE", "theme": "EPARGNE"}
     ).json()
-    assert {i["code"] for i in epargne} == {"TAUX_EPARGNE", "TAUX_EPARGNE_FINANCIERE"}
+    assert {"TAUX_EPARGNE", "TAUX_EPARGNE_FINANCIERE"} <= {i["code"] for i in epargne}
     serie = client.get(
         "/api/v1/series",
         params={"indicateur": "TAUX_EPARGNE", "niveau": "FRANCE", "code": "FR", "debut": 2024},

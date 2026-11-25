@@ -11,7 +11,7 @@ Légende : `[x]` fait · `[~]` en cours (PR ouverte) · `[ ]` à faire.
 1. Relire la tâche, le [PRD](PRD.md), le [TRD](TRD.md) et le document concerné.
 2. Créer une branche depuis `main` à jour.
 3. Coder le minimum qui remplit le critère de fin ; une migration nouvelle si le schéma ou
-   le catalogue change (prochain numéro : 046 ; 044 réservé à argent public). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
+   le catalogue change (prochain numéro : 049). Une nouvelle rubrique, un thème ou une unité = des lignes dans `ref.rubrique`, `ref.theme`, `ref.unite`, jamais une contrainte.
 4. Tests : extrait réduit du vrai fichier dans `tests/fixtures/`, test de lecture, test de
    rejet ; `ruff` et `pytest` verts.
 5. Mettre à jour les documents touchés (`docs/`, README) et la vitrine si l'utilisateur voit
@@ -120,7 +120,7 @@ fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugemen
   candidats, comparaison par sujet), fiches fictives dans `tests/fixtures/programmes/`.
   *Critère :* une fiche cassée est refusée avec le nom du fichier
   (`tests/test_programmes_fiches.py`).
-- [~] **P2. Veille** (PR en cours) — migration 045 `ingest.programme_releve` et vue
+- [x] **P2. Veille** (PR #58, fusionnée avec #57) — migration 045 `ingest.programme_releve` et vue
   `api.programme_releve`, `imports/veille_programmes.py`, `programmes/2027/suivis.toml`
   (vide tant qu'aucun programme n'est suivi), `demo veiller programmes` (minuteur
   `demographie-veille-programmes.timer`, lundi 7 h 15), copies dans
@@ -128,9 +128,12 @@ fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugemen
   facultatif `DEMO_PING_PROGRAMMES`, tableau sur `/sources`. *Critère :* un changement
   d'empreinte alerte (`tests/test_programmes_veille.py`) ; première veille réelle sur le
   serveur.
-- [ ] **P3. Écrans** — `/programmes`, `/programmes/{candidat}`, `/programmes/comparer`,
-  `/api/v1/programmes`, barre latérale, accueil, vitrine, docs. *Critère :* critères 1, 3 et 5
-  de l'étape 8 du dossier.
+- [~] **P3. Écrans** (PR en cours) — `/programmes`, `/programmes/{candidat}`,
+  `/programmes/comparer?sujet=`, `/api/v1/programmes` et `/api/v1/programmes/{candidat}`,
+  migration 048 (vue `api.rubrique`, pour relier chaque chiffre de contexte à son appli),
+  titre « Programmes » dans la barre latérale, deux cartes sur l'accueil, vitrine.
+  *Critère :* critères 1, 3 et 5 de l'étape 8 du dossier (`tests/test_programmes_pages.py`,
+  captures 1280 et 390 px).
 - [ ] **P4. Premier vrai programme** — fiche du premier candidat déclaré qui a publié un texte,
   relue par Muthu. *Critère :* critère 6 ; veille sans erreur deux lundis de suite.
 - [ ] **P5 et suivantes** — une PR par programme ou nouvelle version ; mars 2027 : liste du
@@ -181,7 +184,7 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/NoW5Wi
   14 indicateurs Filosofi, `SALAIRE_NET_MOYEN`), groupe `demo importer vivre` : Filosofi
   détaillé, salaires BTS par sexe × catégorie et sexe × âge. *Critère :* Creuse D9 = 37 240 €,
   Paris 3 836 €, France 2 733 € (2024) ; 97 et 101 départements sur les fichiers complets.
-- [~] **A2. Séries nationales** — migration 043 (13 indicateurs, sources `INSEE_ERFS` et
+- [x] **A2. Séries nationales** — migration 043 (13 indicateurs, sources `INSEE_ERFS` et
   `INSEE_ENQPAT`, modalités `decile_niveau_vie`, `placement` et catégories de l'enquête
   Patrimoine), dix jeux de plus dans `demo importer vivre` : salaire moyen du privé depuis
   1996, ERFS (1996-2024, métropole), comptes des ménages (pouvoir d'achat par unité de
@@ -189,8 +192,16 @@ Dossier de conception validé le 22/11/2026 : <https://claude.ai/artifact/NoW5Wi
   (enquête 2024 par âge, catégorie et décile de niveau de vie ; placements financiers) ;
   pension moyenne lue avec les retraités (`demo importer retraites`). *Critère :* taux
   d'épargne 2025 = 17,9 % (provisoire) ; fichiers complets lus sans rejet.
-- [ ] **B. CAF et Banque de France** — `caf.py` (RSA, aides au logement, décembre),
-  `surendettement.py` (13 XLSX régionaux), vue `stat.vivre_derives` (quatre calculs propres).
+- [~] **B. CAF et Banque de France** — migration 047 (sources `CNAF` et `BDF_SUREN`, unité
+  `pour_100000`, modalités `logement_aide` et `type_dette`, neuf indicateurs), `caf.py` (RSA
+  et aides au logement de décembre depuis 2016, dans `demo importer vivre`),
+  `surendettement.py` (13 XLSX régionaux de l'enquête typologique, groupe à part
+  `demo importer surendettement`), vue `stat.vivre_derives` ajoutée à `api.serie` (foyers au
+  RSA pour 1 000 habitants, dossiers pour 100 000 habitants, aide au logement moyenne, écart
+  de salaire femmes-hommes). *Critère :* fichiers complets CAF publiés sans rejet (101
+  départements) ; Creuse 319 dossiers, endettement médian 16 556 € (2025). Reste : import
+  Banque de France à vérifier depuis le serveur (le site refuse l'agent d'import depuis le
+  cloud).
 - [ ] **C. Pages `/vivre`** — vue France, fiche département, page thème, six questions
   guidées ; accueil, barre latérale, APP_FLOW, DESIGN, vitrine ; sept critères du dossier.
 

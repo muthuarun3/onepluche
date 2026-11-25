@@ -21,6 +21,11 @@
           <li><a href="{{ q.lien }}"{% if chemin == q.lien or chemin.startswith(q.lien ~ "/") or (q.lien == "/francais" and chemin.startswith("/territoire/")) %} aria-current="page"{% endif %}>{{ q.titre }}</a></li>
           {% endfor %}
         </ul>
+        <p class="categorie-menu" id="menu-programmes">Programmes</p>
+        <ul aria-labelledby="menu-programmes">
+          <li><a href="/programmes"{% if chemin == "/programmes" or (chemin.startswith("/programmes/") and chemin != "/programmes/comparer") %} aria-current="page"{% endif %}>Les candidats</a></li>
+          <li><a href="/programmes/comparer"{% if chemin == "/programmes/comparer" %} aria-current="page"{% endif %}>Comparer les programmes</a></li>
+        </ul>
         <ul class="secondaire">
           <li><a href="/sources"{% if chemin == "/sources" %} aria-current="page"{% endif %}>Sources</a></li>
           <li><a href="/api/docs">API</a></li>

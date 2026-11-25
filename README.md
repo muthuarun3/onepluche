@@ -76,7 +76,8 @@ uv run demo importer budget               # besoins : dépense des ménages par 
 uv run demo importer transports           # besoins : prix des carburants (stations), trajets domicile-travail, voitures, dépense en carburants
 uv run demo importer avenir               # avenir : projections de population (INSEE Omphale 2022 par département, France 2026) climat (Banque mondiale, CMIP6) et risques naturels (Géorisques, GASPAR)
 uv run demo importer securite             # sécurité : délinquance (SSMSI), accidents de la route (ONISR), sentiment d'insécurité (CVS, VRS)
-uv run demo importer vivre                # vivre : revenus détaillés (Filosofi), salaires du privé (BTS, série depuis 1996), niveau de vie et inégalités depuis 1996 (ERFS), pouvoir d'achat, revenu disponible et épargne (comptes nationaux), patrimoine (enquête 2024, placements)
+uv run demo importer vivre                # vivre : revenus détaillés (Filosofi), salaires du privé (BTS, série depuis 1996), niveau de vie et inégalités depuis 1996 (ERFS), pouvoir d'achat, revenu disponible et épargne (comptes nationaux), patrimoine (enquête 2024, placements), RSA et aides au logement (CAF, décembre)
+uv run demo importer surendettement       # vivre : surendettement des ménages par département (Banque de France, enquête typologique)
 uv run demo importer travail              # travail : chômage par âge, emploi salarié et intérim, emploi total, créations et défaillances d'entreprises (BDM), demandeurs d'emploi (DARES), projets de recrutement (BMO), contrats courts et temps partiel (recensement), télétravail (enquête Emploi), accidents du travail (Assurance maladie)
 uv run demo importer votes                # votes : participation et voix des 20 tours d'élection retenus, portrait des élus (ministère de l'Intérieur, data.gouv.fr)
 uv run demo importer tout                 # toutes les sources (ce que fait le minuteur hebdomadaire)

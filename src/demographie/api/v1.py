@@ -5,11 +5,11 @@ from decimal import Decimal
 from typing import Annotated, Literal
 
 import psycopg
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Path, Query, status
 from pydantic import BaseModel, BeforeValidator, Field
 
 from demographie import donnees
-from demographie.donnees import projections, series, sources, territoires
+from demographie.donnees import programmes, projections, series, sources, territoires
 
 routeur = APIRouter(prefix="/api/v1", tags=["v1"])
 Connexion = Annotated[psycopg.Connection, Depends(donnees.connexion_lecture)]
@@ -392,3 +392,28 @@ class EtatSource(BaseModel):
 def lister_sources(conn: Connexion) -> list[dict]:
     """Sources, fichiers importés, date de dernière publication et statut du dernier essai."""
     return sources.etat_imports(conn)
+
+
+@routeur.get("/programmes")
+def lister_programmes() -> dict:
+    """Présidentielle 2027 : grille des sujets et candidats dont le programme est analysé
+    (mesures citées, versions, coûts), dans l'ordre d'affichage."""
+    prog = programmes.election()
+    return {
+        "grille": prog.grille.model_dump(mode="json"),
+        "candidats": [
+            {**f.candidat.model_dump(mode="json"), "mesures": len(f.mesures_en_vigueur)}
+            for f in prog.candidats
+        ],
+    }
+
+
+@routeur.get("/programmes/{candidat}")
+def lire_programme(
+    candidat: Annotated[str, Path(pattern=r"^[a-z0-9]+(-[a-z0-9]+)*$")],
+) -> dict:
+    """Fiche complète d'un candidat : versions, mesures citées, coûts et chiffrages."""
+    fiche = programmes.election().fiche(candidat)
+    if fiche is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Candidat inconnu")
+    return fiche.model_dump(mode="json")
