@@ -141,7 +141,8 @@ fusion d'une PR relue par Muthu ; aucun modèle de langage, aucun mot de jugemen
 - [~] **P5 et suivantes** — une PR par programme ou nouvelle version, dans l'ordre de publication ;
   le programme publié par le parti d'un candidat déclaré compte (règle de Muthu, 25/11/2026) ;
   un texte non téléchargeable automatiquement (protection anti-robots) est mis de côté. Fait :
-  Florian Philippot (`philippot-florian.toml`, livret des Patriotes de septembre 2026). Mis de
+  Florian Philippot (`philippot-florian.toml`, livret des Patriotes de septembre 2026) ;
+  Clara Egger (`egger-clara.toml`, programme de Solution Démocratique du 5/11/2026). Mis de
   côté : programme des Écologistes du 13/07/2026 (protection anti-robots). Mars 2027 : liste
   du Conseil constitutionnel (statuts, ordre officiel) ; avril 2027 : professions de foi.
 

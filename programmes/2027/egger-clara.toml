@@ -1,0 +1,277 @@
+# Fiche relue par Muthu avant publication (dossier de conception, étape 6).
+# Texte : « Programme de Solution Démocratique à l'élection présidentielle 2027 » (28 pages),
+# mouvement présidé par Clara Egger. Publié le 5 novembre 2026 d'après le suivi de Swipe Your
+# President sur data.gouv.fr (PDF créé le 3 novembre). Les citations dont le texte est coupé par
+# la mise en page en deux colonnes sont recollées dans l'ordre de lecture.
+#
+# Candidature déclarée le 20 avril 2026 par communiqué de Solution Démocratique (Sud Radio,
+# 20 juillet 2026).
+#
+# Le programme décrit surtout la méthode (référendums, rôle d'arbitre du président). Points non
+# rangés faute de sujet dans la grille : consultations sur les statuts des outre-mer, à commencer
+# par la Nouvelle-Calédonie (p. 17) ; gestion de crise (p. 23-24). Aucune mesure sur le logement
+# ni sur le pouvoir d'achat.
+
+[candidat]
+id = "egger-clara"
+prenom = "Clara"
+nom = "Egger"
+parti = "Solution Démocratique"
+statut = "declare"
+declare_le = 2026-04-20
+
+[[versions]]
+id = "v1"
+titre = "Programme de Solution Démocratique à l'élection présidentielle 2027"
+url = "https://solutiondemocratique.fr/wp-content/uploads/2026/11/Programme-de-Solution-Democratique-a-lelection-presidentielle-2027.pdf"
+publie_le = 2026-11-05
+releve_le = 2026-11-25
+sha256 = "4ba753e497f13851a0f14ee088e9da3fa212e461430cfa1aa461e56ca582928d"
+
+[[mesures]]
+id = "institutions-referendum-article-89"
+sujet = "institutions"
+titre = "Référendum sur la révision de l’article 89 dans la semaine suivant la nomination du Premier ministre"
+citation = "Dans la semaine qui suit la nomination du Premier ministre, et sur sa proposition, soumettre à référendum la révision de l’article 89 publiée sur notre site, qui permettra aux citoyens français d’exercer directement leur souveraineté."
+version = "v1"
+page = 11
+
+[[mesures]]
+id = "institutions-ric-constituant"
+sujet = "institutions"
+titre = "Initiative citoyenne constituante : 700 000 signatures en 18 mois ; référendum obligatoire sur les révisions"
+citation = "Le texte intégral de la réforme est publié sur notre site. Il prévoit notamment un seuil de signatures de 700 000 citoyens en 18 mois et un référendum obligatoire sur les révisions constitutionnelles."
+version = "v1"
+page = 7
+
+[[mesures]]
+id = "institutions-ordonnances-49-3"
+sujet = "institutions"
+titre = "Refus de signer certaines ordonnances ; opposition au 49.3 sauf urgence"
+citation = "Le président refusera de signer les ordonnances qui priveraient le Parlement d’un débat qui lui revient (article 13) et s’opposera en Conseil des ministres au recours au 49.3, sauf circonstances exceptionnelles liées à des urgences particulièrement flagrantes."
+version = "v1"
+page = 11
+
+[[mesures]]
+id = "institutions-dissolution"
+sujet = "institutions"
+titre = "Dissolution de l’Assemblée limitée à deux cas"
+citation = "Ne dissoudre l’Assemblée nationale que dans deux cas : lorsque le Parlement se révèle incapable de former ou de soutenir un gouvernement, ou lorsque les citoyens le demandent explicitement, à travers une procédure constitutionnelle qu’ils auront définie eux-mêmes s’ils en ressentent le besoin. Jamais par convenance politique."
+version = "v1"
+page = 11
+
+[[mesures]]
+id = "institutions-conseil-constitutionnel"
+sujet = "institutions"
+titre = "Nomination au Conseil constitutionnel approuvée par trois cinquièmes des suffrages en commission"
+citation = "Chaque candidat devra être approuvé par au moins trois cinquièmes des suffrages exprimés au sein des commissions compétentes des deux assemblées, alors qu’aujourd’hui l’article 13 permet de nommer un candidat tant que trois cinquièmes des parlementaires ne s’y opposent pas."
+version = "v1"
+page = 12
+
+[[mesures]]
+id = "institutions-bilan-mensuel"
+sujet = "institutions"
+titre = "Bilan public mensuel de la politique du gouvernement"
+citation = "Présenter chaque mois un bilan public de la politique du gouvernement, des lois votées et des traités en cours de négociation."
+version = "v1"
+page = 12
+
+[[mesures]]
+id = "institutions-nominations"
+sujet = "institutions"
+titre = "Justification publique des nominations aux emplois civils et militaires"
+citation = "Le président justifiera publiquement toutes les nominations aux emplois civils et militaires, et fixera des critères qui permettront à chacun de comprendre sur quelle base elles sont faites."
+version = "v1"
+page = 16
+
+[[mesures]]
+id = "institutions-article-16"
+sujet = "institutions"
+titre = "Pouvoirs exceptionnels de l’article 16 réservés aux menaces graves et immédiates"
+citation = "Le président ne recourra aux pouvoirs exceptionnels de l’article 16 qu’en cas de menace grave et immédiate, au sens le plus strict. Il saisira lui-même le Conseil constitutionnel dès le premier jour et rendra compte de chacune de ses décisions devant le Parlement."
+version = "v1"
+page = 23
+
+[[mesures]]
+id = "institutions-maires"
+sujet = "institutions"
+titre = "Réunion des maires dès la première année pour les réformes territoriales"
+citation = "Dès la première année, le président réunira les maires de France pour élaborer des réformes qui les associent directement aux réformes territoriales et leur permettent d’agir efficacement contre la fracture territoriale."
+version = "v1"
+page = 17
+
+[[mesures]]
+id = "justice-independance-referendum"
+sujet = "securite-justice"
+titre = "Référendum sur toute loi touchant au fonctionnement de la justice"
+citation = "Garantir l’indépendance de l’autorité judiciaire, comme le prescrit l’article 64, en soumettant ainsi à référendum toute loi qui affecte le fonctionnement du pouvoir judiciaire."
+version = "v1"
+page = 11
+
+[[mesures]]
+id = "securite-initiative-citoyenne-police"
+sujet = "securite-justice"
+titre = "Initiative citoyenne sur les missions et règles de conduite de la police et de l’armée"
+citation = "Être garant, c’est pouvoir décider en dernier ressort, par l’initiative citoyenne, des missions, des pratiques et des règles de conduite de la police, de l’armée et des autres services publics, si l’on estime que les représentants les définissent mal."
+version = "v1"
+page = 16
+
+[[mesures]]
+id = "depenses-budget-referendum"
+sujet = "depenses-dette"
+titre = "Loi de finances soumise chaque année à référendum"
+citation = "Aucun déficit ne pourra être inscrit dans la loi de finances sans le consentement explicite des électeurs. Chaque année, la loi de finances adoptée par le Parlement sera soumise à référendum."
+version = "v1"
+page = 13
+
+[[mesures]]
+id = "depenses-budget-septembre"
+sujet = "depenses-dette"
+titre = "Dépôt du projet de budget début septembre"
+citation = "Le président demandera au gouvernement de le déposer dès le début du mois de septembre."
+version = "v1"
+page = 13
+
+[[mesures]]
+id = "depenses-budget-citoyen"
+sujet = "depenses-dette"
+titre = "Budget proposé par initiative populaire, voté en alternative"
+citation = "Les citoyens pouvant proposer eux-mêmes un budget par la voie de l’initiative populaire, le président se chargera de le faire voter en alternative au budget proposé par le Parlement."
+version = "v1"
+page = 13
+
+[[mesures]]
+id = "emploi-stabilite-regles"
+sujet = "emploi-travail"
+titre = "Protection contre les revirements de la législation et les excès de la bureaucratie"
+citation = "Veiller à ce que l’état de droit protège chaque citoyen, qu’il travaille, entreprenne ou investisse, quelle que soit l’importance de son investissement, contre les revirements soudains de la législation et les excès de la bureaucratie."
+version = "v1"
+page = 14
+
+[[mesures]]
+id = "international-traites-referendum"
+sujet = "europe-international"
+titre = "Aucun traité engageant durablement la France ratifié sans vote des citoyens"
+citation = "Aucun traité qui engage durablement les Français ne sera ratifié sans eux."
+version = "v1"
+page = 14
+
+[[mesures]]
+id = "international-defense-vote-populaire"
+sujet = "europe-international"
+titre = "Décisions d’intervention armée pouvant être remises en cause par un vote populaire"
+citation = "Les décisions prises en urgence par le gouvernement, puis confirmées par le Parlement (article 35), pourront être remises en cause par un vote populaire."
+version = "v1"
+page = 15
+
+[[mesures]]
+id = "europe-clauses-retrait"
+sujet = "europe-international"
+titre = "Négociation de clauses de retrait des engagements européens"
+citation = "Le président considère que les citoyens français ont pleinement le droit de revenir sur des engagements pris sans eux. Il fera tout son possible pour négocier avec nos partenaires des clauses de retrait applicables aux engagements que les Français rejetteraient par la voie directe."
+version = "v1"
+page = 24
+
+[[mesures]]
+id = "europe-sortie-si-vote"
+sujet = "europe-international"
+titre = "Sortie de l’UE négociée si les Français la décident"
+citation = "si les Français décident que la France doit quitter l’Union européenne, ce qui est leur droit, le président respectera leur volonté et négociera la sortie dans leur intérêt."
+version = "v1"
+page = 24
+
+[[mesures]]
+id = "retraites-referendum"
+sujet = "retraites"
+titre = "Réformes des retraites soumises à référendum"
+citation = "Le président veillera donc à ce que les principales réformes soient systématiquement expliquées et soumises à référendum."
+version = "v1"
+page = 18
+
+[[mesures]]
+id = "retraites-regimes-speciaux"
+sujet = "retraites"
+titre = "Enquête publique sur les régimes spéciaux de retraite"
+citation = "Le président fera réaliser une enquête sur les catégories qui bénéficient de régimes spéciaux de retraite, en particulier les hauts fonctionnaires et les responsables politiques. Cet état des lieux sera rendu public et permettra à chaque citoyen d’engager une réforme si le gouvernement ou le Parlement ne s’emparent pas du sujet d’une manière qui lui convient."
+version = "v1"
+page = 18
+
+[[mesures]]
+id = "climat-referendum-environnement"
+sujet = "climat-energie"
+titre = "Politiques environnementales et traités climatiques soumis à référendum"
+citation = "Les principales politiques environnementales du gouvernement et du Parlement, comme les traités dans ce domaine, seront systématiquement soumises à référendum."
+version = "v1"
+page = 19
+
+[[mesures]]
+id = "energie-referendum-nucleaire"
+sujet = "climat-energie"
+titre = "Référendum sur une loi d’orientation fixant la place du nucléaire"
+citation = "En l’absence d’initiative citoyenne, le président soumettra à référendum un projet de loi d’orientation proposé par le gouvernement. Arbitre de la bonne tenue du vote, il ne prendra pas lui-même position."
+version = "v1"
+page = 19
+
+[[mesures]]
+id = "energie-commission-50-ans"
+sujet = "climat-energie"
+titre = "Commission d’experts sur l’approvisionnement énergétique à cinquante ans"
+citation = "Une fois la place du nucléaire clarifiée, le président chargera une commission d’experts d’étudier les avantages et les inconvénients de plusieurs stratégies d’approvisionnement énergétique pour les cinquante ans à venir."
+version = "v1"
+page = 20
+
+[[mesures]]
+id = "immigration-bilan-trente-ans"
+sujet = "immigration"
+titre = "Bilan public des politiques migratoires des trente dernières années"
+citation = "Dès la première année, l’équipe présidentielle dressera un bilan des politiques migratoires menées depuis trente ans."
+version = "v1"
+page = 20
+
+[[mesures]]
+id = "immigration-referendum"
+sujet = "immigration"
+titre = "Décisions migratoires soumises à référendum à la demande des citoyens"
+citation = "Les décisions les plus importantes en matière migratoire seront soumises à référendum si suffisamment de Français le demandent."
+version = "v1"
+page = 21
+
+[[mesures]]
+id = "immigration-asile"
+sujet = "immigration"
+titre = "Priorités explicites en matière de droit d’asile"
+citation = "En matière de droit d’asile, la France doit définir explicitement ses priorités, dans le respect des engagements internationaux et sous le contrôle des Français."
+version = "v1"
+page = 21
+
+[[mesures]]
+id = "education-evaluation"
+sujet = "education"
+titre = "Instruments d’évaluation des politiques d’éducation"
+citation = "le président travaillera avec le gouvernement à améliorer les instruments d’évaluation des politiques d’éducation : collecte des données, transparence de celles-ci et coopération internationale pour des comparaisons fiables."
+version = "v1"
+page = 22
+
+[[mesures]]
+id = "education-superieur-commission"
+sujet = "education"
+titre = "Commission de spécialistes sur l’enseignement supérieur"
+citation = "Pour l’enseignement supérieur, les modèles les plus performants et les plus inclusifs au monde seront étudiés, et une commission de spécialistes français et étrangers sera créée pour formuler des propositions."
+version = "v1"
+page = 22
+
+[[mesures]]
+id = "sante-bilan-systeme"
+sujet = "sante"
+titre = "Bilan public régulier de l’efficacité du système de santé"
+citation = "Le président demandera au gouvernement de dresser un bilan régulier de l’efficacité du système de santé, notamment en matière d’accès aux soins, de prévention, de délais de prise en charge et de répartition territoriale des professionnels et des établissements."
+version = "v1"
+page = 25
+
+[[mesures]]
+id = "sante-referendum-investissement"
+sujet = "sante"
+titre = "Grandes décisions de santé soumises à référendum"
+citation = "Les décisions les plus importantes, notamment l’investissement sur les systèmes de santé, seront soumises à référendum, dans le respect des droits fondamentaux et des engagements de la France."
+version = "v1"
+page = 26
