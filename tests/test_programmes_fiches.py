@@ -121,3 +121,13 @@ def test_citation_trop_longue_refusee(dossier):
 )
 def test_mots_de_jugement(texte, attendu):
     assert programmes.mots_de_jugement(texte) == attendu
+
+
+def test_suivis_du_depot_designent_des_fiches():
+    """Chaque adresse suivie est celle d'une version publiée d'une fiche du dépôt."""
+    from demographie.imports import veille_programmes
+
+    lus = programmes.charger(DOSSIER_2027)
+    versions = {(f.candidat.id, v.id): v.url for f in lus.fiches for v in f.versions}
+    for suivi in veille_programmes.lire_suivis(DOSSIER_2027):
+        assert versions.get((suivi.candidat, suivi.version)) == suivi.url, suivi
